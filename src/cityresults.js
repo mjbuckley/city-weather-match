@@ -24,6 +24,11 @@ class CityResults extends Component {
             {this.cityList()}
           </div>
         ) : null}
+        {(this.props.clicked && this.props.matches.length === 0) ? (
+          <div className="wrapper">
+            <p>Sorry, there were no matches.  Please alter you search and try again.</p>
+          </div>
+        ) : null}
       </div>
     );
   }

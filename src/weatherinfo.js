@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CityResults from './cityresults.js';
+import './weatherinfo.css';
 
 // I have to declare the variable outside the App class for it to work. Why?
 const stationObj = require('./weather.json');
@@ -9,14 +10,15 @@ class WeatherInfo extends Component {
   constructor() {
     super();
     this.state = {
-      maxTemp: '',
+      maxTemp: '80',
       snow: [],
       matches: [],
-      testValue: '0'
+      below32: '0',
+      clicked: false
     };
     this.fetchData = this.fetchData.bind(this);
     this.changeMaxTemp = this.changeMaxTemp.bind(this);
-    this.changeTestValue = this.changeTestValue.bind(this);
+    this.changeBelow32 = this.changeBelow32.bind(this);
   }
 
   fetchData(evt) {
@@ -25,13 +27,16 @@ class WeatherInfo extends Component {
     let stationMatch = [];
     for (let station in stationObj) {
       // Only checking July (6) for now, see below note about parseInt
-      if (parseInt(stationObj[station]["temp"]["mlyTMaxAvg"][6], 10) < this.state.maxTemp) {
+      // Also, should parseInt be used for state values?
+      if (parseInt(stationObj[station]["temp"]["mlyTMaxAvg"][6], 10) < this.state.maxTemp &&
+          parseInt(stationObj[station]["temp"]["daysBelow32"], 10) < this.state.below32) {
         let value = {};
         value[station] = stationObj[station];
         stationMatch.push(value);
       };
     };
     this.setState({matches: stationMatch});
+    this.setState({clicked: true});
   };
 
 changeMaxTemp(evt) {
@@ -40,9 +45,9 @@ changeMaxTemp(evt) {
   });
 };
 
-changeTestValue(evt) {
+changeBelow32(evt) {
   this.setState({
-    testValue: evt.target.value
+    below32: evt.target.value
   });
 };
 
@@ -52,30 +57,38 @@ changeTestValue(evt) {
       <div className="WeatherInfo">
         <h1>Weather</h1>
         <form onSubmit={this.fetchData}>
-          <label>Enter max average temp
-            <input
-              placeholder={"Temp goes here"}
-              type="text"
-              value={this.state.maxTemp}
-              onChange={this.changeMaxTemp}
-            />
-          </label>
+          
+          <label htmlFor="maxtemp">Average high temperature in July is less than:</label>
           <br />
-          <label for="belowfreezing">Average number of where the temperature drops below freezing for at least part of the day:</label>
+          <input
+            type="range"
+            id="maxtemp"
+            min="30" max="130"
+            step="1"
+            value={this.state.maxTemp}
+            onChange={this.changeMaxTemp}
+          />
+          { /* Consider using output tag, although there might be some IE issues to deal with */ }
+          <span>{this.state.maxTemp} °F</span>
+          <br />
+          <label htmlFor="belowfreezing">Average number of where the temperature drops below freezing for at least part of the day:</label>
+          <br />
           <input
             type="range"
             id="belowfreezing"
             min="0" max="365"
             step="1"
-            value={this.state.testValue}
-            onChange={this.changeTestValue}
+            value={this.state.below32}
+            onChange={this.changeBelow32}
           />
-          <span>{this.state.testValue}</span>
+          <span>{this.state.below32}</span>
+          <br />
+          <button type="submit">Find matches</button>
         </form>
 
 
 
-        <CityResults matches={this.state.matches} />
+        <CityResults matches={this.state.matches} clicked={this.state.clicked}/>
 
       </div>
     );
