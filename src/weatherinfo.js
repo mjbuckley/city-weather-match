@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import CityResults from './cityresults.js';
+import MaxTempSlider from './maxtempslider.js';
+import WeatherRangeInput from './weatherrangeinput.js';
 import './weatherinfo.css';
 
 // I have to declare the variable outside the App class for it to work. Why?
 const stationObj = require('./weather.json');
+
+// For test purposes. Eventually pull this from an auto generated file.
+const weatherConst = { maxTemp: [30, 130], below32: [0, 365] };
 
 
 class WeatherInfo extends Component {
@@ -57,39 +62,29 @@ changeBelow32(evt) {
       <div className="WeatherInfo">
         <h1>Weather</h1>
         <form onSubmit={this.fetchData}>
-          
-          <label htmlFor="maxtemp">Average high temperature in July is less than:</label>
-          <br />
-          <input
-            type="range"
-            id="maxtemp"
-            min="30" max="130"
-            step="1"
+          <WeatherRangeInput
+            id="maxTemp"
+            description="Maximum average high temperature in July"
+            min={weatherConst.maxTemp[0]}
+            max={weatherConst.maxTemp[1]}
             value={this.state.maxTemp}
             onChange={this.changeMaxTemp}
+            output="°F"
           />
-          { /* Consider using output tag, although there might be some IE issues to deal with */ }
-          <span>{this.state.maxTemp} °F</span>
           <br />
-          <label htmlFor="belowfreezing">Average number of where the temperature drops below freezing for at least part of the day:</label>
-          <br />
-          <input
-            type="range"
-            id="belowfreezing"
-            min="0" max="365"
-            step="1"
+          <WeatherRangeInput
+            id="below32"
+            description="Average number of where the temperature drops below freezing for at least part of the day"
+            min={weatherConst.below32[0]}
+            max={weatherConst.below32[1]}
             value={this.state.below32}
             onChange={this.changeBelow32}
+            output=""
           />
-          <span>{this.state.below32}</span>
           <br />
           <button type="submit">Find matches</button>
         </form>
-
-
-
         <CityResults matches={this.state.matches} clicked={this.state.clicked}/>
-
       </div>
     );
   }
