@@ -4,11 +4,24 @@ import MaxTempSlider from './maxtempslider.js';
 import WeatherRangeInput from './weatherrangeinput.js';
 import './weatherinfo.css';
 
-// I have to declare the variable outside the App class for it to work. Why?
-const stationObj = require('./weather.json');
+// TO DO:
+// (1) Add more weather info
+// (2) Work on naming: state names and stationsObj/minmax names should be the same.
+// (3) Figure out about organizing results in a meaningful way (probably aphabetical)
+// (4) Figure out about adding state info, differentiating between cities with the same
+// name, dealing with multiple results from the same city (plus excluded results from
+// the same city), and grouping by metro area.
+// (5) Add the plotly graphs option to the results.
 
-// For test purposes. Eventually pull this from an auto generated file.
-// const weatherConst = { maxTemp: [30, 130], below32: [0, 365] };
+
+// Note: I seem to have to declare these constants outside of the weatherinfo
+// class for them to work. Is this ok? Is it because they require files or
+// something else.
+
+// The need weather info for the NOAA stations.
+const stationsObj = require('./weather.json');
+
+// Min and max possible values for each weather category
 const weatherConst = require('./minmax.json');
 
 
@@ -31,13 +44,13 @@ class WeatherInfo extends Component {
     evt.preventDefault();
 
     let stationMatch = [];
-    for (let station in stationObj) {
+    for (let station in stationsObj) {
       // Only checking July (6) for now, see below note about parseInt
       // Also, should parseInt be used for state values?
-      if (parseInt(stationObj[station]["temp"]["mlyTMaxAvg"][6], 10) < this.state.maxTemp &&
-          parseInt(stationObj[station]["temp"]["daysBelow32"], 10) < this.state.below32) {
+      if (parseInt(stationsObj[station]["temp"]["mlyTMaxAvg"][6], 10) < this.state.maxTemp &&
+          parseInt(stationsObj[station]["temp"]["daysBelow32"], 10) < this.state.below32) {
         let value = {};
-        value[station] = stationObj[station];
+        value[station] = stationsObj[station];
         stationMatch.push(value);
       };
     };
