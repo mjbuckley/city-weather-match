@@ -8,7 +8,8 @@ import './weatherinfo.css';
 const stationObj = require('./weather.json');
 
 // For test purposes. Eventually pull this from an auto generated file.
-const weatherConst = { maxTemp: [30, 130], below32: [0, 365] };
+// const weatherConst = { maxTemp: [30, 130], below32: [0, 365] };
+const weatherConst = require('./minmax.json');
 
 
 class WeatherInfo extends Component {
@@ -65,8 +66,8 @@ changeBelow32(evt) {
           <WeatherRangeInput
             id="maxTemp"
             description="Maximum average high temperature in July"
-            min={weatherConst.maxTemp[0]}
-            max={weatherConst.maxTemp[1]}
+            min={weatherConst["mlyTMaxAvg"][0]}
+            max={weatherConst["mlyTMaxAvg"][1]}
             value={this.state.maxTemp}
             onChange={this.changeMaxTemp}
             output="°F"
@@ -75,8 +76,8 @@ changeBelow32(evt) {
           <WeatherRangeInput
             id="below32"
             description="Average number of where the temperature drops below freezing for at least part of the day"
-            min={weatherConst.below32[0]}
-            max={weatherConst.below32[1]}
+            min={weatherConst["daysBelow32"][0]}
+            max={weatherConst["daysBelow32"][1]}
             value={this.state.below32}
             onChange={this.changeBelow32}
             output=""
