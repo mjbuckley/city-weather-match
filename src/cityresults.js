@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import './cityresults.css';
+import CityList from './citylist.js';
+
 
 class CityResults extends Component {
   constructor() {
     super();
-    this.cityList = this.cityList.bind(this);
+    this.citiesList = this.citiesList.bind(this);
   }
 
-  cityList() {
+  citiesList() {
     return this.props.matches.map(obj => (
-      <li key={Object.keys(obj)}>
-        {obj[Object.keys(obj)]["location"]["city"]}
-      </li>
+      <CityList
+        city={obj[Object.keys(obj)]["location"]["city"]}
+        state={obj[Object.keys(obj)]["location"]["state"]}
+        sharedarea={obj[Object.keys(obj)]["location"]["sharedarea"]}
+      />
     ));
   };
 
@@ -21,7 +25,7 @@ class CityResults extends Component {
         {(this.props.matches.length > 0) ? (
           <div className="wrapper">
             <h2>Results</h2>
-            {this.cityList()}
+            {this.citiesList()}
           </div>
         ) : null}
         {(this.props.clicked && this.props.matches.length === 0) ? (

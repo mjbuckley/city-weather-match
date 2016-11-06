@@ -15,7 +15,7 @@ function WeatherRangeInput(props) {
         value={props.value}
         onChange={props.onChange}
       />
-      <span>{props.value + (props.output ? (" " + props.output) : "") }</span>
+      <span>{props.value + (props.unit ? (" " + props.unit) : "") }</span>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 /*from http://danielstern.ca/range.css/#/*/
-
+/*
 input[type=range] {
   -webkit-appearance: none;
   /*width: 100%;*/
-  width: 300px;
+/*  width: 300px;
   margin: 8.25px 0;
 }
 input[type=range]:focus {
@@ -93,3 +93,4 @@ span {
   margin-left: 5px;
   background: #ececec;
 }
+*/
