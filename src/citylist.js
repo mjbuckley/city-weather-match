@@ -3,13 +3,18 @@ import SharedAreaList from './sharedarealist';
 
 
 function CityList(props) {
+
   return (
-    <div className="CityList">
-      <p>{props.city}, {props.state}</p>
-      {(props.sharedarea.length > 0) ? (
-        <SharedAreaList sharedarea={props.sharedarea} />
-      ) : null }
-    </div>
+    <li key={props.station} className="CityList">
+      <a>{props.city}, {props.state}</a>
+      <div>
+        <p>Some test text</p>
+        {(props.sharedarea.length > 0) ? (
+          <SharedAreaList sharedarea={props.sharedarea} />
+        ) : null }
+      </div>
+
+    </li>
   );
 }
 
