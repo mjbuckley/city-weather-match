@@ -6,7 +6,19 @@ import CityList from './citylist.js';
 class CityResults extends Component {
   constructor() {
     super();
+    this.state = {
+      expanded: -1
+    };
     this.citiesList = this.citiesList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(station) {
+    if (this.state.expanded === station) {
+      this.setState({expanded: -1});
+    } else {
+      this.setState({expanded: station});
+    }
   }
 
   // Remove duplicate city names from matches and then return matches for display
@@ -24,30 +36,29 @@ class CityResults extends Component {
       }
     }).map(obj => (
       <CityList
-        city={obj[Object.keys(obj)]["location"]["city"]}
-        state={obj[Object.keys(obj)]["location"]["state"]}
-        sharedarea={obj[Object.keys(obj)]["location"]["sharedarea"]}
-        station={obj[Object.keys(obj)]}
+        stationObject={obj}
+        expanded={this.state.expanded}
+        onClick={this.handleClick}
       />
     ));
-  }
+    }
 
 
   render() {
     return (
       <div className="CityResults">
         {(this.props.matches.length > 0) ? (
-          <div className="wrapper">
-            <h2>Results</h2>
-            <ul>
-              {this.citiesList()}
-            </ul>
-          </div>
+        <div className="wrapper">
+          <h2>Results</h2>
+          <ul>
+            {this.citiesList()}
+          </ul>
+        </div>
         ) : null}
         {(this.props.clicked && this.props.matches.length === 0) ? (
-          <div className="wrapper">
-            <p>Sorry, there were no matches.  Please alter you search and try again.</p>
-          </div>
+        <div className="wrapper">
+          <p>Sorry, there were no matches.  Please alter you search and try again.</p>
+        </div>
         ) : null}
       </div>
     );
