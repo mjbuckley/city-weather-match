@@ -1,38 +1,5 @@
-// import React from 'react';
-// import SharedAreaList from './sharedarealist';
-//
-// // Expect one prop, "stationObject", which looks like { stationID: info }
-// function CityList(props) {
-//
-//   const city = props.stationObject[Object.keys(props.stationObject)]["location"]["city"];
-//   const state = props.stationObject[Object.keys(props.stationObject)]["location"]["state"];
-//   const sharedArea = props.stationObject[Object.keys(props.stationObject)]["location"]["sharedarea"];
-//   const station = props.stationObject[Object.keys(props.stationObject)];
-//
-//   render {
-//     return (
-//       <li key={station} className="CityList">
-//         <a>{city}, {state}</a>
-//         <div>
-//           <p>Some test text</p>
-//           {(sharedArea.length > 0) ? (
-//             <SharedAreaList sharedarea={sharedArea} />
-//           ) : null }
-//         </div>
-//
-//       </li>
-//     );
-//   }
-//
-// }
-
-
-// START NEW CITYLIST (11/14)
 import React, { Component } from 'react';
 import SharedAreaList from './sharedarealist';
-
-
-
 
 class CityList extends Component {
 

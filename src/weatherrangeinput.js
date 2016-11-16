@@ -1,5 +1,4 @@
 import React from 'react';
-import './weatherinfo.css'; // See if needed, if yes change name
 
 function WeatherRangeInput(props) {
   return (
@@ -24,13 +23,13 @@ function WeatherRangeInput(props) {
 
   // Example useage in weatherinfo.js
   <WeatherRangeInput
-    id="maxTemp"
-    description="This is the description"
-    min={weatherConst.maxTemp[0]}
-    max={weatherConst.maxTemp[1]}
-    value={this.state.maxTemp}
-    onChange={this.state.changeMaxTemp}
-    output="°F"
+    id=Ex: "maxTemp"
+    description=What the slider is for. Ex: "Max number of days above 90"
+    min=Min possible value. Ex. {weatherConst.maxTemp[0]}
+    max=Max possible value. Ex: {weatherConst.maxTemp[1]}
+    value=The current state. Ex: {this.state.maxTemp}
+    onChange=Function to change the state. Ex: {this.state.changeMaxTemp}
+    output=Optional. Include if unit needed. Ex: "°F"
   />
 
   // weatherConst will be an array (maybe an obj instead?) with all of the min and max values.

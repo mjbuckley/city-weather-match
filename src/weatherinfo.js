@@ -1,11 +1,4 @@
-import React, { Component } from 'react';
-import CityResults from './cityresults.js';
-import MaxTempSlider from './maxtempslider.js';
-import WeatherRangeInput from './weatherrangeinput.js';
-import './weatherinfo.css';
-
 // TO DO:
-// (0) I'm storing matches in an array. Would an object be better?
 // (1) Add more weather info
 // (2) Work on naming: state names and stationsObj/minmax names should be the same.
 // (3) Figure out about organizing results in a meaningful way (probably aphabetical)
@@ -13,11 +6,13 @@ import './weatherinfo.css';
 // name, dealing with multiple results from the same city (plus excluded results from
 // the same city), and grouping by metro area.
 // (5) Add the plotly graphs option to the results.
+// (6) Is there a better place for me to declare json constants?
 
 
-// Note: I seem to have to declare these constants outside of the weatherinfo
-// class for them to work. Is this ok? Is it because they require files or
-// something else.
+import React, { Component } from 'react';
+import CityResults from './cityresults.js';
+import WeatherRangeInput from './weatherrangeinput.js';
+import './weatherinfo.css';
 
 // The need weather info for the NOAA stations.
 const stationsObj = require('./weather.json');
@@ -34,7 +29,6 @@ class WeatherInfo extends Component {
       lowTemp: '40',
       snowfall: '10',
       precip: '10',
-      snow: [],
       matches: [],
       below32: '0',
       clicked: false
