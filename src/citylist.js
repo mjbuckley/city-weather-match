@@ -9,15 +9,15 @@ class CityList extends Component {
   }
 
   handleClick() {
-    const station2 = this.props.stationObject[Object.keys(this.props.stationObject)];
+    const station2 = Object.keys(this.props.stationObject)[0];
     this.props.onClick(station2);
   }
 
   render() {
-    const city = this.props.stationObject[Object.keys(this.props.stationObject)]["location"]["city"];
-    const state = this.props.stationObject[Object.keys(this.props.stationObject)]["location"]["state"];
-    const sharedArea = this.props.stationObject[Object.keys(this.props.stationObject)]["location"]["sharedarea"];
-    const station = this.props.stationObject[Object.keys(this.props.stationObject)[0]];
+    const city = this.props.stationObject[Object.keys(this.props.stationObject)]["city"];
+    const state = this.props.stationObject[Object.keys(this.props.stationObject)]["state"];
+    const sharedArea = this.props.stationObject[Object.keys(this.props.stationObject)]["sharedarea"];
+    const station = Object.keys(this.props.stationObject)[0];
     let accordionStyle = (this.props.expanded === station) ? {display: 'inherit'} : {display: 'none'};
 
     return (

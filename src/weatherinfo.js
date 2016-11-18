@@ -46,11 +46,11 @@ class WeatherInfo extends Component {
 
     let stationMatch = [];
     for (let station in stationsObj) {
-      if (parseInt(stationsObj[station]["temp"]["mlyTMaxAvg"][12], 10) < this.state.maxTemp &&
-          parseInt(stationsObj[station]["temp"]["mlyTMinAvg"][12], 10) > this.state.lowTemp &&
-          parseInt(stationsObj[station]["temp"]["daysBelow32"], 10) < this.state.below32 &&
-          parseInt(stationsObj[station]["snow"]["annInchPlus"], 10) < this.state.snowfall &&
-          parseInt(stationsObj[station]["precip"]["annprcpge050hi"], 10) < this.state.precip) {
+      if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < this.state.maxTemp &&
+          parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > this.state.lowTemp &&
+          parseInt(stationsObj[station]["daysBelow32"], 10) < this.state.below32 &&
+          parseInt(stationsObj[station]["annInchPlus"], 10) < this.state.snowfall &&
+          parseInt(stationsObj[station]["annprcpge050hi"], 10) < this.state.precip) {
         let value = {};
         value[station] = stationsObj[station];
         stationMatch.push(value);

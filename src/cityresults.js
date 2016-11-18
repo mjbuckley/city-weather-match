@@ -26,8 +26,8 @@ class CityResults extends Component {
     let previousValue = "";
 
     return this.props.matches.filter(function(obj) {
-      let cityValue = obj[Object.keys(obj)]["location"]["city"];
-      let stateValue = obj[Object.keys(obj)]["location"]["state"];
+      let cityValue = obj[Object.keys(obj)]["city"];
+      let stateValue = obj[Object.keys(obj)]["state"];
       if ((cityValue + stateValue) !== previousValue) {
         previousValue = cityValue + stateValue;
         return true;
