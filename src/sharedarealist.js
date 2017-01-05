@@ -4,12 +4,21 @@ function SharedAreaList(props) {
 
   return (
     <div className="SharedAreaList">
-      <ul>
-      {props.sharedarea.map(area => (
-        <li>{area}</li>
-      ))
-      }
-      </ul>
+
+    {(props.sharedarea.length < 2) ? (
+      <h4>{props.city} is part of the {props.sharedarea[0]} urban area</h4>
+    ) : (
+      <div>
+        <h4>{props.city} is part of the following urban areas:</h4>
+        <ul>
+        {props.sharedarea.map(area => (
+          <li>{area}</li>
+        ))
+        }
+        </ul>
+      </div>
+    )}
+
     </div>
   );
 }

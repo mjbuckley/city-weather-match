@@ -14,13 +14,14 @@ import CityResults from './cityresults.js';
 import WeatherRangeInput from './weatherrangeinput.js';
 import './weatherinfo.css';
 
-// The need weather info for the NOAA stations.
+// The weather info for the NOAA stations.
 const stationsObj = require('./weather.json');
 
 // Min and max possible values for each weather category
 const weatherConst = require('./minmax.json');
 
 
+// Replace default values with something more meaningful at some point
 class WeatherInfo extends Component {
   constructor() {
     super();

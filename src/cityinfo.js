@@ -1,16 +1,12 @@
+// This is a potential partial replacement for citylist
+
 import React, { Component } from 'react';
 import SharedAreaList from './sharedarealist';
 
-class CityList extends Component {
+class CityInfo extends Component {
 
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    const station2 = Object.keys(this.props.stationObject)[0];
-    this.props.onClick(station2);
   }
 
   render() {
@@ -21,17 +17,15 @@ class CityList extends Component {
     let accordionStyle = (this.props.expanded === station) ? {display: 'inherit'} : {display: 'none'};
 
     return (
-      <li key={station} className={CityList}>
-        <a onClick={this.handleClick}>{city}, {state}</a>
-        <div style={accordionStyle}>
-          <p>Some test text</p>
-          {(sharedArea.length > 0) ? (
-          <SharedAreaList city={city} sharedarea={sharedArea} />
-          ) : null }
-        </div>
-      </li>
+      <div>
+        <p>WEATHER INFO HERE</p>
+        <p>GRAPH GOES HERE</p>
+        {(sharedArea.length > 0) ? (
+        <SharedAreaList city={city} sharedarea={sharedArea} />
+        ) : null }
+      </div>
     );
   }
 }
 
-export default CityList;
+export default CityInfo;
