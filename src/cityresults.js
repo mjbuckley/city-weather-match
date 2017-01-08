@@ -24,19 +24,22 @@ class CityResults extends Component {
   // Remove duplicate city names from matches and then return matches for display
   citiesList() {
     let previousValue = "";
+    const stationsObj = this.props.stationsobj;
 
-    return this.props.matches.filter(function(obj) {
-      let cityValue = obj[Object.keys(obj)]["city"];
-      let stateValue = obj[Object.keys(obj)]["state"];
+    return this.props.matches.filter(function(station) {
+      let cityValue = stationsObj[station]["city"];
+      let stateValue = stationsObj[station]["state"];
+
       if ((cityValue + stateValue) !== previousValue) {
         previousValue = cityValue + stateValue;
         return true;
       } else {
         return false;
       }
-    }).map(obj => (
+    }).map(station => (
       <CityList
-        stationObject={obj}
+        station={station}
+        stationsobj={stationsObj}
         expanded={this.state.expanded}
         onClick={this.handleClick}
       />

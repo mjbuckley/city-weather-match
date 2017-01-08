@@ -52,9 +52,7 @@ class WeatherInfo extends Component {
           parseInt(stationsObj[station]["daysBelow32"], 10) < this.state.below32 &&
           parseInt(stationsObj[station]["annInchPlus"], 10) < this.state.snowfall &&
           parseInt(stationsObj[station]["annprcpge050hi"], 10) < this.state.precip) {
-        let value = {};
-        value[station] = stationsObj[station];
-        stationMatch.push(value);
+        stationMatch.push(station);
       };
     };
     this.setState({matches: stationMatch});
@@ -149,7 +147,7 @@ changePrecip(evt) {
           <br />
           <button type="submit">Find matches</button>
         </form>
-        <CityResults matches={this.state.matches} clicked={this.state.clicked}/>
+        <CityResults matches={this.state.matches} stationsobj={stationsObj} clicked={this.state.clicked}/>
       </div>
     );
   }
