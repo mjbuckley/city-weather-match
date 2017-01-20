@@ -13,6 +13,7 @@ function Location(props) {
   const precip = stationsObj[station]["annprcpge050hi"];
   const below32 = stationsObj[station]["daysBelow32"];
 
+  // This is mostly just a placeholder display just to make sure things are working.
   return (
     <div>
       <h3>{city}, {state}</h3>

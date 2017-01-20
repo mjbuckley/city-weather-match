@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import WeatherRangeInput from './weatherrangeinput.js';
 import './search.css';
 
-// Min and max possible values for each weather category. Is this right/best
-// place to declare?
+// Min and max possible values for each weather category. Is this best place to declare?
 const weatherConst = require('./minmax.json');
 
 class Search extends Component {
@@ -69,7 +68,6 @@ class Search extends Component {
   };
 
 
-// FIX ONSUBMIT
   render() {
     return (
       <div className="Search">

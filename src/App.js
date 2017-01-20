@@ -5,6 +5,8 @@ import './App.css';
 // The weather info for the NOAA stations.
 const stationsObj = require('./weather.json');
 
+// At some point make the defaul state values more meaningful. Perhaps the midway
+// point between max and min possible values.
 class App extends Component {
   constructor() {
     super();
@@ -20,9 +22,9 @@ class App extends Component {
     this.updateWeatherState = this.updateWeatherState.bind(this);
   }
 
-  // Takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
+  // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
+  // and updates state with new info.
   updateWeatherState(info) {
-    // Update state with new weather values
 
     let maxTemp = info["maxTemp"];
     let lowTemp = info["lowTemp"];
@@ -30,15 +32,7 @@ class App extends Component {
     let snowfall = info["snowfall"];
     let precip = info["precip"];
 
-    console.log(maxTemp);
-    console.log(lowTemp);
-    console.log(below32);
-    console.log(snowfall);
-    console.log(precip);
-
     // Determine matches and then update state with new matches array
-    // I think above changes in state will be reflected below, but if not just use
-    // info object instead.
     let stationMatch = [];
     for (let station in stationsObj) {
       if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < maxTemp &&
@@ -48,28 +42,9 @@ class App extends Component {
           parseInt(stationsObj[station]["annprcpge050hi"], 10) < precip) {
         stationMatch.push(station);
       };
-
-
-
-      // let stationMatch = [];
-      // for (let station in stationsObj) {
-      //   if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < this.state.maxTemp &&
-      //       parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > this.state.lowTemp &&
-      //       parseInt(stationsObj[station]["daysBelow32"], 10) < this.state.below32 &&
-      //       parseInt(stationsObj[station]["annInchPlus"], 10) < this.state.snowfall &&
-      //       parseInt(stationsObj[station]["annprcpge050hi"], 10) < this.state.precip) {
-      //     stationMatch.push(station);
-      //   };
-
-
-      // console.log(this.state.maxTemp);
-      // console.log(this.state.lowTemp);
-      // console.log(this.state.below32);
-      // console.log(this.state.snowfall);
-      // console.log(this.state.precip);
-
     };
 
+    // Update state with new weather values
     this.setState({
       maxTemp: maxTemp,
       lowTemp: lowTemp,
@@ -80,16 +55,11 @@ class App extends Component {
       matches: stationMatch
     });
 
-    // this.setState({matches: stationMatch});
-    // this.setState({clicked: true});
-
-    // I beleive this should manually link to results page. It might require react Router
-    // and necessary componets to be imported on this page.
+    // This manually directs browser to results page.
     hashHistory.push('/results');
   };
 
-  // The React.Children.map SHOULD pass on state values as props to all direct children of App.
-  // See of this works as expected. (I should really be using redux but want to see if this works).
+
   render() {
     return (
       <div className="App">
@@ -97,6 +67,11 @@ class App extends Component {
           <h1>A navbar heading will go here</h1>
         </div>
 
+        {/* Because children of App are added in index.js by React Router, there is no good way to
+          pass state values down as props to children. This is a workaround that clones children of
+          App and adds needed props here. Looks funny but works fine. I'm not sure if there's
+          a way to selectively pass on props depending on the child component, so all direct
+          children will get all props. */}
         {React.Children.map(
           this.props.children,
           child => React.cloneElement(child,
