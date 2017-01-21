@@ -1,10 +1,12 @@
 import React from 'react';
+import SharedAreaList from './sharedarealist.js';
 
 function Location(props) {
   const station = props.params.station;
   const stationsObj = props.stationsObj;
 
   const city = stationsObj[station]["city"];
+  const sharedarea = stationsObj[station]["sharedarea"];
   const state = stationsObj[station]["state"];
 
   const maxTemp = stationsObj[station]["mlyTMaxAvg"][12];
@@ -13,7 +15,7 @@ function Location(props) {
   const precip = stationsObj[station]["annprcpge050hi"];
   const below32 = stationsObj[station]["daysBelow32"];
 
-  // This is mostly just a placeholder display just to make sure things are working.
+
   return (
     <div>
       <h3>{city}, {state}</h3>
@@ -24,6 +26,11 @@ function Location(props) {
         <li>The average number of rainy days: {precip}</li>
         <li>The average number of days where the temp drops below freezing: {below32}</li>
       </ul>
+
+      {(sharedarea.length > 0) ? (
+        <SharedAreaList sharedarea={sharedarea} city={city} state={state}/>
+      ) : null}
+
     </div>
   );
 }
