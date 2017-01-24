@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router'
 
+// LINKS RIGHT NOW ARE PLACEHOLDERS, NOT WORKING
 // An initial working pass at a metro areas page, but much to still do.  Issues:
 // -Currently does not distinguish between areas with same name (Columbus OH vs GA, etc.).
 // -Lists city names multiple times if multiple entries exist.
@@ -26,7 +28,7 @@ function MetroArea(props) {
       <h2>{metroArea} Urban Area</h2>
       <ul>
         {cities.map(function(city, index) {
-          return (<li key={index}>{city}</li>);
+          return (<li key={index}><Link to="/fake">{city}</Link></li>);
         })}
       </ul>
     </div>
