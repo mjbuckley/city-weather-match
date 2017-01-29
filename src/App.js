@@ -7,11 +7,11 @@ const stationsObj = require('./data/weather.json');
 // Min and max possible weather values for each category
 const weatherConst = require('./data/minmax.json');
 
-// At some point make the defaul state values more meaningful. Perhaps the midway
-// point between max and min possible values.
+
 class App extends Component {
   constructor() {
     super();
+    // Weather values set to the midway point between min and max possible values
     this.state = {
       maxTemp: weatherConst["mlyTMaxAvg"][2],
       lowTemp: weatherConst["mlyTMinAvg"][2],
@@ -48,10 +48,9 @@ class App extends Component {
     });
   };
 
-  // Takes an info object with selected weather values returns an array of stations
-  // that match the search criteria.
+  // Takes an info object with the selected weather values and returns an array of
+  // stations that match the search criteria.
   findMatches(info) {
-    // Determine matches and then update state with new matches array
     let stationMatch = [];
     for (let station in stationsObj) {
       if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < info["maxTemp"] &&
@@ -77,7 +76,7 @@ class App extends Component {
           pass state values down as props to children. This is a workaround that clones children of
           App and adds needed props here. Looks funny but works fine. I'm not sure if there's
           a way to selectively pass on props depending on the child component, so all direct
-          children will get all props. */}
+          children will get all props right now. */}
         {React.Children.map(
           this.props.children,
           child => React.cloneElement(child,

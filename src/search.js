@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router'
 import WeatherRangeInput from './weatherrangeinput.js';
 import './css/search.css';
 
-// Min and max possible values for each weather category. Is this best place to declare?
+// Min, max, and midway possible values for each weather category.
 const weatherConst = require('./data/minmax.json');
 
 class Search extends Component {
@@ -48,6 +48,7 @@ class Search extends Component {
     hashHistory.push('/results');
   }
 
+  // Below functions update values on range input change
   changeMaxTemp(evt) {
     this.setState({
       maxTemp: evt.target.value

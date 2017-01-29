@@ -1,0 +1,3 @@
+1. Decide if I should require weather.json where needed or pass as a prop.
+2. Some functions (findMatches() in App and the work in progress checkparams.js) should really be stand alone files that are imported as needed. Figure out best way to do this, and then do it.
+3.
