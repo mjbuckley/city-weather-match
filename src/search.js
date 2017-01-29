@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router'
 import WeatherRangeInput from './weatherrangeinput.js';
 import './search.css';
 
@@ -34,7 +35,17 @@ class Search extends Component {
       precip: parseInt(this.state.precip, 10)
     }
 
+    // Find matches
+    let matches = this.props.findMatches(weatherObj);
+
+    // Add matches to weatherObj
+    weatherObj["matches"] = matches;
+
+    // Update state
     this.props.updateWeatherState(weatherObj);
+
+    // Redirect to results page
+    hashHistory.push('/results');
   }
 
   changeMaxTemp(evt) {

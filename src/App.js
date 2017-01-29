@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router'
 import './App.css';
 
 // The weather info for the NOAA stations.
@@ -20,29 +19,19 @@ class App extends Component {
       clicked: false
     };
     this.updateWeatherState = this.updateWeatherState.bind(this);
+    this.findMatches = this.findMatches.bind(this);
   }
 
   // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
   // and updates state with new info.
-  updateWeatherState(info) {
+  updateWeatherState(info, bool) {
 
     let maxTemp = info["maxTemp"];
     let lowTemp = info["lowTemp"];
     let below32 = info["below32"];
     let snowfall = info["snowfall"];
     let precip = info["precip"];
-
-    // Determine matches and then update state with new matches array
-    let stationMatch = [];
-    for (let station in stationsObj) {
-      if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < maxTemp &&
-          parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > lowTemp &&
-          parseInt(stationsObj[station]["daysBelow32"], 10) < below32 &&
-          parseInt(stationsObj[station]["annInchPlus"], 10) < snowfall &&
-          parseInt(stationsObj[station]["annprcpge050hi"], 10) < precip) {
-        stationMatch.push(station);
-      };
-    };
+    let matches = info["matches"];
 
     // Update state with new weather values
     this.setState({
@@ -52,12 +41,26 @@ class App extends Component {
       snowfall: snowfall,
       precip: precip,
       clicked: true,
-      matches: stationMatch
+      matches: matches
     });
-
-    // This manually directs browser to results page.
-    hashHistory.push('/results');
   };
+
+  // Takes an info object with selected weather values returns an array of stations
+  // that match the search criteria.
+  findMatches(info) {
+    // Determine matches and then update state with new matches array
+    let stationMatch = [];
+    for (let station in stationsObj) {
+      if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < info["maxTemp"] &&
+          parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > info["lowTemp"] &&
+          parseInt(stationsObj[station]["daysBelow32"], 10) < info["below32"] &&
+          parseInt(stationsObj[station]["annInchPlus"], 10) < info["snowfall"] &&
+          parseInt(stationsObj[station]["annprcpge050hi"], 10) < info["precip"]) {
+        stationMatch.push(station);
+      };
+    };
+    return stationMatch;
+  }
 
 
   render() {
@@ -84,6 +87,7 @@ class App extends Component {
             matches: this.state.matches,
             clicked: this.state.clicked,
             updateWeatherState: this.updateWeatherState,
+            findMatches: this.findMatches,
             stationsObj: stationsObj
           })
         )}

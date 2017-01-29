@@ -19,7 +19,7 @@ class CityList extends Component {
     }
 
     return (
-      <li key={station} className="CityList">
+      <li className="CityList">
         <Link to={link}>{city}, {state}</Link>
       </li>
     );

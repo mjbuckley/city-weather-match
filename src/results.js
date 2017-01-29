@@ -26,6 +26,7 @@ class Results extends Component {
       }
     }).map(station => (
       <CityList
+        key={station}
         station={station}
         stationsObj={stationsObj}
       />
