@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 
 // The weather info for the NOAA stations.
-const stationsObj = require('./weather.json');
+const stationsObj = require('./data/weather.json');
 
 // At some point make the defaul state values more meaningful. Perhaps the midway
 // point between max and min possible values.

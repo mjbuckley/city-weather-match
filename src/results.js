@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './results.css';
+import './css/results.css';
 import CityList from './citylist.js';
 
 

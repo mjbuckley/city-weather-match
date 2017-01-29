@@ -8,7 +8,7 @@ import Results from './results';
 import MetroArea from './metroarea';
 import CityLocations from './citylocations';
 import Location from './location';
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render((
   <Router history={hashHistory}>

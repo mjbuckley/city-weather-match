@@ -12,13 +12,13 @@
 import React, { Component } from 'react';
 import CityResults from './cityresults.js';
 import WeatherRangeInput from './weatherrangeinput.js';
-import './weatherinfo.css';
+import './css/weatherinfo.css';
 
 // The weather info for the NOAA stations.
-const stationsObj = require('./weather.json');
+const stationsObj = require('./data/weather.json');
 
 // Min and max possible values for each weather category
-const weatherConst = require('./minmax.json');
+const weatherConst = require('./data/minmax.json');
 
 
 // Replace default values with something more meaningful at some point

@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/weatherrangeinput.css';
 
 function WeatherRangeInput(props) {
   return (

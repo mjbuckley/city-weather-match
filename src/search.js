@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
 import WeatherRangeInput from './weatherrangeinput.js';
-import './search.css';
+import './css/search.css';
 
 // Min and max possible values for each weather category. Is this best place to declare?
-const weatherConst = require('./minmax.json');
+const weatherConst = require('./data/minmax.json');
 
 class Search extends Component {
   constructor(props) {
