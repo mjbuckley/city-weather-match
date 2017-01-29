@@ -4,18 +4,21 @@ import './css/App.css';
 // The weather info for the NOAA stations.
 const stationsObj = require('./data/weather.json');
 
+// Min and max possible weather values for each category
+const weatherConst = require('./data/minmax.json');
+
 // At some point make the defaul state values more meaningful. Perhaps the midway
 // point between max and min possible values.
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      maxTemp: 80,
-      lowTemp: 40,
-      snowfall: 10,
-      precip: 10,
+      maxTemp: weatherConst["mlyTMaxAvg"][2],
+      lowTemp: weatherConst["mlyTMinAvg"][2],
+      snowfall: weatherConst["annInchPlus"][2],
+      precip: weatherConst["annprcpge050hi"][2],
+      below32: weatherConst["daysBelow32"][2],
       matches: [],
-      below32: 0,
       clicked: false
     };
     this.updateWeatherState = this.updateWeatherState.bind(this);
