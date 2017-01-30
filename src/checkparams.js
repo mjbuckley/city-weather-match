@@ -37,6 +37,9 @@
 // 6) Check if state has been set at all in the first place.
 // 7) etc.
 
+// NOTE I BELIEVE I NEED TO USE encodeURIComponent() not encodeURI() when adding query params
+// (and decode with decodeURIComponent).
+
 function checkParams() {
 
   const queryParams = this.props.location.query;
