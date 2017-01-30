@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
 import WeatherRangeInput from './weatherrangeinput.js';
+import findMatches from './findmatches.js';
 import './css/search.css';
 
 // Min, max, and midway possible values for each weather category.
@@ -33,10 +34,10 @@ class Search extends Component {
       below32: parseInt(this.state.below32, 10),
       snowfall: parseInt(this.state.snowfall, 10),
       precip: parseInt(this.state.precip, 10)
-    }
+    };
 
     // Find matches
-    let matches = this.props.findMatches(weatherObj);
+    let matches = findMatches(weatherObj);
 
     // Add matches to weatherObj
     weatherObj["matches"] = matches;

@@ -1,3 +1,9 @@
-1. Decide if I should require weather.json where needed or pass as a prop.
 2. Some functions (findMatches() in App and the work in progress checkparams.js) should really be stand alone files that are imported as needed. Figure out best way to do this, and then do it.
-3.
+3. Rename clicked to isclicked?
+4. Start adding query params to pages. Probably start with results.
+5. Work on decoding query params on component load
+
+
+NOTES
+
+1. Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.

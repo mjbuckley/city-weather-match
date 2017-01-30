@@ -1,20 +1,18 @@
 import React from 'react';
 import SharedAreaList from './sharedarealist.js';
 
+const stationsObj = require('./data/weather.json');
+
 function Location(props) {
   const station = props.params.station;
-  const stationsObj = props.stationsObj;
-
   const city = stationsObj[station]["city"];
   const sharedarea = stationsObj[station]["sharedarea"];
   const state = stationsObj[station]["state"];
-
   const maxTemp = stationsObj[station]["mlyTMaxAvg"][12];
   const lowTemp = stationsObj[station]["mlyTMinAvg"][12];
   const snowfall = stationsObj[station]["annGndInchPlus"];
   const precip = stationsObj[station]["annprcpge050hi"];
   const below32 = stationsObj[station]["daysBelow32"];
-
 
   return (
     <div>

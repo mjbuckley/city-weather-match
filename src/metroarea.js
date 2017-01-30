@@ -10,16 +10,19 @@ import { Link } from 'react-router'
 // -Assumes cities isn't empty. I don't think it could be, but make sure.
 // -What about handling jibberish input ex: /metro-areas/fakename?
 // -Should some of the checking be precomputed and put into weather.json?
+
+const stationsObj = require('./data/weather.json');
+
 function MetroArea(props) {
 
   const metroArea = props.params.metroarea;
   let cities = [];
 
-  Object.keys(props.stationsObj).forEach(function(station) {
-    let areas = props.stationsObj[station]["area"];
+  Object.keys(stationsObj).forEach(function(station) {
+    let areas = stationsObj[station]["area"];
 
     if (areas.includes(metroArea)) {
-      cities.push(props.stationsObj[station]["city"]);
+      cities.push(stationsObj[station]["city"]);
     }
   });
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-
 // DEAL WITH SPACES IN CITY NAMES (maybe write stand alone function because I'll probably
 // use it in many places).
 // Deal with jibberish input
+
+const stationsObj = require('./data/weather.json');
+
 function CityLocations(props) {
 
   const city = props.params.city;
@@ -13,9 +15,9 @@ function CityLocations(props) {
 
   // Find all stations in city
   let locations = [];
-  Object.keys(props.stationsObj).forEach(function(station) {
-    if ( (props.stationsObj[station]["city"] === city) &&
-    (props.stationsObj[station]["state"] === state) ) {
+  Object.keys(stationsObj).forEach(function(station) {
+    if ( (stationsObj[station]["city"] === city) &&
+    (stationsObj[station]["state"] === state) ) {
       locations.push(station);
     }
   });

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './css/results.css';
 import CityList from './citylist.js';
 
+const stationsObj = require('./data/weather.json');
 
 class Results extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class Results extends Component {
   // Remove duplicate city names from matches and then return matches for display
   citiesList() {
     let previousValue = "";
-    const stationsObj = this.props.stationsObj;
 
     return this.props.matches.filter(function(station) {
       let cityValue = stationsObj[station]["city"];
@@ -28,11 +28,9 @@ class Results extends Component {
       <CityList
         key={station}
         station={station}
-        stationsObj={stationsObj}
       />
     ));
     }
-
 
   render() {
     return (

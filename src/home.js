@@ -14,7 +14,6 @@ function Home(props) {
         snowfall={props.snowfall}
         precip={props.precip}
         updateWeatherState={props.updateWeatherState}
-        findMatches={props.findMatches}
       />
     </div>
   );

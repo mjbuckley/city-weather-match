@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import './css/App.css';
 
-// The weather info for the NOAA stations.
-const stationsObj = require('./data/weather.json');
-
-// Min and max possible weather values for each category
+// Min, max, and midway values for each weather category
 const weatherConst = require('./data/minmax.json');
-
 
 class App extends Component {
   constructor() {
     super();
-    // Weather values set to the midway point between min and max possible values
+    // Weather values are set to the midway point between min and max possible values
     this.state = {
       maxTemp: weatherConst["mlyTMaxAvg"][2],
       lowTemp: weatherConst["mlyTMinAvg"][2],
@@ -22,12 +18,11 @@ class App extends Component {
       clicked: false
     };
     this.updateWeatherState = this.updateWeatherState.bind(this);
-    this.findMatches = this.findMatches.bind(this);
   }
 
   // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
   // and updates state with new info.
-  updateWeatherState(info, bool) {
+  updateWeatherState(info) {
 
     let maxTemp = info["maxTemp"];
     let lowTemp = info["lowTemp"];
@@ -36,7 +31,6 @@ class App extends Component {
     let precip = info["precip"];
     let matches = info["matches"];
 
-    // Update state with new weather values
     this.setState({
       maxTemp: maxTemp,
       lowTemp: lowTemp,
@@ -47,23 +41,6 @@ class App extends Component {
       matches: matches
     });
   };
-
-  // Takes an info object with the selected weather values and returns an array of
-  // stations that match the search criteria.
-  findMatches(info) {
-    let stationMatch = [];
-    for (let station in stationsObj) {
-      if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < info["maxTemp"] &&
-          parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > info["lowTemp"] &&
-          parseInt(stationsObj[station]["daysBelow32"], 10) < info["below32"] &&
-          parseInt(stationsObj[station]["annInchPlus"], 10) < info["snowfall"] &&
-          parseInt(stationsObj[station]["annprcpge050hi"], 10) < info["precip"]) {
-        stationMatch.push(station);
-      };
-    };
-    return stationMatch;
-  }
-
 
   render() {
     return (
@@ -88,9 +65,7 @@ class App extends Component {
             below32: this.state.below32,
             matches: this.state.matches,
             clicked: this.state.clicked,
-            updateWeatherState: this.updateWeatherState,
-            findMatches: this.findMatches,
-            stationsObj: stationsObj
+            updateWeatherState: this.updateWeatherState
           })
         )}
 
