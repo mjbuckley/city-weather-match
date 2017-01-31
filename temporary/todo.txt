@@ -1,10 +1,13 @@
+0. Deal with spaces in city and meto area names. I think this is mostly done, but double check.
+0. Can/should I extract the link building in to a function?
 1. On the search page I can probably make the separate range input even handlers into one function.
-2. Some functions (findMatches() in App and the work in progress checkparams.js) should really be stand alone files that are imported as needed. Figure out best way to do this, and then do it.
-3. Rename clicked to isclicked?
-4. Start adding query params to pages. Probably start with results.
-5. Work on decoding query params on component load
+3. I have a clicked state I'm not currently using. I think it will be useful, but decide and remove if not.
+4. I think I have added query params to all pages, but I haven't thought through if I'm adding the correct thing (props passed down from state or something else). After that, start working on function to read the query params and do what needs to be done from there.
 6. Should I make a city to station map? Would probably be useful for the metro areas page, and maybe somewhere else.
+7. City links on mertro-areas/:metroarea page are still set to fake. See #6 for a fix.
+8. Need to add in link (where needed) on station page to city disambiguation page.
 7. Might look in to Lodash function memoization. This might be a replacement for what I'm trying to do with looking at query params and deciding if I need to update state. Also, look into Lodash in general.
+8. I can probably simplify the way I'm passing props in some places. Instead of explicitly sending things there are probably some better ways (spread operator?).
 
 
 NOTES

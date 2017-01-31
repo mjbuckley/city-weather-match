@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
 import WeatherRangeInput from './weatherrangeinput.js';
 import findMatches from './findmatches.js';
+import buildParams from './buildparams.js';
 import './css/search.css';
 
 // Min, max, and midway possible values for each weather category.
@@ -45,8 +46,16 @@ class Search extends Component {
     // Update state
     this.props.updateWeatherState(weatherObj);
 
+    // Build redirect link
+    const path = "/results";
+    const query = buildParams(weatherObj);
+    const link = {
+      pathname: path,
+      query: query
+    };
+
     // Redirect to results page
-    hashHistory.push('/results');
+    hashHistory.push(link);
   }
 
   // Below functions update values on range input change

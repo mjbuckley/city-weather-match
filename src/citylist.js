@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import buildParams from './buildparams.js';
 
 const stationsObj = require('./data/weather.json');
 
@@ -11,8 +12,13 @@ class CityList extends Component {
     const state = stationsObj[station]["state"];
 
     // Link to station page. The station page will note if there is more than
-    // one station in that city.
-    const link = "/location/" + city + "/" + state + "/" + station;
+    // one station in that city. State not URI encoded because it is a 2 letter abbreviation.
+    const path = "/location/" + encodeURIComponent(city) + "/" + state + "/" + station;
+    const query = buildParams(this.props);
+    const link = {
+      pathname: path,
+      query: query
+    };
 
     return (
       <li className="CityList">

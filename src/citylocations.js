@@ -9,7 +9,7 @@ const stationsObj = require('./data/weather.json');
 
 function CityLocations(props) {
 
-  const city = props.params.city;
+  const city = decodeURIComponent(props.params.city);
   const state = props.params.state;
   // const stationsObj = props.stationsObj;
 

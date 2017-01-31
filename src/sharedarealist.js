@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
+import buildParams from './buildparams.js';
 
 
 // Need to figure out the metro area disambiguation page and decide what props to pass there.
@@ -14,7 +15,12 @@ function SharedAreaList(props) {
         <h4>{props.city} is part of the following urban areas:</h4>
         <ul>
           {props.sharedarea.map(function(area, index) {
-            let link = "/metro-areas/" + area;
+            const path = "/metro-areas/" + encodeURIComponent(area);
+            const query = buildParams(props);
+            const link = {
+              pathname: path,
+              query: query
+            };
             return (<li key={index}><Link to={link}>{area}</Link></li>);
             }
           )}
@@ -22,7 +28,12 @@ function SharedAreaList(props) {
       </div>
     );
   } else {
-    let link = "/metro-areas/" + props.sharedarea[0];
+    const path = "/metro-areas/" + encodeURIComponent(props.sharedarea[0]);
+    const query = buildParams(props);
+    const link = {
+      pathname: path,
+      query: query
+    };
     return (
       <div className="SharedAreaList">
         <h4>{props.city} is part of the <Link to={link}>{props.sharedarea[0]}</Link> urban area</h4>
@@ -32,36 +43,3 @@ function SharedAreaList(props) {
 }
 
 export default SharedAreaList;
-
-// <ul>
-//   {props.sharedarea.map((area, index) => (
-//     <li key={index}><Link to="/fake">{area}</Link>}</li>
-//   ))}
-// </ul>
-
-
-// Below is a working version before I started messing with shared area links
-
-// function SharedAreaList(props) {
-//
-//   return (
-//     <div className="SharedAreaList">
-//
-//       {(props.sharedarea.length > 1) ? (
-//         <div>
-//           <h4>{props.city} is part of the following urban areas:</h4>
-//           <ul>
-//             {props.sharedarea.map((area, index) => (
-//               <li key={index}>{area}</li>
-//             ))}
-//           </ul>
-//         </div>
-//       ) : (
-//         <div>
-//           <h4>{props.city} is part of the {props.sharedarea[0]} urban area</h4>
-//         </div>
-//       )}
-//
-//     </div>
-//   );
-// }

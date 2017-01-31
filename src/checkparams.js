@@ -37,6 +37,12 @@
 // 6) Check if state has been set at all in the first place.
 // 7) etc.
 
+
+
+
+
+
+
 // NOTE I BELIEVE I NEED TO USE encodeURIComponent() not encodeURI() when adding query params
 // (and decode with decodeURIComponent).
 
@@ -45,11 +51,11 @@ function checkParams() {
   const queryParams = this.props.location.query;
 
   if (
-    queryParams.mt === this.props.maxTemp &&
-    queryParams.lt === this.props.lowTemp &&
-    queryParams.sn === this.props.snowfall &&
-    queryParams.pr === this.props.precip &&
-    queryParams.bf === this.props.below32
+    queryParams.maxTemp === this.props.maxTemp &&
+    queryParams.lowTemp === this.props.lowTemp &&
+    queryParams.snowfall === this.props.snowfall &&
+    queryParams.precip === this.props.precip &&
+    queryParams.below32 === this.props.below32
   ) {
     return this.props.matches;
   } else {

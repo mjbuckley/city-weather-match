@@ -4,7 +4,7 @@ import SharedAreaList from './sharedarealist.js';
 const stationsObj = require('./data/weather.json');
 
 function Location(props) {
-  const station = props.params.station;
+  const station = decodeURIComponent(props.params.station);
   const city = stationsObj[station]["city"];
   const sharedarea = stationsObj[station]["sharedarea"];
   const state = stationsObj[station]["state"];
@@ -26,7 +26,16 @@ function Location(props) {
       </ul>
 
       {(sharedarea.length > 0) ? (
-        <SharedAreaList sharedarea={sharedarea} city={city} state={state}/>
+        <SharedAreaList
+          sharedarea={sharedarea}
+          city={city}
+          state={state}
+          maxTemp={props.maxTemp}
+          lowTemp={props.lowTemp}
+          snowfall={props.snowfall}
+          precip={props.precip}
+          below32={props.below32}
+        />
       ) : null}
 
     </div>

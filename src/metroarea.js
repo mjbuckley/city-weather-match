@@ -13,7 +13,7 @@ const stationsObj = require('./data/weather.json');
 
 function MetroArea(props) {
 
-  const metroArea = props.params.metroarea;
+  const metroArea = decodeURIComponent(props.params.metroarea);
 
   // Find cities that are in the metro area
   let cities = [];
