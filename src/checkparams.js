@@ -39,40 +39,53 @@
 
 
 
+// FUNCTION STARTS HERE run in componentWillMount()?
+// Right now this assumes that all queries are pressent and valid. I might make some things
+// optional in the future, and also check for validity.
+
+import findMatches from './findmatches.js';
+
+export default function checkParams(props) {
+
+  const query = props.location.query;
+
+  const maxTemp = parseInt(query.maxTemp, 10);
+  const lowTemp = parseInt(query.lowTemp, 10);
+  const snowfall = parseInt(query.snowfall, 10);
+  const precip = parseInt(query.precip, 10);
+  const below32 = parseInt(query.below32, 10);
 
 
 
+  // Do values in query params match values in state. If yes, no need to recreate matches, just use matches.
+  // If no, then need to determine matches.
 
-// NOTE I BELIEVE I NEED TO USE encodeURIComponent() not encodeURI() when adding query params
-// (and decode with decodeURIComponent).
-
-function checkParams() {
-
-  const queryParams = this.props.location.query;
-
-  if (
-    queryParams.maxTemp === this.props.maxTemp &&
-    queryParams.lowTemp === this.props.lowTemp &&
-    queryParams.snowfall === this.props.snowfall &&
-    queryParams.precip === this.props.precip &&
-    queryParams.below32 === this.props.below32
-  ) {
-    return this.props.matches;
+  if (maxTemp === props.maxTemp &&
+      lowTemp === props.lowTemp &&
+      snowfall === props.snowfall &&
+      precip === props.precip &&
+      below32 === props.below32) {
+    return;
   } else {
-    // const matches = function to determine matches;
-
-    const info = {
-      maxTemp: queryParams.mt,
-      lowTemp: queryParams.lt,
-      below32: queryParams.sn,
-      snowfall: queryParams.pr,
-      precip: queryParams.bf
+    let info = {
+      maxTemp: maxTemp,
+      lowTemp: lowTemp,
+      below32: snowfall,
+      snowfall: precip,
+      precip: below32
     };
+    const matches = findMatches(info);
+    info["matches"] = matches;
 
-
-    this.props.updateWeatherState(info, false);
+    props.updateWeatherState(info);
   }
 }
+// NOT SURE if updating state here will result in new values being available in the render function.
+// I think yes, but double check.
+
+// SEEM TO BE mostly working? but I think if you are on the results page and then type in a new results
+// address, React Router treats that as passing in new props but not a fresh mount of the component, so
+// the info doesn't update. IF you use the refresh button though then it does. Deal with this.
 
 
 // NEED TO SEPERATE updateWeatherState() into seperate components. Probably
