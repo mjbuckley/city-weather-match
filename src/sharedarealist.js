@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import buildParams from './buildparams.js';
+import buildLink from './buildlink.js';
 
 
 // Need to figure out the metro area disambiguation page and decide what props to pass there.
@@ -16,12 +16,8 @@ function SharedAreaList(props) {
         <ul>
           {props.sharedarea.map(function(area, index) {
             const path = "/metro-areas/" + encodeURIComponent(area);
-            const query = buildParams(props);
-            const link = {
-              pathname: path,
-              query: query
-            };
-            return (<li key={index}><Link to={link}>{area}</Link></li>);
+
+            return (<li key={index}><Link to={buildLink(props, path)}>{area}</Link></li>);
             }
           )}
         </ul>
@@ -29,14 +25,9 @@ function SharedAreaList(props) {
     );
   } else {
     const path = "/metro-areas/" + encodeURIComponent(props.sharedarea[0]);
-    const query = buildParams(props);
-    const link = {
-      pathname: path,
-      query: query
-    };
     return (
       <div className="SharedAreaList">
-        <h4>{props.city} is part of the <Link to={link}>{props.sharedarea[0]}</Link> urban area</h4>
+        <h4>{props.city} is part of the <Link to={buildLink(props, path)}>{props.sharedarea[0]}</Link> urban area</h4>
       </div>
     );
   }
