@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import checkParams from './checkparams.js';
 import checkParamsChange from './checkparamschange.js';
+import buildLink from './buildlink.js';
 import './css/results.css';
 import CityList from './citylist.js';
 
@@ -22,16 +24,21 @@ class Results extends Component {
     checkParamsChange(nextProps, this.props);
   }
 
-  // Remove duplicate city names from matches and then return matches for display
+  // Filter matches in order to only link to one station per city. This function remove stations from the matches
+  // if there is already another station from that city pressent. I could have listed cities multiple times or
+  // linked to the city disambiguation page, but this seemed like in could be confusing to users. Instead, I link to
+  // the first (matching) station in each city. On the linked to station page itself I will note if there a multiple
+  // station matches for that city, and if yes, will link there. So, all data might not be shown upfront, but it will
+  // still be available.
   citiesList() {
     let previousValue = "";
 
     return this.props.matches.filter(function(station) {
-      let cityValue = stationsObj[station]["city"];
-      let stateValue = stationsObj[station]["state"];
+      let city = stationsObj[station]["city"];
+      let state = stationsObj[station]["state"];
 
-      if ((cityValue + stateValue) !== previousValue) {
-        previousValue = cityValue + stateValue;
+      if ((city + state) !== previousValue) {
+        previousValue = city + state;
         return true;
       } else {
         return false;
@@ -61,7 +68,9 @@ class Results extends Component {
         </div>
         ) : (
         <div className="wrapper">
-          <p>Sorry, there were no matches.  Please alter you search and try again.</p>
+          <p>
+          Sorry, there were no matches.  Please <Link to={buildLink(this.props, "/search")}>try again</Link> with new search values.
+          </p>
         </div>
         )}
 

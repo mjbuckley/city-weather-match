@@ -22,3 +22,13 @@
 NOTES
 
 1. Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
+2. Washington DC looks like it has been mapped to Maryland. Manually correct?
+3. Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
+
+
+TODO 2/7/17
+
+1. So far I have no check on the parameter. What happens if gibberish gets passed in? What if the parameters are incomplete? Not yet sure where the best place to check is or where to return the error. One spot is in the checkParams function. Another spot might be the updateWeatherState function in App.
+2. Where do I still need to add the checkParams function? Does it need to be everywhere?
+3. In the Results component I pass a string as an argument in a buildLink function. I think this is ok, but double check.
+4. Render function in class vs just return in function. Why?

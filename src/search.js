@@ -38,7 +38,7 @@ class Search extends Component {
     };
 
     // Find matches
-    let matches = findMatches(weatherObj);
+    const matches = findMatches(weatherObj);
 
     // Add matches to weatherObj
     weatherObj["matches"] = matches;

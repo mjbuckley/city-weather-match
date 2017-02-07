@@ -5,7 +5,12 @@ import SharedAreaList from './sharedarealist.js';
 
 const stationsObj = require('./data/weather.json');
 
+// Decide how to handle this page getting hit directly without props. I makes sense that that is ok,
+// since people might just want to look at station info outside the context of a search, but need to be able
+// to handle things like sharedArea without prop values.
 function Location(props) {
+
+  // Keep in mind that below weather values below are not search values be values for the station.
   const station = decodeURIComponent(props.params.station);
   const city = stationsObj[station]["city"];
   const multiCity = stationsObj[station]["multiCity"];
