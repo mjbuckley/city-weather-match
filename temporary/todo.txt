@@ -1,3 +1,6 @@
+*. I changed weather.json so that metro areas now include their state ("Columbus, OH"). This helps to distinguish between different areas of the same name.  Things appear to still be working ok, but double check. Be sure to use this new feature to be sure I actually am distinuishing areas of the same name.
+* I added metromap.json which maps the metro areas to their cities to their stations. Will be useful on the metroarea page. Use if to make links.
+
 0. I have been testing param checking in the results component. Once I get this working I need to apply it everywhere.
 0. Why does my results component seem to be rendering twice? When I put console.log(this.props.matches) in the render function in logs twice on most loads, once with the previous value and once with the current value. Not sure?
 0. Right now my param checks work, but they assume valid params and values for all weather options. Be able to deal with invalid stuff and with partial weather values (say they don't care about precip but all other values present).
