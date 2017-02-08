@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router'
 import buildLink from './buildlink.js';
 
-
-// Need to figure out the metro area disambiguation page and decide what props to pass there.
-// Also need to figure out how to deal with metro areas with the same name (ex: Columbus).
-// Iniitial test version. Eventually need to link to metro area disambiguation page.
+// Displays a list of the metro areas that a station is part of.
 function SharedAreaList(props) {
 
   if (props.sharedarea.length > 1) {

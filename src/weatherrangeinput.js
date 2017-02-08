@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/weatherrangeinput.css';
 
+// Component for a range input slider inside of a form. Min and max should come from minmax.json
 function WeatherRangeInput(props) {
   return (
     <div>
@@ -19,26 +20,5 @@ function WeatherRangeInput(props) {
     </div>
   );
 }
-
-/*
-
-  // Example useage in weatherinfo.js
-  <WeatherRangeInput
-    id=Ex: "maxTemp"
-    description=What the slider is for. Ex: "Max number of days above 90"
-    min=Min possible value. Ex. {weatherConst.maxTemp[0]}
-    max=Max possible value. Ex: {weatherConst.maxTemp[1]}
-    value=The current state. Ex: {this.state.maxTemp}
-    onChange=Function to change the state. Ex: {this.state.changeMaxTemp}
-    output=Optional. Include if unit needed. Ex: "°F"
-  />
-
-  // weatherConst will be an array (maybe an obj instead?) with all of the min and max values.
-  // I will set this up to be auto generated when I created the weather.json file.
-  // Example format below:
-
-  const weatherConst = [ {maxTemp: [30, 130]}, {snow: [0, 300]} ];
-
-*/
 
 export default WeatherRangeInput;

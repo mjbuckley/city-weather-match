@@ -32,3 +32,5 @@ TODO 2/7/17
 2. Where do I still need to add the checkParams function? Does it need to be everywhere?
 3. In the Results component I pass a string as an argument in a buildLink function. I think this is ok, but double check.
 4. Render function in class vs just return in function. Why?
+5. Be sure that I'm correctly passing around weather values (that is, I always treat them as numbers and not strings).
+6. I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
