@@ -2,11 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import buildLink from './buildlink.js';
 
-// -Need to add links to the cities.
-// -Assumes cities isn't empty. I don't think it could be, but make sure.
-// -What about handling jibberish input ex: /metro-areas/fakename?
-// -Should some of the checking be precomputed and put into weather.json?
-
 const stationsObj = require('./data/weather.json');
 const metroMap = require('./data/metromap.json');
 
