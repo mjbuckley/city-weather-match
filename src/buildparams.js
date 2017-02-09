@@ -1,14 +1,6 @@
-// Build a link's query params. Example usage:
-//
-// let path = "/path/subpath";
-// let query = buildParams(props);
-// let link = {
-//   pathname: path,
-//   query: query
-// };
-//
-// <Link to={link}>
-
+// Function to build a link's query object. Generally used in buildlink.js.
+// Pretty basic right now, but could see needing to do more complex stuff here
+// at some point.
 export default function buildParams(props) {
   let query = {};
 
