@@ -4,10 +4,19 @@ import buildParams from './buildparams.js';
 // state to be recreated if needed. Props are the weather values (although I generally
 // just pass all props here for simplicity), and path is the page link ("/results", etc.).
 export default function buildLink(props, path) {
-  const query = buildParams(props);
-  const link = {
-    pathname: path,
-    query: query
-  };
-  return link;
+
+
+  if (props.clicked) {
+    const query = buildParams(props);
+    const link = {
+      pathname: path,
+      query: query
+    };
+
+    return link;
+  } else {
+    const link = path;
+
+    return link;
+  }
 }

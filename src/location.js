@@ -49,6 +49,7 @@ function Location(props) {
           snowfall={props.snowfall}
           precip={props.precip}
           below32={props.below32}
+          clicked={props.clicked}
         />
       ) : null}
 

@@ -2,6 +2,7 @@
 // Pretty basic right now, but could see needing to do more complex stuff here
 // at some point.
 export default function buildParams(props) {
+
   let query = {};
 
     query["maxTemp"] = props.maxTemp;

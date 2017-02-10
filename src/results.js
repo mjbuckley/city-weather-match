@@ -52,6 +52,7 @@ class Results extends Component {
         snowfall={this.props.snowfall}
         precip={this.props.precip}
         below32={this.props.below32}
+        clicked={this.props.clicked}
       />
     ));
     }
