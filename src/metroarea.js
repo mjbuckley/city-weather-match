@@ -33,7 +33,7 @@ function MetroArea(props) {
           }
 
           const state = stationsObj[linkStation]["state"];
-          const path ="/location/" + city + "/" + state + "/" + linkStation;
+          const path ="/location/" + city + "/" + state + "/" + encodeURIComponent(linkStation);
           return (<li key={index}><Link to={buildLink(props, path)}>{city}</Link></li>);
         })}
       </ul>
