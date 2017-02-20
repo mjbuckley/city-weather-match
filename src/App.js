@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import './css/App.css';
 
 // Min, max, and midway values for each weather category
@@ -46,7 +47,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1>A navbar heading will go here</h1>
+          <h1><Link to="/">A navbar heading will go here</Link></h1>
         </div>
 
         {/* Because children of App are added in index.js by React Router, there is no good way to

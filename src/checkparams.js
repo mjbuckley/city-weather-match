@@ -54,12 +54,12 @@ const defaults = {
   precip: minMax["annprcpge050hi"][1]
 };
 
-
+// THERE SEEMS TO BE AN ISSUE WHERE IF PICKS UP THE QUERY BUT DOESN'T MAKE IT
+// INTO THE INFO.LENGTH>0 IF SECTION.
 export default function checkParams(props) {
 
   // Check if query params are even there are all:
   if (props.location.query && (Object.keys(props.location.query).length > 0)) {
-
     // Object where valid weather values will be stored
     let info = {};
 
@@ -70,7 +70,7 @@ export default function checkParams(props) {
       if (weatherOptions.includes(key)) {
 
         // if yes, grab its value (NOT SURE if I can use key this way or if I need to access differently)
-        const value = parseInt(props.location.query.key, 10);
+        const value = parseInt(props.location.query[key], 10);
 
         // Temporary fix because different names are used in the app and in minmax.json.
         // Eventually I will fix this and can just use key instead.
