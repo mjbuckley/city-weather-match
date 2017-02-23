@@ -69,7 +69,7 @@ export default function checkParams(props) {
       // Verify key is a valid weather value name
       if (weatherOptions.includes(key)) {
 
-        // if yes, grab its value (NOT SURE if I can use key this way or if I need to access differently)
+        // if yes, grab its value
         const value = parseInt(props.location.query[key], 10);
 
         // Temporary fix because different names are used in the app and in minmax.json.
