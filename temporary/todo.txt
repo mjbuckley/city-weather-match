@@ -39,3 +39,15 @@ TODO 2/7/17
 9. I think I'm properly adding query params to all links (but double check), but I'm only interpreting the params on the results page. Add checkParams everywhere.
 NOTE: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 10. I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
+
+
+NOTES on checkparams.js
+
+-Break up the function into smaller pieces.
+-QUESTION: I pass in props, but aren't props already available here? Any reason to do this?
+-TO DO. Extract the helper values that I create. Some of them can probably be removed all together with some renaming of vlaues.
+
+
+2/22 note:
+
+-In checkparams I call props.updateWeatherState.js. Sometimes the value I pass to checkparams is the current props, sometimes it is nextProps. It seems to work in both cases, but are there any places where nextProps might cause a problem?

@@ -2,34 +2,17 @@ import findMatches from './findmatches.js';
 
 const minMax = require('./data/minmax.json');
 
-// Function placed in the componentWillMount() (and maybe componentWillReceiveProps?) sections of all direct
-// children components of App. It checks the URL for query parameters and then determines what App's state
-// should be. The URL is the source of truth. (I bother with App state at all for 2 reasons: 1) It acts as a sort of
-// cache for matches because most of the time I will do some simple calculations from the query params and determine
-// that I can reuse matches and not need to recalculate, and 2) generally makes passing around props easier (not
-// impossible to do otherwise, but works well). More generally the URL source of truth allows
-// for pages to be bookmarkable, and it makes the back button work in a more natural way (since previous states
-// can be recreated).
-
-// Does several things:
-// 1) Make sure query param keys and values are valid.
-// 2) If query params are incomplete it will fill in missing values with default values.
-// 3) Compares query param values with values currently in app state. If different, update state with
-// new information from query params. If unchanged, use values currently in state.
-// 4) Handle situation where there are no query params or only jibberish params.
-
-// QUESTION: I pass in props, but aren't props already available here? Any reason to do this?
-// QUESTION: Should I have the helper variables in the function?
-
-// -I've decided that all possible values will be given a value. If they say they don't care then
-// the min/max value will be assigned that matches all possible scenarios.
-
-// -This whole thing works as I want, but I should consider breaking it up into more manageble pieces.
-// Also, I really need to document things better. Not so much the individual steps, but the whole app and
-// the querks and oddities in the setup (and why I still have them there).
+// This function is placed in the componentWillMount() sections of all direct children components of App (search,
+// results, etc.). It checks the URL for query parameters and then determines what App's state
+// should be. The URL is the source of truth. This allows for pages to be bookmarkable and it allows for the
+// back button to work more naturally (since previos state can be recreated from url). I bother with App state at all
+// for 2 reasons: 1) It acts as a sort of cache for matches because most of the time I will do some simple
+// calculations from the query params and determine that I can reuse the matches in state and not need to
+// recalculate everything, and 2) it generally makes passing around props easier to do (not impossible to do
+// otherwise, but it feels more natural).
 
 
-// HELPER VARIABLES
+// HELPER VARIABLES (eventuall extract to stand alone).
 
 // Array of possible weather values
 const weatherOptions = [ "maxTemp", "lowTemp", "below32", "snowfall", "precip"];
@@ -53,6 +36,7 @@ const defaults = {
   snowfall: minMax["annInchPlus"][1],
   precip: minMax["annprcpge050hi"][1]
 };
+
 
 // THERE SEEMS TO BE AN ISSUE WHERE IF PICKS UP THE QUERY BUT DOESN'T MAKE IT
 // INTO THE INFO.LENGTH>0 IF SECTION.
@@ -99,11 +83,12 @@ export default function checkParams(props) {
 
         // info is missing at least one needed value (omitted or invalid in query params).
         // Find keys with missing value(s) and add default value.
-        Object.keys(info).forEach(function(key) {
-          if (info[key] === undefined) {
-            info[key] = defaults[key];
+        for (let i = 0; i < weatherOptions.length; i++) {
+          let option = weatherOptions[i];
+          if (info[option] === undefined) {
+            info[option] = defaults[option];
           }
-        });
+        }
       }
 
       // At this point we're at a place where info has all values and all values are valid.
@@ -120,7 +105,6 @@ export default function checkParams(props) {
         // values in query params are unchanged from that saved in state. No need to calculate matches or change state.
         return;
       } else {
-
         // values in query params differ from those in state. Recalculate matches and then update app state with
         // the new values.
         const matches = findMatches(info);
@@ -172,39 +156,3 @@ export default function checkParams(props) {
     props.updateWeatherState(info);
   }
 }
-
-
-
-// OLD WORKING BUT LESS FUNCTIONAL CHECKPARAMS() IS BELOW. KEEP UNTIL SURE NEW STUFF IS WORKING OK.
-
-// export default function checkParams(props) {
-//
-//   // Get query param values from URL
-//   const maxTemp = parseInt(props.location.query.maxTemp, 10);
-//   const lowTemp = parseInt(props.location.query.lowTemp, 10);
-//   const snowfall = parseInt(props.location.query.snowfall, 10);
-//   const precip = parseInt(props.location.query.precip, 10);
-//   const below32 = parseInt(props.location.query.below32, 10);
-//
-//   // Check if query param values match the values in state (which is the same as the current props).
-//   // If yes, no need to recalculate matches, just use matches from state. If no, then recalculate matches.
-//   if (maxTemp === props.maxTemp &&
-//       lowTemp === props.lowTemp &&
-//       snowfall === props.snowfall &&
-//       precip === props.precip &&
-//       below32 === props.below32) {
-//     return;
-//   } else {
-//     let info = {
-//       maxTemp: maxTemp,
-//       lowTemp: lowTemp,
-//       below32: snowfall,
-//       snowfall: precip,
-//       precip: below32
-//     };
-//     const matches = findMatches(info);
-//     info["matches"] = matches;
-//
-//     props.updateWeatherState(info);
-//   }
-// }
