@@ -132,6 +132,7 @@ export default function checkParams(props) {
       props.updateWeatherState(info);
     }
   } else {
+    console.log("Nothing in params");
 
     // There are no query params. In general, most pages can function fine without query params. Each page will
     // decide what to do (doesn't need to be handled here). Change cicked value to false so pages/compents know
