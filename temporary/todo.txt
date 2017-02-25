@@ -56,4 +56,4 @@ NOTES on checkparams.js
 
 2/24 Note:
 
-I've converted MetroArea back to a component and it's working fine. Now implement the lifecycle components.
+-I've converted MetroArea back to a component and implemented the param lifecycle components. I had to fix checkparamschange.js because there was an infinite loop. It was calling checkparams whenever the query param length was zero. This would update state which would cause checkparamschange to run, and of course its length would still be zero, so this went on forever. Instead I now just compare whether this.props.queryvalue === nextProps.queryvalue. This is what I originally had but wasn't sure how JS handled non-existent property values. I'm still not positive, but this seems to be working ok. Still, look into this and make sure what I have is good. Also, erase old commented out code once I'm certain.
