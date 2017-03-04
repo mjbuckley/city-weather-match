@@ -25,12 +25,12 @@ class App extends Component {
   // and updates state with new info.
   updateWeatherState(info) {
 
-    let maxTemp = info["maxTemp"];
-    let lowTemp = info["lowTemp"];
-    let below32 = info["below32"];
-    let snowfall = info["snowfall"];
-    let precip = info["precip"];
-    let matches = info["matches"];
+    const maxTemp = info["maxTemp"];
+    const lowTemp = info["lowTemp"];
+    const below32 = info["below32"];
+    const snowfall = info["snowfall"];
+    const precip = info["precip"];
+    const matches = info["matches"];
 
     this.setState({
       maxTemp: maxTemp,
