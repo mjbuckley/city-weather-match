@@ -67,8 +67,6 @@ class MetroArea extends Component {
 
   // Watch for query param changes and update state as needed.
   componentWillReceiveProps(nextProps) {
-    // console.log(this.props);
-    // console.log(nextProps);
     checkParamsChange(nextProps, this.props);
   }
 

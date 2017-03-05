@@ -21,6 +21,42 @@ class App extends Component {
     this.updateWeatherState = this.updateWeatherState.bind(this);
   }
 
+  // Check query param values against values in state and update if needed.
+  // this.props constains current query param values
+  componentWillMount() {
+
+    // Checks query params and if present/valid returns objects with weather values. If not present
+    // or invlaid, it returns false.
+    let info = validQueryParams(props);
+
+    if (info) {
+
+      // See if weather values match state. If yes, do nothing, if no, deterine matches and
+      // then update state.
+      if (info.maxTemp !== this.state.maxTemp ||
+          info.lowTemp !== this.state.lowTemp ||
+          info.snowfall !== this.state.snowfall ||
+          info.precip !== this.state.precip ||
+          info.below32 !== this.state.below32) {
+
+        // Query param values and state values differ. Recalculate matches and update state.
+        const matches = findMatches(info);
+        info["matches"] = matches;
+        info["clicked"] = true;
+
+        updateWeatherState(info);
+      } // else nothing: query params match current state, no need to do anything.
+
+    } else {
+      // No/invlid query params.  Do something. (Don't forget use of cliked.  Relevant here?).
+    }
+  }
+
+  // Watch for query param changes and update state as needed.
+  componentWillReceiveProps(nextProps) {
+    checkParamsChange(nextProps, this.props);
+  }
+
   // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
   // and updates state with new info.
   updateWeatherState(info) {
