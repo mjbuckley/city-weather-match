@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import checkParams from './checkparams.js';
-import checkParamsChange from './checkparamschange.js';
+// import checkParams from './checkparams.js';
+// import checkParamsChange from './checkparamschange.js';
 import buildLink from './buildlink.js';
 import './css/results.css';
 import CityList from './citylist.js';
@@ -14,15 +14,15 @@ class Results extends Component {
     this.citiesList = this.citiesList.bind(this);
   }
 
-  // Check query param values against values in state and update if needed.
-  componentWillMount() {
-    checkParams(this.props);
-  }
-
-  // Watch for query param changes and update state as needed.
-  componentWillReceiveProps(nextProps) {
-    checkParamsChange(nextProps, this.props);
-  }
+  // // Check query param values against values in state and update if needed.
+  // componentWillMount() {
+  //   checkParams(this.props);
+  // }
+  //
+  // // Watch for query param changes and update state as needed.
+  // componentWillReceiveProps(nextProps) {
+  //   checkParamsChange(nextProps, this.props);
+  // }
 
   // Filter matches in order to only link to one station per city. This function remove stations from the matches
   // if there is already another station from that city pressent. I could have listed cities multiple times or

@@ -61,3 +61,18 @@ NOTES on checkparams.js
 3/3
 
 Perhaps note somewhere how many years the data is used for each city?
+
+3/5
+
+-Really need to figure out and standardize how I use clicked.
+-Suppose someone does a search and has some sort of meaningful state with clicked set to true. Now, say they navigate to a page without query params (maybe a link, maybe bookmarked). There state would be lost. This probably makes sense if they manually navigate somewhere, but not if done internally. Could this be a problem?
+
+-How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches.
+
+-Should my weatherOptions const be capitalized? What about all consts?
+
+-I created weatherOptions, which is an array of all weather options (maxTemp, below32, etc). That way they are all in one place and I don't have to remember to update changes in many different spots. However, I haven't started using it everywhere yet, so do that. Also, right now it is manually created, but perhaps it's something I can have done in jsoncreate with my noaa data.
+
+-Should probably extract much of the logic in componentWillMount into a stand alone function becasue I'll need to reuse most of it in componentWillReceiveProps.
+
+-I think I can get rid of updateWeatherState and just use this.setState because all state updates are now done in App?

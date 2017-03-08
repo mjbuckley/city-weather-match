@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import validQueryParams from './validqueryparams.js';
+import findMatches from './findmatches.js';
+import checkParamsChange from './checkparamschange.js';
+import weatherOptions from './data/weatheroptions.js';
 import './css/App.css';
 
 // Min, max, and midway values for each weather category
@@ -21,63 +25,89 @@ class App extends Component {
     this.updateWeatherState = this.updateWeatherState.bind(this);
   }
 
-  // Check query param values against values in state and update if needed.
-  // this.props constains current query param values
+
+  // On App mount this checks query param values against values in state and then updates state if needed.
   componentWillMount() {
 
-    // Checks query params and if present/valid returns objects with weather values. If not present
-    // or invlaid, it returns false.
-    let info = validQueryParams(props);
+    // If query params are present/valid, info is an object with all weather values present and clicked set
+    // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
+    let info = validQueryParams(this.props);
 
-    if (info) {
+    // Clicked will only be true if all values valid/present
+    if (info["clicked"] === true) {
 
-      // See if weather values match state. If yes, do nothing, if no, deterine matches and
-      // then update state.
-      if (info.maxTemp !== this.state.maxTemp ||
-          info.lowTemp !== this.state.lowTemp ||
-          info.snowfall !== this.state.snowfall ||
-          info.precip !== this.state.precip ||
-          info.below32 !== this.state.below32) {
+      // Compare info values to state values. Set mismatch to true if there is a difference between the two,
+      // set to false if they are the same. I don't love the way I have this set up, but it works. This SECTION
+      // could probably be extracted into it's own function if I want to.
+      let mismatch = false;
 
-        // Query param values and state values differ. Recalculate matches and update state.
+      weatherOptions.forEach(function(option) {
+        if (info[option] !== this.state[option]) {
+          mismatch = true;
+        }
+      });
+
+      // Calculate matches mismatch is true or if state's click value is false. Checking click covers the
+      // possibility that state and info match but matches haven't been calculated (rare but possible, such as if
+      // on initial load the query params matched the default state values). This might cause a recalculation to
+      // happen unneccesarily, but this is probably the simplest way to structure things.
+      if (mismatch || this.state.clicked === false) {
+
         const matches = findMatches(info);
         info["matches"] = matches;
-        info["clicked"] = true;
 
-        updateWeatherState(info);
+        this.updateWeatherState(info);
       } // else nothing: query params match current state, no need to do anything.
 
+    // Clicked is set to false, meaning the query params were either not present or not valid.
     } else {
-      // No/invlid query params.  Do something. (Don't forget use of cliked.  Relevant here?).
+
+      if (this.state.clicked === true) {
+
+        // update state so that clicked is set to false.
+        this.updateWeatherState(info);
+      } // else nothing: state is as it should be.
     }
   }
 
+
   // Watch for query param changes and update state as needed.
   componentWillReceiveProps(nextProps) {
-    checkParamsChange(nextProps, this.props);
+
+    // function returns true if new query params differ from values in state, false otherwise.
+    if (checkParamsChange(nextProps, this.state)) {
+
+      // If query params are present/valid, info is an object with all weather values present and clicked set
+      // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
+      let info = validQueryParams(this.props);
+
+      // Clicked will only be true if all values valid/present
+      if (info["clicked"] === true) {
+
+        const matches = findMatches(info);
+        info["matches"] = matches;
+
+        this.updateWeatherState(info);
+
+      // Clicked is set to false, meaning the query params were either not present or not valid.
+      } else {
+
+        if (this.state.clicked === true) {
+
+          // update state so that clicked is set to false.
+          this.updateWeatherState(info);
+        } // else nothing: state is as it should be.
+      }
+    } // else nothing: no changes to query params
   }
+
 
   // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
   // and updates state with new info.
   updateWeatherState(info) {
-
-    const maxTemp = info["maxTemp"];
-    const lowTemp = info["lowTemp"];
-    const below32 = info["below32"];
-    const snowfall = info["snowfall"];
-    const precip = info["precip"];
-    const matches = info["matches"];
-
-    this.setState({
-      maxTemp: maxTemp,
-      lowTemp: lowTemp,
-      below32: below32,
-      snowfall: snowfall,
-      precip: precip,
-      clicked: true,
-      matches: matches
-    });
+    this.setState(info);
   };
+
 
   render() {
     return (

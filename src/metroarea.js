@@ -52,23 +52,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import buildLink from './buildlink.js';
-import checkParams from './checkparams.js';
-import checkParamsChange from './checkparamschange.js';
+// import checkParams from './checkparams.js';
+// import checkParamsChange from './checkparamschange.js';
 
 const stationsObj = require('./data/weather.json');
 const metroMap = require('./data/metromap.json');
 
 class MetroArea extends Component {
 
-  // Check query param values against values in state and update if needed.
-  componentWillMount() {
-    checkParams(this.props);
-  }
-
-  // Watch for query param changes and update state as needed.
-  componentWillReceiveProps(nextProps) {
-    checkParamsChange(nextProps, this.props);
-  }
+  // // Check query param values against values in state and update if needed.
+  // componentWillMount() {
+  //   checkParams(this.props);
+  // }
+  //
+  // // Watch for query param changes and update state as needed.
+  // componentWillReceiveProps(nextProps) {
+  //   checkParamsChange(nextProps, this.props);
+  // }
 
   // The map function below should probably be cleaned up, but it works. Here's what's happening:
   // -cities is an array of all city names in the metro area.
