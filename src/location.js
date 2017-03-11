@@ -10,7 +10,7 @@ const stationsObj = require('./data/weather.json');
 // to handle things like sharedArea without prop values.
 function Location(props) {
 
-  // Keep in mind that below weather values below are not search values be values for the station.
+  // Keep in mind that the weather values below are not search values but values for the station.
   const station = decodeURIComponent(props.params.station);
   const city = stationsObj[station]["city"];
   const multiCity = stationsObj[station]["multiCity"];

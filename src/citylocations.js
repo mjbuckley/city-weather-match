@@ -28,7 +28,7 @@ function CityLocations(props) {
 
       <ul>
         {locations.map(function(station) {
-          const path = "/location/" + city + "/" + state + "/" + station;
+          const path = "/location/" + encodeURIComponent(city) + "/" + state + "/" + station;
           return (<li key={station}><Link to={buildLink(props, path)}>Station {station}</Link></li>);
         })}
       </ul>

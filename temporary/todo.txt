@@ -76,3 +76,17 @@ Perhaps note somewhere how many years the data is used for each city?
 -Should probably extract much of the logic in componentWillMount into a stand alone function becasue I'll need to reuse most of it in componentWillReceiveProps.
 
 -I think I can get rid of updateWeatherState and just use this.setState because all state updates are now done in App?
+
+3/8/17
+
+-I think that partial query params should be fixed to include all info (giving the other values the min/max possible option). This way, if React ever needs to run componentWillReceiveProps then the params will fully match state and matches will not have to be recalculated.
+
+3/9/17
+
+-If clicked is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. ALSO, I really should do something like I said above where query params are always full.
+-Really need to get weather.json and app terms on the same page.
+
+3/10
+
+-A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
+-IMPORTANT: Some components are built with the expectation of weather values. The problem is if I'm accessing a page outside of the context of a search. How to send different props at different times and handle the possibility of having different props available? A possible answer is to pass meaningless props around and just check for the clicked status to decide whether or not to use those props.

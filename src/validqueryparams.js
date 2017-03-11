@@ -1,4 +1,6 @@
 // import findMatches from './findmatches.js';
+import weatherOptions from './data/weatheroptions.js';
+import keyMap from './data/keymap.js';
 
 const minMax = require('./data/minmax.json');
 
@@ -20,17 +22,17 @@ const minMax = require('./data/minmax.json');
 // HELPER VARIABLES (eventuall extract to stand alone).
 
 // Array of possible weather values
-const weatherOptions = [ "maxTemp", "lowTemp", "below32", "snowfall", "precip"];
+// const weatherOptions = [ "maxTemp", "lowTemp", "below32", "snowfall", "precip"];
 
 // Maps weather terms I use in the app to weather terms used in minmax.json.
 // Ideally I should use the same terms in both places, but for now this is the fix.
-const keyMap = {
-  maxTemp: "mlyTMaxAvg",
-  lowTemp: "mlyTMinAvg",
-  below32: "daysBelow32",
-  snowfall: "annInchPlus",
-  precip: "annprcpge050hi"
-};
+// const keyMap = {
+//   maxTemp: "mlyTMaxAvg",
+//   lowTemp: "mlyTMinAvg",
+//   below32: "daysBelow32",
+//   snowfall: "annInchPlus",
+//   precip: "annprcpge050hi"
+// };
 
 // Default values are the values that are the extreme min or max of the possible range,
 // and the value is such that it would exclude no station.

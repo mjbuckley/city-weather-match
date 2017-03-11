@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import validQueryParams from './validqueryparams.js';
 import findMatches from './findmatches.js';
 import checkParamsChange from './checkparamschange.js';
-import weatherOptions from './data/weatheroptions.js';
+import paramsMatchState from './paramsmatchstate.js';
 import './css/App.css';
 
 // Min, max, and midway values for each weather category
@@ -29,28 +29,20 @@ class App extends Component {
   // On App mount this checks query param values against values in state and then updates state if needed.
   componentWillMount() {
 
-    // If query params are present/valid, info is an object with all weather values present and clicked set
+    // If query params are present/valid, this returns an info object with all weather values present and clicked set
     // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
     let info = validQueryParams(this.props);
 
     // Clicked will only be true if all values valid/present
     if (info["clicked"] === true) {
 
-      // Compare info values to state values. Set mismatch to true if there is a difference between the two,
-      // set to false if they are the same. I don't love the way I have this set up, but it works. This SECTION
-      // could probably be extracted into it's own function if I want to.
-      let mismatch = false;
+      // Compares info and state's weather values. Returns true if there is a difference, false if the same.
+      const mismatch = checkParamsChange(info, this.state);
 
-      weatherOptions.forEach(function(option) {
-        if (info[option] !== this.state[option]) {
-          mismatch = true;
-        }
-      });
-
-      // Calculate matches mismatch is true or if state's click value is false. Checking click covers the
-      // possibility that state and info match but matches haven't been calculated (rare but possible, such as if
-      // on initial load the query params matched the default state values). This might cause a recalculation to
-      // happen unneccesarily, but this is probably the simplest way to structure things.
+      // If state and info values differ, calculate matches and update state. Also do this if state's clicked value
+      // is false (This covers the rare possibility that state and info weather values match but state's matches haven't been
+      // calculated yet, such as if on initial load the query params matched the default state values. Doing this might
+      // cause a recalculation to happen unneccesarily, but it prevents this possible error).
       if (mismatch || this.state.clicked === false) {
 
         const matches = findMatches(info);
@@ -71,39 +63,49 @@ class App extends Component {
   }
 
 
-  // Watch for query param changes and update state as needed.
+  // Watch for query param changes and update state as needed. This is needed because React Router does not treat
+  // a change in query params as a reload of a page, just as the passing in of new props.
   componentWillReceiveProps(nextProps) {
+    console.log("receiving props");
+    console.log(nextProps);
+    // Query params match state. Do nothing.
+    if (paramsMatchState(nextProps, this.state) && this.state.clicked === true) {
+      return;
+    }
 
-    // function returns true if new query params differ from values in state, false otherwise.
-    if (checkParamsChange(nextProps, this.state)) {
+    // No query params, but this.state.clicked is false so this is a match. Do nothing.
+    if ((nextProps.location.query.length === 0) && this.state.clicked === false) {
+      return;
+    }
 
-      // If query params are present/valid, info is an object with all weather values present and clicked set
-      // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
-      let info = validQueryParams(this.props);
 
-      // Clicked will only be true if all values valid/present
-      if (info["clicked"] === true) {
+    // Query param and state values differ. Calculate new values
 
-        const matches = findMatches(info);
-        info["matches"] = matches;
+    // If query params are present/valid, info is an object with all weather values present and clicked set
+    // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
+    let info = validQueryParams(nextProps);
 
+    // Clicked will only be true if all values valid/present
+    if (info["clicked"] === true) {
+
+      const matches = findMatches(info);
+      info["matches"] = matches;
+
+      this.updateWeatherState(info);
+
+    // Clicked is set to false, meaning the query params were either not present or not valid.
+    } else {
+
+      if (this.state.clicked === true) {
+
+        // update state so that clicked is set to false.
         this.updateWeatherState(info);
-
-      // Clicked is set to false, meaning the query params were either not present or not valid.
-      } else {
-
-        if (this.state.clicked === true) {
-
-          // update state so that clicked is set to false.
-          this.updateWeatherState(info);
-        } // else nothing: state is as it should be.
-      }
-    } // else nothing: no changes to query params
+      } // else nothing: state is as it should be.
+    }
   }
 
 
-  // Function takes an info object with weather values { maxTemp: 100, lowTemp: 30, etc. }
-  // and updates state with new info.
+  // Function expects an object with valid weather values ex: {maxTemp: 100}.
   updateWeatherState(info) {
     this.setState(info);
   };
@@ -116,11 +118,11 @@ class App extends Component {
           <h1><Link to="/">A navbar heading will go here</Link></h1>
         </div>
 
-        {/* Because children of App are added in index.js by React Router, there is no good way to
-          pass state values down as props to children. This is a workaround that clones children of
-          App and adds needed props here. Looks funny but works fine. I'm not sure if there's
-          a way to selectively pass on props depending on the child component, so all direct
-          children will get all props right now. */}
+        {/* Because children of App are added in index.js by React Router, I cannot find a good way to
+          pass App's state values as props down to its children. This is a workaround that clones children of
+          App and adds needed props here. It would be nice to find a better way to do this, but it works fine.
+          This method passes down some props that some children won't need. There is no problem with this right now
+          but would prefer something that didn't do this. */}
         {React.Children.map(
           this.props.children,
           child => React.cloneElement(child,

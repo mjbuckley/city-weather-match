@@ -5,13 +5,13 @@
 // not change the results. This function is run from componentWillReceiveProps and it checks if the
 // query param values (which are props) have changed and then calls checkparams.js if needed to
 // determine the needed state changes.
-export default function checkParamsChange(nextProps, props) {
+// export default function checkParamsChange(nextProps, props) {
 
   // This can almost certainly be done better than this, but I need to look in to how JS handles
   // accessing non-existent object properties. Also, would be good to do this in a way to not need
   // to remember to alter this every time I add a weather value.
-  console.log(nextProps);
-  console.log(props);
+  // console.log(nextProps);
+  // console.log(props);
 
   // Problem: there are alway weather values in state. A url without query params will always
   // cause a problem because it will never match the values in state. Need to do something where I
@@ -43,18 +43,19 @@ export default function checkParamsChange(nextProps, props) {
   // }
 
 
+// Good 3/8/17
 
-  if (nextProps.location.query.maxTemp !== props.maxTemp ||
-      nextProps.location.query.lowTemp !== props.lowTemp ||
-      nextProps.location.query.below32 !== props.below32 ||
-      nextProps.location.query.snowfall !== props.snowfall ||
-      nextProps.location.query.precip !== props.precip
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-}
+//   if (nextProps.location.query.maxTemp !== props.maxTemp ||
+//       nextProps.location.query.lowTemp !== props.lowTemp ||
+//       nextProps.location.query.below32 !== props.below32 ||
+//       nextProps.location.query.snowfall !== props.snowfall ||
+//       nextProps.location.query.precip !== props.precip
+//   ) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 
 // Goodish 3/6/17
@@ -148,3 +149,26 @@ export default function checkParamsChange(nextProps, props) {
 //     props.updateWeatherState(info);
 //   }
 // }
+
+
+// IMPORTANT 3/8/17
+// Need to fix this. in will receive props it needs to check next.location.query[option].
+// Guess I'll need two functions. Also, what about clicked?
+// Also, note that what I'm doing should be ok even if query params empty. JS returns undefined
+// for non-existent properties, not an error (I think this is different for deeply nest non-existent properties
+// but for my app all properties I'm checking are surface layer).
+
+import weatherOptions from './data/weatheroptions.js';
+
+export default function checkParamsChange(next, current) {
+
+  let mismatch = false;
+
+  weatherOptions.forEach(function(option) {
+    if (next[option] !== current[option]) {
+      mismatch = true;
+    }
+  });
+
+  return mismatch;
+}
