@@ -11,11 +11,11 @@ function Home(props) {
         <h2>Home Page Info Here</h2>
       </div>
       <Search
-        maxTemp={props.maxTemp}
-        lowTemp={props.lowTemp}
-        below32={props.below32}
-        snowfall={props.snowfall}
-        precip={props.precip}
+        mTmxAv={props.mTmxAv}
+        mTmnAv={props.mTmnAv}
+        andTmnLe32={props.andTmnLe32}
+        andSnGe1={props.andSnGe1}
+        andPrGe5Ti={props.andPrGe5Ti}
         updateWeatherState={props.updateWeatherState}
         location={props.location}
       />

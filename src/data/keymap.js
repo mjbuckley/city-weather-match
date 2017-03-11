@@ -3,11 +3,11 @@
 // the same naming scheme.
 
 const keyMap = {
-  maxTemp: "mlyTMaxAvg",
-  lowTemp: "mlyTMinAvg",
-  below32: "daysBelow32",
-  snowfall: "annInchPlus",
-  precip: "annprcpge050hi"
+  mTmxAv: "mTmxAv",
+  mTmnAv: "mTmnAv",
+  andTmnLe32: "andTmnLe32",
+  andSnGe1: "andSnGe1",
+  andPrGe5Ti: "andPrGe5Ti"
 };
 
 export default keyMap;

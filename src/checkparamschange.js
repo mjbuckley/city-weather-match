@@ -20,22 +20,22 @@
 
   // if (!nextProps.location.query) { console.log("1");}
   // if(  Object.keys(nextProps.location.query).length === 0 ) { console.log("2");}
-  // if(!nextProps.location.query.maxTemp ) { console.log("3");}
-  // if(nextProps.location.query.maxTemp !== props.location.query.maxTemp ) { console.log("4");}
-  // if(!nextProps.location.query.lowTemp ) { console.log("5");}
-  // if(nextProps.location.query.lowTemp !== props.location.query.lowTemp ) { console.log("6");}
-  // if(!nextProps.location.query.below32) { console.log("7");}
-  // if(nextProps.location.query.below32 !== props.location.query.below32) { console.log("8");}
-  // if(!nextProps.location.query.snowfall) { console.log("9");}
-  // if(nextProps.location.query.snowfall !== props.location.query.snowfall) { console.log("10");}
-  // if(!nextProps.location.query.precip) { console.log("11");}
-  // if(nextProps.location.query.precip !== props.location.query.precip) { console.log("12");}
+  // if(!nextProps.location.query.mTmxAv ) { console.log("3");}
+  // if(nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ) { console.log("4");}
+  // if(!nextProps.location.query.mTmnAv ) { console.log("5");}
+  // if(nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ) { console.log("6");}
+  // if(!nextProps.location.query.andTmnLe32) { console.log("7");}
+  // if(nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32) { console.log("8");}
+  // if(!nextProps.location.query.andSnGe1) { console.log("9");}
+  // if(nextProps.location.query.andSnGe1 !== props.location.query.andSnGe1) { console.log("10");}
+  // if(!nextProps.location.query.andPrGe5Ti) { console.log("11");}
+  // if(nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti) { console.log("12");}
   //
-  // if (nextProps.location.query.maxTemp !== props.location.query.maxTemp ||
-  //     nextProps.location.query.lowTemp !== props.location.query.lowTemp ||
-  //     nextProps.location.query.below32 !== props.location.query.below32 ||
-  //     nextProps.location.query.snowfall !== props.location.query.snowfall ||
-  //     nextProps.location.query.precip !== props.location.query.precip
+  // if (nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ||
+  //     nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ||
+  //     nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32 ||
+  //     nextProps.location.query.andSnGe1 !== props.location.query.andSnGe1 ||
+  //     nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti
   // ) {
   //   return true;
   // } else {
@@ -45,11 +45,11 @@
 
 // Good 3/8/17
 
-//   if (nextProps.location.query.maxTemp !== props.maxTemp ||
-//       nextProps.location.query.lowTemp !== props.lowTemp ||
-//       nextProps.location.query.below32 !== props.below32 ||
-//       nextProps.location.query.snowfall !== props.snowfall ||
-//       nextProps.location.query.precip !== props.precip
+//   if (nextProps.location.query.mTmxAv !== props.mTmxAv ||
+//       nextProps.location.query.mTmnAv !== props.mTmnAv ||
+//       nextProps.location.query.andTmnLe32 !== props.andTmnLe32 ||
+//       nextProps.location.query.andSnGe1 !== props.andSnGe1 ||
+//       nextProps.location.query.andPrGe5Ti !== props.andPrGe5Ti
 //   ) {
 //     return true;
 //   } else {
@@ -75,22 +75,22 @@
 //
 //   if (!nextProps.location.query) { console.log("1");}
 //   if(  Object.keys(nextProps.location.query).length === 0 ) { console.log("2");}
-//   if(!nextProps.location.query.maxTemp ) { console.log("3");}
-//   if(nextProps.location.query.maxTemp !== props.location.query.maxTemp ) { console.log("4");}
-//   if(!nextProps.location.query.lowTemp ) { console.log("5");}
-//   if(nextProps.location.query.lowTemp !== props.location.query.lowTemp ) { console.log("6");}
-//   if(!nextProps.location.query.below32) { console.log("7");}
-//   if(nextProps.location.query.below32 !== props.location.query.below32) { console.log("8");}
-//   if(!nextProps.location.query.snowfall) { console.log("9");}
-//   if(nextProps.location.query.snowfall !== props.location.query.snowfall) { console.log("10");}
-//   if(!nextProps.location.query.precip) { console.log("11");}
-//   if(nextProps.location.query.precip !== props.location.query.precip) { console.log("12");}
+//   if(!nextProps.location.query.mTmxAv ) { console.log("3");}
+//   if(nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ) { console.log("4");}
+//   if(!nextProps.location.query.mTmnAv ) { console.log("5");}
+//   if(nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ) { console.log("6");}
+//   if(!nextProps.location.query.andTmnLe32) { console.log("7");}
+//   if(nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32) { console.log("8");}
+//   if(!nextProps.location.query.andSnGe1) { console.log("9");}
+//   if(nextProps.location.query.andSnGe1 !== props.location.query.andSnGe1) { console.log("10");}
+//   if(!nextProps.location.query.andPrGe5Ti) { console.log("11");}
+//   if(nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti) { console.log("12");}
 //
-//   if (nextProps.location.query.maxTemp !== props.location.query.maxTemp ||
-//       nextProps.location.query.lowTemp !== props.location.query.lowTemp ||
-//       nextProps.location.query.below32 !== props.location.query.below32 ||
-//       nextProps.location.query.snowfall !== props.location.query.snowfall ||
-//       nextProps.location.query.precip !== props.location.query.precip
+//   if (nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ||
+//       nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ||
+//       nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32 ||
+//       nextProps.location.query.andSnGe1 !== props.location.query.andSnGe1 ||
+//       nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti
 //   ) {
 //     console.log("CPC");
 //     checkParams(nextProps);
@@ -107,16 +107,16 @@
 //   // to remember to alter this every time I add a weather value.
 //   if (!nextProps.location.query ||
 //       Object.keys(nextProps.location.query).length === 0 ||
-//       !nextProps.location.query.maxTemp ||
-//       nextProps.location.query.maxTemp !== props.location.query.maxTemp ||
-//       !nextProps.location.query.lowTemp ||
-//       nextProps.location.query.lowTemp !== props.location.query.lowTemp ||
-//       !nextProps.location.query.below32 ||
-//       nextProps.location.query.below32 !== props.location.query.below32 ||
+//       !nextProps.location.query.mTmxAv ||
+//       nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ||
+//       !nextProps.location.query.mTmnAv ||
+//       nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ||
+//       !nextProps.location.query.andTmnLe32 ||
+//       nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32 ||
 //       !nextProps.location.query.snow ||
 //       nextProps.location.query.snow !== props.location.query.snow ||
-//       !nextProps.location.query.precip ||
-//       nextProps.location.query.precip !== props.location.query.precip
+//       !nextProps.location.query.andPrGe5Ti ||
+//       nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti
 //   ) {
 //     console.log("CPC");
 //     checkParams(nextProps);
@@ -130,18 +130,18 @@
 //
 // export default function checkParamsChange(nextProps, props) {
 //
-//   if (nextProps.location.query.maxTemp !== props.location.query.maxTemp ||
-//       nextProps.location.query.lowTemp !== props.location.query.lowTemp ||
-//       nextProps.location.query.below32 !== props.location.query.below32 ||
+//   if (nextProps.location.query.mTmxAv !== props.location.query.mTmxAv ||
+//       nextProps.location.query.mTmnAv !== props.location.query.mTmnAv ||
+//       nextProps.location.query.andTmnLe32 !== props.location.query.andTmnLe32 ||
 //       nextProps.location.query.snow !== props.location.query.snow ||
-//       nextProps.location.query.precip !== props.location.query.precip
+//       nextProps.location.query.andPrGe5Ti !== props.location.query.andPrGe5Ti
 //   ) {
 //     let info = {
-//       maxTemp: nextProps.location.query.maxTemp,
-//       lowTemp: nextProps.location.query.lowTemp,
-//       below32: nextProps.location.query.snowfall,
-//       snowfall: nextProps.location.query.precip,
-//       precip: nextProps.location.query.below32
+//       mTmxAv: nextProps.location.query.mTmxAv,
+//       mTmnAv: nextProps.location.query.mTmnAv,
+//       andTmnLe32: nextProps.location.query.andSnGe1,
+//       andSnGe1: nextProps.location.query.andPrGe5Ti,
+//       andPrGe5Ti: nextProps.location.query.andTmnLe32
 //     };
 //     const matches = findMatches(info);
 //     info["matches"] = matches;

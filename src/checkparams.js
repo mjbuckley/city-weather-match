@@ -15,26 +15,16 @@ const minMax = require('./data/minmax.json');
 // HELPER VARIABLES (eventuall extract to stand alone).
 
 // Array of possible weather values
-const weatherOptions = [ "maxTemp", "lowTemp", "below32", "snowfall", "precip"];
-
-// Maps weather terms I use in the app to weather terms used in minmax.json.
-// Ideally I should use the same terms in both places, but for now this is the fix.
-const keyMap = {
-  maxTemp: "mlyTMaxAvg",
-  lowTemp: "mlyTMinAvg",
-  below32: "daysBelow32",
-  snowfall: "annInchPlus",
-  precip: "annprcpge050hi"
-};
+const weatherOptions = [ "mTmxAv", "mTmnAv", "andTmnLe32", "andSnGe1", "andPrGe5Ti"];
 
 // Default values are the values that are the extreme min or max of the possible range,
 // and the value is such that it would exclude no station.
 const defaults = {
-  maxTemp: minMax["mlyTMaxAvg"][1],
-  lowTemp: minMax["mlyTMinAvg"][0],
-  below32: minMax["daysBelow32"][1],
-  snowfall: minMax["annInchPlus"][1],
-  precip: minMax["annprcpge050hi"][1]
+  mTmxAv: minMax["mTmxAv"][1],
+  mTmnAv: minMax["mTmnAv"][0],
+  andTmnLe32: minMax["andTmnLe32"][1],
+  andSnGe1: minMax["andSnGe1"][1],
+  andPrGe5Ti: minMax["andPrGe5Ti"][1]
 };
 
 
@@ -56,14 +46,10 @@ export default function checkParams(props) {
         // if yes, grab its value
         const value = parseInt(props.location.query[key], 10);
 
-        // Temporary fix because different names are used in the app and in minmax.json.
-        // Eventually I will fix this and can just use key instead.
-        const tempKey = keyMap[key];
-
         // Verify that value is an int and is in range of possible values
         if (Number.isInteger(value) &&
-            value >= (minMax[tempKey][0]) &&
-            value <= (minMax[tempKey][1])) {
+            value >= (minMax[key][0]) &&
+            value <= (minMax[key][1])) {
 
           // query param key and value are good, so add to info object
           info[key] = value;
@@ -96,11 +82,11 @@ export default function checkParams(props) {
       // be updated. Much of this code will be in the original function above.
 
       if (props.clicked === true &&
-          info.maxTemp === props.maxTemp &&
-          info.lowTemp === props.lowTemp &&
-          info.snowfall === props.snowfall &&
-          info.precip === props.precip &&
-          info.below32 === props.below32) {
+          info.mTmxAv === props.mTmxAv &&
+          info.mTmnAv === props.mTmnAv &&
+          info.andSnGe1 === props.andSnGe1 &&
+          info.andPrGe5Ti === props.andPrGe5Ti &&
+          info.andTmnLe32 === props.andTmnLe32) {
 
         // values in query params are unchanged from that saved in state. No need to calculate matches or change state.
         return;
@@ -120,11 +106,11 @@ export default function checkParams(props) {
 
       let info = {
         clicked: false,
-        maxTemp: props.maxTemp,
-        lowTemp: props.lowTemp,
-        snowfall: props.snowfall,
-        precip: props.precip,
-        below32: props.below32,
+        mTmxAv: props.mTmxAv,
+        mTmnAv: props.mTmnAv,
+        andSnGe1: props.andSnGe1,
+        andPrGe5Ti: props.andPrGe5Ti,
+        andTmnLe32: props.andTmnLe32,
         matches: props.matches
       };
 
@@ -145,11 +131,11 @@ export default function checkParams(props) {
     // prop values exist and are in acceptible range because they have a default state that is set in App.
     let info = {
       clicked: false,
-      maxTemp: props.maxTemp,
-      lowTemp: props.lowTemp,
-      snowfall: props.snowfall,
-      precip: props.precip,
-      below32: props.below32,
+      mTmxAv: props.mTmxAv,
+      mTmnAv: props.mTmnAv,
+      andSnGe1: props.andSnGe1,
+      andPrGe5Ti: props.andPrGe5Ti,
+      andTmnLe32: props.andTmnLe32,
       matches: props.matches
     };
 

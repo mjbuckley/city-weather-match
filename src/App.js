@@ -14,11 +14,11 @@ class App extends Component {
     super();
     // Weather values are set to the midway point between min and max possible values
     this.state = {
-      maxTemp: weatherConst["mlyTMaxAvg"][2],
-      lowTemp: weatherConst["mlyTMinAvg"][2],
-      snowfall: weatherConst["annInchPlus"][2],
-      precip: weatherConst["annprcpge050hi"][2],
-      below32: weatherConst["daysBelow32"][2],
+      mTmxAv: weatherConst["mTmxAv"][2],
+      mTmnAv: weatherConst["mTmnAv"][2],
+      andSnGe1: weatherConst["andSnGe1"][2],
+      andPrGe5Ti: weatherConst["andPrGe5Ti"][2],
+      andTmnLe32: weatherConst["andTmnLe32"][2],
       matches: [],
       clicked: false
     };
@@ -105,7 +105,7 @@ class App extends Component {
   }
 
 
-  // Function expects an object with valid weather values ex: {maxTemp: 100}.
+  // Function expects an object with valid weather values ex: {mTmxAv: 100}.
   updateWeatherState(info) {
     this.setState(info);
   };
@@ -127,11 +127,11 @@ class App extends Component {
           this.props.children,
           child => React.cloneElement(child,
           {
-            maxTemp: this.state.maxTemp,
-            lowTemp: this.state.lowTemp,
-            snowfall: this.state.snowfall,
-            precip: this.state.precip,
-            below32: this.state.below32,
+            mTmxAv: this.state.mTmxAv,
+            mTmnAv: this.state.mTmnAv,
+            andSnGe1: this.state.andSnGe1,
+            andPrGe5Ti: this.state.andPrGe5Ti,
+            andTmnLe32: this.state.andTmnLe32,
             matches: this.state.matches,
             clicked: this.state.clicked,
             updateWeatherState: this.updateWeatherState

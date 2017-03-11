@@ -35,11 +35,11 @@ class Results extends Component {
       <CityList
         key={station}
         station={station}
-        maxTemp={this.props.maxTemp}
-        lowTemp={this.props.lowTemp}
-        snowfall={this.props.snowfall}
-        precip={this.props.precip}
-        below32={this.props.below32}
+        mTmxAv={this.props.mTmxAv}
+        mTmnAv={this.props.mTmnAv}
+        andSnGe1={this.props.andSnGe1}
+        andPrGe5Ti={this.props.andPrGe5Ti}
+        andTmnLe32={this.props.andTmnLe32}
         clicked={this.props.clicked}
       />
     ));

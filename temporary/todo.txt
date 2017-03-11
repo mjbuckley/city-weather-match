@@ -3,7 +3,7 @@
 
 0. I have been testing param checking in the results component. Once I get this working I need to apply it everywhere.
 0. Why does my results component seem to be rendering twice? When I put console.log(this.props.matches) in the render function in logs twice on most loads, once with the previous value and once with the current value. Not sure?
-0. Right now my param checks work, but they assume valid params and values for all weather options. Be able to deal with invalid stuff and with partial weather values (say they don't care about precip but all other values present).
+0. Right now my param checks work, but they assume valid params and values for all weather options. Be able to deal with invalid stuff and with partial weather values (say they don't care about andPrGe5Ti but all other values present).
 0. I made a buildLink function to build links. It works, but should right now I pass it all props. Is there a none verbose way to only pass it some props.  Does it even matter?
 0. Get metro area page link to cities working.
 
@@ -34,7 +34,7 @@ TODO 2/7/17
 4. Render function in class vs just return in function. Why?
 5. Be sure that I'm correctly passing around weather values (that is, I always treat them as numbers and not strings).
 6. I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
-7. I should make the names of weather values in weather.json/minmax.json the same as the names as I use in the app. For example, right now in the app code I use maxTemp but in weather.json I use "mlyTMaxAvg". As this gets larger this will become confusing. The two main places where I think this is most relevent are in checkparams.js and findmatches.js. In checkparams I currently have an object that maps between terms, but that's a bad way to deal with things. FIX THIS.
+7. I should make the names of weather values in weather.json/minmax.json the same as the names as I use in the app. For example, right now in the app code I use mTmxAv but in weather.json I use "mTmxAv". As this gets larger this will become confusing. The two main places where I think this is most relevent are in checkparams.js and findmatches.js. In checkparams I currently have an object that maps between terms, but that's a bad way to deal with things. FIX THIS.
 8. I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
 9. I think I'm properly adding query params to all links (but double check), but I'm only interpreting the params on the results page. Add checkParams everywhere.
 NOTE: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
@@ -71,7 +71,7 @@ Perhaps note somewhere how many years the data is used for each city?
 
 -Should my weatherOptions const be capitalized? What about all consts?
 
--I created weatherOptions, which is an array of all weather options (maxTemp, below32, etc). That way they are all in one place and I don't have to remember to update changes in many different spots. However, I haven't started using it everywhere yet, so do that. Also, right now it is manually created, but perhaps it's something I can have done in jsoncreate with my noaa data.
+-I created weatherOptions, which is an array of all weather options (mTmxAv, andTmnLe32, etc). That way they are all in one place and I don't have to remember to update changes in many different spots. However, I haven't started using it everywhere yet, so do that. Also, right now it is manually created, but perhaps it's something I can have done in jsoncreate with my noaa data.
 
 -Should probably extract much of the logic in componentWillMount into a stand alone function becasue I'll need to reuse most of it in componentWillReceiveProps.
 

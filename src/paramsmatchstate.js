@@ -15,20 +15,3 @@ export default function paramsMatchState(next, current) {
 
   return match;
 }
-
-// BELOW is an incomplete and probably not needed idea to see if params match the default initial state values.
-// import weatherOptions from './data/weatheroptions.js';
-// import keyMap from ',/keyMap.js';
-//
-// const weatherConst = require('./data/minmax.json');
-//
-// function paramsEqualsDefault(params) {
-//   let same = true;
-//
-//   Object.keys(weatherOptions).forEach(function(option) {
-//     const fixedOption = keyMap[option]; // Maps weatherOption name to name used in weather.json
-//     if (params[option] !== weatherConst[fixedOption][2]) {
-//       return false;
-//     }
-//   }
-// });

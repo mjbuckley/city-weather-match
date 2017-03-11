@@ -7,11 +7,11 @@ const stationsObj = require('./data/weather.json');
 export default function findMatches(info) {
   let stationMatch = [];
   for (let station in stationsObj) {
-    if (parseInt(stationsObj[station]["mlyTMaxAvg"][12], 10) < info["maxTemp"] &&
-        parseInt(stationsObj[station]["mlyTMinAvg"][12], 10) > info["lowTemp"] &&
-        parseInt(stationsObj[station]["daysBelow32"], 10) < info["below32"] &&
-        parseInt(stationsObj[station]["annInchPlus"], 10) < info["snowfall"] &&
-        parseInt(stationsObj[station]["annprcpge050hi"], 10) < info["precip"]) {
+    if (parseInt(stationsObj[station]["mTmxAv"][12], 10) < info["mTmxAv"] &&
+        parseInt(stationsObj[station]["mTmnAv"][12], 10) > info["mTmnAv"] &&
+        parseInt(stationsObj[station]["andTmnLe32"], 10) < info["andTmnLe32"] &&
+        parseInt(stationsObj[station]["andSnGe1"], 10) < info["andSnGe1"] &&
+        parseInt(stationsObj[station]["andPrGe5Ti"], 10) < info["andPrGe5Ti"]) {
       stationMatch.push(station);
     };
   };

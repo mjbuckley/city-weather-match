@@ -16,22 +16,22 @@ function Location(props) {
   const multiCity = stationsObj[station]["multiCity"];
   const sharedarea = stationsObj[station]["sharedarea"];
   const state = stationsObj[station]["state"];
-  const maxTemp = stationsObj[station]["mlyTMaxAvg"][12];
-  const lowTemp = stationsObj[station]["mlyTMinAvg"][12];
-  const snowfall = stationsObj[station]["annGndInchPlus"];
-  const precip = stationsObj[station]["annprcpge050hi"];
-  const below32 = stationsObj[station]["daysBelow32"];
+  const mTmxAv = stationsObj[station]["mTmxAv"][12];
+  const mTmnAv = stationsObj[station]["mTmnAv"][12];
+  const andSnGe1 = stationsObj[station]["annGndInchPlus"];
+  const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
+  const andTmnLe32 = stationsObj[station]["andTmnLe32"];
   const path = "/location/" + encodeURIComponent(city) + "/" + state;
 
   return (
     <div>
       <h3>{city}, {state}</h3>
       <ul>
-        <li>The average high temp during the hottest month: {maxTemp}</li>
-        <li>The averag low temp during the coldest month: {lowTemp}</li>
-        <li>The average number of days with at least an inch of snowfall: {snowfall}</li>
-        <li>The average number of rainy days: {precip}</li>
-        <li>The average number of days where the temp drops below freezing: {below32}</li>
+        <li>The average high temp during the hottest month: {mTmxAv}</li>
+        <li>The averag low temp during the coldest month: {mTmnAv}</li>
+        <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
+        <li>The average number of rainy days: {andPrGe5Ti}</li>
+        <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
       </ul>
 
       { (multiCity.length > 1) ? (
@@ -44,11 +44,11 @@ function Location(props) {
           sharedarea={sharedarea}
           city={city}
           state={state}
-          maxTemp={props.maxTemp}
-          lowTemp={props.lowTemp}
-          snowfall={props.snowfall}
-          precip={props.precip}
-          below32={props.below32}
+          mTmxAv={props.mTmxAv}
+          mTmnAv={props.mTmnAv}
+          andSnGe1={props.andSnGe1}
+          andPrGe5Ti={props.andPrGe5Ti}
+          andTmnLe32={props.andTmnLe32}
           clicked={props.clicked}
         />
       ) : null}

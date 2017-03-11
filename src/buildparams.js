@@ -5,11 +5,11 @@ export default function buildParams(props) {
 
   let query = {};
 
-    query["maxTemp"] = props.maxTemp;
-    query["lowTemp"] = props.lowTemp;
-    query["snowfall"] = props.snowfall;
-    query["precip"] = props.precip;
-    query["below32"] = props.below32;
+    query["mTmxAv"] = props.mTmxAv;
+    query["mTmnAv"] = props.mTmnAv;
+    query["andSnGe1"] = props.andSnGe1;
+    query["andPrGe5Ti"] = props.andPrGe5Ti;
+    query["andTmnLe32"] = props.andTmnLe32;
 
   return query;
 }

@@ -12,29 +12,29 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      maxTemp: this.props.maxTemp,
-      lowTemp: this.props.lowTemp,
-      below32: this.props.below32,
-      snowfall: this.props.snowfall,
-      precip: this.props.precip
+      mTmxAv: this.props.mTmxAv,
+      mTmnAv: this.props.mTmnAv,
+      andTmnLe32: this.props.andTmnLe32,
+      andSnGe1: this.props.andSnGe1,
+      andPrGe5Ti: this.props.andPrGe5Ti
     };
     this.fetchData = this.fetchData.bind(this);
-    this.changeMaxTemp = this.changeMaxTemp.bind(this);
-    this.changeLowTemp = this.changeLowTemp.bind(this);
-    this.changeBelow32 = this.changeBelow32.bind(this);
-    this.changeSnowfall = this.changeSnowfall.bind(this);
-    this.changePrecip = this.changePrecip.bind(this);
+    this.changemTmxAv = this.changemTmxAv.bind(this);
+    this.changemTmnAv = this.changemTmnAv.bind(this);
+    this.changeandTmnLe32 = this.changeandTmnLe32.bind(this);
+    this.changeandSnGe1 = this.changeandSnGe1.bind(this);
+    this.changeandPrGe5Ti = this.changeandPrGe5Ti.bind(this);
   }
 
   fetchData(evt) {
     evt.preventDefault();
 
     let weatherObj = {
-      maxTemp: parseInt(this.state.maxTemp, 10),
-      lowTemp: parseInt(this.state.lowTemp, 10),
-      below32: parseInt(this.state.below32, 10),
-      snowfall: parseInt(this.state.snowfall, 10),
-      precip: parseInt(this.state.precip, 10)
+      mTmxAv: parseInt(this.state.mTmxAv, 10),
+      mTmnAv: parseInt(this.state.mTmnAv, 10),
+      andTmnLe32: parseInt(this.state.andTmnLe32, 10),
+      andSnGe1: parseInt(this.state.andSnGe1, 10),
+      andPrGe5Ti: parseInt(this.state.andPrGe5Ti, 10)
     };
 
     // Find matches
@@ -59,33 +59,33 @@ class Search extends Component {
   }
 
   // Below functions update values on range input change
-  changeMaxTemp(evt) {
+  changemTmxAv(evt) {
     this.setState({
-      maxTemp: evt.target.value
+      mTmxAv: evt.target.value
     });
   };
 
-  changeLowTemp(evt) {
+  changemTmnAv(evt) {
     this.setState({
-      lowTemp: evt.target.value
+      mTmnAv: evt.target.value
     });
   };
 
-  changeBelow32(evt) {
+  changeandTmnLe32(evt) {
     this.setState({
-      below32: evt.target.value
+      andTmnLe32: evt.target.value
     });
   };
 
-  changeSnowfall(evt) {
+  changeandSnGe1(evt) {
     this.setState({
-      snowfall: evt.target.value
+      andSnGe1: evt.target.value
     });
   };
 
-  changePrecip(evt) {
+  changeandPrGe5Ti(evt) {
     this.setState({
-      precip: evt.target.value
+      andPrGe5Ti: evt.target.value
     });
   };
 
@@ -96,52 +96,52 @@ class Search extends Component {
         <h2>Weather Options</h2>
         <form onSubmit={this.fetchData}>
           <WeatherRangeInput
-            id="maxTemp"
+            id="mTmxAv"
             description="The average high temperature durring the hottest month of the year is less than"
-            min={weatherConst["mlyTMaxAvg"][0]}
-            max={weatherConst["mlyTMaxAvg"][1]}
-            value={this.state.maxTemp}
-            onChange={this.changeMaxTemp}
+            min={weatherConst["mTmxAv"][0]}
+            max={weatherConst["mTmxAv"][1]}
+            value={this.state.mTmxAv}
+            onChange={this.changemTmxAv}
             unit="°F"
           />
           <br />
           <WeatherRangeInput
-            id="lowTemp"
+            id="mTmnAv"
             description="The average low temperature durring the coldest month of the year is greater than"
-            min={weatherConst["mlyTMinAvg"][0]}
-            max={weatherConst["mlyTMinAvg"][1]}
-            value={this.state.lowTemp}
-            onChange={this.changeLowTemp}
+            min={weatherConst["mTmnAv"][0]}
+            max={weatherConst["mTmnAv"][1]}
+            value={this.state.mTmnAv}
+            onChange={this.changemTmnAv}
             unit="°F"
           />
           <br />
           <WeatherRangeInput
-            id="below32"
+            id="andTmnLe32"
             description="The average number of days where the temperature drops below freezing is less than"
-            min={weatherConst["daysBelow32"][0]}
-            max={weatherConst["daysBelow32"][1]}
-            value={this.state.below32}
-            onChange={this.changeBelow32}
+            min={weatherConst["andTmnLe32"][0]}
+            max={weatherConst["andTmnLe32"][1]}
+            value={this.state.andTmnLe32}
+            onChange={this.changeandTmnLe32}
             unit=""
           />
           <br />
           <WeatherRangeInput
-            id="snowfall"
+            id="andSnGe1"
             description="The average number of days with an inch or more snowfall is less than"
-            min={weatherConst["annInchPlus"][0]}
-            max={weatherConst["annInchPlus"][1]}
-            value={this.state.snowfall}
-            onChange={this.changeSnowfall}
+            min={weatherConst["andSnGe1"][0]}
+            max={weatherConst["andSnGe1"][1]}
+            value={this.state.andSnGe1}
+            onChange={this.changeandSnGe1}
             unit=""
           />
           <br />
           <WeatherRangeInput
-            id="precip"
+            id="andPrGe5Ti"
             description="The average number of rainy days (at least 1/2 inch precipitation) is less than"
-            min={weatherConst["annprcpge050hi"][0]}
-            max={weatherConst["annprcpge050hi"][1]}
-            value={this.state.precip}
-            onChange={this.changePrecip}
+            min={weatherConst["andPrGe5Ti"][0]}
+            max={weatherConst["andPrGe5Ti"][1]}
+            value={this.state.andPrGe5Ti}
+            onChange={this.changeandPrGe5Ti}
             unit=""
           />
           <br />
