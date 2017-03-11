@@ -18,7 +18,7 @@ function Location(props) {
   const state = stationsObj[station]["state"];
   const mTmxAv = stationsObj[station]["mTmxAv"][12];
   const mTmnAv = stationsObj[station]["mTmnAv"][12];
-  const andSnGe1 = stationsObj[station]["annGndInchPlus"];
+  const andSnGe1 = stationsObj[station]["andSnGe1"];
   const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
   const andTmnLe32 = stationsObj[station]["andTmnLe32"];
   const path = "/location/" + encodeURIComponent(city) + "/" + state;
