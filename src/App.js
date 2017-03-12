@@ -13,6 +13,8 @@ class App extends Component {
   constructor() {
     super();
     // Weather values are set to the midway point between min and max possible values
+    // Matches is set manually. BE SURE TO UPDATE MATCHES EVERY TIME I ADD WEATHER OPTIONS
+    // OR UPDATE THE DATA.
     this.state = {
       mTmxAv: weatherConst["mTmxAv"][2],
       mTmnAv: weatherConst["mTmnAv"][2],
@@ -66,8 +68,7 @@ class App extends Component {
   // Watch for query param changes and update state as needed. This is needed because React Router does not treat
   // a change in query params as a reload of a page, just as the passing in of new props.
   componentWillReceiveProps(nextProps) {
-    console.log("receiving props");
-    console.log(nextProps);
+
     // Query params match state. Do nothing.
     if (paramsMatchState(nextProps, this.state) && this.state.clicked === true) {
       return;

@@ -83,8 +83,7 @@ Perhaps note somewhere how many years the data is used for each city?
 
 3/9/17
 
--If clicked is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. ALSO, I really should do something like I said above where query params are always full.
--Really need to get weather.json and app terms on the same page.
+-If clicked is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. Another options would be to have an additional state value that gets changed on first search and then is never changed back. Don't really like any of the options, but need to do something. ALSO, I really should do something like I said above where query params are always full.
 
 3/10
 
