@@ -9,6 +9,7 @@ import './css/App.css';
 // Min, max, and midway values for each weather category
 const weatherConst = require('./data/minmax.json');
 
+
 class App extends Component {
   constructor() {
     super();
@@ -69,8 +70,8 @@ class App extends Component {
   // a change in query params as a reload of a page, just as the passing in of new props.
   componentWillReceiveProps(nextProps) {
 
-    // Query params match state. Do nothing.
-    if (paramsMatchState(nextProps, this.state) && this.state.clicked === true) {
+    // Params match state. Do nothing.
+    if (paramsMatchState(nextProps, this.state) && (this.state.clicked === true)) {
       return;
     }
 
@@ -78,7 +79,6 @@ class App extends Component {
     if ((nextProps.location.query.length === 0) && this.state.clicked === false) {
       return;
     }
-
 
     // Query param and state values differ. Calculate new values
 

@@ -89,3 +89,26 @@ Perhaps note somewhere how many years the data is used for each city?
 
 -A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
 -IMPORTANT: Some components are built with the expectation of weather values. The problem is if I'm accessing a page outside of the context of a search. How to send different props at different times and handle the possibility of having different props available? A possible answer is to pass meaningless props around and just check for the clicked status to decide whether or not to use those props.
+
+3/12/17
+
+-Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
+
+Object.keys(weatherOptions).every(function(element) {
+  return nextProps.location.query[element] === weatherConts[element][2];
+});
+
+-I have a data point in stationsObj (andSnCGe1) that I'm currently not using. Either use (and also add in for precalculation of default matches), or remove from stationsObj. There are also some other things in there I might not use (probably on sharedArea but don't need area?) and should get rid of.
+
+
+TONIGHT
+
+-Add in default values to app.
+-Adjust functions to reflect the fact that state values will always reflect matches (can simplify use of clicked, esp. in willmount/receiveprops).
+-Test.
+-Add any notes if needed.
+-Commit changes.
+-More carefully look at my use of click throughut the whole app.
+-Save changes on usb drive.
+
+Also, right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be create by jsoncreate.js.
