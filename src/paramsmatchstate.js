@@ -1,14 +1,14 @@
 import weatherOptions from './data/weatheroptions.js';
 
-// Quick check to see if query params match state values. Since only valid values
-// can ever be stored in state, if they match then the validity check can be bypassed
-// (although it should still be checked if state.clicked is true or false).
+// Check to see if next contains the same weather values as current. Meant to check url query params against state
+// (current) in componentWillMount (in which case next is this.props.location.query), or in componentWillReceiveProps
+// (in which case next is nextProps.location.query). Returns true if values are the same, otherwise false.
 export default function paramsMatchState(next, current) {
 
   let match = true;
 
   weatherOptions.forEach(function(option) {
-    if (next.location.query[option] !== current[option]) {
+    if (next[option] !== current[option]) {
       match = false;
     }
   });

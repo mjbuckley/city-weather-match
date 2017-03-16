@@ -103,7 +103,6 @@ Object.keys(weatherOptions).every(function(element) {
 
 TONIGHT
 
--Add in default values to app.
 -Adjust functions to reflect the fact that state values will always reflect matches (can simplify use of clicked, esp. in willmount/receiveprops).
 -Test.
 -Add any notes if needed.
@@ -112,3 +111,11 @@ TONIGHT
 -Save changes on usb drive.
 
 Also, right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be create by jsoncreate.js.
+
+
+3/15/17
+
+-change clicked to active or something else
+-componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shard function in the future.
+-Can I get rid of checkParamsChange?
+-In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
