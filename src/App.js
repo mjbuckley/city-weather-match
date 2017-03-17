@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import validQueryParams from './validqueryparams.js';
+import paramsToValues from './paramstovalues.js';
 import findMatches from './findmatches.js';
 import paramsMatchState from './paramsmatchstate.js';
 import './css/App.css';
@@ -35,7 +35,7 @@ class App extends Component {
   componentWillMount() {
 
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false (validQueryParams below would handle this situation, but it's more clear/probably faster to handle here)
+    // false (paramsToValues below would handle this situation, but it's more clear/probably faster to handle here)
     if ((this.props.location.query.length === 0) && this.state.isActive === false) {
       return;
     }
@@ -51,9 +51,9 @@ class App extends Component {
     }
 
     // If we get here, query params are present and don't match state. See if they are valid then handle.
-    let info = validQueryParams(this.props);
+    let info = paramsToValues(this.props);
 
-    // info["isActive"] is only true if validQueryParams returns a complete/valid set of weather values.
+    // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
 
       const matches = findMatches(info);
@@ -78,7 +78,7 @@ class App extends Component {
   componentWillReceiveProps(nextProps) {
 
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false (validQueryParams below would handle this situation, but it's more clear/probably faster to handle here)
+    // false (paramsToValues below would handle this situation, but it's more clear/probably faster to handle here)
     if ((nextProps.location.query.length === 0) && this.state.isActive === false) {
       return;
     }
@@ -94,9 +94,9 @@ class App extends Component {
     }
 
     // If we get here, query params are present and don't match state. See if they are valid then handle.
-    let info = validQueryParams(nextProps);
+    let info = paramsToValues(nextProps);
 
-    // info["isActive"] is only true if validQueryParams returns a complete/valid set of weather values.
+    // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
 
       const matches = findMatches(info);
@@ -181,7 +181,7 @@ export default App;
 //   // If we get here, query params are present and don't match state. See if they are valid then decide how to
 //   // handle. If valid info object below will have all weather values and isActive set to true. If invalid it
 //   // will have just one property, isActive, which willl be set to false.
-//   let info = validQueryParams(this.props);
+//   let info = paramsToValues(this.props);
 //
 //   // Valid/complete query params (isActive will only be true if all values valid/present)
 //   if (info["isActive"] === true) {
@@ -219,7 +219,7 @@ export default App;
 //
 //   // If query params are present/valid, info is an object with all weather values present and isActive set
 //   // to true. If not present/invalid, info is an object with only one property, isActive, which is set to false.
-//   let info = validQueryParams(nextProps);
+//   let info = paramsToValues(nextProps);
 //
 //   // isActive will only be true if all values valid/present
 //   if (info["isActive"] === true) {
@@ -248,7 +248,7 @@ export default App;
 //
 //   // If query params are present/valid, this returns an info object with all weather values present and isActive set
 //   // to true. If not present/invalid, info is an object with only one property, isActive, which is set to false.
-//   let info = validQueryParams(this.props);
+//   let info = paramsToValues(this.props);
 //
 //   // isActive will only be true if all values valid/present
 //   if (info["isActive"] === true) {

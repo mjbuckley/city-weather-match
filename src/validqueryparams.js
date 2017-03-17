@@ -46,7 +46,7 @@ const defaults = {
 
 // THERE SEEMS TO BE AN ISSUE WHERE IF PICKS UP THE QUERY BUT DOESN'T MAKE IT
 // INTO THE INFO.LENGTH>0 IF SECTION.
-export default function validQueryParams(props) {
+export default function paramsToValues(props) {
 
   // Check if query params are even there are all:
   if (props.location.query && (Object.keys(props.location.query).length > 0)) {
