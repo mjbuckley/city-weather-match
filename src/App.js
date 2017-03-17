@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import validQueryParams from './validqueryparams.js';
 import findMatches from './findmatches.js';
-import checkParamsChange from './checkparamschange.js';
 import paramsMatchState from './paramsmatchstate.js';
 import './css/App.css';
 

@@ -115,7 +115,5 @@ Also, right now my weatheroptions.js file is hand made. See if I can automate th
 
 3/15/17
 
--change isActive to active or something else
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shard function in the future.
--Can I get rid of checkParamsChange?
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
