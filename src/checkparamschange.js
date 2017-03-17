@@ -15,8 +15,8 @@
 
   // Problem: there are alway weather values in state. A url without query params will always
   // cause a problem because it will never match the values in state. Need to do something where I
-  // check for clicked's value and do something different there. Not below, but a start:
-  // if (Object.keys(nextProps.location.query).length === 0 ) && props.clicked === false) {}
+  // check for isActive's value and do something different there. Not below, but a start:
+  // if (Object.keys(nextProps.location.query).length === 0 ) && props.isActive === false) {}
 
   // if (!nextProps.location.query) { console.log("1");}
   // if(  Object.keys(nextProps.location.query).length === 0 ) { console.log("2");}
@@ -153,7 +153,7 @@
 
 // IMPORTANT 3/8/17
 // Need to fix this. in will receive props it needs to check next.location.query[option].
-// Guess I'll need two functions. Also, what about clicked?
+// Guess I'll need two functions. Also, what about isActive?
 // Also, note that what I'm doing should be ok even if query params empty. JS returns undefined
 // for non-existent properties, not an error (I think this is different for deeply nest non-existent properties
 // but for my app all properties I'm checking are surface layer).

@@ -32,7 +32,7 @@ class WeatherInfo extends Component {
       andPrGe5Ti: '10',
       matches: [],
       andTmnLe32: '0',
-      clicked: false
+      isActive: false
     };
     this.fetchData = this.fetchData.bind(this);
     this.changemTmxAv = this.changemTmxAv.bind(this);
@@ -56,7 +56,7 @@ class WeatherInfo extends Component {
       };
     };
     this.setState({matches: stationMatch});
-    this.setState({clicked: true});
+    this.setState({isActive: true});
   };
 
 changemTmxAv(evt) {
@@ -147,7 +147,7 @@ changeandPrGe5Ti(evt) {
           <br />
           <button type="submit">Find matches</button>
         </form>
-        <CityResults matches={this.state.matches} stationsobj={stationsObj} clicked={this.state.clicked}/>
+        <CityResults matches={this.state.matches} stationsobj={stationsObj} isActive={this.state.isActive}/>
       </div>
     );
   }

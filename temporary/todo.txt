@@ -10,7 +10,7 @@
 0. Deal with spaces in city and meto area names. I think this is mostly done, but double check.
 0. Can/should I extract the link building in to a function?
 1. On the search page I can probably make the separate range input even handlers into one function.
-3. I have a clicked state I'm not currently using. I think it will be useful, but decide and remove if not.
+3. I have a isActive state I'm not currently using. I think it will be useful, but decide and remove if not.
 4. I think I have added query params to all pages, but I haven't thought through if I'm adding the correct thing (props passed down from state or something else). After that, start working on function to read the query params and do what needs to be done from there.
 6. Should I make a city to station map? Would probably be useful for the metro areas page, and maybe somewhere else.
 7. City links on mertro-areas/:metroarea page are still set to fake. See #6 for a fix.
@@ -64,8 +64,8 @@ Perhaps note somewhere how many years the data is used for each city?
 
 3/5
 
--Really need to figure out and standardize how I use clicked.
--Suppose someone does a search and has some sort of meaningful state with clicked set to true. Now, say they navigate to a page without query params (maybe a link, maybe bookmarked). There state would be lost. This probably makes sense if they manually navigate somewhere, but not if done internally. Could this be a problem?
+-Really need to figure out and standardize how I use isActive.
+-Suppose someone does a search and has some sort of meaningful state with isActive set to true. Now, say they navigate to a page without query params (maybe a link, maybe bookmarked). There state would be lost. This probably makes sense if they manually navigate somewhere, but not if done internally. Could this be a problem?
 
 -How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches.
 
@@ -83,12 +83,12 @@ Perhaps note somewhere how many years the data is used for each city?
 
 3/9/17
 
--If clicked is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. Another options would be to have an additional state value that gets changed on first search and then is never changed back. Don't really like any of the options, but need to do something. ALSO, I really should do something like I said above where query params are always full.
+-If isActive is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. Another options would be to have an additional state value that gets changed on first search and then is never changed back. Don't really like any of the options, but need to do something. ALSO, I really should do something like I said above where query params are always full.
 
 3/10
 
 -A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
--IMPORTANT: Some components are built with the expectation of weather values. The problem is if I'm accessing a page outside of the context of a search. How to send different props at different times and handle the possibility of having different props available? A possible answer is to pass meaningless props around and just check for the clicked status to decide whether or not to use those props.
+-IMPORTANT: Some components are built with the expectation of weather values. The problem is if I'm accessing a page outside of the context of a search. How to send different props at different times and handle the possibility of having different props available? A possible answer is to pass meaningless props around and just check for the isActive status to decide whether or not to use those props.
 
 3/12/17
 
@@ -103,7 +103,7 @@ Object.keys(weatherOptions).every(function(element) {
 
 TONIGHT
 
--Adjust functions to reflect the fact that state values will always reflect matches (can simplify use of clicked, esp. in willmount/receiveprops).
+-Adjust functions to reflect the fact that state values will always reflect matches (can simplify use of isActive, esp. in willmount/receiveprops).
 -Test.
 -Add any notes if needed.
 -Commit changes.
@@ -115,7 +115,7 @@ Also, right now my weatheroptions.js file is hand made. See if I can automate th
 
 3/15/17
 
--change clicked to active or something else
+-change isActive to active or something else
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shard function in the future.
 -Can I get rid of checkParamsChange?
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.

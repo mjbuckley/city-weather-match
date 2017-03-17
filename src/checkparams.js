@@ -81,7 +81,7 @@ export default function checkParams(props) {
       // Compare info values (from query params) to prop values (current values) to decide if state should
       // be updated. Much of this code will be in the original function above.
 
-      if (props.clicked === true &&
+      if (props.isActive === true &&
           info.mTmxAv === props.mTmxAv &&
           info.mTmnAv === props.mTmnAv &&
           info.andSnGe1 === props.andSnGe1 &&
@@ -95,7 +95,7 @@ export default function checkParams(props) {
         // the new values.
         const matches = findMatches(info);
         info["matches"] = matches;
-        info["clicked"] = true;
+        info["isActive"] = true;
 
         props.updateWeatherState(info);
       }
@@ -105,7 +105,7 @@ export default function checkParams(props) {
       // sure thats even a good idea, and definately not now). This matches the code in the else statement below.
 
       let info = {
-        clicked: false,
+        isActive: false,
         mTmxAv: props.mTmxAv,
         mTmnAv: props.mTmnAv,
         andSnGe1: props.andSnGe1,
@@ -125,12 +125,12 @@ export default function checkParams(props) {
     // not to use values in state.
 
     // In hindsite I probably should have designed updateWeatherState differently, but it expects all values to be
-    // present, so that's why all values are in the below info object. Clicked is the only value the really matters
-    // here (since clicked is set to false the other values will never be used for anything except to prepopulate the
+    // present, so that's why all values are in the below info object. isActive is the only value the really matters
+    // here (since isActive is set to false the other values will never be used for anything except to prepopulate the
     // search range slider). Also, even though the weather values won't really be used, I know that the
     // prop values exist and are in acceptible range because they have a default state that is set in App.
     let info = {
-      clicked: false,
+      isActive: false,
       mTmxAv: props.mTmxAv,
       mTmnAv: props.mTmnAv,
       andSnGe1: props.andSnGe1,

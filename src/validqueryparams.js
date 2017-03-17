@@ -15,7 +15,7 @@ const minMax = require('./data/minmax.json');
 // NEW 3/5/17:
 // Takes props from App (which right now should only be query params) and returns an info object with complete/valid
 // weather values or false if such an object is not possible to create based on the query params.
-// SHOULD I ADD CLICKED to true in info?
+// SHOULD I ADD isActive to true in info?
 
 
 // HELPER VARIABLES (eventuall extract to stand alone).
@@ -93,7 +93,7 @@ export default function validQueryParams(props) {
         }
       }
 
-      info["clicked"] = true;
+      info["isActive"] = true;
 
     return info;
 
@@ -102,7 +102,7 @@ export default function validQueryParams(props) {
       // though there were no query params (some day I could consider error messages to the user, but not
       // sure thats even a good idea, and definately not now). This matches the code in the else statement below.
 
-      return {clicked: false};
+      return {isActive: false};
     }
   } else {
     console.log("Nothing in params");
@@ -112,11 +112,11 @@ export default function validQueryParams(props) {
     // not to use values in state.
 
     // In hindsite I probably should have designed updateWeatherState differently, but it expects all values to be
-    // present, so that's why all values are in the below info object. Clicked is the only value the really matters
-    // here (since clicked is set to false the other values will never be used for anything except to prepopulate the
+    // present, so that's why all values are in the below info object. isActive is the only value the really matters
+    // here (since isActive is set to false the other values will never be used for anything except to prepopulate the
     // search range slider). Also, even though the weather values won't really be used, I know that the
     // prop values exist and are in acceptible range because they have a default state that is set in App.
 
-    return {clicked: false};
+    return {isActive: false};
   }
 }

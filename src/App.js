@@ -25,7 +25,7 @@ class App extends Component {
       andPrGe5Ti: weatherConst["andPrGe5Ti"][2],
       andTmnLe32: weatherConst["andTmnLe32"][2],
       matches: defaultMatches["defaultMatches"],
-      clicked: false
+      isActive: false
     };
     this.updateWeatherState = this.updateWeatherState.bind(this);
   }
@@ -35,17 +35,17 @@ class App extends Component {
   // Note that this code is the same as in componentWillReceiveProps except this.props is used instead of nextProps.
   componentWillMount() {
 
-    // Empty query params signify that clicked should be false, so do nothing if they are empty and clicked is set to
+    // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
     // false (validQueryParams below would handle this situation, but it's more clear/probably faster to handle here)
-    if ((this.props.location.query.length === 0) && this.state.clicked === false) {
+    if ((this.props.location.query.length === 0) && this.state.isActive === false) {
       return;
     }
 
-    // If query params match state, no need to change weather values, but change clicked to true if currently false.
+    // If query params match state, no need to change weather values, but change isActive to true if currently false.
     if (paramsMatchState(this.props.location.query, this.state)) {
 
-      if (this.state.clicked === false) {
-        this.updateWeatherState({clicked: true});
+      if (this.state.isActive === false) {
+        this.updateWeatherState({isActive: true});
       }
 
       return;
@@ -54,20 +54,20 @@ class App extends Component {
     // If we get here, query params are present and don't match state. See if they are valid then handle.
     let info = validQueryParams(this.props);
 
-    // info["clicked"] is only true if validQueryParams returns a complete/valid set of weather values.
-    if (info["clicked"] === true) {
+    // info["isActive"] is only true if validQueryParams returns a complete/valid set of weather values.
+    if (info["isActive"] === true) {
 
       const matches = findMatches(info);
       info["matches"] = matches;
 
       this.updateWeatherState(info);
 
-    // Invalid query params, so can't update weather values. Make sure clicked is set to false.
+    // Invalid query params, so can't update weather values. Make sure isActive is set to false.
     } else {
 
-      if (this.state.clicked === true) {
+      if (this.state.isActive === true) {
 
-        this.updateWeatherState({clicked: false});
+        this.updateWeatherState({isActive: false});
       } // else nothing: state is already set to false.
     }
   }
@@ -78,17 +78,17 @@ class App extends Component {
   // Note that this code is the same as in componentWillMount except nextProps is used instead of this.props.
   componentWillReceiveProps(nextProps) {
 
-    // Empty query params signify that clicked should be false, so do nothing if they are empty and clicked is set to
+    // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
     // false (validQueryParams below would handle this situation, but it's more clear/probably faster to handle here)
-    if ((nextProps.location.query.length === 0) && this.state.clicked === false) {
+    if ((nextProps.location.query.length === 0) && this.state.isActive === false) {
       return;
     }
 
-    // If query params match state, no need to change weather values, but change clicked to true if currently false.
+    // If query params match state, no need to change weather values, but change isActive to true if currently false.
     if (paramsMatchState(nextProps.location.query, this.state)) {
 
-      if (this.state.clicked === false) {
-        this.updateWeatherState({clicked: true});
+      if (this.state.isActive === false) {
+        this.updateWeatherState({isActive: true});
       }
 
       return;
@@ -97,20 +97,20 @@ class App extends Component {
     // If we get here, query params are present and don't match state. See if they are valid then handle.
     let info = validQueryParams(nextProps);
 
-    // info["clicked"] is only true if validQueryParams returns a complete/valid set of weather values.
-    if (info["clicked"] === true) {
+    // info["isActive"] is only true if validQueryParams returns a complete/valid set of weather values.
+    if (info["isActive"] === true) {
 
       const matches = findMatches(info);
       info["matches"] = matches;
 
       this.updateWeatherState(info);
 
-    // Invalid query params, so can't update weather values. Make sure clicked is set to false.
+    // Invalid query params, so can't update weather values. Make sure isActive is set to false.
     } else {
 
-      if (this.state.clicked === true) {
+      if (this.state.isActive === true) {
 
-        this.updateWeatherState({clicked: false});
+        this.updateWeatherState({isActive: false});
       } // else nothing: state is already set to false.
     }
   }
@@ -145,7 +145,7 @@ class App extends Component {
             andPrGe5Ti: this.state.andPrGe5Ti,
             andTmnLe32: this.state.andTmnLe32,
             matches: this.state.matches,
-            clicked: this.state.clicked,
+            isActive: this.state.isActive,
             updateWeatherState: this.updateWeatherState
           })
         )}
@@ -162,40 +162,40 @@ export default App;
 
 // componentWillMount() {
 //
-//   // If this.state.clicked is false, then empty query params are actually a kind of match. In that case, do
+//   // If this.state.isActive is false, then empty query params are actually a kind of match. In that case, do
 //   // nothing and return (code below would handle this situation, but it's more clear/probably faster to handle here)
-//   if ((this.props.location.query.length === 0) && this.state.clicked === false) {
+//   if ((this.props.location.query.length === 0) && this.state.isActive === false) {
 //     return;
 //   }
 //
 //   // If query params match state, no need to recalculate anything. Values in state are always complete/valid.
-//   // If clicked is false change to true, but otherwise do nothing.
+//   // If isActive is false change to true, but otherwise do nothing.
 //   if (paramsMatchState(this.props, this.state)) {
 //
-//     if (this.state.clicked === false) {
-//       this.updateWeatherState({clicked: true});
+//     if (this.state.isActive === false) {
+//       this.updateWeatherState({isActive: true});
 //     }
 //
 //     return;
 //   }
 //
 //   // If we get here, query params are present and don't match state. See if they are valid then decide how to
-//   // handle. If valid info object below will have all weather values and clicked set to true. If invalid it
-//   // will have just one property, clicked, which willl be set to false.
+//   // handle. If valid info object below will have all weather values and isActive set to true. If invalid it
+//   // will have just one property, isActive, which willl be set to false.
 //   let info = validQueryParams(this.props);
 //
-//   // Valid/complete query params (clicked will only be true if all values valid/present)
-//   if (info["clicked"] === true) {
+//   // Valid/complete query params (isActive will only be true if all values valid/present)
+//   if (info["isActive"] === true) {
 //
 //     const matches = findMatches(info);
 //     info["matches"] = matches;
 //
 //     this.updateWeatherState(info);
 //
-//   // Invalid/empty query params, so can't update weather values. Make sure clicked is set to false.
+//   // Invalid/empty query params, so can't update weather values. Make sure isActive is set to false.
 //   } else {
 //
-//     if (this.state.clicked === true) {
+//     if (this.state.isActive === true) {
 //
 //       this.updateWeatherState(info);
 //     } // else nothing: state is already set to false.
@@ -207,35 +207,35 @@ export default App;
 // componentWillReceiveProps(nextProps) {
 //
 //   // Params match state. Do nothing.
-//   if (paramsMatchState(nextProps, this.state) && (this.state.clicked === true)) {
+//   if (paramsMatchState(nextProps, this.state) && (this.state.isActive === true)) {
 //     return;
 //   }
 //
-//   // No query params, but this.state.clicked is false so this is a match. Do nothing.
-//   if ((nextProps.location.query.length === 0) && this.state.clicked === false) {
+//   // No query params, but this.state.isActive is false so this is a match. Do nothing.
+//   if ((nextProps.location.query.length === 0) && this.state.isActive === false) {
 //     return;
 //   }
 //
 //   // Query param and state values differ. Calculate new values
 //
-//   // If query params are present/valid, info is an object with all weather values present and clicked set
-//   // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
+//   // If query params are present/valid, info is an object with all weather values present and isActive set
+//   // to true. If not present/invalid, info is an object with only one property, isActive, which is set to false.
 //   let info = validQueryParams(nextProps);
 //
-//   // Clicked will only be true if all values valid/present
-//   if (info["clicked"] === true) {
+//   // isActive will only be true if all values valid/present
+//   if (info["isActive"] === true) {
 //
 //     const matches = findMatches(info);
 //     info["matches"] = matches;
 //
 //     this.updateWeatherState(info);
 //
-//   // Clicked is set to false, meaning the query params were either not present or not valid.
+//   // isActive is set to false, meaning the query params were either not present or not valid.
 //   } else {
 //
-//     if (this.state.clicked === true) {
+//     if (this.state.isActive === true) {
 //
-//       // update state so that clicked is set to false.
+//       // update state so that isActive is set to false.
 //       this.updateWeatherState(info);
 //     } // else nothing: state is as it should be.
 //   }
@@ -247,21 +247,21 @@ export default App;
 
 // componentWillMount() {
 //
-//   // If query params are present/valid, this returns an info object with all weather values present and clicked set
-//   // to true. If not present/invalid, info is an object with only one property, clicked, which is set to false.
+//   // If query params are present/valid, this returns an info object with all weather values present and isActive set
+//   // to true. If not present/invalid, info is an object with only one property, isActive, which is set to false.
 //   let info = validQueryParams(this.props);
 //
-//   // Clicked will only be true if all values valid/present
-//   if (info["clicked"] === true) {
+//   // isActive will only be true if all values valid/present
+//   if (info["isActive"] === true) {
 //
 //     // Compares info and state's weather values. Returns true if there is a difference, false if the same.
 //     const mismatch = checkParamsChange(info, this.state);
 //
-//     // If state and info values differ, calculate matches and update state. Also do this if state's clicked value
+//     // If state and info values differ, calculate matches and update state. Also do this if state's isActive value
 //     // is false (This covers the rare possibility that state and info weather values match but state's matches haven't been
 //     // calculated yet, such as if on initial load the query params matched the default state values. Doing this might
 //     // cause a recalculation to happen unneccesarily, but it prevents this possible error).
-//     if (mismatch || this.state.clicked === false) {
+//     if (mismatch || this.state.isActive === false) {
 //
 //       const matches = findMatches(info);
 //       info["matches"] = matches;
@@ -269,12 +269,12 @@ export default App;
 //       this.updateWeatherState(info);
 //     } // else nothing: query params match current state, no need to do anything.
 //
-//   // Clicked is set to false, meaning the query params were either not present or not valid.
+//   // isActive is set to false, meaning the query params were either not present or not valid.
 //   } else {
 //
-//     if (this.state.clicked === true) {
+//     if (this.state.isActive === true) {
 //
-//       // update state so that clicked is set to false.
+//       // update state so that isActive is set to false.
 //       this.updateWeatherState(info);
 //     } // else nothing: state is as it should be.
 //   }

@@ -6,7 +6,7 @@ import buildParams from './buildparams.js';
 export default function buildLink(props, path) {
 
 
-  if (props.clicked) {
+  if (props.isActive) {
     const query = buildParams(props);
     const link = {
       pathname: path,

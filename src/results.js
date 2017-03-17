@@ -40,7 +40,7 @@ class Results extends Component {
         andSnGe1={this.props.andSnGe1}
         andPrGe5Ti={this.props.andPrGe5Ti}
         andTmnLe32={this.props.andTmnLe32}
-        clicked={this.props.clicked}
+        isActive={this.props.isActive}
       />
     ));
     }

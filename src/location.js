@@ -49,7 +49,7 @@ function Location(props) {
           andSnGe1={props.andSnGe1}
           andPrGe5Ti={props.andPrGe5Ti}
           andTmnLe32={props.andTmnLe32}
-          clicked={props.clicked}
+          isActive={props.isActive}
         />
       ) : null}
 
