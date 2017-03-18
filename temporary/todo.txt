@@ -1,119 +1,47 @@
-*. I changed weather.json so that metro areas now include their state ("Columbus, OH"). This helps to distinguish between different areas of the same name.  Things appear to still be working ok, but double check. Be sure to use this new feature to be sure I actually am distinuishing areas of the same name.
-* I added metromap.json which maps the metro areas to their cities to their stations. Will be useful on the metroarea page. Use if to make links.
-
-0. I have been testing param checking in the results component. Once I get this working I need to apply it everywhere.
-0. Why does my results component seem to be rendering twice? When I put console.log(this.props.matches) in the render function in logs twice on most loads, once with the previous value and once with the current value. Not sure?
-0. Right now my param checks work, but they assume valid params and values for all weather options. Be able to deal with invalid stuff and with partial weather values (say they don't care about andPrGe5Ti but all other values present).
-0. I made a buildLink function to build links. It works, but should right now I pass it all props. Is there a none verbose way to only pass it some props.  Does it even matter?
-0. Get metro area page link to cities working.
-
-0. Deal with spaces in city and meto area names. I think this is mostly done, but double check.
-0. Can/should I extract the link building in to a function?
-1. On the search page I can probably make the separate range input even handlers into one function.
-3. I have a isActive state I'm not currently using. I think it will be useful, but decide and remove if not.
-4. I think I have added query params to all pages, but I haven't thought through if I'm adding the correct thing (props passed down from state or something else). After that, start working on function to read the query params and do what needs to be done from there.
-6. Should I make a city to station map? Would probably be useful for the metro areas page, and maybe somewhere else.
-7. City links on mertro-areas/:metroarea page are still set to fake. See #6 for a fix.
-8. Need to add in link (where needed) on station page to city disambiguation page.
+-Why does my results component seem to be rendering twice? When I put console.log(this.props.matches) in the render function in logs twice on most loads, once with the previous value and once with the current value. Not sure?
+-Convert some components back to functions
+-search page vs search done on home page, plus query params and these two.
 7. Might look in to Lodash function memoization. This might be a replacement for what I'm trying to do with looking at query params and deciding if I need to update state. Also, look into Lodash in general.
 8. I can probably simplify the way I'm passing props in some places. Instead of explicitly sending things there are probably some better ways (spread operator?).
-
-
-NOTES
-
 1. Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 2. Washington DC looks like it has been mapped to Maryland. Manually correct?
 3. Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
-
-
-TODO 2/7/17
-
-1. So far I have no check on the parameter. What happens if gibberish gets passed in? What if the parameters are incomplete? Not yet sure where the best place to check is or where to return the error. One spot is in the checkParams function. Another spot might be the updateWeatherState function in App.
-2. Where do I still need to add the checkParams function? Does it need to be everywhere?
-3. In the Results component I pass a string as an argument in a buildLink function. I think this is ok, but double check.
+4. I should go through and remove stations not from the 50 states and DC.
 4. Render function in class vs just return in function. Why?
-5. Be sure that I'm correctly passing around weather values (that is, I always treat them as numbers and not strings).
 6. I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
-7. I should make the names of weather values in weather.json/minmax.json the same as the names as I use in the app. For example, right now in the app code I use mTmxAv but in weather.json I use "mTmxAv". As this gets larger this will become confusing. The two main places where I think this is most relevent are in checkparams.js and findmatches.js. In checkparams I currently have an object that maps between terms, but that's a bad way to deal with things. FIX THIS.
+-Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove.
 8. I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
-9. I think I'm properly adding query params to all links (but double check), but I'm only interpreting the params on the results page. Add checkParams everywhere.
 NOTE: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 10. I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
-
-
-NOTES on checkparams.js
-
--Break up the function into smaller pieces.
--QUESTION: I pass in props, but aren't props already available here? Any reason to do this?
--TO DO. Extract the helper values that I create. Some of them can probably be removed all together with some renaming of vlaues.
-
-
-2/22 note:
-
--In checkparams I call props.updateWeatherState.js. Sometimes the value I pass to checkparams is the current props, sometimes it is nextProps. It seems to work in both cases, but are there any places where nextProps might cause a problem?
--I if a query param is missing when expected, I just replace it with the min/max value. In general this makes sense, but consider doing something different if all query params are missing (because this will return every city). Also, maybe have some sort of check to see if a value is the min max value and can just skip checking stations for that value (to speed things up)?
-
-
-2/24 Note:
-
--I've converted MetroArea back to a component and implemented the param lifecycle components. I had to fix checkparamschange.js because there was an infinite loop. It was calling checkparams whenever the query param length was zero. This would update state which would cause checkparamschange to run, and of course its length would still be zero, so this went on forever. Instead I now just compare whether this.props.queryvalue === nextProps.queryvalue. This is what I originally had but wasn't sure how JS handled non-existent property values. I'm still not positive, but this seems to be working ok. Still, look into this and make sure what I have is good. Also, erase old commented out code once I'm certain.
-
-3/3
-
-Perhaps note somewhere how many years the data is used for each city?
-
-3/5
-
--Really need to figure out and standardize how I use isActive.
--Suppose someone does a search and has some sort of meaningful state with isActive set to true. Now, say they navigate to a page without query params (maybe a link, maybe bookmarked). There state would be lost. This probably makes sense if they manually navigate somewhere, but not if done internally. Could this be a problem?
-
--How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches.
-
+-I think I can get rid of checkparams.js?
+-Perhaps note somewhere how many years the data is used for each city?
+-How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches. For example, doing a check for isActive === true is not sufficient because it could be true but matches could be [].
 -Should my weatherOptions const be capitalized? What about all consts?
-
--I created weatherOptions, which is an array of all weather options (mTmxAv, andTmnLe32, etc). That way they are all in one place and I don't have to remember to update changes in many different spots. However, I haven't started using it everywhere yet, so do that. Also, right now it is manually created, but perhaps it's something I can have done in jsoncreate with my noaa data.
-
--Should probably extract much of the logic in componentWillMount into a stand alone function becasue I'll need to reuse most of it in componentWillReceiveProps.
-
--I think I can get rid of updateWeatherState and just use this.setState because all state updates are now done in App?
-
-3/8/17
-
--I think that partial query params should be fixed to include all info (giving the other values the min/max possible option). This way, if React ever needs to run componentWillReceiveProps then the params will fully match state and matches will not have to be recalculated.
-
-3/9/17
-
--If isActive is set to false I always recalculate matches. However, the only time I can think of that this is really needed is when the weather values are the default values in the very beginning becuase matches hasn't been calculated yet. If I either give the default state a default set of matches or just make sure the query params arent the same as the default values, then I can avoid this whole issue. Another options would be to have an additional state value that gets changed on first search and then is never changed back. Don't really like any of the options, but need to do something. ALSO, I really should do something like I said above where query params are always full.
-
-3/10
-
 -A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
--IMPORTANT: Some components are built with the expectation of weather values. The problem is if I'm accessing a page outside of the context of a search. How to send different props at different times and handle the possibility of having different props available? A possible answer is to pass meaningless props around and just check for the isActive status to decide whether or not to use those props.
-
-3/12/17
-
 -Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
-
-Object.keys(weatherOptions).every(function(element) {
-  return nextProps.location.query[element] === weatherConts[element][2];
-});
-
--I have a data point in stationsObj (andSnCGe1) that I'm currently not using. Either use (and also add in for precalculation of default matches), or remove from stationsObj. There are also some other things in there I might not use (probably on sharedArea but don't need area?) and should get rid of.
+  Object.keys(weatherOptions).every(function(element) {
+    return nextProps.location.query[element] === weatherConts[element][2];
+  });
+-Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 
 
-TONIGHT
 
--Adjust functions to reflect the fact that state values will always reflect matches (can simplify use of isActive, esp. in willmount/receiveprops).
--Test.
--Add any notes if needed.
--Commit changes.
--More carefully look at my use of click throughut the whole app.
--Save changes on usb drive.
+TO DO NOW
 
-Also, right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be create by jsoncreate.js.
+-Need to figure out exactly how I want to use isClicked. Specifically, I have components that should work differently depending on isClicked's status, but right now they assume isClicked is true. Similarly, these components are being passed in props and the props are being used, even though isClicked is false. Ideally I probably should find a way to not even have to pass in the unused props, but minimally I need to run a check for isClicked and do something different if it's false.
 
 
-3/15/17
 
--componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shard function in the future.
+TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
+
+-Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
+-Update weather.json example station to match the current reality.
+
+
+
+MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
+
+-componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
+-There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need.
+-On search.js I can probably make the separate range input even handlers into one function.
