@@ -1,41 +1,24 @@
--Why does my results component seem to be rendering twice? When I put console.log(this.props.matches) in the render function in logs twice on most loads, once with the previous value and once with the current value. Not sure?
--Convert some components back to functions
--search page vs search done on home page, plus query params and these two.
-7. Might look in to Lodash function memoization. This might be a replacement for what I'm trying to do with looking at query params and deciding if I need to update state. Also, look into Lodash in general.
-8. I can probably simplify the way I'm passing props in some places. Instead of explicitly sending things there are probably some better ways (spread operator?).
-1. Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
-2. Washington DC looks like it has been mapped to Maryland. Manually correct?
-3. Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
-4. I should go through and remove stations not from the 50 states and DC.
-4. Render function in class vs just return in function. Why?
-6. I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
--Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove.
-8. I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
-NOTE: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
-10. I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
--I think I can get rid of checkparams.js?
--Perhaps note somewhere how many years the data is used for each city?
--How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches. For example, doing a check for isActive === true is not sufficient because it could be true but matches could be [].
--Should my weatherOptions const be capitalized? What about all consts?
--A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
--Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
-  Object.keys(weatherOptions).every(function(element) {
-    return nextProps.location.query[element] === weatherConts[element][2];
-  });
--Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
-
-
-
 TO DO NOW
 
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components that should work differently depending on isClicked's status, but right now they assume isClicked is true. Similarly, these components are being passed in props and the props are being used, even though isClicked is false. Ideally I probably should find a way to not even have to pass in the unused props, but minimally I need to run a check for isClicked and do something different if it's false.
+-Convert some components back to functions
+-I think I can get rid of checkparams.js?
+-Lots of commented out code and old comments need to be removed.
+-Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page. There are thoughts both ways. This is what I was thinking a while ago:
+  I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
+  -How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches. For example, doing a check for isActive === true is not sufficient because it could be true but matches could be [].
 
 
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
+-Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
+-Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
 -Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
 -Update weather.json example station to match the current reality.
+-Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove.
+-I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
+-I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 
 
 
@@ -43,5 +26,23 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
--There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need.
+-There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
 -On search.js I can probably make the separate range input even handlers into one function.
+-Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
+-I should go through and remove stations not from the 50 states and DC.
+-I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
+-Should my weatherOptions const be capitalized? What about all consts?
+-A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
+-Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
+-Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
+
+
+
+NOTES
+
+-Might look in to Lodash function memoization. Lodash looks interesting in general, but the memoization could be a better way to handle the "cacheing" I do with state.
+-Get better sense of using the spread operator.
+-Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
+  Object.keys(weatherOptions).every(function(element) {
+    return nextProps.location.query[element] === weatherConts[element][2];
+  });
