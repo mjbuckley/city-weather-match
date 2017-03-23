@@ -1,8 +1,13 @@
+DOING NOW: Remove old comments, no longer needed code (checkParamsChange, etc.), convert results to function.
+
+
 TO DO NOW
+
+-3/23/17:
+MetroArea has been improved a lot, but still some to do. 1) I think the actual li with city name and link is the same or very similar to what I do in other places in the app. See if I can have it all in one place share this between components. 2) Don't forget error handling (bad metro area name) and 3) isActive state handling.
 
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components that should work differently depending on isClicked's status, but right now they assume isClicked is true. Similarly, these components are being passed in props and the props are being used, even though isClicked is false. Ideally I probably should find a way to not even have to pass in the unused props, but minimally I need to run a check for isClicked and do something different if it's false.
 -Convert some components back to functions
--I think I can get rid of checkparams.js?
 -Lots of commented out code and old comments need to be removed.
 -Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page. There are thoughts both ways. This is what I was thinking a while ago:
   I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
@@ -12,6 +17,7 @@ TO DO NOW
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
+-Deal with possibility of bad url for MetroArea (return something like "that's not a metro area"). What about other things like this I might be missing?
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
 -Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
 -Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
@@ -19,11 +25,14 @@ TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 -Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove.
 -I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
 -I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
+-Curiosity to figure out: The situation is that I'm on the results or metro area page (probably others too), and some of the links are a different color because they have already been visited. If I change the query params on the page such that the new results still include those previously visited page, the links no longer show that they have been previously visited. I'm not sure this is even a problem, but I'd like to understand why this is happening.
+-Is there any practical/performance difference between defining a constant inside vs. outside a function?
 
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Should the li in CitiesList be ol instead of ul?
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
 -There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
