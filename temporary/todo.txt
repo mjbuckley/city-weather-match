@@ -1,4 +1,4 @@
-DOING NOW: Remove old comments, no longer needed code (checkParamsChange, etc.), convert results to function.
+DOING NOW: Update App and paramstovalues to move all handling of empty query params out of paramstovalues. This shortens code and should speed things up in some cases.
 
 
 TO DO NOW
@@ -6,6 +6,9 @@ TO DO NOW
 -3/23/17:
 MetroArea has been improved a lot, but still some to do. 1) I think the actual li with city name and link is the same or very similar to what I do in other places in the app. See if I can have it all in one place share this between components. 2) Don't forget error handling (bad metro area name) and 3) isActive state handling.
 
+
+-404s: I can approximate something like a 404 with a * route in react router, however this will not actually return an actuall 404 http response, just a 200 response w/ an error message. This is probably ok, but would be nice to have it be legit.
+-The 404 issue above reminds me that I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components that should work differently depending on isClicked's status, but right now they assume isClicked is true. Similarly, these components are being passed in props and the props are being used, even though isClicked is false. Ideally I probably should find a way to not even have to pass in the unused props, but minimally I need to run a check for isClicked and do something different if it's false.
 -Convert some components back to functions
 -Lots of commented out code and old comments need to be removed.

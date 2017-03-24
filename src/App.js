@@ -35,8 +35,13 @@ class App extends Component {
   componentWillMount() {
 
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false (paramsToValues below would handle this situation, but it's more clear/probably faster to handle here)
-    if ((this.props.location.query.length === 0) && this.state.isActive === false) {
+    // false. If empty but isActiveis true then set it to false.
+    if (this.props.location.query.length === 0) {
+
+      if (this.state.isActive === true) {
+        this.updateWeatherState({isActive: false});
+      }
+
       return;
     }
 
@@ -78,10 +83,16 @@ class App extends Component {
   componentWillReceiveProps(nextProps) {
 
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false (paramsToValues below would handle this situation, but it's more clear/probably faster to handle here)
-    if ((nextProps.location.query.length === 0) && this.state.isActive === false) {
+    // false. If empty but isActiveis true then set it to false.
+    if (nextProps.location.query.length === 0) {
+
+      if (this.state.isActive === true) {
+        this.updateWeatherState({isActive: false});
+      }
+
       return;
     }
+
 
     // If query params match state, no need to change weather values, but change isActive to true if currently false.
     if (paramsMatchState(nextProps.location.query, this.state)) {

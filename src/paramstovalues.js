@@ -46,76 +46,66 @@ const defaults = {
 
 // THERE SEEMS TO BE AN ISSUE WHERE IF PICKS UP THE QUERY BUT DOESN'T MAKE IT
 // INTO THE INFO.LENGTH>0 IF SECTION.
+
+
+
+
+// Function takes query param values, validates, and returns a full set of weather values if valid
+// ane returns {isActive: false} if invalid. Function assumes that at least some query params are present,
+// but not that they are valid (checks for presence should be done before this function is called.)
 export default function paramsToValues(props) {
 
-  // Check if query params are even there are all:
-  if (props.location.query && (Object.keys(props.location.query).length > 0)) {
-    // Object where valid weather values will be stored
-    let info = {};
+  // Object where valid weather values will be stored
+  let info = {};
 
-    // Loop through each query param key and add valid values to info object.
-    Object.keys(props.location.query).forEach(function(key) {
+  // Loop through each query param key and add valid values to info object.
+  Object.keys(props.location.query).forEach(function(key) {
 
-      // Verify key is a valid weather value name
-      if (weatherOptions.includes(key)) {
+    // Verify key is a valid weather value name
+    if (weatherOptions.includes(key)) {
 
-        // if yes, grab its value
-        const value = parseInt(props.location.query[key], 10);
+      // if yes, grab its value
+      const value = parseInt(props.location.query[key], 10);
 
-        // Verify that value is an int and is in range of possible values
-        if (Number.isInteger(value) &&
-            value >= (minMax[key][0]) &&
-            value <= (minMax[key][1])) {
+      // Verify that value is an int and is in range of possible values
+      if (Number.isInteger(value) &&
+          value >= (minMax[key][0]) &&
+          value <= (minMax[key][1])) {
 
-          // query param key and value are good, so add to info object
-          info[key] = value;
-        } // else: valid keys but invalid values (not doing anything for now, will just be missing from info).
-      } // else: query params pressent but invalid keys (not doing anything for now, will just be missing from info).
-    });
+        // query param key and value are good, so add to info object
+        info[key] = value;
+      } // else: valid keys but invalid values (not doing anything for now, will just be missing from info).
+    } // else: query params pressent but invalid keys (not doing anything for now, will just be missing from info).
+  });
 
 
-    // AT THIS POINT THE INFO OBJECT IS BUILT. NOW LOOK AT IT'S CONTENTS AND DECIDE WHAT TO DO
+  // AT THIS POINT THE INFO OBJECT IS BUILT. NOW LOOK AT IT'S CONTENTS AND DECIDE WHAT TO DO
 
 
-    // Check if info contains values
-    if (Object.keys(info).length > 0) {
+  // Check if info contains values
+  if (Object.keys(info).length > 0) {
 
-      // Check if info is missing a value
-      if (Object.keys(info).length < weatherOptions.length) {
+    // Check if info is missing a value
+    if (Object.keys(info).length < weatherOptions.length) {
 
-        // info is missing at least one needed value (omitted or invalid in query params).
-        // Find keys with missing value(s) and add default value.
-        for (let i = 0; i < weatherOptions.length; i++) {
-          let option = weatherOptions[i];
-          if (info[option] === undefined) {
-            info[option] = defaults[option];
-          }
+      // info is missing at least one needed value (omitted or invalid in query params).
+      // Find keys with missing value(s) and add default value.
+      for (let i = 0; i < weatherOptions.length; i++) {
+        let option = weatherOptions[i];
+        if (info[option] === undefined) {
+          info[option] = defaults[option];
         }
       }
-
-      info["isActive"] = true;
-
-    return info;
-
-    } else {
-      // Something was in query params, but nothing was valid, so in practice I'm treating it as
-      // though there were no query params (some day I could consider error messages to the user, but not
-      // sure thats even a good idea, and definately not now). This matches the code in the else statement below.
-
-      return {isActive: false};
     }
+
+    info["isActive"] = true;
+
+  return info;
+
   } else {
-    console.log("Nothing in params");
-
-    // There are no query params. In general, most pages can function fine without query params. Each page will
-    // decide what to do (doesn't need to be handled here). Change cicked value to false so pages/compents know
-    // not to use values in state.
-
-    // In hindsite I probably should have designed updateWeatherState differently, but it expects all values to be
-    // present, so that's why all values are in the below info object. isActive is the only value the really matters
-    // here (since isActive is set to false the other values will never be used for anything except to prepopulate the
-    // search range slider). Also, even though the weather values won't really be used, I know that the
-    // prop values exist and are in acceptible range because they have a default state that is set in App.
+    // Something was in query params, but nothing was valid, so in practice I'm treating it as
+    // though there were no query params (some day I could consider error messages to the user, but not
+    // sure thats even a good idea, and definately not now). This matches the code in the else statement below.
 
     return {isActive: false};
   }
