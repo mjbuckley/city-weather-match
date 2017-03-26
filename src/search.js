@@ -34,7 +34,8 @@ class Search extends Component {
       mTmnAv: parseInt(this.state.mTmnAv, 10),
       andTmnLe32: parseInt(this.state.andTmnLe32, 10),
       andSnGe1: parseInt(this.state.andSnGe1, 10),
-      andPrGe5Ti: parseInt(this.state.andPrGe5Ti, 10)
+      andPrGe5Ti: parseInt(this.state.andPrGe5Ti, 10),
+      isActive: true
     };
 
     // Find matches

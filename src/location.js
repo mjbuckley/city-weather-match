@@ -12,49 +12,70 @@ function Location(props) {
 
   // Keep in mind that the weather values below are not search values but values for the station.
   const station = decodeURIComponent(props.params.station);
-  const city = stationsObj[station]["city"];
-  const multiCity = stationsObj[station]["multiCity"];
-  const sharedarea = stationsObj[station]["sharedarea"];
-  const state = stationsObj[station]["state"];
-  const mTmxAv = stationsObj[station]["mTmxAv"][12];
-  const mTmnAv = stationsObj[station]["mTmnAv"][12];
-  const andSnGe1 = stationsObj[station]["andSnGe1"];
-  const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
-  const andTmnLe32 = stationsObj[station]["andTmnLe32"];
-  const path = "/location/" + encodeURIComponent(city) + "/" + state;
 
-  return (
-    <div>
-      <h3>{city}, {state}</h3>
-      <ul>
-        <li>The average high temp during the hottest month: {mTmxAv}</li>
-        <li>The averag low temp during the coldest month: {mTmnAv}</li>
-        <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
-        <li>The average number of rainy days: {andPrGe5Ti}</li>
-        <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
-      </ul>
+  // verify station in params is a real station id
+  if (stationsObj[station]) {
+    const city = stationsObj[station]["city"];
+    const multiCity = stationsObj[station]["multiCity"];
+    const sharedarea = stationsObj[station]["sharedarea"];
+    const state = stationsObj[station]["state"];
+    const mTmxAv = stationsObj[station]["mTmxAv"][12];
+    const mTmnAv = stationsObj[station]["mTmnAv"][12];
+    const andSnGe1 = stationsObj[station]["andSnGe1"];
+    const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
+    const andTmnLe32 = stationsObj[station]["andTmnLe32"];
+    const path = "/location/" + encodeURIComponent(city) + "/" + state;
 
-      { (multiCity.length > 1) ? (
-        <p>There are multiple weather stations in {city}.
-        <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
-      ) : null}
+    const paramCity = decodeURIComponent(props.params.city);
+    const paramState = decodeURIComponent(props.params.state);
+    const paramsMatch = (paramCity === city && paramState === state) ? true : false;
 
-      {(sharedarea.length > 0) ? (
-        <SharedAreaList
-          sharedarea={sharedarea}
-          city={city}
-          state={state}
-          mTmxAv={props.mTmxAv}
-          mTmnAv={props.mTmnAv}
-          andSnGe1={props.andSnGe1}
-          andPrGe5Ti={props.andPrGe5Ti}
-          andTmnLe32={props.andTmnLe32}
-          isActive={props.isActive}
-        />
-      ) : null}
+    if (paramsMatch) {
+      return (
+        <div>
+          <h3>{city}, {state}</h3>
+          <ul>
+            <li>The average high temp during the hottest month: {mTmxAv}</li>
+            <li>The averag low temp during the coldest month: {mTmnAv}</li>
+            <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
+            <li>The average number of rainy days: {andPrGe5Ti}</li>
+            <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
+          </ul>
 
-    </div>
-  );
+          { (multiCity.length > 1) ? (
+            <p>There are multiple weather stations in {city}.
+            <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+          ) : null}
+
+          {(sharedarea.length > 0) ? (
+            <SharedAreaList
+              sharedarea={sharedarea}
+              city={city}
+              state={state}
+              mTmxAv={props.mTmxAv}
+              mTmnAv={props.mTmnAv}
+              andSnGe1={props.andSnGe1}
+              andPrGe5Ti={props.andPrGe5Ti}
+              andTmnLe32={props.andTmnLe32}
+              isActive={props.isActive}
+            />
+          ) : null}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p>That makes no sense.</p>
+        </div>
+      );
+    }
+  } else {
+    return (
+      <div>
+        <p>That makes no sense.</p>
+      </div>
+    );
+  }
 }
 
 export default Location;

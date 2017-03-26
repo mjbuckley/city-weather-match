@@ -135,7 +135,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {console.log(this.state.matches)}
         <div>
           <h1><Link to="/">A navbar heading will go here</Link></h1>
         </div>

@@ -8,6 +8,7 @@ import Results from './results';
 import MetroArea from './metroarea';
 import CityLocations from './citylocations';
 import Location from './location';
+import NotFound from './notfound.js';
 import './css/index.css';
 
 ReactDOM.render((
@@ -19,6 +20,7 @@ ReactDOM.render((
       <Route path="/metro-areas/:metroarea" component={MetroArea}/>
       <Route path="/location/:city/:state" component={CityLocations}/>
       <Route path="/location/:city/:state/:station" component={Location}/>
+      <Route path="*" component={NotFound} />
     </Route>
   </Router>
 ), document.getElementById('root'));
