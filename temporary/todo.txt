@@ -1,38 +1,29 @@
-DOING NOW (3/25): Added additional validation for location and citylocation, added "404" page, added isActive: true when a search is done.
+TO DO NOW
 
-3/25/17
-
--Add param checks for location and citylocations, but not others. Also, make sure those two have everything they need (I think so, but be sure).
--location.js now has checks that params match station id and that station id is legit. It works, however it's really ugly. Myabe clean up?
--NOTE:I've been adding in decodeURIComponent() even when I shouldn't need it just in case jibberish gets passed in. What about anything I need to do for security in terms of sanitizing params. Not sure.
--Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and 3) invalid query params
--Query param checks work, but should I be doing more to fix url?
-
--3/23/17:
-MetroArea has been improved a lot, but still some to do. 1) I think the actual li with city name and link is the same or very similar to what I do in other places in the app. See if I can have it all in one place share this between components. 2) Don't forget error handling (bad metro area name) and 3) isActive state handling.
-
+-Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
--Need to figure out exactly how I want to use isClicked. Specifically, I have components that should work differently depending on isClicked's status, but right now they assume isClicked is true. Similarly, these components are being passed in props and the props are being used, even though isClicked is false. Ideally I probably should find a way to not even have to pass in the unused props, but minimally I need to run a check for isClicked and do something different if it's false.
--Convert some components back to functions
+-I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
+-Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -Lots of commented out code and old comments need to be removed.
--Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page. There are thoughts both ways. This is what I was thinking a while ago:
+-Some comments probably need to be updated or no longer apply.
+-The li section in many components where I list a city name is probably very similar or the same. See if I can extract this into a shared component.
+-Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page (and what about on search? I think yes on search?). There are thoughts both ways. This is what I was thinking a while ago:
   I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
-  -How to handle when there are valid query params but no matches? Nothing's wrong with this, but make sure that I don't automatically assume valid query params means that there are matches. For example, doing a check for isActive === true is not sufficient because it could be true but matches could be [].
-
+-Keep in mind that there could be times when there are valid query params but no matches. Make sure there's nowhere that assume valid query params means that there are matches.
 
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
+-The url param error/mismatch checking all works as it should, but some of it can be pretty ugly. Take a look about cleaning it up/extracting stuff.
 -I made a really basic simulation of a 404 page (works the same way but is actually a 200 response). It seems to be working, but make it a bit better and test edge case more.
--Deal with possibility of bad url for MetroArea (return something like "that's not a metro area"). What about other things like this I might be missing?
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
 -Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
 -Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
 -Update weather.json example station to match the current reality.
--Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove.
+-Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove. Finally, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
 -I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
--Curiosity to figure out: The situation is that I'm on the results or metro area page (probably others too), and some of the links are a different color because they have already been visited. If I change the query params on the page such that the new results still include those previously visited page, the links no longer show that they have been previously visited. I'm not sure this is even a problem, but I'd like to understand why this is happening.
+-Curiosity to figure out: The situation is that I'm on the results or metro area page (probably others too), and some of the links are a different color because they have already been visited. If I change the query params on the page such that the new results still include those previously visited page, the links no longer show that they have been previously visited. I'm not sure this is even a problem, but I'd like to understand why this is happening (I guess it's because technically the link is now different. Should I do anything about this? Should the clicked links even be different in my app?).
 -Is there any practical/performance difference between defining a constant inside vs. outside a function?
 
 
@@ -45,13 +36,11 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
 -On search.js I can probably make the separate range input even handlers into one function.
 -Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
--I should go through and remove stations not from the 50 states and DC.
 -I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
 -Should my weatherOptions const be capitalized? What about all consts?
 -A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
 -Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
-
 
 
 NOTES
@@ -62,3 +51,36 @@ NOTES
   Object.keys(weatherOptions).every(function(element) {
     return nextProps.location.query[element] === weatherConts[element][2];
   });
+
+
+
+ERROR CHECKING
+-Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and 3) invalid query params.
+
+APP:
+-Make sure all possible query param possibilities can be handled and state updated as needed. (done).
+
+HOME:
+-NO url params to worry about. I'm also not using query params for home, so nothing to check (although it would work fine with query params). The way I have it set up isActive will always be false, although it wouldn't hurt anything if it were true. So, nothing to do.
+
+SEARCH:
+-No url params and works regardless of query params, so nothing to do.
+
+RESULTS:
+-Need to check the status of isActive. If false, then results make no sense and need to give an error message. Otherwise nothing to do. (done)
+
+METROAREA:
+-Verify that metro area url param is valid. (done: see if metro area param is in metroMap. If not, it's invalid. Give error message).
+-TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
+
+CITYLOCATIONS:
+-Handle invalid city/state url params. (done: checks stationsObj for every station matching both params. Will return an empty array if either are invalid (or if valid but mismatched). So, just check for empty array and give error message).
+-TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
+
+LOCATION:
+-Make sure station id is valid. (done: check for stationsObj[station] and return error message if not in stationsObj).
+-Make sure that city and state params in url match station id. (done: find city and state for stationsObj[station] and see if the match the url city and state params. Return error message if they don't match.)
+-TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
+
+OTHER:
+-Make sure that urls not matching one of the routes returns a "404" page. (done: notfound.js).

@@ -103,28 +103,39 @@ const metroMap = require('./data/metromap.json'); // Mapping of metro areas to c
 function MetroArea(props) {
 
   const metroArea = decodeURIComponent(props.params.metroarea); // Metro area name in URL
-  const cities = Object.keys(metroMap[metroArea]); // Every city in metroArea
 
-  return (
-    <div>
-      <h2>{metroArea} Urban Area</h2>
-      <ul>
-        {cities.map(function(city, index) {
+  // Verify that metroArea param is an actual metro area (metroMap[metroArea] will be undefined if metro area invalid)
+  if (metroMap[metroArea]) {
 
-          // Get station number of station to link to.
-          const linkStation = findCityLink(city, metroArea, props.matches);
+    const cities = Object.keys(metroMap[metroArea]); // Every city in metroArea
 
-          // Build link info
-          const state = stationsObj[linkStation]["state"];
-          const path ="/location/" + encodeURIComponent(city) + "/" + state + "/" + encodeURIComponent(linkStation);
+    return (
+      <div>
+        <h2>{metroArea} Urban Area</h2>
+        <ul>
+          {cities.map(function(city, index) {
 
-          // Return li/link
-          return (<li key={index}><Link to={buildLink(props, path)}>{city}</Link></li>);
-        })}
-      </ul>
-    </div>
-  );
+            // Get station number of station to link to.
+            const linkStation = findCityLink(city, metroArea, props.matches);
 
+            // Build link info
+            const state = stationsObj[linkStation]["state"];
+            const path ="/location/" + encodeURIComponent(city) + "/" + state + "/" + encodeURIComponent(linkStation);
+
+            // Return li/link
+            return (<li key={index}><Link to={buildLink(props, path)}>{city}</Link></li>);
+          })}
+        </ul>
+      </div>
+    );
+  } else {
+
+    return (
+      <div>
+        <p>The metro area that you entered in the URL is not a part of this site's weather dataset.</p>
+      </div>
+    );
+  }
 }
 
 export default MetroArea;

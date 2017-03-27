@@ -13,8 +13,9 @@ function Location(props) {
   // Keep in mind that the weather values below are not search values but values for the station.
   const station = decodeURIComponent(props.params.station);
 
-  // verify station in params is a real station id
+  // verify station in params is a real station id (stationsObj[station] will be undefined if station invalid)
   if (stationsObj[station]) {
+
     const city = stationsObj[station]["city"];
     const multiCity = stationsObj[station]["multiCity"];
     const sharedarea = stationsObj[station]["sharedarea"];
@@ -25,9 +26,10 @@ function Location(props) {
     const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
     const andTmnLe32 = stationsObj[station]["andTmnLe32"];
     const path = "/location/" + encodeURIComponent(city) + "/" + state;
-
     const paramCity = decodeURIComponent(props.params.city);
     const paramState = decodeURIComponent(props.params.state);
+
+    // Checks the the city and state in the url match the actual city and state for the station.
     const paramsMatch = (paramCity === city && paramState === state) ? true : false;
 
     if (paramsMatch) {
@@ -65,14 +67,14 @@ function Location(props) {
     } else {
       return (
         <div>
-          <p>That makes no sense.</p>
+          <p>The city and/or state that you entered in the URL do not match the station ID.</p>
         </div>
       );
     }
   } else {
     return (
       <div>
-        <p>That makes no sense.</p>
+        <p>The station ID that you entered in the URL does not exist.</p>
       </div>
     );
   }
