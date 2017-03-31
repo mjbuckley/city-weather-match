@@ -10,7 +10,7 @@ function CityList(props) {
   const city = stationsObj[station]["city"];
   const state = stationsObj[station]["state"];
 
-  const path = "/location/" + encodeURIComponent(city) + "/" + state + "/" + station;
+  const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state) + "/" + encodeURIComponent(station);
 
   return (
     <li className="CityList">

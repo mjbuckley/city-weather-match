@@ -1,5 +1,6 @@
 TO DO NOW
 
+-IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
@@ -10,7 +11,6 @@ TO DO NOW
 -Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page (and what about on search? I think yes on search?). There are thoughts both ways. This is what I was thinking a while ago:
   I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 -Keep in mind that there could be times when there are valid query params but no matches. Make sure there's nowhere that assume valid query params means that there are matches.
-
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
