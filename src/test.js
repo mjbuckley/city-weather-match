@@ -25,7 +25,7 @@ function MetroArea(props) {
       <h2>{metroArea} Urban Area</h2>
       <ul>
         {metroStationLinks(metroArea, props).map((station) =>
-          <cityStationLink {...props} station={station} key={station} />
+          <CityStationLink {...props} station={station} key={station} />
         )}
       </ul>
     </div>

@@ -1,5 +1,7 @@
 TO DO NOW
 
+-LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
+-I no longer us findcitylink.js in the MetroArea component, and that was the only place it was used. Once I'm sure everything's working with the new MetroArea code I can delete findcitylink.
 -IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.

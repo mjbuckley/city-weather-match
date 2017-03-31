@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router';
 import buildLink from './buildlink.js';
 
 const stationsObj = require('./data/weather.json');
@@ -11,10 +13,10 @@ function CityStationLink(props) {
   const state = stationsObj[props.station]["state"];
   const path ="/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state) + "/" + encodeURIComponent(props.station);
   const link = buildLink(props, path);
-  const matchClass = props.isActive && props.matches.includes(station) ? "match" : "not-match";
+  const matchClass = props.isActive && props.matches.includes(props.station) ? "match" : "not-match";
 
   return (
-    <li className{matchClass}>
+    <li className={matchClass}>
       <Link to={link}>{city}</Link>
     </li>
   );

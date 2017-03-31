@@ -22,7 +22,7 @@ function metroStationLinks(metroArea, props) {
 
       // Return first matching station (if it exist) or first station in city's stations array
       return matchingStation ? matchingStation : metroMap[metroArea][city][0];
-    }
+    });
   } else {
 
     return cities.map(function(city) {
