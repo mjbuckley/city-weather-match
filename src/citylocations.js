@@ -1,6 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router'
-// import buildLink from './buildlink.js';
 import StationLink from './stationlink.js';
 
 const stationsObj = require('./data/weather.json');
@@ -45,65 +43,6 @@ function CityLocations(props) {
       </ul>
     </div>
   );
-
-
 }
 
 export default CityLocations;
-
-// GOOD 3/25/17
-//   return (
-//     <div>
-//       <h2>{city}, {state}</h2>
-//
-//       {(locations.length > 1) ? (
-//         <p>There are several weather stations in {city}:</p>
-//       ) : null}
-//
-//       <ul>
-//         {locations.map(function(station) {
-//           const path = "/location/" + encodeURIComponent(city) + "/" + state + "/" + station;
-//           return (<li key={station}><Link to={buildLink(props, path)}>Station {station}</Link></li>);
-//         })}
-//       </ul>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-// Old working return 3/31/17
-
-// return (
-//   <div>
-//     {(locations.length === 0) ? (
-//
-//       <p>Sorry, the name you entered is not in the database</p>
-//
-//     ) : (
-//
-//       <div>
-//         <h2>{city}, {state}</h2>
-//
-//         {(locations.length > 1) ? (
-//
-//           <p>There are several weather stations in {city}:</p>
-//
-//         ) : null}
-//
-//         <ul>
-//           {locations.map(function(station) {
-//             const path = "/location/" + encodeURIComponent(city) + "/" + state + "/" + station;
-//             return (<li key={station}><Link to={buildLink(props, path)}>Station {station}</Link></li>);
-//           })}
-//         </ul>
-//       </div>
-//
-//     )}
-//   </div>
-// );
