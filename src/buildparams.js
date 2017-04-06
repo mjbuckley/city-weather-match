@@ -8,6 +8,7 @@ export default function buildParams(props) {
     query["mTmxAv"] = props.mTmxAv;
     query["mTmnAv"] = props.mTmnAv;
     query["andSnGe1"] = props.andSnGe1;
+    query["andSnCGe1"] = props.andSnCGe1;
     query["andPrGe5Ti"] = props.andPrGe5Ti;
     query["andTmnLe32"] = props.andTmnLe32;
 

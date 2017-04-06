@@ -40,6 +40,7 @@ const defaults = {
   mTmnAv: minMax["mTmnAv"][0],
   andTmnLe32: minMax["andTmnLe32"][1],
   andSnGe1: minMax["andSnGe1"][1],
+  andSnCGe1: minMax["andSnCGe1"][1],
   andPrGe5Ti: minMax["andPrGe5Ti"][1]
 };
 

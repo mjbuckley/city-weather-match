@@ -36,6 +36,7 @@ function Location(props) {
   const mTmxAv = stationsObj[station]["mTmxAv"][12];
   const mTmnAv = stationsObj[station]["mTmnAv"][12];
   const andSnGe1 = stationsObj[station]["andSnGe1"];
+  const andSnCGe1 = stationsObj[station]["andSnCGe1"];
   const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
   const andTmnLe32 = stationsObj[station]["andTmnLe32"];
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
@@ -48,6 +49,7 @@ function Location(props) {
         <li>The average high temp during the hottest month: {mTmxAv}</li>
         <li>The averag low temp during the coldest month: {mTmnAv}</li>
         <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
+        <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
         <li>The average number of rainy days: {andPrGe5Ti}</li>
         <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
       </ul>
@@ -65,6 +67,7 @@ function Location(props) {
           mTmxAv={props.mTmxAv}
           mTmnAv={props.mTmnAv}
           andSnGe1={props.andSnGe1}
+          andSnCGe1={props.andSnCGe1}
           andPrGe5Ti={props.andPrGe5Ti}
           andTmnLe32={props.andTmnLe32}
           isActive={props.isActive}

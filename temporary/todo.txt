@@ -1,9 +1,16 @@
-TO DO NOW
+SINCE LAST COMMIT: Played around (and failed) with css in stationlink.
 
+-STARTED adding in snow ground cover value to the app. I've added it to defaultmatches and put the default value in for the default state, but haven't done anything else. There a lot of places where this will need to be changed. Create a list of places where changes are needed for the future (at the end of the todo).
+-I've used parseInt in many places to coerce string to number. However, this results in an int value. Not sure this is always what I want. Check my useage of this and fix (with Number?) if needed.
+-Figure out css in react. I added a styling for a the match class in stationlink.css but for some reason that affected things in citystationlink. I have no idea why, so I clearly need to go over this.
 -LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
 -IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
--Add in weather graphs.
+-Add in weather graphs. Decide on plotly or somthig else.
+-Add in more weather info.
+-Decide on best way to handle inputs (sliders or something else?).
+
+-Get at least a basic understanding of some of the things going on under the hood in create-react-app (like webpack).
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
@@ -86,3 +93,31 @@ LOCATION:
 
 OTHER:
 -Make sure that urls not matching one of the routes returns a "404" page. (done: notfound.js).
+
+
+
+
+
+
+
+PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER DATA added
+
+1) Add the date in jsoncreate.js in weather data project
+2) Manually alter the default matches creation function in weather data project.
+3) Run jsoncreate.js and copy over the 4 altered files.
+4) Add default value to default state in App.
+5) Add to props to pass children in App.
+6) Update weatheroptions.js
+7) Update defaults const in paramstovalues.js
+8) Update findmatches.js
+9) Update props passed to search in home.js
+10) On search add to state, create change value function and bind it to this, add to fetch data function, and add range slider.
+11) Add to props passed to citieslist in results.js.
+12) Add to buildparams.js
+13) Add to location.js in weather info and in the props passed to sharedarealist.js.
+14) Add to props passed to citylist on citieslist.js.
+
+
+
+
+* lots more to do: probably component will mount/receive, props getting passed around, query param building, slider, city location page, etc.

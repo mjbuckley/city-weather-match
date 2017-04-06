@@ -16,6 +16,7 @@ class Search extends Component {
       mTmnAv: this.props.mTmnAv,
       andTmnLe32: this.props.andTmnLe32,
       andSnGe1: this.props.andSnGe1,
+      andSnCGe1: this.props.andSnCGe1,
       andPrGe5Ti: this.props.andPrGe5Ti
     };
     this.fetchData = this.fetchData.bind(this);
@@ -23,6 +24,7 @@ class Search extends Component {
     this.changemTmnAv = this.changemTmnAv.bind(this);
     this.changeandTmnLe32 = this.changeandTmnLe32.bind(this);
     this.changeandSnGe1 = this.changeandSnGe1.bind(this);
+    this.changeandSnCGe1 = this.changeandSnCGe1.bind(this);
     this.changeandPrGe5Ti = this.changeandPrGe5Ti.bind(this);
   }
 
@@ -34,6 +36,7 @@ class Search extends Component {
       mTmnAv: parseInt(this.state.mTmnAv, 10),
       andTmnLe32: parseInt(this.state.andTmnLe32, 10),
       andSnGe1: parseInt(this.state.andSnGe1, 10),
+      andSnCGe1: parseInt(this.state.andSnCGe1, 10),
       andPrGe5Ti: parseInt(this.state.andPrGe5Ti, 10),
       isActive: true
     };
@@ -81,6 +84,12 @@ class Search extends Component {
   changeandSnGe1(evt) {
     this.setState({
       andSnGe1: evt.target.value
+    });
+  };
+
+  changeandSnCGe1(evt) {
+    this.setState({
+      andSnCGe1: evt.target.value
     });
   };
 
@@ -133,6 +142,16 @@ class Search extends Component {
             max={weatherConst["andSnGe1"][1]}
             value={this.state.andSnGe1}
             onChange={this.changeandSnGe1}
+            unit=""
+          />
+          <br />
+          <WeatherRangeInput
+            id="andSnCGe1"
+            description="The average number of days when there is at least an inch of snow on the ground"
+            min={weatherConst["andSnCGe1"][0]}
+            max={weatherConst["andSnCGe1"][1]}
+            value={this.state.andSnCGe1}
+            onChange={this.changeandSnCGe1}
             unit=""
           />
           <br />
