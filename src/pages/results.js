@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import buildLink from './buildlink.js';
-import './css/results.css';
-import CitiesList from './citieslist.js';
+import buildLink from '../utils/buildlink.js';
+import '../css/results.css';
+import CitiesList from '../components/citieslist.js';
 
 function Results(props) {
 

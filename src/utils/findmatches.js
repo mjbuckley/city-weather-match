@@ -2,7 +2,7 @@
 // stations that match the search criteria.
 
 // The weather info for the NOAA stations.
-const stationsObj = require('./data/weather.json');
+const stationsObj = require('../data/weather.json');
 
 export default function findMatches(info) {
   let stationMatch = [];

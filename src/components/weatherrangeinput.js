@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/weatherrangeinput.css';
+import '../css/weatherrangeinput.css';
 
 // Component for a range input slider inside of a form. Min and max should come from minmax.json
 function WeatherRangeInput(props) {

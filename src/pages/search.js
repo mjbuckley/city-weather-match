@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
-import WeatherRangeInput from './weatherrangeinput.js';
-import findMatches from './findmatches.js';
-import buildParams from './buildparams.js';
-import './css/search.css';
+import WeatherRangeInput from '../components/weatherrangeinput.js';
+import findMatches from '../utils/findmatches.js';
+import buildParams from '../utils/buildparams.js';
+import '../css/search.css';
 
 // Min, max, and midway possible values for each weather category.
-const weatherConst = require('./data/minmax.json');
+const weatherConst = require('../data/minmax.json');
 
 class Search extends Component {
   constructor(props) {

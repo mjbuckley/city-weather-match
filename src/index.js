@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import App from './App';
-import Home from './home.js';
-import Search from './search';
-import Results from './results';
-import MetroArea from './metroarea';
-import CityLocations from './citylocations';
-import Location from './location';
-import NotFound from './notfound.js';
+import Home from './pages/home.js';
+import Search from './pages/search';
+import Results from './pages/results';
+import MetroArea from './pages/metroarea';
+import CityLocations from './pages/citylocations';
+import Location from './pages/location';
+import NotFound from './pages/notfound.js';
 import './css/index.css';
 
 ReactDOM.render((

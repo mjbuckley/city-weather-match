@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router'
-import buildLink from './buildlink.js';
-import SharedAreaList from './sharedarealist.js';
+import buildLink from '../utils/buildlink.js';
+import SharedAreaList from '../components/sharedarealist.js';
 
-const stationsObj = require('./data/weather.json');
+const stationsObj = require('../data/weather.json');
 
 function Location(props) {
 

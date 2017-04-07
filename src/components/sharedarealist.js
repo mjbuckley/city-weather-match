@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import buildLink from './buildlink.js';
+import buildLink from '../utils/buildlink.js';
 
 // Displays a list of the metro areas that a station is part of.
 function SharedAreaList(props) {

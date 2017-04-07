@@ -1,9 +1,9 @@
 import React from 'react';
-import metroStationLinks from './metrostationlinks.js';
-import CityStationLink from './citystationlink.js';
+import metroStationLinks from '../utils/metrostationlinks.js';
+import CityStationLink from '../components/citystationlink.js';
 
 // Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
-const metroMap = require('./data/metromap.json');
+const metroMap = require('../data/metromap.json');
 
 function MetroArea(props) {
 

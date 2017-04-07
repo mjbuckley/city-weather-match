@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import paramsToValues from './paramstovalues.js';
-import findMatches from './findmatches.js';
-import paramsMatchState from './paramsmatchstate.js';
+import paramsToValues from './utils/paramstovalues.js';
+import findMatches from './utils/findmatches.js';
+import paramsMatchState from './utils/paramsmatchstate.js';
 import './css/App.css';
 
 // Min, max, and midway values for each weather category

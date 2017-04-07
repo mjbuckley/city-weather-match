@@ -1,7 +1,7 @@
 // import findMatches from './findmatches.js';
-import weatherOptions from './data/weatheroptions.js';
+import weatherOptions from '../data/weatheroptions.js';
 
-const minMax = require('./data/minmax.json');
+const minMax = require('../data/minmax.json');
 
 // This function is placed in the componentWillMount() sections of all direct children components of App (search,
 // results, etc.). It checks the URL for query parameters and then determines what App's state

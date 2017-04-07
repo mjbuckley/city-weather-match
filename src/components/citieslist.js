@@ -1,6 +1,6 @@
 import React from 'react';
 import CityList from './citylist.js';
-import eliminateCityDupes from './eliminatecitydupes.js';
+import eliminateCityDupes from '../utils/eliminatecitydupes.js';
 
 // Returns a list of cities that match the search criteria. The city names are links the station info for that city.
 // If there are multiple stations in a city, the city name will link to the first station in that city that

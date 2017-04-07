@@ -1,7 +1,7 @@
 import React from 'react';
-import StationLink from './stationlink.js';
+import StationLink from '../components/stationlink.js';
 
-const stationsObj = require('./data/weather.json');
+const stationsObj = require('../data/weather.json');
 
 function CityLocations(props) {
 
