@@ -1,7 +1,7 @@
-SINCE LAST COMMIT: Played around (and failed) with css in stationlink.
+TO DO NOW (IMPORTANT)
 
--STARTED adding in snow ground cover value to the app. I've added it to defaultmatches and put the default value in for the default state, but haven't done anything else. There a lot of places where this will need to be changed. Create a list of places where changes are needed for the future (at the end of the todo).
--I've used parseInt in many places to coerce string to number. However, this results in an int value. Not sure this is always what I want. Check my useage of this and fix (with Number?) if needed.
+-Right now the process for adding new weather options is long and error prone. I big part of this is how I pass around props, but there are other issues too. See if I can simplify this.
+-I've used parseInt in many places to coerce string to number. However, this results in an int value. Not sure this is always what I want. Check my useage of this and fix (with Number?) if needed. Also check my usage in the files that build weather.json. In some places it might be ok because I'm limiting values to ints in the range slider, but make sure everything makes sense.
 -Figure out css in react. I added a styling for a the match class in stationlink.css but for some reason that affected things in citystationlink. I have no idea why, so I clearly need to go over this.
 -LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
 -IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
@@ -14,12 +14,11 @@ SINCE LAST COMMIT: Played around (and failed) with css in stationlink.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
--Lots of commented out code and old comments need to be removed.
--Some comments probably need to be updated or no longer apply.
 -The li section in many components where I list a city name is probably very similar or the same. See if I can extract this into a shared component.
 -Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page (and what about on search? I think yes on search?). There are thoughts both ways. This is what I was thinking a while ago:
   I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 -Keep in mind that there could be times when there are valid query params but no matches. Make sure there's nowhere that assume valid query params means that there are matches.
+
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
@@ -28,11 +27,10 @@ TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
 -Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
 -Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
--Update weather.json example station to match the current reality.
--Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also not currently using the andSnCGe1 weather value. Use or remove. Finally, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
+-Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
 -I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
--Curiosity to figure out: The situation is that I'm on the results or metro area page (probably others too), and some of the links are a different color because they have already been visited. If I change the query params on the page such that the new results still include those previously visited page, the links no longer show that they have been previously visited. I'm not sure this is even a problem, but I'd like to understand why this is happening (I guess it's because technically the link is now different. Should I do anything about this? Should the clicked links even be different in my app?).
+-Two pages with the same url but different query params are treated as different by the browser purposes of have visited links. This mostly makes sense, but I can imagine ways it could be confusing. I guess the question is should I have clicked links be a different color or not? More web page-like or app-like?
 -Is there any practical/performance difference between defining a constant inside vs. outside a function?
 -In weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings. Why? Also, second m should probably be capitalized (mTMxAvg).
 
@@ -52,6 +50,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 
 
+
 NOTES
 
 -Might look in to Lodash function memoization. Lodash looks interesting in general, but the memoization could be a better way to handle the "cacheing" I do with state.
@@ -63,8 +62,8 @@ NOTES
 
 
 
-ERROR CHECKING
--Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and 3) invalid query params.
+ERROR CHECKING:
+-Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and (ex: Los Angeles, Ohio), and 3) invalid query params (ex: days below 32 = kdsjflks). Below are my notes of what I need to check where.
 
 APP:
 -Make sure all possible query param possibilities can be handled and state updated as needed. (done).
@@ -96,11 +95,7 @@ OTHER:
 
 
 
-
-
-
-
-PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER DATA added
+PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER OPTIONS ARE ADDED
 
 1) Add the date in jsoncreate.js in weather data project
 2) Manually alter the default matches creation function in weather data project.
@@ -117,8 +112,3 @@ PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER DATA added
 13) Add to location.js in weather info and in the props passed to sharedarealist.js.
 14) Add to props passed to citylist on citieslist.js.
 15) Update data examples for future reference.
-
-
-
-
-* lots more to do: probably component will mount/receive, props getting passed around, query param building, slider, city location page, etc.
