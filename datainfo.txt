@@ -1,0 +1,49 @@
+This file contains info and examples about the data files in the src/data directory. 
+
+
+-WEATHER.JSON/STATIONSOBJ: weather.json is a file of all stations and their weather data. In the app itself it is saved as a const called stationsObj. It takes the form of:
+
+{ station1: {info}, station2: {info}, etc. }
+
+
+-EXAMPLE STATION IN STATIONSOBJ:
+
+"USW00093044": {
+  "zip": "87327",
+  "city": "Zuni",
+  "multiCity": [], // If multiple stations in same city then all stations listed in array
+  "area": ["Gallup, NM"], // Metro/micro areas the station belongs to. Often 0 or 1, but can be many.
+  "sharedarea": ["Gallup, NM"], // Metro/micro areas that station belongs to along with at least on other station.
+  "state": "NM",
+  "andSnGe1": "4.4", // Average # days snowfall >= 1 inch
+  "andSnCGe1": "4.0", // Average # days snow ground cover >= 1 inch
+  "andPrGe5Ti": "6.2", // Average # days with precipitation >= 1/2 inch (5 tenths of an inch)
+  "mTmxAv": ["48.8","52.6","59.9","68.2","77.4","87.3","90.2","87.3","82.0","70.8","58.3","49.0",90.2],
+  "mTmnAv": ["12.0","15.4","19.3","24.6","32.3","39.7","48.4","48.1","39.8","28.3","18.8","12.1",12],
+    // For mTmx and mTmn [0]-[11] are jan-dec values, [12] is the max/min of those values
+  "andTmnLe32": "217.3" // Average # days min temp <= 32 degrees.
+}
+
+
+-MINMAX.JSON: Object containing each weather option as properties and with the values being an array of the min and max and median values for that weather option. Min rounded down, max up. Used to set the end and starting points of the range slider.
+
+{
+  "andSnGe1": [0,93,47],
+  "andSnCGe1": [0,247,124],
+  "andPrGe5Ti": [0,135,68],
+  "mTmxAv": [46,117,82],
+  "mTmnAv": [-27,73,23],
+  "andTmnLe32": [0,308,154]
+}
+
+
+-METROMAP.JSON: Using metro names as the properties, this breaks each metro area up into cities,
+and breaks each city up into stations. This is helpful for creating metro area links.
+
+{"metroname, state(s)": {city1: [station, station], city2: [station]}, etc.}
+
+
+-WEATHEROPTIONS.JS: Array of all weather options. MUST BE MANUALLY UPDATED IF NEW OPTION ADDED.
+
+
+-DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. It is based off of the median values for each weather option (which are the default options for the range slider).

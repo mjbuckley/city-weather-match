@@ -34,7 +34,7 @@ TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 -I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 -Curiosity to figure out: The situation is that I'm on the results or metro area page (probably others too), and some of the links are a different color because they have already been visited. If I change the query params on the page such that the new results still include those previously visited page, the links no longer show that they have been previously visited. I'm not sure this is even a problem, but I'd like to understand why this is happening (I guess it's because technically the link is now different. Should I do anything about this? Should the clicked links even be different in my app?).
 -Is there any practical/performance difference between defining a constant inside vs. outside a function?
-
+-In weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings. Why? Also, second m should probably be capitalized (mTMxAvg).
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
@@ -116,6 +116,7 @@ PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER DATA added
 12) Add to buildparams.js
 13) Add to location.js in weather info and in the props passed to sharedarealist.js.
 14) Add to props passed to citylist on citieslist.js.
+15) Update data examples for future reference.
 
 
 
