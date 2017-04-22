@@ -16,12 +16,12 @@ function Results(props) {
   }
 
   return (
-    <div className="CityResults">
+    <div className="results">
       <h2>Results</h2>
 
       {(props.matches.length > 0) ? (
 
-      <div className="wrapper">
+      <div className="results-wrapper">
         <CitiesList
           mTmxAv={props.mTmxAv}
           mTmnAv={props.mTmnAv}
@@ -36,7 +36,7 @@ function Results(props) {
 
       ) : (
 
-      <div className="wrapper">
+      <div className="results-wrapper">
         <p>Sorry, there were no matches.  Please <Link to={buildLink(props, "/search")}>try again</Link> with new search values.</p>
       </div>
 

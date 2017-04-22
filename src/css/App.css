@@ -1,5 +1,35 @@
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  color: #222;
+.app-header-wrapper {
+  background-color: #039be5;
+  border-top: 3px solid #006db3;
+}
+
+.app-header {
+  line-height: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app-header h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.app-header h1 a {
+  text-decoration: none;
+}
+
+.app-header h1 a:link {
+  color: black;
+}
+
+.app-header h1 a:visited {
+  color: black;
+}
+
+.app-header h1 a:hover {
+  color: #63ccff;
+}
+
+.app-header h1 a:active {
+  color: white;
 }

@@ -6,7 +6,7 @@ TO DO NOW (IMPORTANT)
 -LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
 -IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
--Add in weather graphs. Decide on plotly or somthig else.
+-Add in weather graphs. Decide on plotly or somthing else.
 -Add in more weather info.
 -Decide on best way to handle inputs (sliders or something else?).
 
@@ -22,6 +22,7 @@ TO DO NOW (IMPORTANT)
 
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
+-Don't forget checking in different browsers/devices/OSes. Basic functionality seems fine in Safari and Firefox, but be sure to check everywhere. Also, I do see some minor style differences I should see if I can fix.
 -The url param error/mismatch checking all works as it should, but some of it can be pretty ugly. Take a look about cleaning it up/extracting stuff.
 -I made a really basic simulation of a 404 page (works the same way but is actually a 200 response). It seems to be working, but make it a bit better and test edge case more.
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
@@ -33,6 +34,8 @@ TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 -Two pages with the same url but different query params are treated as different by the browser purposes of have visited links. This mostly makes sense, but I can imagine ways it could be confusing. I guess the question is should I have clicked links be a different color or not? More web page-like or app-like?
 -Is there any practical/performance difference between defining a constant inside vs. outside a function?
 -In weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings. Why? Also, second m should probably be capitalized (mTMxAvg).
+-Is normalize.css still a thing? Should I use it? Is it already included somehow? Is there a better alternative or something that can be done using post.css?
+
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)

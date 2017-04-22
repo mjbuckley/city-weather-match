@@ -21,7 +21,7 @@ function MetroArea(props) {
   }
 
   return (
-    <div>
+    <div className="metro-area">
       <h2>{metroArea} Urban Area</h2>
       <ul>
         {metroStationLinks(metroArea, props).map((station) =>

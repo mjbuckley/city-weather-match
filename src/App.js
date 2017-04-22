@@ -135,9 +135,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div>
-          <h1><Link to="/">A navbar heading will go here</Link></h1>
+      <div className="app">
+        <div className="app-header-wrapper">
+          <header className="app-header">
+            <h1><Link to="/">City Weather App</Link></h1>
+          </header>
         </div>
 
         {/* Because children of App are added in index.js by React Router, I cannot find a good way to

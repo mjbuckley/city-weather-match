@@ -102,71 +102,83 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="Search">
-        <h2>Weather Options</h2>
-        <form onSubmit={this.fetchData}>
-          <WeatherRangeInput
-            id="mTmxAv"
-            description="The average high temperature durring the hottest month of the year is less than"
-            min={weatherConst["mTmxAv"][0]}
-            max={weatherConst["mTmxAv"][1]}
-            value={this.state.mTmxAv}
-            onChange={this.changemTmxAv}
-            unit="°F"
-          />
-          <br />
-          <WeatherRangeInput
-            id="mTmnAv"
-            description="The average low temperature durring the coldest month of the year is greater than"
-            min={weatherConst["mTmnAv"][0]}
-            max={weatherConst["mTmnAv"][1]}
-            value={this.state.mTmnAv}
-            onChange={this.changemTmnAv}
-            unit="°F"
-          />
-          <br />
-          <WeatherRangeInput
-            id="andTmnLe32"
-            description="The average number of days where the temperature drops below freezing is less than"
-            min={weatherConst["andTmnLe32"][0]}
-            max={weatherConst["andTmnLe32"][1]}
-            value={this.state.andTmnLe32}
-            onChange={this.changeandTmnLe32}
-            unit=""
-          />
-          <br />
-          <WeatherRangeInput
-            id="andSnGe1"
-            description="The average number of days with an inch or more snowfall is less than"
-            min={weatherConst["andSnGe1"][0]}
-            max={weatherConst["andSnGe1"][1]}
-            value={this.state.andSnGe1}
-            onChange={this.changeandSnGe1}
-            unit=""
-          />
-          <br />
-          <WeatherRangeInput
-            id="andSnCGe1"
-            description="The average number of days when there is at least an inch of snow on the ground"
-            min={weatherConst["andSnCGe1"][0]}
-            max={weatherConst["andSnCGe1"][1]}
-            value={this.state.andSnCGe1}
-            onChange={this.changeandSnCGe1}
-            unit=""
-          />
-          <br />
-          <WeatherRangeInput
-            id="andPrGe5Ti"
-            description="The average number of rainy days (at least 1/2 inch precipitation) is less than"
-            min={weatherConst["andPrGe5Ti"][0]}
-            max={weatherConst["andPrGe5Ti"][1]}
-            value={this.state.andPrGe5Ti}
-            onChange={this.changeandPrGe5Ti}
-            unit=""
-          />
-          <br />
-          <button type="submit">Find matches</button>
-        </form>
+      <div className="search-container">
+        <div className="search">
+          <h2>Weather Options</h2>
+          <form onSubmit={this.fetchData}>
+
+            <section className="search-heat">
+              <h3>Heat</h3>
+              <WeatherRangeInput
+                id="mTmxAv"
+                description="The average high temperature durring the hottest month of the year is less than"
+                min={weatherConst["mTmxAv"][0]}
+                max={weatherConst["mTmxAv"][1]}
+                value={this.state.mTmxAv}
+                onChange={this.changemTmxAv}
+                unit="°F"
+              />
+            </section>
+
+            <section className="search-cold">
+              <h3>Cold</h3>
+              <WeatherRangeInput
+                id="mTmnAv"
+                description="The average low temperature durring the coldest month of the year is greater than"
+                min={weatherConst["mTmnAv"][0]}
+                max={weatherConst["mTmnAv"][1]}
+                value={this.state.mTmnAv}
+                onChange={this.changemTmnAv}
+                unit="°F"
+              />
+              <br />
+              <WeatherRangeInput
+                id="andTmnLe32"
+                description="The average number of days where the temperature drops below freezing is less than"
+                min={weatherConst["andTmnLe32"][0]}
+                max={weatherConst["andTmnLe32"][1]}
+                value={this.state.andTmnLe32}
+                onChange={this.changeandTmnLe32}
+                unit=""
+              />
+            </section>
+
+            <section className="search-precip">
+              <h3>Precipitation</h3>
+              <WeatherRangeInput
+                id="andSnGe1"
+                description="The average number of days with an inch or more snowfall is less than"
+                min={weatherConst["andSnGe1"][0]}
+                max={weatherConst["andSnGe1"][1]}
+                value={this.state.andSnGe1}
+                onChange={this.changeandSnGe1}
+                unit=""
+              />
+              <br />
+              <WeatherRangeInput
+                id="andSnCGe1"
+                description="The average number of days when there is at least an inch of snow on the ground"
+                min={weatherConst["andSnCGe1"][0]}
+                max={weatherConst["andSnCGe1"][1]}
+                value={this.state.andSnCGe1}
+                onChange={this.changeandSnCGe1}
+                unit=""
+              />
+              <br />
+              <WeatherRangeInput
+                id="andPrGe5Ti"
+                description="The average number of rainy days (at least 1/2 inch precipitation) is less than"
+                min={weatherConst["andPrGe5Ti"][0]}
+                max={weatherConst["andPrGe5Ti"][1]}
+                value={this.state.andPrGe5Ti}
+                onChange={this.changeandPrGe5Ti}
+                unit=""
+              />
+            </section>
+
+            <button type="submit">Find matches</button>
+          </form>
+        </div>
       </div>
     );
   }

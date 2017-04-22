@@ -1,16 +1,12 @@
-.search-container {
-  background-color: #f5f5f6;
+.home-wrapper {
+  background-color: #cfcfcf;
 }
 
 /*Setting overflow to auto makes div expand to contain inner content's margins
 (h2's margins overflow and push div down, leaving a gap). Could get same effect
 by controlling h2 margins but I think this makes more sense.*/
-.search {
-  box-sizing: border-box;
-  padding-left: 5%;
-  padding-right: 5%;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
+.home-page {
+  min-height: 300px;
   overflow: auto;
+  text-align: center;
 }

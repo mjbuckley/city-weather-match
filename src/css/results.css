@@ -1,4 +1,8 @@
-.wrapper {
+.results-wrapper {
   max-width: 680px;
   margin: 0 auto;
+}
+
+.results h2 {
+  text-align: center;
 }
