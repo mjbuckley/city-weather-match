@@ -5,7 +5,7 @@ import '../css/weatherrangeinput.css';
 // function WeatherRangeInput(props) {
 function WeatherRangeInput(props) {
   return (
-    <div>
+    <div className="WeatherRangeInput">
       <label htmlFor={props.id}>{props.description}</label>
       <br />
       <div className="WeatherRangeInput-input-wrap">

@@ -7,6 +7,8 @@
 by controlling h2 margins but I think this makes more sense.*/
 .home-page {
   min-height: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
   overflow: auto;
   text-align: center;
 }

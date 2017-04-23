@@ -7,9 +7,7 @@
 by controlling h2 margins but I think this makes more sense.*/
 .search {
   box-sizing: border-box;
-  padding-left: 5%;
-  padding-right: 5%;
-  max-width: 500px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
   overflow: auto;
