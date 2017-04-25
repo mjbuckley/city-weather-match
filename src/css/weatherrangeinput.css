@@ -85,13 +85,32 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
   background: #7d7d7d;
 }
 
+.WeatherRangeInput {
+  display: flex;
+  align-items: center;
+}
+
+.WeatherRangeInput-label {
+  width: 40%;
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+
+.WeatherRangeInput-gdld {
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+
 .WeatherRangeInput-unit-value {
+  box-sizing: border-box;
+  padding-left: 15px;
   font-size: 26px;
-  width: 80px;
+  width: 95px;
 }
 
 .WeatherRangeInput-input-wrap {
   display: flex;
+  flex: 1;
 }
 
 .WeatherRangeInput-input {

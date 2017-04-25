@@ -4,11 +4,12 @@ import '../css/weatherrangeinput.css';
 // Component for a range input slider inside of a form. Min and max should come from minmax.json
 // function WeatherRangeInput(props) {
 function WeatherRangeInput(props) {
+
   return (
     <div className="WeatherRangeInput">
-      <label htmlFor={props.id}>{props.description}</label>
-      <br />
+      <label className="WeatherRangeInput-label" htmlFor={props.id}>{props.description}</label>
       <div className="WeatherRangeInput-input-wrap">
+        <div className="WeatherRangeInput-gdld">At least:</div>
         <input
           className="WeatherRangeInput-input"
           type="range"

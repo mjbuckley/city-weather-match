@@ -104,7 +104,7 @@ class Search extends Component {
     return (
       <div className="search-container">
         <div className="search">
-          <h2>Weather Options</h2>
+          <h2 className="search-header">Weather Options</h2>
           <form onSubmit={this.fetchData}>
 
             <section className="search-heat">
@@ -176,7 +176,7 @@ class Search extends Component {
               />
             </section>
 
-            <button type="submit">Find matches</button>
+            <button className="search-button" type="submit">Find matches</button>
           </form>
         </div>
       </div>

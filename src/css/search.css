@@ -9,6 +9,10 @@ by controlling h2 margins but I think this makes more sense.*/
   box-sizing: border-box;
   max-width: 1000px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   overflow: auto;
+}
+
+.search-header {
+  text-align: center;
 }
