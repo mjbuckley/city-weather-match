@@ -9,7 +9,7 @@ function WeatherRangeInput(props) {
     <div className="WeatherRangeInput">
       <label className="WeatherRangeInput-label" htmlFor={props.id}>{props.description}</label>
       <div className="WeatherRangeInput-input-wrap">
-        <div className="WeatherRangeInput-gdld">At least:</div>
+        <span>At Least:</span>
         <input
           className="WeatherRangeInput-input"
           type="range"
@@ -21,7 +21,7 @@ function WeatherRangeInput(props) {
           onChange={props.onChange}
         />
         <div className="WeatherRangeInput-unit-value">
-          {props.value + (props.unit ? (" " + props.unit) : "")}
+          {props.value}<span>{(props.unit ? (" " + props.unit) : "")}</span>
         </div>
       </div>
     </div>

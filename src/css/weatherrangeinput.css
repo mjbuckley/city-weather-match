@@ -86,33 +86,36 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
 }
 
 .WeatherRangeInput {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
+  background: pink;
+  padding: 15px;
 }
 
 .WeatherRangeInput-label {
-  width: 40%;
+  width: 30%;
   box-sizing: border-box;
   padding-right: 15px;
-}
-
-.WeatherRangeInput-gdld {
-  box-sizing: border-box;
-  padding-right: 10px;
+  font-size: 16px;
 }
 
 .WeatherRangeInput-unit-value {
   box-sizing: border-box;
   padding-left: 15px;
-  font-size: 26px;
-  width: 95px;
+  font-size: 40px;
+  width: 110px;
 }
 
 .WeatherRangeInput-input-wrap {
   display: flex;
   flex: 1;
+  max-width: 450px;
 }
 
 .WeatherRangeInput-input {
   flex: 1;
+}
+
+.WeatherRangeInput-unit-value span {
+  font-size: 20px;
 }
