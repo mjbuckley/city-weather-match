@@ -1,7 +1,9 @@
+
+
 input[type=range].WeatherRangeInput-input {
   -webkit-appearance: none;
   width: 100%;
-  margin: 4px 0;
+  margin: 5.75px 0;
   background-color: inherit;
 }
 input[type=range].WeatherRangeInput-input:focus {
@@ -9,61 +11,61 @@ input[type=range].WeatherRangeInput-input:focus {
 }
 input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
   width: 100%;
-  height: 3px;
+  height: 8.5px;
   cursor: pointer;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  background: #707070;
+  background: #cfcfcf;
   border-radius: 0px;
   border: 0px solid #010101;
 }
 input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   border: 0px solid #000000;
-  height: 11px;
-  width: 10px;
-  border-radius: 10px;
-  background: #006db3;
+  height: 20px;
+  width: 12px;
+  border-radius: 2px;
+  background: #039be5;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -4px;
+  margin-top: -5.75px;
 }
 input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
-  background: #7d7d7d;
+  background: #dcdcdc;
 }
 input[type=range].WeatherRangeInput-input::-moz-range-track {
   width: 100%;
-  height: 3px;
+  height: 8.5px;
   cursor: pointer;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  background: #707070;
+  background: #cfcfcf;
   border-radius: 0px;
   border: 0px solid #010101;
 }
 input[type=range].WeatherRangeInput-input::-moz-range-thumb {
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   border: 0px solid #000000;
-  height: 11px;
-  width: 10px;
-  border-radius: 10px;
-  background: #006db3;
+  height: 20px;
+  width: 12px;
+  border-radius: 2px;
+  background: #039be5;
   cursor: pointer;
 }
 input[type=range].WeatherRangeInput-input::-ms-track {
   width: 100%;
-  height: 3px;
+  height: 8.5px;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
   color: transparent;
 }
 input[type=range].WeatherRangeInput-input::-ms-fill-lower {
-  background: #636363;
+  background: #c2c2c2;
   border: 0px solid #010101;
   border-radius: 0px;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
 }
 input[type=range].WeatherRangeInput-input::-ms-fill-upper {
-  background: #707070;
+  background: #cfcfcf;
   border: 0px solid #010101;
   border-radius: 0px;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
@@ -71,24 +73,26 @@ input[type=range].WeatherRangeInput-input::-ms-fill-upper {
 input[type=range].WeatherRangeInput-input::-ms-thumb {
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   border: 0px solid #000000;
-  height: 11px;
-  width: 10px;
-  border-radius: 10px;
-  background: #006db3;
+  height: 20px;
+  width: 12px;
+  border-radius: 2px;
+  background: #039be5;
   cursor: pointer;
-  height: 3px;
+  height: 8.5px;
 }
 input[type=range].WeatherRangeInput-input:focus::-ms-fill-lower {
-  background: #707070;
+  background: #cfcfcf;
 }
 input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
-  background: #7d7d7d;
+  background: #dcdcdc;
 }
+
 
 .WeatherRangeInput {
   /*display: flex;*/
   align-items: center;
-  background: pink;
+  /*background: pink;*/
+  background-color: #dff4ff;
   padding: 15px;
 }
 
@@ -96,14 +100,17 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
   width: 30%;
   box-sizing: border-box;
   padding-right: 15px;
-  font-size: 16px;
 }
 
 .WeatherRangeInput-unit-value {
   box-sizing: border-box;
   padding-left: 15px;
-  font-size: 40px;
-  width: 110px;
+  font-size: 32px;
+  width: 105px;
+}
+
+.WeatherRangeInput-unit-value span {
+  font-size: 20px;
 }
 
 .WeatherRangeInput-input-wrap {
@@ -114,8 +121,4 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
 
 .WeatherRangeInput-input {
   flex: 1;
-}
-
-.WeatherRangeInput-unit-value span {
-  font-size: 20px;
 }
