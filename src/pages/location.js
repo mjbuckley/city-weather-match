@@ -33,8 +33,8 @@ function Location(props) {
   // Keep in mind that the weather values below are values for the station, not search values.
   const multiCity = stationsObj[station]["multiCity"];
   const sharedarea = stationsObj[station]["sharedarea"];
-  const mTmxAv = stationsObj[station]["mTmxAv"];
-  const mTmnAv = stationsObj[station]["mTmnAv"];
+  const hmTmxAv = stationsObj[station]["mTmxAv"][12];
+  const lmTmnAv = stationsObj[station]["mTmnAv"][12];
   const andSnGe1 = stationsObj[station]["andSnGe1"];
   const andSnCGe1 = stationsObj[station]["andSnCGe1"];
   const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
@@ -48,8 +48,8 @@ function Location(props) {
     <div>
       <h3>{city}, {state}</h3>
       <ul>
-        <li>The average high temp during the hottest month: {mTmxAv}</li>
-        <li>The averag low temp during the coldest month: {mTmnAv}</li>
+        <li>The average high temp during the hottest month: {hmTmxAv}</li>
+        <li>The averag low temp during the coldest month: {lmTmnAv}</li>
         <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
         <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
         <li>The average number of rainy days: {andPrGe5Ti}</li>

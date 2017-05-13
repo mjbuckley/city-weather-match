@@ -145,6 +145,7 @@ Precip
 
 
 5/13/17 If there is an easy way to only pass the props that I need then that's what I do, but sometimes it seems more readable to just pass everything. Decide what I should do about this.
+-Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 5/12/17 IMPORTANT. I'm removing parseInt from the search component. All values entering the component will be numbers, and I believe that the range input will only return numbers, so I should be fine. But be sure to double check and look into this if I'm having problems.
 5/11/17 Note somewhere that defaults in paramstovalues must be manually adjusted when new weather info added. No clean way to automate this.  Findmatches also must be manually updated.
 -Do I even need minmax any more?

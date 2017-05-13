@@ -76,7 +76,7 @@ class Search extends Component {
                 max={inputMinMax["andTmxGe60Le"][1]}
                 value={this.state.andTmxGe60Le}
                 onChange={this.changeSliderValue}
-                unit="°F"
+                unit=""
               />
               <br />
               <WeatherRangeInput
@@ -86,7 +86,7 @@ class Search extends Component {
                 max={inputMinMax["andTmxGe60Ge"][1]}
                 value={this.state.andTmxGe60Ge}
                 onChange={this.changeSliderValue}
-                unit="°F"
+                unit=""
               />
               <br />
               <WeatherRangeInput
@@ -96,7 +96,7 @@ class Search extends Component {
                 max={inputMinMax["andTmxGe80Le"][1]}
                 value={this.state.andTmxGe80Le}
                 onChange={this.changeSliderValue}
-                unit="°F"
+                unit=""
               />
               <br />
               <WeatherRangeInput
@@ -106,7 +106,7 @@ class Search extends Component {
                 max={inputMinMax["andTmxGe80Ge"][1]}
                 value={this.state.andTmxGe80Ge}
                 onChange={this.changeSliderValue}
-                unit="°F"
+                unit=""
               />
             </section>
             <section className="search-cold">
@@ -127,7 +127,7 @@ class Search extends Component {
                 min={inputMinMax["andTmnLe32Le"][0]}
                 max={inputMinMax["andTmnLe32Le"][1]}
                 value={this.state.andTmnLe32Le}
-                onChange={tthis.changeSliderValue}
+                onChange={this.changeSliderValue}
                 unit=""
               />
               <br />
@@ -137,7 +137,7 @@ class Search extends Component {
                 min={inputMinMax["andTmnLe32Ge"][0]}
                 max={inputMinMax["andTmnLe32Ge"][1]}
                 value={this.state.andTmnLe32Ge}
-                onChange={tthis.changeSliderValue}
+                onChange={this.changeSliderValue}
                 unit=""
               />
             </section>
