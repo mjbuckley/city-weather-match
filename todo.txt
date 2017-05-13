@@ -103,7 +103,7 @@ OTHER:
 PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER OPTIONS ARE ADDED
 
 1) Add the date in jsoncreate.js in weather data project
-2) Manually alter the default matches creation function in weather data project.
+2) Manually alter the min max default matches creation function in weather data project.
 3) Run jsoncreate.js and copy over the 4 altered files.
 4) Add default value to default state in App.
 5) Add to props to pass children in App.
@@ -113,7 +113,80 @@ PLACES WHERE INFO NEEDS TO BE UPDATED WHEN NEW WEATHER OPTIONS ARE ADDED
 9) Update props passed to search in home.js
 10) On search add to state, create change value function and bind it to this, add to fetch data function, and add range slider.
 11) Add to props passed to citieslist in results.js.
-12) Add to buildparams.js
+12) Add to buildparams.js (5/13: no longer using this file)
 13) Add to location.js in weather info and in the props passed to sharedarealist.js.
 14) Add to props passed to citylist on citieslist.js.
 15) Update data examples for future reference.
+
+
+
+
+WEATHER OPTIONS
+
+Cold Days
+1) Average low temp for the coldest month of the year is greater than X. (lMTMnGe)
+2) Number of days the temp drops below freezing is less than X. (d32Le)
+3) Number of days the temp drops below freezing is greater than X. (d32Ge)
+
+Warm Days
+4) Average high temp for the hottest month of the year is less than X. (HMTMxLe)
+5) Number of days the temp gets above 80 is less than X. (d80Le)
+6) Number of days the temp gets above 80 is greater than X. (d80Ge)
+7) Number of days the temp gets above 60 is greater than X. (d60Ge)
+8) Number of days the temp gets above 60 is less than X. (d60Le)
+
+Precip
+9) Number of days with an inch or more if snowfall is greater than X. (dSn1Ge)
+10) Number of days with an inch or more if snowfall is less than X. (dSn1Le)
+11) Number of days with an inch or more of snow cover is greater than X. (dSnC1Ge)
+12) Number of days with an inch or more of snow cover is less than X. (dSnC1Le)
+13) Number of rainy days (.5 inch of precip or more) is less than X. (dPr5TiLe)
+14) Number of rainy days (.5 inch of precip or more) is greater than X. (dPr5TiGe)
+
+
+5/13/17 If there is an easy way to only pass the props that I need then that's what I do, but sometimes it seems more readable to just pass everything. Decide what I should do about this.
+5/12/17 IMPORTANT. I'm removing parseInt from the search component. All values entering the component will be numbers, and I believe that the range input will only return numbers, so I should be fine. But be sure to double check and look into this if I'm having problems.
+5/11/17 Note somewhere that defaults in paramstovalues must be manually adjusted when new weather info added. No clean way to automate this.  Findmatches also must be manually updated.
+-Do I even need minmax any more?
+-Can I automate the creation of weatheroptions in jsoncreate?
+5/9/17: Finished going through componentWillMount in App
+5/8/17 TODO
+
+-inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
+-Finish updating app to reflect new info and naming scheme. I STARTED TO DO THIS BUT I then realized I should create inputMinMax to make things easier. Now only default state in app fully updated.
+-IMPORTANT: I need to change my comparison values to <= and >=. If I use just < > I could cause problems because reasonable options (like 0) could be excluded.
+
+
+VALUES IN STATIONSOBJ:
+
+"mTmxAv"
+"mTmnAv"
+"andSnGe1"
+"andSnCGe1"
+"andPrGe5Ti"
+"andTmnLe32"
+"andTmxGe60"
+"andTmxGe80"
+
+
+Le =  max allowable
+Ge = min allowable
+
+
+
+WEATHER INPUT values
+
+hMTmxAvLe
+lMTmnAvGe
+andSnGe1Le
+andSnGe1Ge
+andSnCGe1Le
+andSnCGe1Ge
+andPrGe5TiLe
+andPrGe5TiGe
+andTmnLe32Le
+andTmnLe32Ge
+andTmxGe60Le
+andTmxGe60Ge
+andTmxGe80Le
+andTmxGe80Ge

@@ -1,16 +1,24 @@
 import weatherOptions from '../data/weatheroptions.js';
 
-const minMax = require('../data/minmax.json');
+const inputMinMax = require('../data/inputminmax.json');
 
 // The value (either max or min possible) for each weather option such no station is excluded by that value.
 // Used to fill in valid but partially empty query params.
 const defaults = {
-  mTmxAv: minMax["mTmxAv"][1],
-  mTmnAv: minMax["mTmnAv"][0],
-  andTmnLe32: minMax["andTmnLe32"][1],
-  andSnGe1: minMax["andSnGe1"][1],
-  andSnCGe1: minMax["andSnCGe1"][1],
-  andPrGe5Ti: minMax["andPrGe5Ti"][1]
+  hMTmxAvLe: inputMinMax["hMTmxAvLe"][1],
+  lMTmnAvGe: inputMinMax["lMTmnAvGe"][0],
+  andSnGe1Le: inputMinMax["andSnGe1Le"][1],
+  andSnGe1Ge: inputMinMax["andSnGe1Ge"][0],
+  andSnCGe1Le: inputMinMax["andSnCGe1Le"][1],
+  andSnCGe1Ge: inputMinMax["andSnCGe1Ge"][0],
+  andPrGe5TiLe: inputMinMax["andPrGe5TiLe"][1],
+  andPrGe5TiGe: inputMinMax["andPrGe5TiGe"][0],
+  andTmnLe32Le: inputMinMax["andTmnLe32Le"][1],
+  andTmnLe32Ge: inputMinMax["andTmnLe32Ge"][0],
+  andTmxGe60Le: inputMinMax["andTmxGe60Le"][1],
+  andTmxGe60Ge: inputMinMax["andTmxGe60Ge"][0],
+  andTmxGe80Le: inputMinMax["andTmxGe80Le"][1],
+  andTmxGe80Ge: inputMinMax["andTmxGe80Ge"][0]
 };
 
 
@@ -33,8 +41,8 @@ export default function paramsToValues(props) {
 
       // Verify that value is an int and is in range of possible values
       if (Number.isInteger(value) &&
-          value >= (minMax[key][0]) &&
-          value <= (minMax[key][1])) {
+          value >= (inputMinMax[key][0]) &&
+          value <= (inputMinMax[key][1])) {
 
         // query param key and value are good, so add to info object
         info[key] = value;
@@ -62,9 +70,10 @@ export default function paramsToValues(props) {
       }
     }
 
-    info["isActive"] = true;
-
-  return info;
+    return {
+      "weatherValues": info,
+      "isActive": true
+    };
 
   } else {
     // Something was in query params, but nothing was valid, so in practice I'm treating it as

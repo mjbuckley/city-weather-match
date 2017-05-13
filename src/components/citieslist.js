@@ -18,14 +18,9 @@ function CitiesList(props) {
         <CityList
           key={station}
           station={station}
-          mTmxAv={props.mTmxAv}
-          mTmnAv={props.mTmnAv}
-          andSnGe1={props.andSnGe1}
-          andSnCGe1={props.andSnCGe1}
-          andPrGe5Ti={props.andPrGe5Ti}
-          andTmnLe32={props.andTmnLe32}
-          isActive={props.isActive}
+          weatherValues={props.weatherValues}
           matches={props.matches}
+          isActive={props.isActive}
         />
       ))}
       </ul>

@@ -5,8 +5,8 @@ import findMatches from './utils/findmatches.js';
 import paramsMatchState from './utils/paramsmatchstate.js';
 import './css/App.css';
 
-// Min, max, and midway values for each weather category
-const weatherConst = require('./data/minmax.json');
+// Min, max, and midway values for each weather input category
+const inputMinMax = require('./data/inputminmax.json');
 
 // Precomputed station matches for the default weather values
 const defaultMatches = require('./data/defaultmatches.json');
@@ -14,19 +14,29 @@ const defaultMatches = require('./data/defaultmatches.json');
 class App extends Component {
   constructor() {
     super();
-    // Weather values are set to the midway point between min and max possible values
-    // Matches is set manually. BE SURE TO UPDATE MATCHES EVERY TIME I ADD WEATHER OPTIONS
-    // OR UPDATE THE DATA.
+    // Properties in weatherValues are set to the midway point between min and max possible values
+    // Default matches are precomputed in jsoncreate.js and copied over.
     this.state = {
-      mTmxAv: weatherConst["mTmxAv"][2],
-      mTmnAv: weatherConst["mTmnAv"][2],
-      andSnGe1: weatherConst["andSnGe1"][2],
-      andSnCGe1: weatherConst["andSnCGe1"][2],
-      andPrGe5Ti: weatherConst["andPrGe5Ti"][2],
-      andTmnLe32: weatherConst["andTmnLe32"][2],
+      weatherValues: {
+        hMTmxAvLe: inputMinMax["hMTmxAvLe"][2],
+        lMTmnAvGe: inputMinMax["lMTmnAvGe"][2],
+        andSnGe1Le: inputMinMax["andSnGe1Le"][2],
+        andSnGe1Ge: inputMinMax["andSnGe1Ge"][2],
+        andSnCGe1Le: inputMinMax["andSnCGe1Le"][2],
+        andSnCGe1Ge: inputMinMax["andSnCGe1Ge"][2],
+        andPrGe5TiLe: inputMinMax["andPrGe5TiLe"][2],
+        andPrGe5TiGe: inputMinMax["andPrGe5TiGe"][2],
+        andTmnLe32Le: inputMinMax["andTmnLe32Le"][2],
+        andTmnLe32Ge: inputMinMax["andTmnLe32Ge"][2],
+        andTmxGe60Le: inputMinMax["andTmxGe60Le"][2],
+        andTmxGe60Ge: inputMinMax["andTmxGe60Ge"][2],
+        andTmxGe80Le: inputMinMax["andTmxGe80Le"][2],
+        andTmxGe80Ge: inputMinMax["andTmxGe80Ge"][2]
+      },
       matches: defaultMatches["defaultMatches"],
       isActive: false
     };
+
     this.updateWeatherState = this.updateWeatherState.bind(this);
   }
 
@@ -47,7 +57,7 @@ class App extends Component {
     }
 
     // If query params match state, no need to change weather values, but change isActive to true if currently false.
-    if (paramsMatchState(this.props.location.query, this.state)) {
+    if (paramsMatchState(this.props.location.query, this.state.weatherValues)) {
 
       if (this.state.isActive === false) {
         this.updateWeatherState({isActive: true});
@@ -62,7 +72,7 @@ class App extends Component {
     // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
 
-      const matches = findMatches(info);
+      const matches = findMatches(info["weatherValues"]);
       info["matches"] = matches;
 
       this.updateWeatherState(info);
@@ -96,7 +106,7 @@ class App extends Component {
 
 
     // If query params match state, no need to change weather values, but change isActive to true if currently false.
-    if (paramsMatchState(nextProps.location.query, this.state)) {
+    if (paramsMatchState(nextProps.location.query, this.state.weatherValues)) {
 
       if (this.state.isActive === false) {
         this.updateWeatherState({isActive: true});
@@ -111,7 +121,7 @@ class App extends Component {
     // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
 
-      const matches = findMatches(info);
+      const matches = findMatches(info["weatherValues"]);
       info["matches"] = matches;
 
       this.updateWeatherState(info);
@@ -127,7 +137,9 @@ class App extends Component {
   }
 
 
-  // Function expects an object with valid weather values ex: {mTmxAv: 100}.
+  // Function expects an info object with any/all of the following: weatherValues, matches, and isActive.
+  // Note that if updating weatherValues is should contain the full object, not just a property in the object
+  // Ex: BAD updateWeatherState({weatherValues.hMTmxAvLe: 100}). DO NOT DO THIS.
   updateWeatherState(info) {
     this.setState(info);
   };
@@ -147,16 +159,12 @@ class App extends Component {
           App and adds needed props here. It would be nice to find a better way to do this, but it works fine.
           This method passes down some props that some children won't need. There is no problem with this right now
           but would prefer something that didn't do this. */}
+
         {React.Children.map(
           this.props.children,
           child => React.cloneElement(child,
           {
-            mTmxAv: this.state.mTmxAv,
-            mTmnAv: this.state.mTmnAv,
-            andSnGe1: this.state.andSnGe1,
-            andSnCGe1: this.state.andSnCGe1,
-            andPrGe5Ti: this.state.andPrGe5Ti,
-            andTmnLe32: this.state.andTmnLe32,
+            weatherValues: this.state.weatherValues,
             matches: this.state.matches,
             isActive: this.state.isActive,
             updateWeatherState: this.updateWeatherState
@@ -169,3 +177,23 @@ class App extends Component {
 }
 
 export default App;
+
+// Below is a working version of passing props to children. I think what I have now is the same
+// but cleaner. Keeping around in case my new version doesn't work. If I keep below version I
+// still need to add new weather values/fix names.
+//
+// {React.Children.map(
+//   this.props.children,
+//   child => React.cloneElement(child,
+//   {
+//     mTmxAv: this.state.mTmxAv,
+//     mTmnAv: this.state.mTmnAv,
+//     andSnGe1: this.state.andSnGe1,
+//     andSnCGe1: this.state.andSnCGe1,
+//     andPrGe5Ti: this.state.andPrGe5Ti,
+//     andTmnLe32: this.state.andTmnLe32,
+//     matches: this.state.matches,
+//     isActive: this.state.isActive,
+//     updateWeatherState: this.updateWeatherState
+//   })
+// )}

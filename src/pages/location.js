@@ -30,15 +30,17 @@ function Location(props) {
   }
 
 
-  // Keep in mind that the weather values below are values for the station, no search values.
+  // Keep in mind that the weather values below are values for the station, not search values.
   const multiCity = stationsObj[station]["multiCity"];
   const sharedarea = stationsObj[station]["sharedarea"];
-  const mTmxAv = stationsObj[station]["mTmxAv"][12];
-  const mTmnAv = stationsObj[station]["mTmnAv"][12];
+  const mTmxAv = stationsObj[station]["mTmxAv"];
+  const mTmnAv = stationsObj[station]["mTmnAv"];
   const andSnGe1 = stationsObj[station]["andSnGe1"];
   const andSnCGe1 = stationsObj[station]["andSnCGe1"];
   const andPrGe5Ti = stationsObj[station]["andPrGe5Ti"];
   const andTmnLe32 = stationsObj[station]["andTmnLe32"];
+  const andTmxGe60 = stationsObj[station]["andTmxGe60"];
+  const andTmxGe80 = stationsObj[station]["andTmxGe80"];
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
 
 
@@ -52,6 +54,8 @@ function Location(props) {
         <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
         <li>The average number of rainy days: {andPrGe5Ti}</li>
         <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
+        <li>The average number of days where the temp gets above 60: {andTmxGe60}</li>
+        <li>The average number of days where the temp gets above 80: {andTmxGe80}</li>
       </ul>
 
       { (multiCity.length > 1) ? (
@@ -64,12 +68,7 @@ function Location(props) {
           sharedarea={sharedarea}
           city={city}
           state={state}
-          mTmxAv={props.mTmxAv}
-          mTmnAv={props.mTmnAv}
-          andSnGe1={props.andSnGe1}
-          andSnCGe1={props.andSnCGe1}
-          andPrGe5Ti={props.andPrGe5Ti}
-          andTmnLe32={props.andTmnLe32}
+          weatherValues={props.weatherValues}
           isActive={props.isActive}
         />
       ) : null}
