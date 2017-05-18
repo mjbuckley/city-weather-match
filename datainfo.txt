@@ -1,49 +1,143 @@
-This file contains info and examples about the data files in the src/data directory. 
+This file contains info and examples about the data files in the src/data directory.
+Note that all weather values are for example purposes and may no longer be correct (but the structure is correct).
+Updated 5/16/17
 
 
--WEATHER.JSON/STATIONSOBJ: weather.json is a file of all stations and their weather data. In the app itself it is saved as a const called stationsObj. It takes the form of:
+-WEATHER.JSON (frequently used as stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
 
 { station1: {info}, station2: {info}, etc. }
 
 
 -EXAMPLE STATION IN STATIONSOBJ:
 
-"USW00093044": {
-  "zip": "87327",
-  "city": "Zuni",
-  "multiCity": [], // If multiple stations in same city then all stations listed in array
-  "area": ["Gallup, NM"], // Metro/micro areas the station belongs to. Often 0 or 1, but can be many.
-  "sharedarea": ["Gallup, NM"], // Metro/micro areas that station belongs to along with at least on other station.
-  "state": "NM",
-  "andSnGe1": "4.4", // Average # days snowfall >= 1 inch
-  "andSnCGe1": "4.0", // Average # days snow ground cover >= 1 inch
-  "andPrGe5Ti": "6.2", // Average # days with precipitation >= 1/2 inch (5 tenths of an inch)
-  "mTmxAv": ["48.8","52.6","59.9","68.2","77.4","87.3","90.2","87.3","82.0","70.8","58.3","49.0",90.2],
-  "mTmnAv": ["12.0","15.4","19.3","24.6","32.3","39.7","48.4","48.1","39.8","28.3","18.8","12.1",12],
+"USW00093044":{
+  "zip":"87327",
+  "city":"Zuni",
+  "multiCity":[], // If multiple stations in same city then all stations listed in array
+  "area":["Gallup, NM"], // Metro/micro areas the station belongs to. Often 0 or 1, but can be many.
+  "sharedarea":["Gallup, NM"], // Metro/micro areas that station belongs to along with at least on other station.
+  "state":"NM",
+  "andSnGe1":"4.4", // Average # days snowfall >= 1 inch
+  "andSnCGe1":"4.0", // Average # days snow ground cover >= 1 inch
+  "andPrGe5Ti":"6.2", // Average # days with precipitation >= 1/2 inch (5 tenths of an inch)
+  "mTmxAv":["48.8","52.6","59.9","68.2","77.4","87.3","90.2","87.3","82.0","70.8","58.3","49.0",90.2],
+  "mTmnAv":["12.0","15.4","19.3","24.6","32.3","39.7","48.4","48.1","39.8","28.3","18.8","12.1",12],
     // For mTmx and mTmn [0]-[11] are jan-dec values, [12] is the max/min of those values
-  "andTmnLe32": "217.3" // Average # days min temp <= 32 degrees.
+  "andTmnLe32":"217.3", // Average # days min temp <= 32 degrees.
+  "andTmxGe60":"247.4", // Average # days temp gets to at least 60
+  "andTmxGe80":"122.2" // Average # of days temp gets to at least 80
 }
 
 
--MINMAX.JSON: Object containing each weather option as properties and with the values being an array of the min and max and median values for that weather option. Min rounded down, max up. Used to set the end and starting points of the range slider.
+-WEATHER VALUES IN STATIONSOBJ:
+
+"mTmxAv"
+"mTmnAv"
+"andSnGe1"
+"andSnCGe1"
+"andPrGe5Ti"
+"andTmnLe32"
+"andTmxGe60"
+"andTmxGe80"
+
+
+-MINMAX.JSON: Object containing each weather option as properties and with the values being an array of the min and max and median values for that weather option. Min rounded down, max up. Not sure if I will continue to use this.
 
 {
-  "andSnGe1": [0,93,47],
-  "andSnCGe1": [0,247,124],
-  "andPrGe5Ti": [0,135,68],
-  "mTmxAv": [46,117,82],
-  "mTmnAv": [-27,73,23],
-  "andTmnLe32": [0,308,154]
+  "andSnGe1":[0,93,47],
+  "andSnCGe1":[0,247,124],
+  "andPrGe5Ti":[0,135,68],
+  "mTmxAv":[46,117,82],
+  "mTmnAv":[-27,73,23],
+  "andTmnLe32":[0,308,154],
+  "andTmxGe60":[0,365,183],
+  "andTmxGe80":[0,365,183]
 }
+
+
+-INPUTMINMAX.JSON: Similar to minmax.json, but with the min, max, and median for each range slider input. Used to set there range. I plan to eventually replace the median value with a meaningful slider default value:
+
+{
+  "hMTmxAvLe":[46,117,82],
+  "lMTmnAvGe":[-27,73,23],
+  "andSnGe1Le":[0,93,47],
+  "andSnGe1Ge":[0,93,47],
+  "andSnCGe1Le":[0,247,124],
+  "andSnCGe1Ge":[0,247,124],
+  "andPrGe5TiLe":[0,135,68],
+  "andPrGe5TiGe":[0,135,68],
+  "andTmnLe32Le":[0,308,154],
+  "andTmnLe32Ge":[0,308,154],
+  "andTmxGe60Le":[0,365,183],
+  "andTmxGe60Ge":[0,365,183],
+  "andTmxGe80Le":[0,365,183],
+  "andTmxGe80Ge":[0,365,183]
+}
+
+-VALUES IN INPUTMINMAX
+Note that Le/Ge (less/greater than or equal) have two meanings here. In the weather context they signify
+number of days where a station's temp/precip is above or below a certain value. However, when used at the end
+of the abbreviation they refer to the user's desired range. In that context:
+Le = User desires value less than or equal to chosen value (the max allowable)
+Ge = User desires value greater than or equal to chosen value (the min allowable)
+
+hMTmxAvLe
+lMTmnAvGe
+andSnGe1Le
+andSnGe1Ge
+andSnCGe1Le
+andSnCGe1Ge
+andPrGe5TiLe
+andPrGe5TiGe
+andTmnLe32Le
+andTmnLe32Ge
+andTmxGe60Le
+andTmxGe60Ge
+andTmxGe80Le
+andTmxGe80Ge
 
 
 -METROMAP.JSON: Using metro names as the properties, this breaks each metro area up into cities,
-and breaks each city up into stations. This is helpful for creating metro area links.
+and breaks each city up into stations. This is helpful for creating metro area links:
 
 {"metroname, state(s)": {city1: [station, station], city2: [station]}, etc.}
 
 
--WEATHEROPTIONS.JS: Array of all weather options. MUST BE MANUALLY UPDATED IF NEW OPTION ADDED.
+-WEATHEROPTIONS.JS: Array of all weather options. MUST BE MANUALLY UPDATED IF NEW OPTION ADDED. Can probably get rid of this and just use the properties in inputminmax.json.
 
 
--DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. It is based off of the median values for each weather option (which are the default options for the range slider).
+-DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Currently it is based off of the median values for each weather option (which are the default options for the range slider), but I will eventually use more meaningful defaults.
+
+
+-NOTES ON UPDATING THE APP WITH NEW WEATHER INFO
+
+In jsoncreate.js:
+
+1) Add the data to stationsObj
+2) Add the new data name to the section in jsoncreate.js that checks for stations with incomplete information.
+3) Manually alter createminmax.js, createinputminmax.js, and finddefaultmatches.js with new info.
+4) Run jsoncreate.js and copy over the 5 altered files.
+
+LEFT OFF HERE
+In the app:
+
+4) Add default value to default state in App.
+5) Add to props to pass children in App.
+6) Update weatheroptions.js
+7) Update defaults const in paramstovalues.js
+8) Update findmatches.js
+9) Update props passed to search in home.js
+10) On search add to state, create change value function and bind it to this, add to fetch data function, and add range slider.
+11) Add to props passed to citieslist in results.js.
+12) Add to buildparams.js (5/13: no longer using this file)
+13) Add to location.js in weather info and in the props passed to sharedarealist.js.
+14) Add to props passed to citylist on citieslist.js.
+15) Update data examples for future reference.
+
+
+
+NOW 5/17/17
+-I need to make notes of what to alter in app be up to date.
+-I need to remove minmax in both places.
+-I need to make use of the new weatheroptions.json. It has been copied over but not yet using.
+-remove old weatheroptions.js (and any notes about it).

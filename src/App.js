@@ -177,23 +177,3 @@ class App extends Component {
 }
 
 export default App;
-
-// Below is a working version of passing props to children. I think what I have now is the same
-// but cleaner. Keeping around in case my new version doesn't work. If I keep below version I
-// still need to add new weather values/fix names.
-//
-// {React.Children.map(
-//   this.props.children,
-//   child => React.cloneElement(child,
-//   {
-//     mTmxAv: this.state.mTmxAv,
-//     mTmnAv: this.state.mTmnAv,
-//     andSnGe1: this.state.andSnGe1,
-//     andSnCGe1: this.state.andSnCGe1,
-//     andPrGe5Ti: this.state.andPrGe5Ti,
-//     andTmnLe32: this.state.andTmnLe32,
-//     matches: this.state.matches,
-//     isActive: this.state.isActive,
-//     updateWeatherState: this.updateWeatherState
-//   })
-// )}

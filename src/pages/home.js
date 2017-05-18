@@ -24,15 +24,3 @@ function Home(props) {
 }
 
 export default Home;
-
-// Working old version of search
-//
-// <Search
-//   mTmxAv={props.mTmxAv}
-//   mTmnAv={props.mTmnAv}
-//   andTmnLe32={props.andTmnLe32}
-//   andSnGe1={props.andSnGe1}
-//   andSnCGe1={props.andSnCGe1}
-//   andPrGe5Ti={props.andPrGe5Ti}
-//   updateWeatherState={props.updateWeatherState}
-// />
