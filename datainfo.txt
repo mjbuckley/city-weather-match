@@ -136,8 +136,7 @@ In the app:
 
 
 
-NOW 5/17/17
+TO DO 5/18/17
 -I need to make notes of what to alter in app be up to date.
--I need to remove minmax in both places.
 -I need to make use of the new weatheroptions.json. It has been copied over but not yet using.
 -remove old weatheroptions.js (and any notes about it).
