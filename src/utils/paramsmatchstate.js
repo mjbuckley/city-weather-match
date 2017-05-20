@@ -17,6 +17,3 @@ export default function paramsMatchState(next, current) {
   });
   return match;
 }
-
-// NOTE right ow next is giving string current is giving number, that's why parseInt
-// is used. However, I want to use parseInt elsewere eventually.
