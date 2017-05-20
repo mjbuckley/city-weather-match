@@ -35,7 +35,6 @@ RANGE SLIDER
 TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Can I replace weatheroptions.js with the properties of inputminmax.json? Or can/should I just make weatheroptions spit out automatically when running jsoncreate.js
 -I removed the use of parseInt from the search component. All values entering the component will be numbers, and I believe that the range input will only return numbers, so I should be fine. But be sure to double check and look into this if I'm having problems.
 
 -Don't forget checking in different browsers/devices/OSes. Basic functionality seems fine in Safari and Firefox, but be sure to check everywhere. Also, I do see some minor style differences I should see if I can fix.
@@ -43,7 +42,6 @@ TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
 -I made a really basic simulation of a 404 page (works the same way but is actually a 200 response). It seems to be working, but make it a bit better and test edge case more.
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
 -Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
--Right now my weatheroptions.js file is hand made. See if I can automate that and make it a 5th file to be created by jsoncreate.js.
 -Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
 -I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).

@@ -1,6 +1,6 @@
 This file contains info and examples about the data files in the src/data directory.
 Note that all weather values are for example purposes and may no longer be correct (but the structure is correct).
-Updated 5/16/17
+Updated 5/18/17
 
 
 -WEATHER.JSON (frequently used as stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
@@ -41,21 +41,7 @@ Updated 5/16/17
 "andTmxGe80"
 
 
--MINMAX.JSON: Object containing each weather option as properties and with the values being an array of the min and max and median values for that weather option. Min rounded down, max up. Not sure if I will continue to use this.
-
-{
-  "andSnGe1":[0,93,47],
-  "andSnCGe1":[0,247,124],
-  "andPrGe5Ti":[0,135,68],
-  "mTmxAv":[46,117,82],
-  "mTmnAv":[-27,73,23],
-  "andTmnLe32":[0,308,154],
-  "andTmxGe60":[0,365,183],
-  "andTmxGe80":[0,365,183]
-}
-
-
--INPUTMINMAX.JSON: Similar to minmax.json, but with the min, max, and median for each range slider input. Used to set there range. I plan to eventually replace the median value with a meaningful slider default value:
+-INPUTMINMAX.JSON: Object with properties being the weather range input options and the values being an array of the min, max, and median for each range slider input. Min rounded down, max up. I plan to eventually replace the median value with a meaningful slider default value. Used to set slider range and to validate inputs.
 
 {
   "hMTmxAvLe":[46,117,82],
@@ -103,7 +89,7 @@ and breaks each city up into stations. This is helpful for creating metro area l
 {"metroname, state(s)": {city1: [station, station], city2: [station]}, etc.}
 
 
--WEATHEROPTIONS.JS: Array of all weather options. MUST BE MANUALLY UPDATED IF NEW OPTION ADDED. Can probably get rid of this and just use the properties in inputminmax.json.
+-WEATHEROPTIONS.JSON: A list of the weather options that are asked of the user (the same as the keys in inputminmax). In object form: { "weatherOptions: [list of options]"}.
 
 
 -DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Currently it is based off of the median values for each weather option (which are the default options for the range slider), but I will eventually use more meaningful defaults.
@@ -116,27 +102,21 @@ In jsoncreate.js:
 1) Add the data to stationsObj
 2) Add the new data name to the section in jsoncreate.js that checks for stations with incomplete information.
 3) Manually alter createminmax.js, createinputminmax.js, and finddefaultmatches.js with new info.
-4) Run jsoncreate.js and copy over the 5 altered files.
+4) Run jsoncreate.js and copy over the 5 outputted files.
 
-LEFT OFF HERE
 In the app:
 
-4) Add default value to default state in App.
-5) Add to props to pass children in App.
-6) Update weatheroptions.js
-7) Update defaults const in paramstovalues.js
-8) Update findmatches.js
-9) Update props passed to search in home.js
-10) On search add to state, create change value function and bind it to this, add to fetch data function, and add range slider.
-11) Add to props passed to citieslist in results.js.
-12) Add to buildparams.js (5/13: no longer using this file)
-13) Add to location.js in weather info and in the props passed to sharedarealist.js.
-14) Add to props passed to citylist on citieslist.js.
-15) Update data examples for future reference.
-
+1) Add new value to default state in App.
+2) Update defaults in paramstovalues.js with new value.
+3) Update findmatches.js with new value.
+4) Add slider(s) for new value on search page.
+5) Add to list of weather values on location.js.
+6) Update data examples on this page with new value for future reference.
 
 
 TO DO 5/18/17
--I need to make notes of what to alter in app be up to date.
--I need to make use of the new weatheroptions.json. It has been copied over but not yet using.
--remove old weatheroptions.js (and any notes about it).
+-I think I do need to reintroduce parse int (url and maybe form values passed as strings I think). One place I have now is paramsmatchstate, but it should be done elsewhere.
+-Add some console.log tests to make sure my componentWillMount and componentWillReceiveProps functions are running like I expect.
+-Make sure I'm happy with everything (mapping cbsa, number/parseint, etc.) in jsoncreate,and make sure it's documented. Then merge into master and backup.
+
+-I'm tempted to ignore this because I'm unlikely to ever do something this way again, but two things continue to bug me. First, almost (but not all) components seem to be rendering twice. There isn't any obvious performance issue, I just wish this wasn't happening. Second, when on the search page and the clicking the find results button, when the results page renders, it seems to render twice like the other pages, but this time it looks like the link with the new params gets loaded before the state gets updated because the 1st time paramstovalues gets called and the second time paramsmatchstate gets called. Not sure what's going on here (and what about the few cases where it seems like things only get rendered once?).

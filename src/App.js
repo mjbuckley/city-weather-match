@@ -44,10 +44,11 @@ class App extends Component {
   // On App mount this checks query param values against values in state and then updates state if needed.
   // Note that this code is the same as in componentWillReceiveProps except this.props is used instead of nextProps.
   componentWillMount() {
-
+    console.log("In componentWillMount");
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
     // false. If empty but isActiveis true then set it to false.
-    if (this.props.location.query.length === 0) {
+    if (Object.keys(this.props.location.query).length === 0) {
+      console.log("cwm query length 0");
 
       if (this.state.isActive === true) {
         this.updateWeatherState({isActive: false});
@@ -58,7 +59,7 @@ class App extends Component {
 
     // If query params match state, no need to change weather values, but change isActive to true if currently false.
     if (paramsMatchState(this.props.location.query, this.state.weatherValues)) {
-
+      console.log("cwm params match state");
       if (this.state.isActive === false) {
         this.updateWeatherState({isActive: true});
       }
@@ -71,7 +72,7 @@ class App extends Component {
 
     // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
-
+      console.log("cwm params to value good");
       const matches = findMatches(info["weatherValues"]);
       info["matches"] = matches;
 
@@ -79,7 +80,7 @@ class App extends Component {
 
     // Invalid query params, so can't update weather values. Make sure isActive is set to false.
     } else {
-
+      console.log("cwm params to values bad");
       if (this.state.isActive === true) {
 
         this.updateWeatherState({isActive: false});
@@ -92,11 +93,12 @@ class App extends Component {
   // a change in query params as a reload of a page, just as the passing in of new props.
   // Note that this code is the same as in componentWillMount except nextProps is used instead of this.props.
   componentWillReceiveProps(nextProps) {
-
+    console.log("In componentWillReceiveProps");
+    console.log(nextProps);
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
     // false. If empty but isActiveis true then set it to false.
-    if (nextProps.location.query.length === 0) {
-
+    if (Object.keys(nextProps.location.query).length === 0) {
+      console.log("cwrp query length 0");
       if (this.state.isActive === true) {
         this.updateWeatherState({isActive: false});
       }
@@ -107,7 +109,7 @@ class App extends Component {
 
     // If query params match state, no need to change weather values, but change isActive to true if currently false.
     if (paramsMatchState(nextProps.location.query, this.state.weatherValues)) {
-
+console.log("cwrp params match state");
       if (this.state.isActive === false) {
         this.updateWeatherState({isActive: true});
       }
@@ -120,7 +122,7 @@ class App extends Component {
 
     // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
     if (info["isActive"] === true) {
-
+console.log("cwrp paramsToValues good");
       const matches = findMatches(info["weatherValues"]);
       info["matches"] = matches;
 
@@ -128,7 +130,7 @@ class App extends Component {
 
     // Invalid query params, so can't update weather values. Make sure isActive is set to false.
     } else {
-
+console.log("cwrp params to values bad");
       if (this.state.isActive === true) {
 
         this.updateWeatherState({isActive: false});

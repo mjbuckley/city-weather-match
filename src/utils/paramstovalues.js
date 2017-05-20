@@ -1,6 +1,5 @@
-import weatherOptions from '../data/weatheroptions.js';
-
 const inputMinMax = require('../data/inputminmax.json');
+const weatherOptions = require('../data/weatheroptions.json');
 
 // The value (either max or min possible) for each weather option such no station is excluded by that value.
 // Used to fill in valid but partially empty query params.
@@ -34,7 +33,7 @@ export default function paramsToValues(props) {
   Object.keys(props.location.query).forEach(function(key) {
 
     // Verify key is a valid weather value name
-    if (weatherOptions.includes(key)) {
+    if (weatherOptions["weatherOptions"].includes(key)) {
 
       // if yes, grab its value
       const value = parseInt(props.location.query[key], 10);
@@ -58,12 +57,12 @@ export default function paramsToValues(props) {
   if (Object.keys(info).length > 0) {
 
     // Check if info is missing a value
-    if (Object.keys(info).length < weatherOptions.length) {
+    if (Object.keys(info).length < weatherOptions["weatherOptions"].length) {
 
       // info is missing at least one needed value (omitted or invalid in query params).
       // Find keys with missing value(s) and add default value.
-      for (let i = 0; i < weatherOptions.length; i++) {
-        let option = weatherOptions[i];
+      for (let i = 0; i < weatherOptions["weatherOptions"].length; i++) {
+        let option = weatherOptions["weatherOptions"][i];
         if (info[option] === undefined) {
           info[option] = defaults[option];
         }
