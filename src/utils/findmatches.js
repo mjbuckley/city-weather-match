@@ -7,20 +7,20 @@ const stationsObj = require('../data/weather.json');
 export default function findMatches(info) {
   let stationMatch = [];
   for (let station in stationsObj) {
-    if (parseInt(stationsObj[station]["mTmxAv"][12], 10) <= info["hMTmxAvLe"] &&
-        parseInt(stationsObj[station]["mTmnAv"][12], 10) >= info["lMTmnAvGe"] &&
-        parseInt(stationsObj[station]["andSnGe1"], 10) <= info["andSnGe1Le"] &&
-        parseInt(stationsObj[station]["andSnGe1"], 10) >= info["andSnGe1Ge"] &&
-        parseInt(stationsObj[station]["andSnCGe1"], 10) <= info["andSnCGe1Le"] &&
-        parseInt(stationsObj[station]["andSnCGe1"], 10) >= info["andSnCGe1Ge"] &&
-        parseInt(stationsObj[station]["andPrGe5Ti"], 10) <= info["andPrGe5TiLe"] &&
-        parseInt(stationsObj[station]["andPrGe5Ti"], 10) >= info["andPrGe5TiGe"] &&
-        parseInt(stationsObj[station]["andTmnLe32"], 10) <= info["andTmnLe32Le"] &&
-        parseInt(stationsObj[station]["andTmnLe32"], 10) >= info["andTmnLe32Ge"] &&
-        parseInt(stationsObj[station]["andTmxGe60"], 10) <= info["andTmxGe60Le"] &&
-        parseInt(stationsObj[station]["andTmxGe60"], 10) >= info["andTmxGe60Ge"] &&
-        parseInt(stationsObj[station]["andTmxGe80"], 10) <= info["andTmxGe80Le"] &&
-        parseInt(stationsObj[station]["andTmxGe80"], 10) >= info["andTmxGe80Ge"]) {
+    if (Number(stationsObj[station]["mTmxAv"][12]) <= info["hMTmxAvLe"] &&
+        Number(stationsObj[station]["mTmnAv"][12]) >= info["lMTmnAvGe"] &&
+        Number(stationsObj[station]["andSnGe1"]) <= info["andSnGe1Le"] &&
+        Number(stationsObj[station]["andSnGe1"]) >= info["andSnGe1Ge"] &&
+        Number(stationsObj[station]["andSnCGe1"]) <= info["andSnCGe1Le"] &&
+        Number(stationsObj[station]["andSnCGe1"]) >= info["andSnCGe1Ge"] &&
+        Number(stationsObj[station]["andPrGe5Ti"]) <= info["andPrGe5TiLe"] &&
+        Number(stationsObj[station]["andPrGe5Ti"]) >= info["andPrGe5TiGe"] &&
+        Number(stationsObj[station]["andTmnLe32"]) <= info["andTmnLe32Le"] &&
+        Number(stationsObj[station]["andTmnLe32"]) >= info["andTmnLe32Ge"] &&
+        Number(stationsObj[station]["andTmxGe60"]) <= info["andTmxGe60Le"] &&
+        Number(stationsObj[station]["andTmxGe60"]) >= info["andTmxGe60Ge"] &&
+        Number(stationsObj[station]["andTmxGe80"]) <= info["andTmxGe80Le"] &&
+        Number(stationsObj[station]["andTmxGe80"]) >= info["andTmxGe80Ge"]) {
 
         stationMatch.push(station);
     };

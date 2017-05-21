@@ -1,6 +1,5 @@
 This file contains info and examples about the data files in the src/data directory.
-Note that all weather values are for example purposes and may no longer be correct (but the structure is correct).
-Updated 5/18/17
+Updated 5/20/17
 
 
 -WEATHER.JSON (frequently used as stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
@@ -8,7 +7,7 @@ Updated 5/18/17
 { station1: {info}, station2: {info}, etc. }
 
 
--EXAMPLE STATION IN STATIONSOBJ:
+-EXAMPLE STATION IN WEATHER.JSON/STATIONSOBJ:
 
 "USW00093044":{
   "zip":"87327",
@@ -29,7 +28,7 @@ Updated 5/18/17
 }
 
 
--WEATHER VALUES IN STATIONSOBJ:
+-WEATHER VALUES IN FOR EACH STATION IN STATIONSOBJ:
 
 "mTmxAv"
 "mTmnAv"
@@ -62,10 +61,10 @@ Updated 5/18/17
 
 -VALUES IN INPUTMINMAX
 Note that Le/Ge (less/greater than or equal) have two meanings here. In the weather context they signify
-number of days where a station's temp/precip is above or below a certain value. However, when used at the end
-of the abbreviation they refer to the user's desired range. In that context:
+number of days where a station's temp/precip is above or below a certain value. However, when used at the end of the abbreviation they refer to the user's desired range. In that context:
 Le = User desires value less than or equal to chosen value (the max allowable)
 Ge = User desires value greater than or equal to chosen value (the min allowable)
+Ex: If "andTmnLe32Le" had a value of 50, this means that the user wants the average number of days where the min temp is less than or equal to 32 degrees to be less than or equal to 50 days (no more than).
 
 hMTmxAvLe
 lMTmnAvGe
@@ -112,12 +111,3 @@ In the app:
 4) Add slider(s) for new value on search page.
 5) Add to list of weather values on location.js.
 6) Update data examples on this page with new value for future reference.
-
-
-TO DO 5/18/17
--I think I do need to reintroduce parse int (url and maybe form values passed as strings I think). One place I have now is paramsmatchstate, but it should be done elsewhere.
--Add some console.log tests to make sure my componentWillMount and componentWillReceiveProps functions are running like I expect.
--Make sure I'm happy with everything (mapping cbsa, number/parseint, etc.) in jsoncreate,and make sure it's documented. Then merge into master and backup.
--I think I can get rid of updating state on the search page and just pass the values in link. Updating state can be done by the receiving component, and I think it will avoid the race condition between update state and hashhistory.push. ALSO RELATED is that the slider state values start out as numbers but change to strings as soon as the slider is moved. Should I use parseInt here in some way? Maybe there could be something weird with the values being strings, but I also am just going to add them to a url and make them stings again, so not sure if it matters?
-
--I'm tempted to ignore this because I'm unlikely to ever do something this way again, but two things continue to bug me. First, almost (but not all) components seem to be rendering twice. There isn't any obvious performance issue, I just wish this wasn't happening. Second, when on the search page and the clicking the find results button, when the results page renders, it seems to render twice like the other pages, but this time it looks like the link with the new params gets loaded before the state gets updated because the 1st time paramstovalues gets called and the second time paramsmatchstate gets called. Not sure what's going on here (and what about the few cases where it seems like things only get rendered once?).

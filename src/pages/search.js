@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
 import WeatherRangeInput from '../components/weatherrangeinput.js';
-import findMatches from '../utils/findmatches.js';
 import '../css/search.css';
 
 // Min, max, and midway possible values for each weather category.
@@ -20,18 +19,6 @@ class Search extends Component {
 
     // Grab weatherValues from state (probably don't need new object, but no real harm in doing this)
     const weatherValues = Object.assign({}, this.state);
-
-    // Find matches
-    const matches = findMatches(weatherValues);
-
-    const updatedInfo = {
-      "weatherValues": weatherValues,
-      "matches": matches,
-      "isActive": true
-    };
-
-    // Update state
-    this.props.updateWeatherState(updatedInfo);
 
     // Build redirect link
     const link = {

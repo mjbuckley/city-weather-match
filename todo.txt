@@ -1,72 +1,59 @@
+TO DO AND NOTES
+
+
 TO DO NOW (IMPORTANT)
 
--Do I even need minmax any more?
--The defaults in paramsToValues currently need to be manually assigned. I think I can probably semi-automate this in jsoncreate. If I don't, be sure to add a not in the output that the file needs to be manually updated when new info is added.
--Need to check how I'm using parseint and Number and make sure appropriate for context. Related, make sure that how I have min max for range slider make sense. I think they do, but think through again.
+-Make sure I'm happy with everything (mapping cbsa, number/parseint, etc.) in jsoncreate,and make sure it's documented. Then merge into master and backup.
+-Why are the values in weather.json strings and numbers in inputminmax? Might make things faster if I can have weather.json as numbers. A clue might be that in weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings.
+-I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening.
 
-RANGE SLIDER
 
+
+TO DO SOON
+
+RANGE SLIDER:
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -Search component has all range sliders prefixed with "At lest". Fix this.
 -inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
 -I use >= and <= when determining matches. Make sure my descriptions match this (and not < >).
+-Probably make range slider fill in from left on less than and right on more than to visually make clear what's going on.
+-Inputs with a less than and more than shouldn't repeat the descriptions twice.
 
+OTHER:
 
--Right now the process for adding new weather options is long and error prone. I big part of this is how I pass around props, but there are other issues too. See if I can simplify this.
--I've used parseInt in many places to coerce string to number. However, this results in an int value. Not sure this is always what I want. Check my useage of this and fix (with Number?) if needed. Also check my usage in the files that build weather.json. In some places it might be ok because I'm limiting values to ints in the range slider, but make sure everything makes sense.
--Figure out css in react. I added a styling for a the match class in stationlink.css but for some reason that affected things in citystationlink. I have no idea why, so I clearly need to go over this.
--LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
--IMPORTANT: I think I'm add my li keys in the wrong place in some areas. Double check.
+-I think I'm adding my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -Add in weather graphs. Decide on plotly or somthing else.
--Add in more weather info.
--Decide on best way to handle inputs (sliders or something else?).
-
--Get at least a basic understanding of some of the things going on under the hood in create-react-app (like webpack).
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
--The li section in many components where I list a city name is probably very similar or the same. See if I can extract this into a shared component.
--Figure out how to handle search page vs. search done from home page. Similarly, how to handle query params and the home page (and what about on search? I think yes on search?). There are thoughts both ways. This is what I was thinking a while ago:
-  I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
--Keep in mind that there could be times when there are valid query params but no matches. Make sure there's nowhere that assume valid query params means that there are matches.
-
-
-TO DO IN FUTURE (BUT NOT IMMEDIATELY CRITICAL)
-
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--I removed the use of parseInt from the search component. All values entering the component will be numbers, and I believe that the range input will only return numbers, so I should be fine. But be sure to double check and look into this if I'm having problems.
-
 -Don't forget checking in different browsers/devices/OSes. Basic functionality seems fine in Safari and Firefox, but be sure to check everywhere. Also, I do see some minor style differences I should see if I can fix.
--The url param error/mismatch checking all works as it should, but some of it can be pretty ugly. Take a look about cleaning it up/extracting stuff.
--I made a really basic simulation of a 404 page (works the same way but is actually a 200 response). It seems to be working, but make it a bit better and test edge case more.
 -Washington DC looks like it has been mapped to Maryland. Manually correct? Others like this?
--Why does some components seem to be rendering twice on load? For example, on some components if I console.log different variables they will be logged twice. Figure out what's happening.
 -Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
--I think I've made sure weather values are treated as integers and not strings, but go through an make sure that I've done everything properly. Also be explicit about which functions are expecting ints and where the string int conversion needs to happen in the future.
--I have been following this convention, but I should note it somewhere: Where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
--Two pages with the same url but different query params are treated as different by the browser purposes of have visited links. This mostly makes sense, but I can imagine ways it could be confusing. I guess the question is should I have clicked links be a different color or not? More web page-like or app-like?
--Is there any practical/performance difference between defining a constant inside vs. outside a function?
--In weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings. Why? Also, second m should probably be capitalized (mTMxAvg).
--Is normalize.css still a thing? Should I use it? Is it already included somehow? Is there a better alternative or something that can be done using post.css?
+-Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
 
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
--If there is an easy way to only pass the props that I need then that's what I do, but sometimes it seems more readable to just pass everything. Decide what I should do about this.
-
 -Should the li in CitiesList be ol instead of ul?
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
 -There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
--On search.js I can probably make the separate range input even handlers into one function.
--Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
 -I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
 -Should my weatherOptions const be capitalized? What about all consts?
--A lot of times I'm pass a props object around. I then reassign the properties in the object to variables. I think this might be a place to use the new object destructor function to make things easier to follow, but not sure. Look into it.
 -Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
+
+
+
+GENERAL
+-LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
+-Get at least a basic understanding of some of the things going on under the hood in create-react-app (like webpack).
+-I'm ok with css in react for this project, but play around with things like css in js and css modules for the future.
+-Is there any practical/performance difference between defining a constant inside vs. outside a function?
+-Is normalize.css still a thing? Should I use it? Is it already included somehow? Is there a better alternative or something that can be done using post.css?
 
 
 
@@ -75,15 +62,18 @@ NOTES
 -I went to Google's Material Design color picking site and picked a set of colors. I didn't spend too much time on it, but just did something to get me started. That said, it looks decent, and I think the site might be useful in the future. I can get my colors and examples at: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=039BE5&secondary.color=9e9e9e
 -I was running in to an odd bug on chrome where some sliders where rendering in a different height than others. I was able to fix this by changing the track height from 2.8 to 3. Maybe the pixels were the problem? Keep in mind if something weird like this happens again.
 -Might look in to Lodash function memoization. Lodash looks interesting in general, but the memoization could be a better way to handle the "cacheing" I do with state.
--Get better sense of using the spread operator.
 -Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
   Object.keys(weatherOptions).every(function(element) {
     return nextProps.location.query[element] === weatherConts[element][2];
   });
+-On the search page I used to calculate matches and update state and then use hashHistory push to get to the results page. When watching when things get fired on the results page I saw that state had to be recalculated from the query params. If the state had been updated then the query params should have matched. This suggests that the link to the new page was being processed before state had been updated? I never saw anything visible, but thought it was kind of weird and don't know what might happen on slow machines. My theory is possible because I beleive that setState doesn't always get called immediately. Anyway, an easy fix was to just link to results with the correct query params and let the state get set there. I'm just noting this for future reference.
+-One the search page the slider default values start out as numbers, but as soon as they move they become strings. I could use something like parseInt to keep them as numbers, but this would get called a ton and not sure it's needed. The values just get added to a url, where they are strings anyway. So, I think this is fine as is, but noting in case I run in to issues anywhere.
+-Note on why no query params for home/search: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
+-I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 
 
 
-ERROR CHECKING:
+ERROR CHECKING NOTES (a bit old, already done, but keeping for reference):
 -Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and (ex: Los Angeles, Ohio), and 3) invalid query params (ex: days below 32 = kdsjflks). Below are my notes of what I need to check where.
 
 APP:

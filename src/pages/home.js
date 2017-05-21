@@ -16,7 +16,6 @@ function Home(props) {
 
       <Search
         weatherValues={props.weatherValues}
-        updateWeatherState={props.updateWeatherState}
       />
 
     </div>
