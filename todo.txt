@@ -3,13 +3,8 @@ TO DO AND NOTES
 
 TO DO NOW (IMPORTANT)
 
--Make sure I'm happy with everything (mapping cbsa, number/parseint, etc.) in jsoncreate,and make sure it's documented. Then merge into master and backup.
--Why are the values in weather.json strings and numbers in inputminmax? Might make things faster if I can have weather.json as numbers. A clue might be that in weather.json my "mTmnAv" and "mTmxAv" have the last element as a number and all others as strings.
--I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening.
-
-
-
-TO DO SOON
+WEATHER.JSON STUFF:
+-I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections, decide about non us states, make sure I have min and max values correct (what should be rounded up/down), and come up with good defaults. Everything else is as good as it can be without starting over from scratch.
 
 RANGE SLIDER:
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
@@ -37,6 +32,7 @@ OTHER:
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening or at least understood why it is happening. Perhaps related my use of clone element for children of App?
 -Should the li in CitiesList be ol instead of ul?
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.

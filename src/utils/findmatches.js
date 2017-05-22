@@ -7,20 +7,21 @@ const stationsObj = require('../data/weather.json');
 export default function findMatches(info) {
   let stationMatch = [];
   for (let station in stationsObj) {
-    if (Number(stationsObj[station]["mTmxAv"][12]) <= info["hMTmxAvLe"] &&
-        Number(stationsObj[station]["mTmnAv"][12]) >= info["lMTmnAvGe"] &&
-        Number(stationsObj[station]["andSnGe1"]) <= info["andSnGe1Le"] &&
-        Number(stationsObj[station]["andSnGe1"]) >= info["andSnGe1Ge"] &&
-        Number(stationsObj[station]["andSnCGe1"]) <= info["andSnCGe1Le"] &&
-        Number(stationsObj[station]["andSnCGe1"]) >= info["andSnCGe1Ge"] &&
-        Number(stationsObj[station]["andPrGe5Ti"]) <= info["andPrGe5TiLe"] &&
-        Number(stationsObj[station]["andPrGe5Ti"]) >= info["andPrGe5TiGe"] &&
-        Number(stationsObj[station]["andTmnLe32"]) <= info["andTmnLe32Le"] &&
-        Number(stationsObj[station]["andTmnLe32"]) >= info["andTmnLe32Ge"] &&
-        Number(stationsObj[station]["andTmxGe60"]) <= info["andTmxGe60Le"] &&
-        Number(stationsObj[station]["andTmxGe60"]) >= info["andTmxGe60Ge"] &&
-        Number(stationsObj[station]["andTmxGe80"]) <= info["andTmxGe80Le"] &&
-        Number(stationsObj[station]["andTmxGe80"]) >= info["andTmxGe80Ge"]) {
+
+    if (stationsObj[station]["mTmxAv"][12] <= info["hMTmxAvLe"] &&
+        stationsObj[station]["mTmnAv"][12] >= info["lMTmnAvGe"] &&
+        stationsObj[station]["andSnGe1"] <= info["andSnGe1Le"] &&
+        stationsObj[station]["andSnGe1"] >= info["andSnGe1Ge"] &&
+        stationsObj[station]["andSnCGe1"] <= info["andSnCGe1Le"] &&
+        stationsObj[station]["andSnCGe1"] >= info["andSnCGe1Ge"] &&
+        stationsObj[station]["andPrGe5Ti"] <= info["andPrGe5TiLe"] &&
+        stationsObj[station]["andPrGe5Ti"] >= info["andPrGe5TiGe"] &&
+        stationsObj[station]["andTmnLe32"] <= info["andTmnLe32Le"] &&
+        stationsObj[station]["andTmnLe32"] >= info["andTmnLe32Ge"] &&
+        stationsObj[station]["andTmxGe60"] <= info["andTmxGe60Le"] &&
+        stationsObj[station]["andTmxGe60"] >= info["andTmxGe60Ge"] &&
+        stationsObj[station]["andTmxGe80"] <= info["andTmxGe80Le"] &&
+        stationsObj[station]["andTmxGe80"] >= info["andTmxGe80Ge"]) {
 
         stationMatch.push(station);
     };
