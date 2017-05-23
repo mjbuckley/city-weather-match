@@ -12,7 +12,7 @@ import NotFound from './pages/notfound.js';
 import './css/index.css';
 
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="/search" component={Search}/>

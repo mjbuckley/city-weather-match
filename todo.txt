@@ -55,6 +55,9 @@ GENERAL
 
 NOTES
 
+-I was having a problem where when clicking the submit button on the search page the results page was loading from the bottom or middle of the page. The solution I found was to add onUpdate={() => window.scrollTo(0, 0)} to the <Router> component. This worked and I haven't run accross any issues yet, but keep this in mind if I do. Solution suggested at:
+https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition and
+https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-using-react-router
 -I went to Google's Material Design color picking site and picked a set of colors. I didn't spend too much time on it, but just did something to get me started. That said, it looks decent, and I think the site might be useful in the future. I can get my colors and examples at: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=039BE5&secondary.color=9e9e9e
 -I was running in to an odd bug on chrome where some sliders where rendering in a different height than others. I was able to fix this by changing the track height from 2.8 to 3. Maybe the pixels were the problem? Keep in mind if something weird like this happens again.
 -Might look in to Lodash function memoization. Lodash looks interesting in general, but the memoization could be a better way to handle the "cacheing" I do with state.
