@@ -14,9 +14,7 @@ function Home(props) {
         </div>
       </div>
 
-      <Search
-        weatherValues={props.weatherValues}
-      />
+      <Search weatherValues={props.weatherValues} />
 
     </div>
   );

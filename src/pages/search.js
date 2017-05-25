@@ -40,7 +40,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="search-container">
+      <div className="search-wrapper">
         <div className="search">
           <h2 className="search-header">Weather Options</h2>
           <form onSubmit={this.fetchData}>
