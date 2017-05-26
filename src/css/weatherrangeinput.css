@@ -96,11 +96,11 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
   padding: 15px;
 }
 
-.WeatherRangeInput-label {
+/*.WeatherRangeInput-label {
   width: 30%;
   box-sizing: border-box;
   padding-right: 15px;
-}
+}*/
 
 .WeatherRangeInput-unit-value {
   box-sizing: border-box;
