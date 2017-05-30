@@ -7,21 +7,20 @@ function WeatherRangeInput(props) {
 
   return (
     <div className="WeatherRangeInput">
-      <div className="WeatherRangeInput-input-wrap">
-        <label htmlFor={props.id}>{props.label}</label>
-        <input
-          className="WeatherRangeInput-input"
-          type="range"
-          id={props.id}
-          min={props.min}
-          max={props.max}
-          step="1"
-          value={props.value}
-          onChange={props.onChange}
-        />
-        <div className="WeatherRangeInput-unit-value">
-          {props.value}<span>{(props.unit ? (" " + props.unit) : "")}</span>
-        </div>
+      <label htmlFor={props.id}>{props.label}</label>
+      <input
+        className="WeatherRangeInput-input"
+        type="range"
+        id={props.id}
+        min={props.min}
+        max={props.max}
+        step="1"
+        value={props.value}
+        onChange={props.onChange}
+      />
+      <div className="WeatherRangeInput-unit-value">
+        <div className="value">{props.value}</div>
+        <div className="unit">{props.unit}</div>
       </div>
     </div>
   );

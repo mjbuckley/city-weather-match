@@ -1,13 +1,13 @@
-.search-wrapper {
+/*.search-wrapper {
   background-color: #f5f5f6;
-}
+}*/
 
 /*Setting overflow to auto makes div expand to contain inner content's margins
 (h2's margins overflow and push div down, leaving a gap). Could get same effect
 by controlling h2 margins but I think this makes more sense.*/
 .search {
   box-sizing: border-box;
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: left;
   overflow: auto;
@@ -15,4 +15,63 @@ by controlling h2 margins but I think this makes more sense.*/
 
 .search-header {
   text-align: center;
+}
+
+.search h2 {
+  border-bottom: 2px solid #f50057;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/*legend::before {
+  content: "-";
+}*/
+
+
+
+.search legend {
+  /*font-weight: 300;*/
+  font-size: 20px;
+  /*color: #333;*/
+  /*font-style: italic;*/
+  /*font-weight: bold;*/
+  /*color: #3a3a3a;*/
+}
+
+.search fieldset {
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+.search-heat, .search-cold, .search-precip {
+  margin-top: 35px;
+}
+
+.search .search-header {
+  border: none;
+  margin: 50px 0 50px 0;
+}
+
+button {
+  display: block;
+  margin: 40px auto;
+  font-size: 16px;
+  padding: 10px 15px;
+  /*border: 1px solid black;*/
+  border: none;
+  background-color: #039be5;
+  color: white;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }

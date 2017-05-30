@@ -88,37 +88,54 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
 }
 
 
-.WeatherRangeInput {
-  /*display: flex;*/
-  align-items: center;
-  /*background: pink;*/
-  background-color: #dff4ff;
-  padding: 15px;
-}
 
-/*.WeatherRangeInput-label {
-  width: 30%;
+/*.WeatherRangeInput-unit-value {
+  display: flex;
+  align-items: baseline;
   box-sizing: border-box;
-  padding-right: 15px;
+  padding-left: 25px;
+  width: 122px;
 }*/
 
 .WeatherRangeInput-unit-value {
+  display: flex;
+  align-items: baseline;
   box-sizing: border-box;
-  padding-left: 15px;
-  font-size: 32px;
-  width: 105px;
+  margin-left: 25px;
+  width: 97px;
+  /*border: 1px solid #f50057;*/
+  /*border-bottom: 1px solid #f50057;*/
+  /*color: #f50057;*/
+  /*background-color: #f5f5f5;*/
 }
 
-.WeatherRangeInput-unit-value span {
-  font-size: 20px;
+.WeatherRangeInput-unit-value .unit {
+  font-size: 14px;
+  margin-left: .75em;
 }
 
-.WeatherRangeInput-input-wrap {
+.WeatherRangeInput-unit-value .value {
+  font-size: 28px;
+}
+
+.WeatherRangeInput {
   display: flex;
   flex: 1;
-  max-width: 450px;
+  max-width: 700px;
+  margin: 15px 0 15px 0;
+  align-items: center;
 }
 
 .WeatherRangeInput-input {
   flex: 1;
+}
+
+
+.WeatherRangeInput label {
+  box-sizing: border-box;
+  margin-right: 25px;
+  width: 71px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
