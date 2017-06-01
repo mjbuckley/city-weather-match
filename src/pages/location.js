@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router'
 import buildLink from '../utils/buildlink.js';
 import SharedAreaList from '../components/sharedarealist.js';
+import Graph from '../components/graph.js';
 
 const stationsObj = require('../data/weather.json');
 
@@ -72,6 +73,8 @@ function Location(props) {
           isActive={props.isActive}
         />
       ) : null}
+
+      <Graph />
     </div>
   );
 }
