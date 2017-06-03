@@ -1,6 +1,6 @@
 TO DO AND NOTES
 
-general plan for now (5/29/17): Clean up CSS. Clean up commented out code. Work on adding graphs. Decide about how isClicked will be used be pages.
+General plan for now (6/2/17): Clean up CSS, work on styling, decide about how isClicked will be used by pages.
 
 
 TO DO NOW (IMPORTANT)
@@ -13,14 +13,18 @@ RANGE SLIDER:
 -inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
 -Probably make range slider fill in from left on less than and right on more than to visually make clear what's going on.
 
+GRAPH:
+-Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
+
+
 OTHER:
 
+-General performance issues. Feels snappy to me, but computer literelly feels hot sometimes and not sure if that's something I'm doing (noticed more after adding graphs). Check this out. Also, size of webpack bundle.
 -Add an about page to explain things more in depth, maybe an about me page too.
 -Figure out name/get url.
 -Favicon?
 -I think I'm adding my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
--Add in weather graphs. Decide on plotly or somthing else.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.

@@ -89,14 +89,6 @@ input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
 
 
 
-/*.WeatherRangeInput-unit-value {
-  display: flex;
-  align-items: baseline;
-  box-sizing: border-box;
-  padding-left: 25px;
-  width: 122px;
-}*/
-
 .WeatherRangeInput-unit-value {
   display: flex;
   align-items: baseline;

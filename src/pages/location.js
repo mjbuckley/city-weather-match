@@ -42,6 +42,8 @@ function Location(props) {
   const andTmnLe32 = stationsObj[station]["andTmnLe32"];
   const andTmxGe60 = stationsObj[station]["andTmxGe60"];
   const andTmxGe80 = stationsObj[station]["andTmxGe80"];
+  const highTemp = stationsObj[station]["mTmxAv"].slice(0, 12); // Arr of avg monthly high temp values
+  const lowTemp = stationsObj[station]["mTmnAv"].slice(0, 12); // Arr of avg monthly low temp values
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
 
 
@@ -74,7 +76,7 @@ function Location(props) {
         />
       ) : null}
 
-      <Graph />
+      <Graph highTemp={highTemp} lowTemp={lowTemp} />
     </div>
   );
 }
