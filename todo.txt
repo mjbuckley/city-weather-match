@@ -1,6 +1,8 @@
 TO DO AND NOTES
 
-General plan for now (6/2/17): Clean up CSS, work on styling, decide about how isClicked will be used by pages.
+General plan for now (6/2/17): Clean up CSS, work on styling, decide about how isClicked will be used by pages. Add a conditional link back to results page.
+
+-font notes: I think that helevetic neue is on (at least macs), I also think that arial, helvetica, and helvetica neue do have 300 weights (at least on mac). Also, here is a grey font color to test: #6b7c93.
 
 
 TO DO NOW (IMPORTANT)
@@ -33,6 +35,7 @@ OTHER:
 -Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
 -Make sure to remove default favicon and replace with something else.
+-Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 
 
 

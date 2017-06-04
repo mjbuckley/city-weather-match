@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import buildLink from '../utils/buildlink.js';
 import SharedAreaList from '../components/sharedarealist.js';
 import Graph from '../components/graph.js';
+import '../css/location.css';
 
 const stationsObj = require('../data/weather.json');
 
@@ -48,35 +49,37 @@ function Location(props) {
 
 
   return (
-    <div>
-      <h3>{city}, {state}</h3>
-      <ul>
-        <li>The average high temp during the hottest month: {hmTmxAv}</li>
-        <li>The averag low temp during the coldest month: {lmTmnAv}</li>
-        <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
-        <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
-        <li>The average number of rainy days: {andPrGe5Ti}</li>
-        <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
-        <li>The average number of days where the temp gets above 60: {andTmxGe60}</li>
-        <li>The average number of days where the temp gets above 80: {andTmxGe80}</li>
-      </ul>
+    <div className="location-wrapper">
+      <div className="location">
+        <h3>{city}, {state}</h3>
+        <ul>
+          <li>The average high temp during the hottest month: {hmTmxAv}</li>
+          <li>The averag low temp during the coldest month: {lmTmnAv}</li>
+          <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
+          <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
+          <li>The average number of rainy days: {andPrGe5Ti}</li>
+          <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
+          <li>The average number of days where the temp gets above 60: {andTmxGe60}</li>
+          <li>The average number of days where the temp gets above 80: {andTmxGe80}</li>
+        </ul>
 
-      { (multiCity.length > 1) ? (
-        <p>There are multiple weather stations in {city}.
-        <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
-      ) : null}
+        { (multiCity.length > 1) ? (
+          <p>There are multiple weather stations in {city}.
+          <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+        ) : null}
 
-      {(sharedarea.length > 0) ? (
-        <SharedAreaList
-          sharedarea={sharedarea}
-          city={city}
-          state={state}
-          weatherValues={props.weatherValues}
-          isActive={props.isActive}
-        />
-      ) : null}
+        {(sharedarea.length > 0) ? (
+          <SharedAreaList
+            sharedarea={sharedarea}
+            city={city}
+            state={state}
+            weatherValues={props.weatherValues}
+            isActive={props.isActive}
+          />
+        ) : null}
 
-      <Graph highTemp={highTemp} lowTemp={lowTemp} />
+        <Graph highTemp={highTemp} lowTemp={lowTemp} />
+      </div>
     </div>
   );
 }

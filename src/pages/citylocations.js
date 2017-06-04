@@ -1,5 +1,6 @@
 import React from 'react';
 import StationLink from '../components/stationlink.js';
+import '../css/citylocation.css';
 
 const stationsObj = require('../data/weather.json');
 
@@ -22,25 +23,29 @@ function CityLocations(props) {
 
   if (locations.length === 0) {
     return (
-      <div>
-        <p>Sorry, the name you entered is not in the database</p>
+      <div className="citylocation-wrapper">
+        <div className="citylocation">
+          <p>Sorry, the name you entered is not in the database</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <h2>{city}, {state}</h2>
+    <div className="citylocation-wrapper">
+      <div className="citylocation">
+        <h2>{city}, {state}</h2>
 
-      {(locations.length > 1) ? (
-        <p>There are several weather stations in {city}:</p>
-      ) : null}
+        {(locations.length > 1) ? (
+          <p>There are several weather stations in {city}:</p>
+        ) : null}
 
-      <ul>
-        {locations.map((station) =>
-          <StationLink {...props} station={station} city={city} state={state} key={station}/>
-        )}
-      </ul>
+        <ul>
+          {locations.map((station) =>
+            <StationLink {...props} station={station} city={city} state={state} key={station}/>
+          )}
+        </ul>
+      </div>
     </div>
   );
 }
