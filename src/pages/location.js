@@ -53,19 +53,18 @@ function Location(props) {
       <div className="location">
         <h3>{city}, {state}</h3>
         <ul>
-          <li>The average high temp during the hottest month: {hmTmxAv}</li>
-          <li>The averag low temp during the coldest month: {lmTmnAv}</li>
-          <li>The average number of days with at least an inch of snowfall: {andSnGe1}</li>
-          <li>The average number of days with at least an inch of snow on the ground: {andSnCGe1}</li>
-          <li>The average number of rainy days: {andPrGe5Ti}</li>
-          <li>The average number of days where the temp drops below freezing: {andTmnLe32}</li>
-          <li>The average number of days where the temp gets above 60: {andTmxGe60}</li>
-          <li>The average number of days where the temp gets above 80: {andTmxGe80}</li>
+          <li>Average high temp during the hottest month of the year: {hmTmxAv}</li>
+          <li>Averag low temp during the coldest month of the year: {lmTmnAv}</li>
+          <li>Average number of days with an inch or more of snowfall: {andSnGe1}</li>
+          <li>Average number of days with an inch or more snow on the ground: {andSnCGe1}</li>
+          <li>Average number of rainy days: {andPrGe5Ti}</li>
+          <li>Average number of days where the temp drops below freezing: {andTmnLe32}</li>
+          <li>Average number of days where the temp gets above 60 °F: {andTmxGe60}</li>
+          <li>Aaverage number of days where the temp gets above 80 °F: {andTmxGe80}</li>
         </ul>
 
         { (multiCity.length > 1) ? (
-          <p>There are multiple weather stations in {city}.
-          <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+          <p>There are multiple weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
         ) : null}
 
         {(sharedarea.length > 0) ? (
