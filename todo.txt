@@ -1,8 +1,10 @@
 TO DO AND NOTES
 
-General plan for now (6/2/17): Clean up CSS, work on styling, decide about how isClicked will be used by pages. Add a conditional link back to results page.
+General plan for now (6/10/17): Clean up CSS (have gone through search but not yet weatherrangeinput), work on styling, decide about how isClicked will be used by pages. Add a conditional link back to results page in header (other links too link new search?). For weather stats I can make my li overruns indent and that might look nice.
 
--font notes: I think that helevetic neue is on (at least macs), I also think that arial, helvetica, and helvetica neue do have 300 weights (at least on mac). Also, here is a grey font color to test: #6b7c93.
+another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
+
+-font notes: Test out Arial to make sure things still look ok. I think that helevetic neue is on (at least macs), I also think that arial, helvetica, and helvetica neue do have 300 weights (at least on mac). Also, here is a grey font color to test: #6b7c93.
 
 
 TO DO NOW (IMPORTANT)

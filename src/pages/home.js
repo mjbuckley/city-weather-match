@@ -7,7 +7,7 @@ function Home(props) {
     <div>
 
       <div className="home-wrapper">
-        <div className="home-page">
+        <div className="home">
           <h2>Home Page Info Here</h2>
           <p>There will be text and images here explaining the site</p>
           <p>More text and exciting stuff!</p>

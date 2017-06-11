@@ -2,3 +2,70 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+.city-name {
+  margin-bottom: 5px;
+}
+
+.test {
+  border-bottom: 2px solid #f50057;
+  margin-bottom: 5px;
+  margin-top: 65px;
+}
+
+.station-name {
+  font-weight: 300;
+}
+
+.location ul {
+  padding-left: 0;
+}
+.location li {
+  list-style: none;
+}
+
+.flextest {
+  display: flex;
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+.column1, .column2, .column3 {
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.column1 {
+  padding-right: 15px;
+}
+
+.column2 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.column3 {
+  padding-left: 15px;
+}
+
+/*.column1, .column2 {
+  margin-right: 10px;
+}*/
+
+.flextest h4 {
+  border-bottom: 1px solid #f50057;
+}
+
+.flextest li {
+  font-size: 17px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.flextest .value {
+  font-weight: normal;
+}
+
+.what {
+  background-color: #e7f0f0;
+}

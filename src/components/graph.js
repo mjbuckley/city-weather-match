@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
+import '../css/graph.css';
 
 class Graph extends Component {
   constructor(props) {
@@ -31,10 +32,8 @@ class Graph extends Component {
             }]
         },
         options: {
-          title: {
-            display: true,
-            text: 'Yearly average high and low temperatures'
-          }
+          legend: { display: false },
+          title: { display: true }
         }
     });
   }

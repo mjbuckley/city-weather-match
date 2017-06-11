@@ -3,11 +3,11 @@
 }
 
 /*Setting overflow to auto makes div expand to contain inner content's margins
-(h2's margins overflow and push div down, leaving a gap). Could get same effect
-by controlling h2 margins but I think this makes more sense.*/
-.home-page {
+(otherwise h2's margins overflow and push div down, leaving a gap). Could get same
+effect by controlling h2 margins but I think this makes more sense for what I want.*/
+.home {
   min-height: 300px;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   overflow: auto;
   text-align: center;

@@ -1,39 +1,41 @@
-/*App Header*/
+/* App Header */
 
-.app-header-wrapper {
-  background-color: #039be5;
-  border-top: 3px solid #006db3;
-}
+  .app-header-wrapper {
+    background-color: #e1e2e1;
+    border-top: 2px solid #0086c3;
+    /*background-color: #efefef;*/
+  }
 
-.app-header {
-  line-height: 2;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+  .app-header {
+    line-height: 2.2;
+    max-width: 1920px;
+    padding-left: 25px;
+    margin: 0 auto;
+  }
 
-.app-header h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 32px;
-  font-weight: normal;
-}
+  .app-header h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 26px;
+    font-weight: 300;
+  }
 
-.app-header h1 a {
-  text-decoration: none;
-}
+  .app-header h1 a {
+    text-decoration: none;
+  }
 
-.app-header h1 a:link {
-  color: black;
-}
+  .app-header h1 a:link {
+    color: black;
+  }
 
-.app-header h1 a:visited {
-  color: black;
-}
+  .app-header h1 a:visited {
+    color: black;
+  }
 
-.app-header h1 a:hover {
-  color: #63ccff;
-}
+  .app-header h1 a:hover {
+    color: #63ccff;
+  }
 
-.app-header h1 a:active {
-  color: white;
-}
+  .app-header h1 a:active {
+    color: white;
+  }

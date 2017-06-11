@@ -42,7 +42,7 @@ class Search extends Component {
     return (
       <div className="search-wrapper">
         <div className="search">
-          <h2 className="search-header">Search</h2>
+          <h2 className="search-heading">Search</h2>
           <form onSubmit={this.fetchData}>
             <section className="search-heat">
               <h2>HEAT</h2>

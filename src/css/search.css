@@ -1,85 +1,68 @@
-.search-wrapper {
-  /*background-color: #F8FAFB*/
-  background-color: #efefef;
-}
+/*General Search Styling*/
 
-/*Setting overflow to auto makes div expand to contain inner content's margins
-(h2's margins overflow and push div down, leaving a gap). Could get same effect
-by controlling h2 margins but I think this makes more sense.*/
-.search {
-  box-sizing: border-box;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-  overflow: auto;
-}
+  .search-wrapper {
+    background-color: #efefef;
+  }
 
-form {
-  max-width: 800px;
-  padding: 6%;
-  background-color: white;
-  /*border: 1px solid black;*/
-}
+  /*Setting overflow to auto makes div expand to contain inner content's margins
+  (otherwise h2's margins overflow and push div down, leaving a gap). Could get same effect
+  by controlling h2 margins but I think this makes more sense for what I want.*/
+  .search {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    overflow: auto;
+  }
 
-.search-header {
-  text-align: center;
-}
-
-.search h2 {
-  border-bottom: 2px solid #f50057;
-  margin: 0;
-}
-
-fieldset {
-  border: none;
-  margin: 35px 0 35px 0;
-  padding: 0;
-}
-
-legend {
-  padding: 0;
-}
-
-/*legend::before {
-  content: "-";
-}*/
+  .search-heading {
+    text-align: center;
+    margin: 50px 0 50px 0;
+  }
 
 
 
-.search legend {
-  /*font-weight: 300;*/
-  font-size: 20px;
-  /*color: #333;*/
-  /*font-style: italic;*/
-  /*font-weight: bold;*/
-  /*color: #3a3a3a;*/
-}
+/*Form Styling*/
 
-.search fieldset {
-  max-width: 700px;
-  box-sizing: border-box;
-}
+  form {
+    padding: 6%;
+    background-color: white;
+    max-width: 800px;
+  }
 
-.search-heat, .search-cold, .search-precip {
-  margin-top: 35px;
-}
+  form h2 {
+    border-bottom: 2px solid #f50057;
+    margin: 0;
+  }
 
-.search .search-header {
-  border: none;
-  margin: 50px 0 50px 0;
-}
+  fieldset {
+    border: none;
+    margin: 35px 0 35px 0;
+    padding: 0;
+    max-width: 700px;
+  }
 
-button {
-  display: block;
-  margin: 40px auto;
-  font-size: 16px;
-  padding: 10px 15px;
-  /*border: 1px solid black;*/
-  border: none;
-  background-color: #039be5;
-  color: white;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
+  legend {
+    padding: 0;
+    font-size: 20px;
+  }
+
+  button {
+    display: block;
+    margin: 40px auto;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #039be5;
+    color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .search-heat, .search-cold, .search-precip {
+    margin-top: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }

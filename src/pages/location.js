@@ -46,25 +46,63 @@ function Location(props) {
   const highTemp = stationsObj[station]["mTmxAv"].slice(0, 12); // Arr of avg monthly high temp values
   const lowTemp = stationsObj[station]["mTmnAv"].slice(0, 12); // Arr of avg monthly low temp values
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
+  const noaaLink = "https://www1.ncdc.noaa.gov/pub/data/normals/1981-2010/products/station/" + station + ".normals.txt";
+
 
 
   return (
     <div className="location-wrapper">
       <div className="location">
-        <h3>{city}, {state}</h3>
-        <ul>
-          <li>Average high temp during the hottest month of the year: {hmTmxAv}</li>
-          <li>Averag low temp during the coldest month of the year: {lmTmnAv}</li>
-          <li>Average number of days with an inch or more of snowfall: {andSnGe1}</li>
-          <li>Average number of days with an inch or more snow on the ground: {andSnCGe1}</li>
-          <li>Average number of rainy days: {andPrGe5Ti}</li>
-          <li>Average number of days where the temp drops below freezing: {andTmnLe32}</li>
-          <li>Average number of days where the temp gets above 60 °F: {andTmxGe60}</li>
-          <li>Aaverage number of days where the temp gets above 80 °F: {andTmxGe80}</li>
-        </ul>
+        <div className="test">
+          <h2 className="city-name">{city}, {state}</h2>
+
+        </div>
+        <span className="station-name">NOAA Weather Station {station}</span>
+
+
+        <Graph highTemp={highTemp} lowTemp={lowTemp} />
+
+        <section className="what">
+          <h3>Weather Stats</h3>
+
+          <div className="flextest">
+            <section className="column1">
+              <h4>Heat</h4>
+              <ul>
+                <li>Days above 60 °F: <span className="value">{andTmxGe60}</span></li>
+                <li>Days above 80 °F: <span className="value">{andTmxGe80}</span></li>
+                <li>Avg. high temp during the hottest month: <span className="value">{hmTmxAv} °F</span></li>
+              </ul>
+            </section>
+
+            <section className="column2">
+              <h4>Cold</h4>
+              <ul>
+                <li>Days that drops below freezing: <span className="value">{andTmnLe32}</span></li>
+                <li>Avg. low temp during the coldest month: <span className="value">{lmTmnAv} °</span>F</li>
+              </ul>
+            </section>
+
+            <section className="column3">
+              <h4>Precipitation</h4>
+              <ul>
+                <li>Days with 1+ inches of snowfall: <span className="value">{andSnGe1}</span></li>
+                <li>Days with 1+ inches of snow cover: <span className="value">{andSnCGe1}</span></li>
+                <li>Rainy days: <span className="value">{andPrGe5Ti}</span></li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+
+
+
+        <h3>Additional Info</h3>
+
+        <p>View all of the raw data for this location <a href={noaaLink}>here</a></p>
 
         { (multiCity.length > 1) ? (
-          <p>There are multiple weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+          <p>There are {multiCity.length} weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
         ) : null}
 
         {(sharedarea.length > 0) ? (
@@ -77,7 +115,6 @@ function Location(props) {
           />
         ) : null}
 
-        <Graph highTemp={highTemp} lowTemp={lowTemp} />
       </div>
     </div>
   );

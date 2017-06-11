@@ -44,7 +44,7 @@ class App extends Component {
   // On App mount this checks query param values against values in state and then updates state if needed.
   // Note that this code is the same as in componentWillReceiveProps except this.props is used instead of nextProps.
   componentWillMount() {
-    
+
     // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
     // false. If empty but isActiveis true then set it to false.
     if (Object.keys(this.props.location.query).length === 0) {
@@ -148,6 +148,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+      
         <div className="app-header-wrapper">
           <header className="app-header">
             <h1><Link to="/">City Weather App</Link></h1>
