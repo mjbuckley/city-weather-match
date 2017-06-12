@@ -1,71 +1,72 @@
-.location-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
+/*General styling*/
 
-.city-name {
-  margin-bottom: 5px;
-}
+  .location {
+    max-width: 800px;
+    margin: 65px auto 0 auto;
+  }
 
-.test {
-  border-bottom: 2px solid #f50057;
-  margin-bottom: 5px;
-  margin-top: 65px;
-}
 
-.station-name {
-  font-weight: 300;
-}
 
-.location ul {
-  padding-left: 0;
-}
-.location li {
-  list-style: none;
-}
+/*City/station heading*/
 
-.flextest {
-  display: flex;
-  max-width: 800px;
-  margin-bottom: 50px;
-}
+  .location .city-name {
+    border-bottom: 2px solid #f50057;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
 
-.column1, .column2, .column3 {
-  box-sizing: border-box;
-  flex: 1;
-}
+  .location .station-name {
+    font-weight: 300;
+  }
 
-.column1 {
-  padding-right: 15px;
-}
 
-.column2 {
-  padding-left: 15px;
-  padding-right: 15px;
-}
 
-.column3 {
-  padding-left: 15px;
-}
+/*Weather stats*/
 
-/*.column1, .column2 {
-  margin-right: 10px;
-}*/
+  .location-weather-stats {
+    background-color: #e7f0f0;
+  }
 
-.flextest h4 {
-  border-bottom: 1px solid #f50057;
-}
+  .location-weather-stats-info {
+    display: flex;
+    max-width: 800px;
+    margin-bottom: 50px;
+  }
 
-.flextest li {
-  font-size: 17px;
-  font-weight: 300;
-  margin-bottom: 5px;
-}
+  .location-weather-stats-info .column1,
+  .location-weather-stats-info .column2,
+  .location-weather-stats-info .column3 {
+    flex: 1;
+  }
 
-.flextest .value {
-  font-weight: normal;
-}
+  .location-weather-stats-info .column1 {
+    padding-right: 15px;
+  }
 
-.what {
-  background-color: #e7f0f0;
-}
+  .location-weather-stats-info .column2 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .location-weather-stats-info .column3 {
+    padding-left: 15px;
+  }
+
+  .location-weather-stats-info h4 {
+    border-bottom: 1px solid #f50057;
+  }
+
+  .location-weather-stats-info ul {
+    padding-left: 0;
+  }
+
+  .location-weather-stats-info li {
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 5px;
+    list-style: none;
+  }
+
+  .location-weather-stats-info .value {
+    font-weight: normal;
+  }

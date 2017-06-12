@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import paramsToValues from './utils/paramstovalues.js';
 import findMatches from './utils/findmatches.js';
 import paramsMatchState from './utils/paramsmatchstate.js';
+import buildLink from './utils/buildlink.js';
 import './css/App.css';
 
 // Min, max, and midway values for each weather input category
@@ -148,10 +149,17 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-      
+
         <div className="app-header-wrapper">
           <header className="app-header">
             <h1><Link to="/">City Weather App</Link></h1>
+
+            {(this.state.isActive) ? (
+              <Link to={buildLink(this.state, "/results/")}>Results</Link>
+            ) : null }
+
+            <Link to="/search">New Search</Link>
+
           </header>
         </div>
 

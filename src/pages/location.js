@@ -16,8 +16,10 @@ function Location(props) {
   // Make sure station is url is real. If not, return error message.
   if (stationsObj[station] === undefined) {
     return (
-      <div>
-        <p>The station ID that you entered in the URL does not exist.</p>
+      <div className="location-wrapper">
+        <div className="location">
+          <p>The station ID that you entered in the URL does not exist.</p>
+        </div>
       </div>
     );
   }
@@ -25,8 +27,10 @@ function Location(props) {
   // Make sure city and state in url match the station in the url. If not, return error message.
   if (city !== stationsObj[station]["city"] || state !== stationsObj[station]["state"]) {
     return (
-      <div>
-        <p>The city and/or state that you entered in the URL do not match the station ID.</p>
+      <div className="location-wrapper">
+        <div className="location">
+          <p>The city and/or state that you entered in the URL do not match the station ID.</p>
+        </div>
       </div>
     );
   }
@@ -53,19 +57,17 @@ function Location(props) {
   return (
     <div className="location-wrapper">
       <div className="location">
-        <div className="test">
-          <h2 className="city-name">{city}, {state}</h2>
 
-        </div>
+        <h2 className="city-name">{city}, {state}</h2>
         <span className="station-name">NOAA Weather Station {station}</span>
 
 
         <Graph highTemp={highTemp} lowTemp={lowTemp} />
 
-        <section className="what">
+        <section className="location-weather-stats">
           <h3>Weather Stats</h3>
 
-          <div className="flextest">
+          <div className="location-weather-stats-info">
             <section className="column1">
               <h4>Heat</h4>
               <ul>

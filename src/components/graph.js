@@ -12,7 +12,7 @@ class Graph extends Component {
     const highTemp = this.props.highTemp;
     const lowTemp = this.props.lowTemp;
 
-    let ctx = document.getElementById("myChart");
+    let ctx = document.getElementById("chart");
 
     new Chart(ctx, {
         type: 'line',
@@ -49,7 +49,7 @@ class Graph extends Component {
   render() {
     return (
       <div className="chart-container" style={{position: 'relative', maxHeight: '400px', maxWidth: '800px'}}>
-        <canvas id="myChart" width='800px' height='400px'></canvas>
+        <canvas id="chart" width='800px' height='400px'></canvas>
       </div>
     );
   }

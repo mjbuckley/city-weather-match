@@ -1,6 +1,11 @@
 TO DO AND NOTES
 
-General plan for now (6/10/17): Clean up CSS (have gone through search but not yet weatherrangeinput), work on styling, decide about how isClicked will be used by pages. Add a conditional link back to results page in header (other links too link new search?). For weather stats I can make my li overruns indent and that might look nice.
+General plan for now (6/11/17):
+-Work on styling
+-decide about how isClicked will be used by pages.
+-Style new search and results in header.
+-For weather stats I can make my li overruns indent and that might look nice.
+-Also, search basically is ok, but on small screens that are probably still to large to switch to mobile layout (700ish), the grey border becomes too small to be useful, and the grey color that only exists around the search title looks odd. Fix this but only after deciding on mobile breakpoints. Which reminds me I need to get a mobile view set up too.
 
 another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
 
@@ -16,6 +21,7 @@ RANGE SLIDER:
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
 -Probably make range slider fill in from left on less than and right on more than to visually make clear what's going on.
+-Other ways to make it more clear?
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
@@ -23,8 +29,10 @@ GRAPH:
 
 OTHER:
 
--General performance issues. Feels snappy to me, but computer literelly feels hot sometimes and not sure if that's something I'm doing (noticed more after adding graphs). Check this out. Also, size of webpack bundle.
+-General performance issues. Feels snappy to me, but computer literally feels hot sometimes and not sure if that's something I'm doing (noticed more after adding graphs). Check this out. Also, size of webpack bundle.
 -Add an about page to explain things more in depth, maybe an about me page too.
+-Put on github?
+-Decide about what to put on top of home page.
 -Figure out name/get url.
 -Favicon?
 -I think I'm adding my li keys in the wrong place in some areas. Double check.
@@ -44,6 +52,7 @@ OTHER:
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
 -I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening or at least understood why it is happening. Perhaps related my use of clone element for children of App?
+-Better style some of the error pages. Everything works right now but it is mostly plain unstyled text.
 -Should the li in CitiesList be ol instead of ul?
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
