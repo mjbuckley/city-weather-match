@@ -154,11 +154,14 @@ class App extends Component {
           <header className="app-header">
             <h1><Link to="/">City Weather App</Link></h1>
 
-            {(this.state.isActive) ? (
-              <Link to={buildLink(this.state, "/results/")}>Results</Link>
-            ) : null }
 
-            <Link to="/search">New Search</Link>
+            <div className="app-header-items">
+              {(this.state.isActive) ? (
+                <Link className="first" to={buildLink(this.state, "/results/")}>Search Results</Link>
+              ) : null }
+
+              <Link to="/search">New Search</Link>
+            </div>
 
           </header>
         </div>

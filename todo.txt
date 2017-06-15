@@ -2,8 +2,7 @@ TO DO AND NOTES
 
 General plan for now (6/11/17):
 -Work on styling
--decide about how isClicked will be used by pages.
--Style new search and results in header.
+-decide about how isActive will be used by pages.
 -For weather stats I can make my li overruns indent and that might look nice.
 -Also, search basically is ok, but on small screens that are probably still to large to switch to mobile layout (700ish), the grey border becomes too small to be useful, and the grey color that only exists around the search title looks odd. Fix this but only after deciding on mobile breakpoints. Which reminds me I need to get a mobile view set up too.
 
@@ -61,6 +60,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Should my weatherOptions const be capitalized? What about all consts?
 -Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
+-In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
 
 
 
