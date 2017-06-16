@@ -1,8 +1,10 @@
 /* App Header */
 
   .app-header-wrapper {
-    background-color: #e1e2e1;
-    border-top: 2px solid #0086c3;
+    /*background-color: #e1e2e1;*/
+    /*background-color: #c1c1c1;*/
+    /*border-top: 2px solid #0086c3;*/
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .app-header {

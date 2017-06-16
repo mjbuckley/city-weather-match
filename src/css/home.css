@@ -1,5 +1,5 @@
 .home-wrapper {
-  background-color: #cfcfcf;
+  background-color: #e7f0f0;
 }
 
 /*Setting overflow to auto makes div expand to contain inner content's margins
@@ -11,4 +11,8 @@ effect by controlling h2 margins but I think this makes more sense for what I wa
   margin: 0 auto;
   overflow: auto;
   text-align: center;
+}
+
+.home h2 {
+  margin-top: 65px;
 }

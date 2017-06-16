@@ -55,15 +55,18 @@ function Location(props) {
 
 
   return (
-    <div className="location-wrapper">
-      <div className="location">
+    <div className="location">
 
+      <div className="location-title-graph">
         <h2 className="city-name">{city}, {state}</h2>
         <span className="station-name">NOAA Weather Station {station}</span>
 
-
         <Graph highTemp={highTemp} lowTemp={lowTemp} />
+      </div>
 
+
+
+      <div className="location-weather-stats-wrapper">
         <section className="location-weather-stats">
           <h3>Weather Stats</h3>
 
@@ -95,29 +98,35 @@ function Location(props) {
             </section>
           </div>
         </section>
-
-
-
-
-        <h3>Additional Info</h3>
-
-        <p>View all of the raw data for this location <a href={noaaLink}>here</a></p>
-
-        { (multiCity.length > 1) ? (
-          <p>There are {multiCity.length} weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
-        ) : null}
-
-        {(sharedarea.length > 0) ? (
-          <SharedAreaList
-            sharedarea={sharedarea}
-            city={city}
-            state={state}
-            weatherValues={props.weatherValues}
-            isActive={props.isActive}
-          />
-        ) : null}
-
       </div>
+
+
+      <div className="location-additional-info-wrapper">
+        <section className="location-additional-info">
+          <h3>Additional Information</h3>
+
+          { (multiCity.length > 1) ? (
+            <div>
+              <h4>Multiple Stations</h4>
+              <p>There are {multiCity.length} weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+            </div>
+          ) : null}
+
+          {(sharedarea.length > 0) ? (
+            <SharedAreaList
+              sharedarea={sharedarea}
+              city={city}
+              state={state}
+              weatherValues={props.weatherValues}
+              isActive={props.isActive}
+            />
+          ) : null}
+
+          <h4>Data</h4>
+          <p>View all of the raw data for this location <a href={noaaLink}>here</a></p>
+        </section>
+      </div>
+
     </div>
   );
 }

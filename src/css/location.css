@@ -1,13 +1,9 @@
-/*General styling*/
+/*Station Name & Graph Section*/
 
-  .location {
+  .location-title-graph {
     max-width: 800px;
     margin: 65px auto 0 auto;
   }
-
-
-
-/*City/station heading*/
 
   .location .city-name {
     border-bottom: 2px solid #f50057;
@@ -23,8 +19,14 @@
 
 /*Weather stats*/
 
-  .location-weather-stats {
+  .location-weather-stats-wrapper {
     background-color: #e7f0f0;
+
+  }
+
+  .location-weather-stats {
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .location-weather-stats-info {
@@ -63,10 +65,23 @@
   .location-weather-stats-info li {
     font-size: 17px;
     font-weight: 300;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     list-style: none;
   }
 
   .location-weather-stats-info .value {
     font-weight: normal;
+  }
+
+
+
+/*Additional Info*/
+
+  .location-additional-info-wrapper {
+    background-color: #efefef;
+  }
+
+  .location-additional-info {
+    max-width: 800px;
+    margin: 0 auto;
   }
