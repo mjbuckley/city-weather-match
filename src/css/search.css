@@ -3,7 +3,9 @@
   .search-wrapper {
     /*background-color: #efefef;*/
     /*background-color: #f7f7f7;*/
-    background-color: #f5f7f9;
+    /*background-color: #f5f7f9;*/
+    /*background-color: #f2f2f2;*/
+    background-color: #e3e3e3;
   }
 
   /*Setting overflow to auto makes div expand to contain inner content's margins
@@ -30,6 +32,7 @@
     background-color: white;
     max-width: 800px;
     margin-bottom: 50px;
+    border: 1px solid grey;
   }
 
   form h2 {

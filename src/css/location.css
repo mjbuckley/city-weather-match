@@ -20,13 +20,22 @@
 /*Weather stats*/
 
   .location-weather-stats-wrapper {
-    background-color: #e7f0f0;
-
+    /*background-color: #e7f0f0;*/
+    background-color: #f9fafa;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
   }
 
   .location-weather-stats {
     max-width: 800px;
     margin: 0 auto;
+  }
+
+  .location-weather-stats h3 {
+    text-align: center;
+    margin-bottom: 50px;
   }
 
   .location-weather-stats-info {
@@ -65,8 +74,10 @@
   .location-weather-stats-info li {
     font-size: 17px;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     list-style: none;
+    /*list-style: square;
+    list-style-position: inside;*/
   }
 
   .location-weather-stats-info .value {
@@ -78,10 +89,32 @@
 /*Additional Info*/
 
   .location-additional-info-wrapper {
-    background-color: #efefef;
+    /*background-color: #efefef;*/
+    background-color: #f8f8f8;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .location-additional-info {
     max-width: 800px;
     margin: 0 auto;
+    font-size: 17px;
+  }
+
+  .location-additional-info h3 {
+    border-bottom: 1px solid #f50057;
+    margin-bottom: 50px;
+  }
+  .location-additional-info h4 {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .location-additional-info p {
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .item, .SharedAreaList {
+    margin-bottom: 40px;
   }

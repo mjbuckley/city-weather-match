@@ -103,12 +103,12 @@ function Location(props) {
 
       <div className="location-additional-info-wrapper">
         <section className="location-additional-info">
-          <h3>Additional Information</h3>
+          <h3>Supplementary Information</h3>
 
           { (multiCity.length > 1) ? (
-            <div>
-              <h4>Multiple Stations</h4>
-              <p>There are {multiCity.length} weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
+            <div className="item">
+              <h4>Additional wearther stations</h4>
+              <p>There are {multiCity.length} NOAA weather stations in {city}. <Link to={buildLink(props, path)}>Click to view</Link> info on all stations.</p>
             </div>
           ) : null}
 
@@ -122,8 +122,11 @@ function Location(props) {
             />
           ) : null}
 
-          <h4>Data</h4>
-          <p>View all of the raw data for this location <a href={noaaLink}>here</a></p>
+          <div className="item">
+            <h4>More data</h4>
+            <p><a href={noaaLink}>Click to view</a> a text file on the NOAA website containing all of the raw weather data for this location (best viewed on a larger screen).</p>
+          </div>
+
         </section>
       </div>
 
