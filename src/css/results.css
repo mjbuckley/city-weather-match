@@ -6,3 +6,21 @@
 .results h2 {
   text-align: center;
 }
+
+
+.results p {
+  font-weight: 300;
+}
+
+.results ul {
+  list-style-position: inside;
+  padding-left: 0px;
+}
+.results li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  list-style-type: square;
+}
+.results li a {
+  text-decoration: none;
+}

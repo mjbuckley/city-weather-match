@@ -21,7 +21,8 @@
 
   .location-weather-stats-wrapper {
     /*background-color: #e7f0f0;*/
-    background-color: #f9fafa;
+    /*background-color: #f9fafa;*/
+    background-color: white;
     padding-top: 50px;
     padding-bottom: 50px;
     border-top: 1px solid #e5e5e5;
