@@ -1,7 +1,3 @@
-NOW (6/22/17): figure out key warning and remove commented out code.
-
-
-
 TO DO AND NOTES
 
 General plan for now (6/11/17):
@@ -92,6 +88,7 @@ https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-usin
 -One the search page the slider default values start out as numbers, but as soon as they move they become strings. I could use something like parseInt to keep them as numbers, but this would get called a ton and not sure it's needed. The values just get added to a url, where they are strings anyway. So, I think this is fine as is, but noting in case I run in to issues anywhere.
 -Note on why no query params for home/search: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 -I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
+-I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
 
 
 
