@@ -20,7 +20,13 @@
   margin-top: 5px;
   margin-bottom: 5px;
   list-style-type: square;
+  font-weight: 300;
 }
 .results li a {
   text-decoration: none;
+}
+
+.results-intro {
+  margin-top: 65px;
+  margin-bottom: 65px;
 }

@@ -27,7 +27,8 @@ function MetroArea(props) {
   return (
     <div className="metroarea-wrapper">
       <div className="metroarea">
-        <h2>{metroArea} Urban Area</h2>
+        <h2>{metroArea} Metro Area</h2>
+        <p>The following cities in the {metroArea} metro area have NOAA weather stations. Click on a city name to view more detailed weather information for that location.</p>
         <ul>
           {metroStationLinks(metroArea, props).map((station) =>
             <CityStationLink {...props} station={station} key={station} />

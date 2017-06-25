@@ -2,3 +2,28 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+.citylocation h2 {
+  border-bottom: 2px solid #f50057;
+  margin-top: 65px;
+}
+
+.citylocation ul {
+  list-style-position: inside;
+  padding-left: 0px;
+}
+
+.citylocation li {
+  list-style-type: square;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.citylocation li a {
+  text-decoration: none;
+}
+
+.citylocation p {
+  font-weight: 300;
+}
