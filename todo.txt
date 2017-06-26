@@ -1,9 +1,6 @@
--Have links underline on hover
--Have links stay same color after visited (probably)
--Have button on search form do something different on hover and maybe have switch from arrow to thumb.
 -Singular metroarea and citylocation pages (these are never linked to but still exist make sure they are styled properly, right now I've only done things with multiple results).
 -Don't forget that there are 3 possible scenarios for the metro area section in supplementary information: none, 1, multiple. Multiple is easy to forget so make sure I remember to style.
--Some of my styling (like for li) can probably be moved to index.css instead of being repeated so many times in different components.
+-Make the :focus of my form inputs stand out more.
 
 TO DO AND NOTES
 

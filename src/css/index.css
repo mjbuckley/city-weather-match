@@ -13,9 +13,29 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 18px;
   /*color: #444444;*/
-	  color: black;
+	color: black;
   line-height: 1.5;
 	background-color: #f8f8f8;
-	/*background-color: #f9f9f9;*/
 	/*background-color: #f2f3f5;*/
+}
+
+
+
+a:link {
+	text-decoration: none;
+	color: #0000EE;
+}
+
+a:visited {
+	color: #0000EE;
+}
+
+
+a:hover {
+	color: #63ccff;
+	text-decoration: underline;
+}
+
+a:active {
+	color: black;
 }
