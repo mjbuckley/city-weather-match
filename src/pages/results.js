@@ -18,7 +18,7 @@ function Results(props) {
   return (
     <div className="results">
       <div className="results-intro">
-        <h2>Results</h2>
+        <h2>Search Results</h2>
         <p>All of the cities listed below match your search criteria. Click on a city name to view more detailed information about that location.</p>
       </div>
 

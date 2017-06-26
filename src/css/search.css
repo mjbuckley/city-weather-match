@@ -21,7 +21,12 @@
 
   .search-heading {
     text-align: center;
-    margin: 50px 0 50px 0;
+    margin-top: 65px;
+  }
+
+  .search p {
+    font-weight: 300;
+    margin-bottom: 65px;
   }
 
 

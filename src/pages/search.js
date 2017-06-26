@@ -43,6 +43,7 @@ class Search extends Component {
       <div className="search-wrapper">
         <div className="search">
           <h2 className="search-heading">Search</h2>
+          <p>Chose your desired weather values on the sliders below and then click search to find the cities that meet your requirements.</p>
           <form onSubmit={this.fetchData}>
             <section className="search-heat">
               <h2>HEAT</h2>
