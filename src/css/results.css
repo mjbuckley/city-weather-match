@@ -4,9 +4,9 @@
 }
 
 .results h2 {
-  text-align: center;
+  /*text-align: center;*/
+  border-bottom: 2px solid #f50057;
 }
-
 
 .results p {
   font-weight: 300;
@@ -28,5 +28,5 @@
 
 .results-intro {
   margin-top: 65px;
-  margin-bottom: 65px;
+  margin-bottom: 45px;
 }
