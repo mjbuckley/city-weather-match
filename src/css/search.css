@@ -20,8 +20,9 @@
   }
 
   .search-heading {
-    text-align: center;
+    /*text-align: center;*/
     margin-top: 65px;
+    border-bottom: 2px solid #f50057;
   }
 
   .search p {
@@ -38,11 +39,12 @@
     background-color: white;
     max-width: 800px;
     margin-bottom: 50px;
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
+    border: 2px solid #e0e0e0;
   }
 
-  form h2 {
-    border-bottom: 2px solid #f50057;
+  form h3 {
+    border-bottom: 1px solid #f50057;
     margin: 0;
   }
 

@@ -1,17 +1,26 @@
+-On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
 -Singular metroarea and citylocation pages (these are never linked to but still exist make sure they are styled properly, right now I've only done things with multiple results).
 -Don't forget that there are 3 possible scenarios for the metro area section in supplementary information: none, 1, multiple. Multiple is easy to forget so make sure I remember to style.
 -Make the :focus of my form inputs stand out more.
+-Decide what to put on home page.
+-Add an about page to explain things more in depth, maybe an about me page too.
+-Make sure that I have proper padding on the sides for the desktop styling. Look at layout through range of widths to make sure things are ok (esp. look at search in 700-800 range.)
+-Add mobile styling.
+-Once basic styling is set up, go through and make sure pages line up with one another in terms of things like margins, padding, etc. I tried to keep things the same, but I'm sure I missed a few things.
+-Clean up/document css in general.
+-Check site in fallback fonts (like Arial)
+-Check on all browsers, esp. ie, and on windows computers and lower screen resolution computers.
+-Make a favicon.
+-Make note about isActive. I'm using it sparsley but make sure I have write up of ways it might be used in the future.
+-Add to github?
+-Purchase domain name?
 
-TO DO AND NOTES
 
-General plan for now (6/11/17):
--Work on styling
--decide about how isActive will be used by pages.
--Also, search basically is ok, but on small screens that are probably still to large to switch to mobile layout (700ish), the grey border becomes too small to be useful, and the grey color that only exists around the search title looks odd. Fix this but only after deciding on mobile breakpoints. Which reminds me I need to get a mobile view set up too.
 
-another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
 
--font notes: Test out Arial to make sure things still look ok. I think that helevetic neue is on (at least macs), I also think that arial, helvetica, and helvetica neue do have 300 weights (at least on mac). Also, here is a grey font color to test: #6b7c93.
+Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
+
+-Here is a grey font color to test: #6b7c93.
 
 
 TO DO NOW (IMPORTANT)
@@ -22,8 +31,8 @@ WEATHER.JSON STUFF:
 RANGE SLIDER:
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
+-Add tick marks and some values to range input sliders.
 -Probably make range slider fill in from left on less than and right on more than to visually make clear what's going on.
--Other ways to make it more clear?
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
@@ -32,11 +41,6 @@ GRAPH:
 OTHER:
 
 -General performance issues. Feels snappy to me, but computer literally feels hot sometimes and not sure if that's something I'm doing (noticed more after adding graphs). Check this out. Also, size of webpack bundle.
--Add an about page to explain things more in depth, maybe an about me page too.
--Put on github?
--Decide about what to put on top of home page.
--Figure out name/get url.
--Favicon?
 -I think I'm adding my li keys in the wrong place in some areas. Double check.
 -Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
