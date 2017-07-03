@@ -1,3 +1,13 @@
+JULY 2: I think my fake slider fill is basically working. Still to do:
+-I first need to figure out why the overlay is just a touch off on Firefox. I suspect it has to do with partial pixels. I should be able to fix this by altering the slider sizing to avoid decimals.
+-Figure out a good way to simulate the color change when active. I think I can do this by altering the top layer's opacity.
+-Have the colors be opposite for at least/less than.
+-Pick better colors.
+-Decide if I'll use this just for webkit or for everything.
+-Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
+-Decide about overlaying tick marks and/or values.
+
+
 -On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
 -Singular metroarea and citylocation pages (these are never linked to but still exist make sure they are styled properly, right now I've only done things with multiple results).
 -Don't forget that there are 3 possible scenarios for the metro area section in supplementary information: none, 1, multiple. Multiple is easy to forget so make sure I remember to style.
