@@ -1,94 +1,150 @@
-/*Range and thumb styling
-  produced by:
-  I believe the only change is background-color: inherit;
-*/
+/*Changed margins from 5.75 to 6 and and track height from 8.5 to 9*/
 
+/*Styling for range input slider*/
+
+  /*Note position relative needed so z-index will be respected by moz browsers*/
   input[type=range].WeatherRangeInput-input {
     -webkit-appearance: none;
     width: 100%;
-    margin: 5.75px 0;
+    margin: 6px 0;
     background-color: inherit;
+    padding: 0px;
+    z-index: 10;
+    position: relative;
   }
   input[type=range].WeatherRangeInput-input:focus {
     outline: none;
   }
-  /*input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8.5px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    background: #cfcfcf;
-    border-radius: 0px;
-    border: 0px solid #010101;
-  }*/
-  /*input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -5.75px;
-  }*/
-  /*input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
-    background: #dcdcdc;
-  }*/
-  input[type=range].WeatherRangeInput-input::-moz-range-track {
-    width: 100%;
-    height: 8.5px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    background: #cfcfcf;
-    border-radius: 0px;
-    border: 0px solid #010101;
-  }
-  input[type=range].WeatherRangeInput-input::-moz-range-thumb {
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
-    cursor: pointer;
-  }
-  input[type=range].WeatherRangeInput-input::-ms-track {
-    width: 100%;
-    height: 8.5px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  input[type=range].WeatherRangeInput-input::-ms-fill-lower {
-    background: #c2c2c2;
-    border: 0px solid #010101;
-    border-radius: 0px;
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  }
-  input[type=range].WeatherRangeInput-input::-ms-fill-upper {
-    background: #cfcfcf;
-    border: 0px solid #010101;
-    border-radius: 0px;
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  }
-  input[type=range].WeatherRangeInput-input::-ms-thumb {
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
-    cursor: pointer;
-    height: 8.5px;
-  }
-  input[type=range].WeatherRangeInput-input:focus::-ms-fill-lower {
-    background: #cfcfcf;
-  }
-  input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
-    background: #dcdcdc;
-  }
+
+
+  /*WEBKIT Specific Styling*/
+
+    input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 9px;
+      cursor: pointer;
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      /*background: #cfcfcf;*/
+      background: transparent;
+      border-radius: 0px;
+      border: 0px solid #010101;
+      /*position: absolute;
+      top: 5.75px;
+      left: 0;*/
+      z-index: 10;
+    }
+
+    input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 12px;
+      border-radius: 2px;
+      background: #039be5;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5.75px;
+      z-index: 10;
+    }
+
+    input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
+      background: transparent;
+    }
+
+
+  /*MOZ Specific Styling*/
+
+    input[type=range].WeatherRangeInput-input::-moz-range-track {
+      width: 100%;
+      height: 9px;
+      cursor: pointer;
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      /*background: #cfcfcf;*/
+      background: transparent;
+      border-radius: 0px;
+      border: 0px solid #010101;
+      z-index: 10;
+    }
+    input[type=range].WeatherRangeInput-input::-moz-range-thumb {
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 12px;
+      border-radius: 2px;
+      background: #039be5;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+
+  /*MS Specific Styling*/
+
+    input[type=range].WeatherRangeInput-input::-ms-track {
+      width: 100%;
+      height: 9px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    input[type=range].WeatherRangeInput-input::-ms-fill-lower {
+      background: #c2c2c2;
+      border: 0px solid #010101;
+      border-radius: 0px;
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+    input[type=range].WeatherRangeInput-input::-ms-fill-upper {
+      background: #cfcfcf;
+      border: 0px solid #010101;
+      border-radius: 0px;
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+    input[type=range].WeatherRangeInput-input::-ms-thumb {
+      box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      height: 20px;
+      width: 12px;
+      border-radius: 2px;
+      background: #039be5;
+      cursor: pointer;
+      height: 8.5px;
+    }
+    input[type=range].WeatherRangeInput-input:focus::-ms-fill-lower {
+      background: #cfcfcf;
+    }
+    input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
+      background: #dcdcdc;
+    }
+
+
+  /*Styling for simulated slider fill*/
+
+    .outer-container {
+      position: relative;
+      flex: 1;
+    }
+
+    .inner-container {
+      height: 9px;
+      width: 50%;
+      background-color: pink;
+      position: absolute;
+      top: 6px;
+      left: 0;
+      margin: 6px 0;
+      z-index: 9;
+    }
+
+    .inner-container2 {
+      height: 9px;
+      width: 100%;
+      background-color: purple;
+      position: absolute;
+      top: 6px;
+      left: 0;
+      margin: 6px 0;
+      z-index: 8;
+    }
 
 
 
@@ -128,67 +184,4 @@
   .WeatherRangeInput-unit-value .unit {
     font-size: 14px;
     margin-left: .75em;
-  }
-
-
-
-/*TEST STUFF ADDED JULY 01*/
-
-  .outer-container {
-    position: relative;
-    flex: 1;
-  }
-
-  .inner-container {
-    height: 8.5px;
-    width: 50%;
-    background-color: pink;
-    position: absolute;
-    top: 6px;
-    left: 0;
-    margin: 5.75px 0;
-    z-index: 9;
-  }
-
-  .inner-container2 {
-    height: 8.5px;
-    width: 100%;
-    background-color: purple;
-    position: absolute;
-    top: 6px;
-    left: 0;
-    margin: 5.75px 0;
-    z-index: 8;
-  }
-
-  input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8.5px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    /*background: #cfcfcf;*/
-    background: transparent;
-    border-radius: 0px;
-    border: 0px solid #010101;
-    /*position: absolute;
-    top: 5.75px;
-    left: 0;*/
-    z-index: 10;
-  }
-
-  input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -5.75px;
-    z-index: 10;
-  }
-
-  input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
-    background: transparent;
   }

@@ -1,9 +1,11 @@
 JULY 2: I think my fake slider fill is basically working. Still to do:
--I first need to figure out why the overlay is just a touch off on Firefox. I suspect it has to do with partial pixels. I should be able to fix this by altering the slider sizing to avoid decimals.
--Figure out a good way to simulate the color change when active. I think I can do this by altering the top layer's opacity.
+
+-My changes to the slider slightly threw off the alignment of the slider and "at least" and value sections. Figure out how to get the alignment back (Also think if this is the final design I want. If not, do something else now).
+-(possibly will be solved by above) There is slight missmatch between the alignment of the fake slider fill divs and the actual transparent slider. This makes the thumb look just a touch off (and also makes the misalignment with at least/value worse). Also, it looks like the misalignment is there but slightly different in FF (possibly because the slider height appears like its different, not sure why).
+-Keep in mind that chrome and ff seem to handle partial pixels differently. Is it possible that's the source of the problem? I went through in many places and tried to make all pixels integers, but not sure that I did that everywhere and considered all places.
+-Figure out a good way to simulate the color change when active. I think I can do this by altering the top layer's opacity. Will probably actually need to set a background color for the top layer and then have opacity be 100% Then when active I can make background just a touch less transparent. Just can no longer use background: transparent;
 -Have the colors be opposite for at least/less than.
 -Pick better colors.
--Decide if I'll use this just for webkit or for everything.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Decide about overlaying tick marks and/or values.
 
