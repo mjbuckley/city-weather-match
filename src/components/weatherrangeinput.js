@@ -5,19 +5,26 @@ import '../css/weatherrangeinput.css';
 // function WeatherRangeInput(props) {
 function WeatherRangeInput(props) {
 
-  // Below is used to calculate width for the fake slider fill.
+  // Calculate width for the left slider fill.
   const range = props.max - props.min;
   const distFromMin = props.value - props.min;
   const percentage = distFromMin * 100 / range;
   const fillValue = percentage + "%";
-  const widthStyle = { width: fillValue };
+
+  // Determine whether to fill from right or lest
+  const leftColor = (props.label === "AT LEAST") ? "rgba(154, 154, 154, 1)" : "rgba(207, 207, 207, 1)";
+  const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "rgba(154, 154, 154, 1)";
+
+  // Inline styles to be applied
+  const leftStyle = { width: fillValue, backgroundColor: leftColor };
+  const rightStyle = { backgroundColor: rightColor };
 
   return (
     <div className="WeatherRangeInput">
       <label htmlFor={props.id}>{props.label}</label>
       <div className="outer-container">
-        <div className="inner-container" style={widthStyle}></div>
-        <div className="inner-container2"></div>
+        <div className="inner-container" style={leftStyle}></div>
+        <div className="inner-container2" style={rightStyle}></div>
         <input
           className="WeatherRangeInput-input"
           type="range"
@@ -38,28 +45,3 @@ function WeatherRangeInput(props) {
 }
 
 export default WeatherRangeInput;
-
-
-// Good/old july 1:
-// function WeatherRangeInput(props) {
-//
-//   return (
-//     <div className="WeatherRangeInput">
-//       <label htmlFor={props.id}>{props.label}</label>
-//       <input
-//         className="WeatherRangeInput-input"
-//         type="range"
-//         id={props.id}
-//         min={props.min}
-//         max={props.max}
-//         step="1"
-//         value={props.value}
-//         onChange={props.onChange}
-//       />
-//       <div className="WeatherRangeInput-unit-value">
-//         <div className="value">{props.value}</div>
-//         <div className="unit">{props.unit}</div>
-//       </div>
-//     </div>
-//   );
-// }

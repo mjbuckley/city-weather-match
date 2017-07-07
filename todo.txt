@@ -1,3 +1,6 @@
+JULY 6: started playing around with colors and focus but not finished or applied to all browsers. Also get different sided fills for at least/less than. Is there a better way to do focus?
+
+
 JULY 2: I think my fake slider fill is basically working. Still to do:
 
 -My changes to the slider slightly threw off the alignment of the slider and "at least" and value sections. Figure out how to get the alignment back (Also think if this is the final design I want. If not, do something else now).

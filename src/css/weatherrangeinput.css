@@ -25,8 +25,8 @@
       height: 8px;
       cursor: pointer;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-      /*background: #cfcfcf;*/
-      background: transparent;
+      /*background: transparent;*/
+      background: rgba(255, 255, 255, 0);
       border-radius: 0px;
       border: 0px solid #010101;
       z-index: 10;
@@ -51,7 +51,8 @@
     }
 
     input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
-      background: transparent;
+      /*background: transparent;*/
+      background: rgba(255, 255, 255, .4);
     }
 
 
@@ -134,7 +135,7 @@
     .inner-container {
       height: 8px;
       width: 50%;
-      background-color: pink;
+      background-color: rgba(207, 207, 207, 1);
       position: absolute;
       top: 7px;
       left: 0;
@@ -144,7 +145,7 @@
     .inner-container2 {
       height: 8px;
       width: 100%;
-      background-color: purple;
+      background-color: rgba(154, 154, 154, 1);
       position: absolute;
       top: 7px;
       left: 0;
