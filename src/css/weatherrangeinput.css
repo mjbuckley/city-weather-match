@@ -1,12 +1,13 @@
-/*Changed margins from 5.75 to 6 and and track height from 8.5 to 9*/
-
 /*Styling for range input slider*/
 
-  /*Note position relative needed so z-index will be respected by moz browsers*/
+  /*Note position relative needed so z-index will be respected by FF*/
+  /*Track height must be set here and in moz section for it to work in FF*/
+  /*Margin set to 7 rather than 6 intentionally. See webkit thumb note.*/
   input[type=range].WeatherRangeInput-input {
     -webkit-appearance: none;
     width: 100%;
-    margin: 6px 0;
+    height: 8px;
+    margin: 7px 0;
     background-color: inherit;
     padding: 0px;
     z-index: 10;
@@ -21,19 +22,21 @@
 
     input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
       width: 100%;
-      height: 9px;
+      height: 8px;
       cursor: pointer;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
       /*background: #cfcfcf;*/
       background: transparent;
       border-radius: 0px;
       border: 0px solid #010101;
-      /*position: absolute;
-      top: 5.75px;
-      left: 0;*/
       z-index: 10;
     }
 
+    /*Negative top margin needed in webkit or else margin is calculated from thumb top.
+    In webkit for reasons I don't understand a 20px thumb height isn't really 20px, and it extends
+    slightly more to the top. In theory a 8px track with 6px top/bottom margins should work
+    for a 20px thumb, but it doesn't. So setting margins to 7px but only altering thumb top margin
+    by -6 instead of -7 seems to solve the issue.*/
     input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
       border: 0px solid #000000;
@@ -43,7 +46,7 @@
       background: #039be5;
       cursor: pointer;
       -webkit-appearance: none;
-      margin-top: -5.75px;
+      margin-top: -6px;
       z-index: 10;
     }
 
@@ -56,7 +59,7 @@
 
     input[type=range].WeatherRangeInput-input::-moz-range-track {
       width: 100%;
-      height: 9px;
+      height: 8px;
       cursor: pointer;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
       /*background: #cfcfcf;*/
@@ -81,7 +84,7 @@
 
     input[type=range].WeatherRangeInput-input::-ms-track {
       width: 100%;
-      height: 9px;
+      height: 8px;
       cursor: pointer;
       background: transparent;
       border-color: transparent;
@@ -107,7 +110,7 @@
       border-radius: 2px;
       background: #039be5;
       cursor: pointer;
-      height: 8.5px;
+      height: 8px;
     }
     input[type=range].WeatherRangeInput-input:focus::-ms-fill-lower {
       background: #cfcfcf;
@@ -119,30 +122,32 @@
 
   /*Styling for simulated slider fill*/
 
+    /*Height and line height set because browsers seem to give the div a unsuaul height otherwise.
+    This fixes that. Not sure of the origin of the problem.*/
     .outer-container {
       position: relative;
       flex: 1;
+      line-height: 1;
+      height: 22px;
     }
 
     .inner-container {
-      height: 9px;
+      height: 8px;
       width: 50%;
       background-color: pink;
       position: absolute;
-      top: 6px;
+      top: 7px;
       left: 0;
-      margin: 6px 0;
       z-index: 9;
     }
 
     .inner-container2 {
-      height: 9px;
+      height: 8px;
       width: 100%;
       background-color: purple;
       position: absolute;
-      top: 6px;
+      top: 7px;
       left: 0;
-      margin: 6px 0;
       z-index: 8;
     }
 
@@ -165,10 +170,6 @@
     align-items: center;
     font-size: 14px;
   }
-
-  /*.WeatherRangeInput-input {
-    flex: 1;
-  }*/
 
   .WeatherRangeInput-unit-value {
     display: flex;
