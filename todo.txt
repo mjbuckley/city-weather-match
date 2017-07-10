@@ -1,25 +1,23 @@
-JULY 6: started playing around with colors and focus but not finished or applied to all browsers. Also get different sided fills for at least/less than. Is there a better way to do focus?
 
+-consider #f8fafb background color. very similar but a hint of blue.
+Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
+-Here is a grey font color to test: #6b7c93.
 
-JULY 2: I think my fake slider fill is basically working. Still to do:
+-What to do about slider focus. Right now webkit does nothing, moz has the checkered border (I believe you have to put a transparent border over this to get rid of this and that outline: none; doesn't do anything), and who knows what ms does.
+-Convert back to hex from rgba if I'm not using alpha channel.
+-Better name things in weatherrangeinput (specifically inner/outer container).
 
--My changes to the slider slightly threw off the alignment of the slider and "at least" and value sections. Figure out how to get the alignment back (Also think if this is the final design I want. If not, do something else now).
--(possibly will be solved by above) There is slight missmatch between the alignment of the fake slider fill divs and the actual transparent slider. This makes the thumb look just a touch off (and also makes the misalignment with at least/value worse). Also, it looks like the misalignment is there but slightly different in FF (possibly because the slider height appears like its different, not sure why).
--Keep in mind that chrome and ff seem to handle partial pixels differently. Is it possible that's the source of the problem? I went through in many places and tried to make all pixels integers, but not sure that I did that everywhere and considered all places.
--Figure out a good way to simulate the color change when active. I think I can do this by altering the top layer's opacity. Will probably actually need to set a background color for the top layer and then have opacity be 100% Then when active I can make background just a touch less transparent. Just can no longer use background: transparent;
--Have the colors be opposite for at least/less than.
--Pick better colors.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Decide about overlaying tick marks and/or values.
 -Be sure to check on IE. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
--I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occured to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+-I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+-Make my best guess for ms settings. Right now I have stuff that I know must be wrong.
 
 
 -On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
 -Singular metroarea and citylocation pages (these are never linked to but still exist make sure they are styled properly, right now I've only done things with multiple results).
 -Don't forget that there are 3 possible scenarios for the metro area section in supplementary information: none, 1, multiple. Multiple is easy to forget so make sure I remember to style.
--Make the :focus of my form inputs stand out more.
 -Decide what to put on home page.
 -Add an about page to explain things more in depth, maybe an about me page too.
 -Make sure that I have proper padding on the sides for the desktop styling. Look at layout through range of widths to make sure things are ok (esp. look at search in 700-800 range.)
@@ -36,21 +34,10 @@ JULY 2: I think my fake slider fill is basically working. Still to do:
 
 
 
-Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
-
--Here is a grey font color to test: #6b7c93.
-
-
 TO DO NOW (IMPORTANT)
 
 WEATHER.JSON STUFF:
--I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections, decide about non us states, make sure I have min and max values correct (what should be rounded up/down), and come up with good defaults. Everything else is as good as it can be without starting over from scratch.
-
-RANGE SLIDER:
--Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
--inputMinMax's [2] value is the midway point between min and max. I'm currently using that as the range input default, but I should come up with a better default system and make that the new [2] value. Once I decide what to do I need to change inputMinMax and finddefaultmatches and then copy over results of those changes.
--Add tick marks and some values to range input sliders.
--Probably make range slider fill in from left on less than and right on more than to visually make clear what's going on.
+-I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections, decide about non us states, and make sure I have min and max values correct (what should be rounded up/down). Everything else is as good as it can be without starting over from scratch.
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
@@ -65,7 +52,6 @@ OTHER:
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Don't forget checking in different browsers/devices/OSes. Basic functionality seems fine in Safari and Firefox, but be sure to check everywhere. Also, I do see some minor style differences I should see if I can fix.
 -Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
 -Make sure to remove default favicon and replace with something else.
@@ -75,6 +61,7 @@ OTHER:
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening or at least understood why it is happening. Perhaps related my use of clone element for children of App?
 -Better style some of the error pages. Everything works right now but it is mostly plain unstyled text.
 -Should the li in CitiesList be ol instead of ul?

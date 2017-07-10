@@ -10,7 +10,10 @@ function Results(props) {
   if (props.isActive === false) {
     return (
       <div className="results">
-        <p>You must first enter search information to see results.  <Link to="/search">Go to the search page now.</Link></p>
+        <div className="results-intro">
+          <h2>Search Results</h2>
+          <p>You must first enter search information to see results.  <Link to="/search">Go to the search page now.</Link></p>
+        </div>
       </div>
     );
   }
@@ -19,7 +22,13 @@ function Results(props) {
     <div className="results">
       <div className="results-intro">
         <h2>Search Results</h2>
-        <p>All of the cities listed below match your search criteria. Click on a city name to view more detailed information about that location.</p>
+
+        {(props.matches.length > 0) ? (
+          <p>All of the cities listed below match your search criteria. Click on a city name to view more detailed information about that location.</p>
+        ) : (
+          <p>Sorry, there were no matches.  Please <Link to={buildLink(props, "/search")}>try again</Link> with new search values.</p>
+        )}
+
       </div>
 
       {(props.matches.length > 0) ? (
@@ -32,14 +41,7 @@ function Results(props) {
         />
       </div>
 
-      ) : (
-
-      <div className="results-list">
-        <p>Sorry, there were no matches.  Please <Link to={buildLink(props, "/search")}>try again</Link> with new search values.</p>
-      </div>
-
-      )}
-
+    ) : null}
     </div>
   );
 }

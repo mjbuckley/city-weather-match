@@ -1,5 +1,5 @@
 This file contains info and examples about the data files in the src/data directory.
-Updated 5/20/17
+Updated 7/9/17
 
 
 -WEATHER.JSON (frequently used as stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
@@ -40,7 +40,7 @@ Updated 5/20/17
 "andTmxGe80"
 
 
--INPUTMINMAX.JSON: Object with properties being the weather range input options and the values being an array of the min, max, and median for each range slider input. Min rounded down, max up. I plan to eventually replace the median value with a meaningful slider default value. Used to set slider range and to validate inputs.
+-INPUTMINMAX.JSON: Object with properties being the weather range input options and the values being an array of the min, max, and default search values (on fresh load) for each range slider input. Min rounded down, max up. Default value is midpoint if of values for weather values with only one option, and 1/3 and 2/3 values when there are two weather options (at least/less than). Used to set slider range and to validate inputs.
 
 {
   "hMTmxAvLe":[46,117,82],
@@ -91,7 +91,7 @@ and breaks each city up into stations. This is helpful for creating metro area l
 -WEATHEROPTIONS.JSON: A list of the weather options that are asked of the user (the same as the keys in inputminmax). In object form: { "weatherOptions: [list of options]"}.
 
 
--DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Currently it is based off of the median values for each weather option (which are the default options for the range slider), but I will eventually use more meaningful defaults.
+-DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Based off of the default values in inputminmax. Currently these default values produce no matches, but that could change if I change the default values.
 
 
 -NOTES ON UPDATING THE APP WITH NEW WEATHER INFO

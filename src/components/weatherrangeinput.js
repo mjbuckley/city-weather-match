@@ -11,9 +11,12 @@ function WeatherRangeInput(props) {
   const percentage = distFromMin * 100 / range;
   const fillValue = percentage + "%";
 
-  // Determine whether to fill from right or lest
-  const leftColor = (props.label === "AT LEAST") ? "rgba(154, 154, 154, 1)" : "rgba(207, 207, 207, 1)";
-  const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "rgba(154, 154, 154, 1)";
+  // Determine whether to fill from right or left
+  // const leftColor = (props.label === "AT LEAST") ? "#29b6f6" : "rgba(207, 207, 207, 1)";
+  // const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "#29b6f6";
+  const leftColor = (props.label === "AT LEAST") ? "#9e9e9e" : "rgba(207, 207, 207, 1)";
+  const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "#9e9e9e";
+
 
   // Inline styles to be applied
   const leftStyle = { width: fillValue, backgroundColor: leftColor };
