@@ -53,9 +53,10 @@
       z-index: 10;
     }
 
-    /*input[type=range].WeatherRangeInput-input:focus::-webkit-slider-runnable-track {
-      background: rgba(255, 255, 255, .4);
-    }*/
+    input[type=range].WeatherRangeInput-input:focus::-webkit-slider-thumb {
+      background: #0274ab;
+    }
+
 
 
 
@@ -83,9 +84,20 @@
       z-index: 10;
     }
 
+    input[type=range].WeatherRangeInput-input:focus::-moz-range-thumb {
+      background: #0274ab;
+    }
+
+    /*Removes FF default focus wring around range input slider when focused*/
+    input[type=range].WeatherRangeInput-input::-moz-focus-outer {
+    border: 0;
+    }
+
 
   /*MS Specific Styling*/
-
+  /*Note that upper and lower are styled becuase it was suggested in several places
+  that there might be edge issue with leaving them unstyled. Not sure if correct*/
+  
     input[type=range].WeatherRangeInput-input::-ms-track {
       width: 100%;
       height: 8px;
@@ -95,13 +107,13 @@
       color: transparent;
     }
     input[type=range].WeatherRangeInput-input::-ms-fill-lower {
-      background: #c2c2c2;
+      background: transparent;
       border: 0px solid #010101;
       border-radius: 0px;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     }
     input[type=range].WeatherRangeInput-input::-ms-fill-upper {
-      background: #cfcfcf;
+      background: transparent;
       border: 0px solid #010101;
       border-radius: 0px;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
@@ -116,11 +128,14 @@
       cursor: pointer;
       height: 8px;
     }
+    input[type=range].WeatherRangeInput-input:focus::-ms-thumb {
+      background: #0274ab;
+    }
     input[type=range].WeatherRangeInput-input:focus::-ms-fill-lower {
-      background: #cfcfcf;
+      background: transparent;
     }
     input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
-      background: #dcdcdc;
+      background: transparent;
     }
 
 
@@ -128,14 +143,14 @@
 
     /*Height and line height set because browsers seem to give the div a unsuaul height otherwise.
     This fixes that. Not sure of the origin of the problem.*/
-    .outer-container {
+    .slider-container {
       position: relative;
       flex: 1;
       line-height: 1;
       height: 22px;
     }
 
-    .inner-container {
+    .left-fill {
       height: 8px;
       width: 50%;
       background-color: rgba(207, 207, 207, 1);
@@ -145,7 +160,7 @@
       z-index: 9;
     }
 
-    .inner-container2 {
+    .right-fill {
       height: 8px;
       width: 100%;
       background-color: rgba(154, 154, 154, 1);

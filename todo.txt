@@ -3,9 +3,8 @@
 Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
 -Here is a grey font color to test: #6b7c93.
 
--What to do about slider focus. Right now webkit does nothing, moz has the checkered border (I believe you have to put a transparent border over this to get rid of this and that outline: none; doesn't do anything), and who knows what ms does.
+-What to do about slider focus. Right now webkit does nothing, moz has the checkered border (I believe you have to put a transparent border over this to get rid of this and that outline: none; doesn't do anything), and who knows what ms does. (I got rid of the outline in ff and I added a thumb darkening on focus. however it doesn't work in safari and can't figure out why. I'm fine leaving it for now.)
 -Convert back to hex from rgba if I'm not using alpha channel.
--Better name things in weatherrangeinput (specifically inner/outer container).
 
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Decide about overlaying tick marks and/or values.

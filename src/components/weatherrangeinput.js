@@ -25,9 +25,9 @@ function WeatherRangeInput(props) {
   return (
     <div className="WeatherRangeInput">
       <label htmlFor={props.id}>{props.label}</label>
-      <div className="outer-container">
-        <div className="inner-container" style={leftStyle}></div>
-        <div className="inner-container2" style={rightStyle}></div>
+      <div className="slider-container">
+        <div className="left-fill" style={leftStyle}></div>
+        <div className="right-fill" style={rightStyle}></div>
         <input
           className="WeatherRangeInput-input"
           type="range"
