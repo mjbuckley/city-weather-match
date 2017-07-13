@@ -25,7 +25,7 @@ function CityLocations(props) {
     return (
       <div className="citylocation-wrapper">
         <div className="citylocation">
-          <p>Sorry, the name you entered is not in the database</p>
+          <p>Sorry, the name that you entered is not in the database</p>
         </div>
       </div>
     );
@@ -38,7 +38,9 @@ function CityLocations(props) {
 
         {(locations.length > 1) ? (
           <p>There are {locations.length} NOAA weather stations in {city}. Click on one of the stations listed below to view more detailed weather information for that location.</p>
-        ) : null}
+        ) : (
+          <p>There is one NOAA weather stations in {city}. Click on the station listed below to view more detailed weather information for that location.</p>
+        )}
 
         <ul>
           {locations.map((station) =>

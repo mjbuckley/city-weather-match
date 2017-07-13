@@ -1,22 +1,16 @@
+COLOR NOTES
 
 -consider #f8fafb background color. very similar but a hint of blue.
 Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
 -Here is a grey font color to test: #6b7c93.
 
--What to do about slider focus. Right now webkit does nothing, moz has the checkered border (I believe you have to put a transparent border over this to get rid of this and that outline: none; doesn't do anything), and who knows what ms does. (I got rid of the outline in ff and I added a thumb darkening on focus. however it doesn't work in safari and can't figure out why. I'm fine leaving it for now.)
--Convert back to hex from rgba if I'm not using alpha channel.
 
--Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
--Decide about overlaying tick marks and/or values.
+TO DO NOW
+
 -Be sure to check on IE. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 -I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
--Make my best guess for ms settings. Right now I have stuff that I know must be wrong.
-
-
 -On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
--Singular metroarea and citylocation pages (these are never linked to but still exist make sure they are styled properly, right now I've only done things with multiple results).
--Don't forget that there are 3 possible scenarios for the metro area section in supplementary information: none, 1, multiple. Multiple is easy to forget so make sure I remember to style.
 -Decide what to put on home page.
 -Add an about page to explain things more in depth, maybe an about me page too.
 -Make sure that I have proper padding on the sides for the desktop styling. Look at layout through range of widths to make sure things are ok (esp. look at search in 700-800 range.)
@@ -30,17 +24,15 @@ Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&pri
 -Add to github?
 -Purchase domain name?
 
-
-
-
-TO DO NOW (IMPORTANT)
-
 WEATHER.JSON STUFF:
--I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections, decide about non us states, and make sure I have min and max values correct (what should be rounded up/down). Everything else is as good as it can be without starting over from scratch.
+-I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections and make sure I have min and max values correct (what should be rounded up/down). Everything else is as good as it can be without starting over from scratch.
+1) I believe "area" is not being used. Remove.
+2) Remove stations not in the 50 states
+3) There might be some water stations and other weird locations. Less important, but see if they can be identified.
+-Note that pre modification file size is 1.6 mb.
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
-
 
 OTHER:
 
@@ -72,6 +64,9 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 -In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
+-I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
+-Convert back to hex from rgba.
+-Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 
 
 
