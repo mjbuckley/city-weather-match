@@ -25,11 +25,7 @@ TO DO NOW
 -Purchase domain name?
 
 WEATHER.JSON STUFF:
--I'm now as confident as I can be about the weather.json data. The things to still do are eliminated unused sections and make sure I have min and max values correct (what should be rounded up/down). Everything else is as good as it can be without starting over from scratch.
-1) I believe "area" is not being used. Remove.
-2) Remove stations not in the 50 states
-3) There might be some water stations and other weird locations. Less important, but see if they can be identified.
--Note that pre modification file size is 1.6 mb.
+-Update format-noaa-data readme and docsumentation, but all the other essential stuff is done.
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
@@ -67,6 +63,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 -Convert back to hex from rgba.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
+-Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
 
 
 
