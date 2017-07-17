@@ -1,5 +1,6 @@
 .AlphaListSection {
   margin-bottom: 35px;
   padding-bottom: 17px;
-  border-bottom: 1px solid #e0e0e0;
+  /*border-bottom: 1px solid #e0e0e0;*/
+  border-bottom: 1px solid #cccccc;
 }
