@@ -20,13 +20,9 @@
 /*Weather stats*/
 
   .location-weather-stats-wrapper {
-    /*background-color: #e7f0f0;*/
-    /*background-color: #f9fafa;*/
     background-color: white;
     padding-top: 50px;
     padding-bottom: 50px;
-    /*border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;*/
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
 
@@ -80,8 +76,6 @@
     font-weight: 300;
     margin-bottom: 13px;
     list-style: none;
-    /*list-style: square;
-    list-style-position: inside;*/
   }
 
   .location-weather-stats-info .value {
@@ -93,8 +87,6 @@
 /*Supplementary Info*/
 
   .location-additional-info-wrapper {
-    /*background-color: #efefef;*/
-    /*background-color: #f8f8f8;*/
     background-color: #f8fafb;
     padding-top: 50px;
     padding-bottom: 50px;

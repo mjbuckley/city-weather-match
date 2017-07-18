@@ -25,7 +25,6 @@
       height: 8px;
       cursor: pointer;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-      /*background: transparent;*/
       background: rgba(255, 255, 255, 0);
       border-radius: 0px;
       border: 0px solid #010101;
@@ -44,9 +43,6 @@
       width: 12px;
       border-radius: 2px;
       background: #039be5;
-      /*background: rgba(154, 154, 154, 1);*/
-      /*background: #797979;*/
-      /*background: #29b6f6;*/
       cursor: pointer;
       -webkit-appearance: none;
       margin-top: -6px;
@@ -67,7 +63,6 @@
       height: 8px;
       cursor: pointer;
       box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-      /*background: #cfcfcf;*/
       background: transparent;
       border-radius: 0px;
       border: 0px solid #010101;
@@ -97,7 +92,7 @@
   /*MS Specific Styling*/
   /*Note that upper and lower are styled becuase it was suggested in several places
   that there might be edge issue with leaving them unstyled. Not sure if correct*/
-  
+
     input[type=range].WeatherRangeInput-input::-ms-track {
       width: 100%;
       height: 8px;

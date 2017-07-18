@@ -1,6 +1,3 @@
--I think I'm adding my li keys in the wrong place in some areas. Double check.
-
-
 TO DO NOW
 
 -Be sure to check on IE. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
