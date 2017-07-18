@@ -6,7 +6,7 @@ TO DO NOW
 
 -On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
 -Decide what to put on home page.
--Add an about page to explain things more in depth, maybe an about me page too.
+-Finish About page.
 -Make sure that I have proper padding on the sides for the desktop styling. Look at layout through range of widths to make sure things are ok (esp. look at search in 700-800 range.)
 -Add mobile styling.
 -Once basic styling is set up, go through and make sure pages line up with one another in terms of things like margins, padding, etc. I tried to keep things the same, but I'm sure I missed a few things.
@@ -29,7 +29,6 @@ OTHER:
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
 -Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 -Figure out final size of site (Probably in several webpack bundles).
 

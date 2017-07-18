@@ -50,6 +50,6 @@
     flex-shrink: 1;
   }
 
-  .app-header-items .first {
-    margin-right: 1.4em;
+  .app-header-items a {
+    margin-left: 1.4em;
   }

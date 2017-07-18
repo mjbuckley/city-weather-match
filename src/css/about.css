@@ -1,0 +1,13 @@
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  border-bottom: 2px solid #f50057;
+  margin-top: 65px;
+}
+
+.about p {
+  font-weight: 300;
+}
