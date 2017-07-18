@@ -1,8 +1,4 @@
-COLOR NOTES
-
--consider #f8fafb background color. very similar but a hint of blue.
-Another color scheme: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
--Here is a grey font color to test: #6b7c93.
+-I think I'm adding my li keys in the wrong place in some areas. Double check.
 
 
 TO DO NOW
@@ -10,6 +6,7 @@ TO DO NOW
 -Be sure to check on IE. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 -I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+
 -On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
 -Decide what to put on home page.
 -Add an about page to explain things more in depth, maybe an about me page too.
@@ -25,25 +22,19 @@ TO DO NOW
 -Purchase domain name?
 
 WEATHER.JSON STUFF:
--Update format-noaa-data readme and docsumentation, but all the other essential stuff is done.
+-Update format-noaa-data readme and documentation, but all the other essential stuff is done.
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
 
 OTHER:
-
--General performance issues. Feels snappy to me, but computer literally feels hot sometimes and not sure if that's something I'm doing (noticed more after adding graphs). Check this out. Also, size of webpack bundle.
--I think I'm adding my li keys in the wrong place in some areas. Double check.
--Need to figure out exactly how I want to use isClicked. Specifically, I have components (location, citylocations, and metroarea) that should work differently depending on isClicked's status. Also, I've gone through to try and make sure that no component currently is assuming one status or another without that assumption being hard coded in and both possibilities dealt with, but go through again and make sure this is the case.
 -I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Ways to make weather.json smaller: I think there are some things in there I'm not using. Take a look (maybe sharedarea or area?). Also, I could do something where I group types of data together in an array like snow: [1, 3, 4] where each element is a type of snow data. It's a bit less friendly, but could free up some space. Finally, probably go through and remove stations not in the 50 states (and what about water stations if they exist).
 -Be sure to note something about how different stations have different numbers of years on record, and more generally about putting the data into context (Useful if you aren't overly exact about things).
--Make sure to remove default favicon and replace with something else.
 -Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
-
+-Figure out final size of site (Probably in several webpack bundles).
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
@@ -64,6 +55,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Convert back to hex from rgba.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
+-I have a:visited styled the same as a:link. I think that's what I want, but revist this at some point.
 
 
 
@@ -73,6 +65,7 @@ GENERAL
 -I'm ok with css in react for this project, but play around with things like css in js and css modules for the future.
 -Is there any practical/performance difference between defining a constant inside vs. outside a function?
 -Is normalize.css still a thing? Should I use it? Is it already included somehow? Is there a better alternative or something that can be done using post.css?
+-Better understand some of the JS performance tools I can use in chrome/other.
 
 
 
@@ -93,6 +86,8 @@ https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-usin
 -Note on why no query params for home/search: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
 -I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 -I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
+-Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
+
 
 
 

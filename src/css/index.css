@@ -15,12 +15,15 @@ body {
   /*color: #444444;*/
 	color: black;
   line-height: 1.5;
-	background-color: #f8f8f8;
+	/*background-color: #f8f8f8;*/
 	/*background-color: #f8fafb;*/
 	/*background-color: #f2f3f5;*/
+	background-color: #f8fafb;
 }
 
-
+a {
+	text-decoration: none;
+}
 
 a:link {
 	text-decoration: none;
@@ -31,12 +34,11 @@ a:visited {
 	color: #0000EE;
 }
 
-
 a:hover {
 	color: #63ccff;
 	text-decoration: underline;
 }
 
 a:active {
-	color: black;
+	color: #0077b1;
 }

@@ -4,7 +4,6 @@
 }
 
 .results h2 {
-  /*text-align: center;*/
   border-bottom: 2px solid #f50057;
 }
 
@@ -22,9 +21,6 @@
   list-style-type: square;
   font-weight: 300;
 }
-/*.results li a {
-  text-decoration: none;
-}*/
 
 .results-intro {
   margin-top: 65px;
