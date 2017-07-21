@@ -1,18 +1,36 @@
+MOBILE STYLING NOTES/TO DO (July 20)
+
+-Go through and make sure pages line up with one another in terms of things like top margins, header size, etc. I tried to keep things the same, but I'm sure I missed a few things. Also, consider making headers bigger in some places?
+
+Regular/mini ipad logical resolution is 768 in portrait mode.
+iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
+Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
+768-800 seems pretty popular for tablets.
+
+Break points around 800 and 480 seem about right both based on common device sizes and my own site design.
+
+Use of media queries:
+  @ media (max-width: 800px) {
+    h1 {
+      font-weight: 300;
+    }
+
+    .class {
+      font-size: 18px;
+    }
+  }
+
+If I do desktop first styling (which is basically what I;ve done), then I'll want to use max-width, which means styles are applied up to the max-width specified. Keep in mind that media queries cascade, I will need to but larger size first.
+
+
+
 TO DO NOW
 
--Be sure to check on IE. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
--There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
--I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
-
--On search page I'm not sure how I have the widths of things set up and if that could cause a problem if different fonts are used or different font sizes are used. Check this out.
+-Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
+-Check on low DIP screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+-Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
 -Decide what to put on home page.
 -Finish About page.
--Make sure that I have proper padding on the sides for the desktop styling. Look at layout through range of widths to make sure things are ok (esp. look at search in 700-800 range.)
--Add mobile styling.
--Once basic styling is set up, go through and make sure pages line up with one another in terms of things like margins, padding, etc. I tried to keep things the same, but I'm sure I missed a few things.
--Clean up/document css in general.
--Check site in fallback fonts (like Arial)
--Check on all browsers, esp. ie, and on windows computers and lower screen resolution computers.
 -Make a favicon.
 -Make note about isActive. I'm using it sparsley but make sure I have write up of ways it might be used in the future.
 -Add to github?
@@ -23,13 +41,12 @@ WEATHER.JSON STUFF:
 
 GRAPH:
 -Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
+-Other options than jan/feb/etc. for mobile devices?
 
 OTHER:
--I really need to figure out how I'm ultimately going to deploy this. Things like 404s and browser/hashHistory will really depend on deployment choices and can't be decided in isolation.
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 -Figure out final size of site (Probably in several webpack bundles).
 
 
@@ -52,6 +69,8 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
 -I have a:visited styled the same as a:link. I think that's what I want, but revist this at some point.
+-There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
+-Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 
 
 

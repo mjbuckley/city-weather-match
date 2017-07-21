@@ -16,25 +16,21 @@ function MetroArea(props) {
   // error message.
   if (metroMap[metroArea] === undefined) {
     return (
-      <div className="metroarea-wrapper">
-        <div className="metroarea">
-          <p>There are no weather stations for the metro area that you entered in the URL.</p>
-        </div>
+      <div className="metroarea">
+        <p>There are no weather stations for the metro area that you entered in the URL.</p>
       </div>
     );
   }
 
   return (
-    <div className="metroarea-wrapper">
-      <div className="metroarea">
-        <h2>{metroArea} Metro Area</h2>
-        <p>The following cities in the {metroArea} metro area have NOAA weather stations. Click on a city name to view more detailed weather information for that location.</p>
-        <ul>
-          {metroStationLinks(metroArea, props).map((station) =>
-            <CityStationLink {...props} station={station} key={station} />
-          )}
-        </ul>
-      </div>
+    <div className="metroarea">
+      <h2>{metroArea} Metro Area</h2>
+      <p>The following cities in the {metroArea} metro area have NOAA weather stations. Click on a city name to view more detailed weather information for that location.</p>
+      <ul>
+        {metroStationLinks(metroArea, props).map((station) =>
+          <CityStationLink {...props} station={station} key={station} />
+        )}
+      </ul>
     </div>
   );
 }

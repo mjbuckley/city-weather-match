@@ -1,6 +1,8 @@
 .about {
-  max-width: 800px;
+  max-width: 870px;
   margin: 0 auto;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .about h2 {

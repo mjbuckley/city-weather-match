@@ -7,8 +7,10 @@
 effect by controlling h2 margins but I think this makes more sense for what I want.*/
 .home {
   min-height: 300px;
-  max-width: 800px;
+  max-width: 870px;
   margin: 0 auto;
+  padding-left: 35px;
+  padding-right: 35px;
   overflow: auto;
   text-align: center;
 }

@@ -7,7 +7,7 @@
 
   .app-header {
     max-width: 1920px;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 35px 10px 35px;
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -44,6 +44,7 @@
 
   .app-header-items {
     font-size: 17px;
+    font-weight: 300;
     justify-content: flex-end;
     display: flex;
     flex-grow: 1;

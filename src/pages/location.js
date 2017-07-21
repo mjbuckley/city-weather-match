@@ -13,13 +13,11 @@ function Location(props) {
   const city = decodeURIComponent(props.params.city);
   const state = decodeURIComponent(props.params.state);
 
-  // Make sure station is url is real. If not, return error message.
+  // Make sure station in url is real. If not, return error message.
   if (stationsObj[station] === undefined) {
     return (
-      <div className="location-wrapper">
-        <div className="location">
-          <p>The station ID that you entered in the URL does not exist.</p>
-        </div>
+      <div className="location error">
+        <p>The station ID that you entered in the URL does not exist.</p>
       </div>
     );
   }
@@ -27,10 +25,8 @@ function Location(props) {
   // Make sure city and state in url match the station in the url. If not, return error message.
   if (city !== stationsObj[station]["city"] || state !== stationsObj[station]["state"]) {
     return (
-      <div className="location-wrapper">
-        <div className="location">
-          <p>The city and/or state that you entered in the URL do not match the station ID.</p>
-        </div>
+      <div className="location error">
+        <p>The city and/or state that you entered in the URL do not match the station ID.</p>
       </div>
     );
   }

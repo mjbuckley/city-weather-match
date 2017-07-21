@@ -1,11 +1,8 @@
 .metroarea {
-  max-width: 800px;
+  max-width: 870px;
   margin: 0 auto;
-}
-
-.metroarea {
-  max-width: 800px;
-  margin: 0 auto;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .metroarea h2 {

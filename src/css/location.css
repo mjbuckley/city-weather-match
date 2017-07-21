@@ -1,8 +1,21 @@
+/*Styling for location specific error pages*/
+
+  .location.error {
+    max-width: 870px;
+    margin: 0 auto;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+
+
 /*Station Name & Graph Section*/
 
   .location-title-graph {
-    max-width: 800px;
+    max-width: 870px;
     margin: 65px auto 0 auto;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
   .location .city-name {
@@ -29,8 +42,10 @@
   }
 
   .location-weather-stats {
-    max-width: 800px;
+    max-width: 870px;
     margin: 0 auto;
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
   .location-weather-stats h3 {
@@ -93,8 +108,10 @@
   }
 
   .location-additional-info {
-    max-width: 800px;
+    max-width: 870px;
     margin: 0 auto;
+    padding-left: 35px;
+    padding-right: 35px;
     font-size: 17px;
   }
 

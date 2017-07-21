@@ -189,8 +189,8 @@
   .WeatherRangeInput-unit-value {
     display: flex;
     align-items: baseline;
-    margin-left: 25px;
-    width: 97px;
+    margin-left: 26px;
+    width: 98px;
   }
 
   .WeatherRangeInput-unit-value .value {

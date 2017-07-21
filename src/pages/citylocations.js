@@ -9,7 +9,7 @@ function CityLocations(props) {
   const city = decodeURIComponent(props.params.city);
   const state = decodeURIComponent(props.params.state);
 
-  // Find all stations in city. Also works to verify tht city/state params are valid because invalid
+  // Find all stations in city. Also works to verify that city/state params are valid because invalid
   // name(s) won't turn up any locations.
   let locations = [];
 
@@ -23,31 +23,27 @@ function CityLocations(props) {
 
   if (locations.length === 0) {
     return (
-      <div className="citylocation-wrapper">
-        <div className="citylocation">
-          <p>Sorry, the name that you entered is not in the database</p>
-        </div>
+      <div className="citylocation">
+        <p>Sorry, the name that you entered is not in the database</p>
       </div>
     );
   }
 
   return (
-    <div className="citylocation-wrapper">
-      <div className="citylocation">
-        <h2>{city}, {state}</h2>
+    <div className="citylocation">
+      <h2>{city}, {state}</h2>
 
-        {(locations.length > 1) ? (
-          <p>There are {locations.length} NOAA weather stations in {city}. Click on one of the stations listed below to view more detailed weather information for that location.</p>
-        ) : (
-          <p>There is one NOAA weather stations in {city}. Click on the station listed below to view more detailed weather information for that location.</p>
+      {(locations.length > 1) ? (
+        <p>There are {locations.length} NOAA weather stations in {city}. Click on one of the stations listed below to view more detailed weather information for that location.</p>
+      ) : (
+        <p>There is one NOAA weather stations in {city}. Click on the station listed below to view more detailed weather information for that location.</p>
+      )}
+
+      <ul>
+        {locations.map((station) =>
+          <StationLink {...props} station={station} city={city} state={state} key={station}/>
         )}
-
-        <ul>
-          {locations.map((station) =>
-            <StationLink {...props} station={station} city={city} state={state} key={station}/>
-          )}
-        </ul>
-      </div>
+      </ul>
     </div>
   );
 }
