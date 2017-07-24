@@ -1,5 +1,7 @@
 MOBILE STYLING NOTES/TO DO (July 20)
 
+-JULY 22: Have done a reasonable job with getting header and weather stats to look good on a range of sizes (minor things still, but basic framework is good). Just started on search form. The only thing I have done is mess with form padding in a small/safe way, but really the way I have things set up now for form width is odd and should be fixed before I tackle this.
+
 -Go through and make sure pages line up with one another in terms of things like top margins, header size, etc. I tried to keep things the same, but I'm sure I missed a few things. Also, consider making headers bigger in some places?
 
 Regular/mini ipad logical resolution is 768 in portrait mode.
@@ -7,21 +9,10 @@ iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
 Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
 768-800 seems pretty popular for tablets.
 
-Break points around 800 and 480 seem about right both based on common device sizes and my own site design.
-
-Use of media queries:
-  @ media (max-width: 800px) {
-    h1 {
-      font-weight: 300;
-    }
-
-    .class {
-      font-size: 18px;
-    }
-  }
-
-If I do desktop first styling (which is basically what I;ve done), then I'll want to use max-width, which means styles are applied up to the max-width specified. Keep in mind that media queries cascade, I will need to but larger size first.
-
+-Margins in weather stats look a bit off, esp. on smaller widths.
+-I should probably use buildLink for about and search in my header?
+-NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
+-Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
 
 
 TO DO NOW

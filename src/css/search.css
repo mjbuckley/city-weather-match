@@ -94,3 +94,12 @@
   .search h3 {
     font-size: 24px;
   }
+
+
+
+  @media (max-width: 800px) {
+    form {
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+  }

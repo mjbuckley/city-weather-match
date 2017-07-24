@@ -66,16 +66,16 @@
   }
 
   .location-weather-stats-info .column1 {
-    padding-right: 15px;
+    padding-right: 20px;
   }
 
   .location-weather-stats-info .column2 {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .location-weather-stats-info .column3 {
-    padding-left: 15px;
+    padding-left: 20px;
   }
 
   .location-weather-stats-info h4 {
@@ -131,4 +131,31 @@
 
   .item, .SharedAreaList {
     margin-bottom: 40px;
+  }
+
+
+/*Small Screen Styles*/
+
+  @media (max-width: 680px) {
+    .location-weather-stats-info {
+      flex-direction: column;
+    }
+
+    .location-weather-stats-info h4 {
+      font-size: 21px;
+    }
+
+    .location-weather-stats-info .column1,
+    .location-weather-stats-info .column2,
+    .location-weather-stats-info .column3 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    /*Outside position and margin needed to keep items over li items aligned with above text.*/
+    .location-weather-stats-info li {
+      list-style: square;
+      list-style-position: outside;
+      margin-left: 1em;
+    }
   }
