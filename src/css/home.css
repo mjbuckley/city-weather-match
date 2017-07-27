@@ -18,3 +18,20 @@ effect by controlling h2 margins but I think this makes more sense for what I wa
 .home h2 {
   margin-top: 65px;
 }
+
+
+/*Small Screen Styling*/
+
+@media (max-width: 750px) {
+  .home {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .home {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

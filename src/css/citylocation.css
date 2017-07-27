@@ -25,3 +25,20 @@
 .citylocation p {
   font-weight: 300;
 }
+
+
+/*Small Screen Styling*/
+
+@media (max-width: 750px) {
+  .citylocation {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .citylocation {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

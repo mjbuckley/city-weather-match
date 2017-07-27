@@ -28,3 +28,20 @@
   margin-top: 65px;
   margin-bottom: 45px;
 }
+
+
+/*Small Screen Styling*/
+
+@media (max-width: 750px) {
+  .results {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .results {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

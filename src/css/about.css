@@ -13,3 +13,18 @@
 .about p {
   font-weight: 300;
 }
+
+
+@media (max-width: 750px) {
+  .about {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

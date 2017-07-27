@@ -1,22 +1,29 @@
-MOBILE STYLING NOTES/TO DO (July 20)
+MOBILE STYLING NOTES/TO DO NOW (July 26)
 
--JULY 22: Have done a reasonable job with getting header and weather stats to look good on a range of sizes (minor things still, but basic framework is good). Just started on search form. The only thing I have done is mess with form padding in a small/safe way, but really the way I have things set up now for form width is odd and should be fixed before I tackle this.
+I have set all site padding breakpoints. They are:
 
--Go through and make sure pages line up with one another in terms of things like top margins, header size, etc. I tried to keep things the same, but I'm sure I missed a few things. Also, consider making headers bigger in some places?
+450 and below: 20px;
+750 and below: 30px;
+751+: 35px;
+(NOTE that home is set up a bit weird now because I don't know how it will ultimately be styled. Looks fine now, be recheck once I decide what I want to do).
 
-Regular/mini ipad logical resolution is 768 in portrait mode.
+TO DO NOW:
+-I have done a reasonable job with getting header and weather stats to look good on a range of sizes (minor things still, but basic framework is good). I've started on the search form. Need to clean it up some, but looks good up until portrait view on cell. Probably need to rethink having everything on one line.
+-Margins in weather stats look a bit off, esp. on smaller widths.
+-Do I need to change any other font sizes, margins, etc. for mobile?
+
+-Notes on sizes: Regular/mini ipad logical resolution is 768 in portrait mode.
 iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
 Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
 768-800 seems pretty popular for tablets.
-
--Margins in weather stats look a bit off, esp. on smaller widths.
--I should probably use buildLink for about and search in my header?
--NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
 -Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
 
 
-TO DO NOW
+OTHER TO DO NOW
 
+-NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
+-I should probably use buildLink for about and search in my header?
+-Go through and make sure pages line up with one another in terms of things like top margins, header size, etc. I tried to keep things the same, but I'm sure I missed a few things. Also, consider making headers bigger in some places?
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -Check on low DIP screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 -Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).

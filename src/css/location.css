@@ -136,6 +136,28 @@
 
 /*Small Screen Styles*/
 
+  @media (max-width: 750px) {
+    .location.error {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .location-title-graph {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .location-weather-stats {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .location-additional-info {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
   @media (max-width: 680px) {
     .location-weather-stats-info {
       flex-direction: column;
@@ -157,5 +179,27 @@
       list-style: square;
       list-style-position: outside;
       margin-left: 1em;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .location.error {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .location-title-graph {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .location-weather-stats {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .location-additional-info {
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }

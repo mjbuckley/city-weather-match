@@ -58,6 +58,13 @@
 
   /*App Header Small Screens*/
 
+
+    @media (max-width: 750px) {
+      .app-header {
+        padding: 10px 30px 10px 30px;
+      }
+    }
+
     @media (max-width: 700px) {
       .app-header-items {
         font-size: 15px;
@@ -77,13 +84,13 @@
       }
 
       .app-header h1 {
-        padding: 10px 35px 10px 35px;
+        padding: 10px 30px 10px 30px;
       }
 
       .app-header-items {
         width: 100%;
         justify-content: flex-start;
-        padding: 5px 35px 5px 35px;
+        padding: 5px 30px 5px 30px;
         background: #e9e9e9;
       }
 
@@ -122,5 +129,18 @@
 
       .app-header-items a:last-child {
         border-right: 0px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .app-header h1 {
+        padding: 10px 20px 10px 20px;
+      }
+
+      .app-header-items {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 5px 20px 5px 20px;
+        background: #e9e9e9;
       }
     }
