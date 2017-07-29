@@ -12,8 +12,6 @@ function WeatherRangeInput(props) {
   const fillValue = percentage + "%";
 
   // Determine whether to fill from right or left
-  // const leftColor = (props.label === "AT LEAST") ? "#29b6f6" : "rgba(207, 207, 207, 1)";
-  // const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "#29b6f6";
   const leftColor = (props.label === "AT LEAST") ? "#9e9e9e" : "rgba(207, 207, 207, 1)";
   const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "#9e9e9e";
 

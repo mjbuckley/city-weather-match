@@ -1,37 +1,15 @@
-MOBILE STYLING NOTES/TO DO NOW (July 26)
-
-I have set all site padding breakpoints. They are:
-
-450 and below: 20px;
-750 and below: 30px;
-751+: 35px;
-(NOTE that home is set up a bit weird now because I don't know how it will ultimately be styled. Looks fine now, be recheck once I decide what I want to do).
-
-TO DO NOW:
--I have done a reasonable job with getting header and weather stats to look good on a range of sizes (minor things still, but basic framework is good). I've started on the search form. Need to clean it up some, but looks good up until portrait view on cell. Probably need to rethink having everything on one line.
--Margins in weather stats look a bit off, esp. on smaller widths.
--Do I need to change any other font sizes, margins, etc. for mobile?
-
--Notes on sizes: Regular/mini ipad logical resolution is 768 in portrait mode.
-iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
-Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
-768-800 seems pretty popular for tablets.
--Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
-
-
-OTHER TO DO NOW
+TO DO NOW
 
 -NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
 -I should probably use buildLink for about and search in my header?
--Go through and make sure pages line up with one another in terms of things like top margins, header size, etc. I tried to keep things the same, but I'm sure I missed a few things. Also, consider making headers bigger in some places?
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -Check on low DIP screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 -Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
 -Decide what to put on home page.
 -Finish About page.
 -Make a favicon.
--Make note about isActive. I'm using it sparsley but make sure I have write up of ways it might be used in the future.
--Add to github?
+-Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
+-Add to github? (Also, is https possible in github pages?)
 -Purchase domain name?
 
 WEATHER.JSON STUFF:
@@ -50,6 +28,9 @@ OTHER:
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-I have done a good basic styling for all size ranges. Things I could do with more time:
+*Although section margins/padding are mostly good, there are a few spots where they are a touch unequal and this can be cleaned up (usually because there is some combo of header top margin plus padding being added together and I should really just set margin top to 0 and then set my ideal padding).
+*Might consider altering font sizes a bit more for mobile. I've done this in critical areas but I'm sure it could be improved.
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening or at least understood why it is happening. Perhaps related my use of clone element for children of App?
 -Better style some of the error pages. Everything works right now but it is mostly plain unstyled text.
@@ -100,6 +81,15 @@ https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-usin
 -I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 -I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
 -Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
+-I have set all site padding breakpoints. They are:
+*450 and below: 20px;
+*750 and below: 30px;
+*751+: 35px;
+*(NOTE that home is set up a bit weird now because I don't know how it will ultimately be styled. Looks fine now, be recheck once I decide what I want to do).
+-Notes on sizes: Regular/mini ipad logical resolution is 768 in portrait mode.
+iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
+Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
+768-800 seems pretty popular for tablets. Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
 
 
 

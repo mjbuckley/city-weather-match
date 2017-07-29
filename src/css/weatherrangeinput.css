@@ -233,13 +233,13 @@
   @media (max-width: 550px) {
 
     .WeatherRangeInput label {
-      margin-right: 19px;
-      width: 69px;
+      margin-right: 10px;
+      width: 68px;
       font-size: 13px;
     }
 
     .WeatherRangeInput-unit-value {
-      margin-left: 21px;
+      margin-left: 16px;
       width: 94px;
     }
 
@@ -252,21 +252,42 @@
     }
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 450px) {
+
+    .slider-container {
+      order: 3;
+      /*width: 100%;*/
+      flex: 0 0 100%;
+    }
+
+    .WeatherRangeInput {
+      flex-wrap: wrap;
+      /*justify-content: center;*/
+      justify-content: space-between;
+    }
 
     .WeatherRangeInput label {
-      margin-right: 10px;
+      /*margin-right: 10px;*/
+      margin-right: 0px;
       width: 65px;
       font-size: 12px;
+      font-weight: 400;
+      order: 1;
+      align-self: flex-end;
     }
 
     .WeatherRangeInput-unit-value {
-      margin-left: 16px;
-      width: 82px;
+      /*margin-left: 16px;*/
+      margin-left: 0px;
+      /*width: 82px;*/
+      width: auto;
+      order: 2;
+      align-self: flex-end;
     }
 
     .WeatherRangeInput-unit-value .value {
-      font-size: 20px;
+      font-size: 23px;
+      line-height: 1;
     }
 
     .WeatherRangeInput-unit-value .unit {

@@ -51,12 +51,13 @@
   .location-weather-stats h3 {
     text-align: center;
     margin-bottom: 50px;
+    font-size: 24px;
   }
 
   .location-weather-stats-info {
     display: flex;
     max-width: 800px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .location-weather-stats-info .column1,
