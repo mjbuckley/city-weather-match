@@ -10,8 +10,27 @@
   margin-top: 65px;
 }
 
+.about h3 {
+  margin-top: 1.5em;
+}
+
 .about p {
   font-weight: 300;
+}
+
+.about ol {
+  list-style-position: inside;
+  padding-left: 0px;
+  margin-bottom: 65px;
+}
+
+.about li {
+  font-weight: 300;
+  margin-bottom: 1em;
+}
+
+.about-list-highlight {
+  font-weight: 400;
 }
 
 

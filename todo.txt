@@ -6,7 +6,7 @@ TO DO NOW
 -Check on low DIP screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 -Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
 -Decide what to put on home page.
--Finish About page (be sure to note that cities and metro areas can be different so look at all).
+-Add section about me (github, React, why made, etc) to about page. Maybe a short intro too?
 -Make a favicon.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Add to github? (Also, is https possible in github pages?)
