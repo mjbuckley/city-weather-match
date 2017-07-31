@@ -1,5 +1,7 @@
 TO DO NOW
 
+-Get image for front page. Probably just use that image for favicon.
+-Front page: I add an arrow with text above it saying start searcing below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
 -NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
 -I should probably use buildLink for about and search in my header?
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
