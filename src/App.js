@@ -152,7 +152,7 @@ class App extends Component {
 
         <div className="app-header-wrapper">
           <header className="app-header">
-            <h1><Link to="/">City Weather App</Link></h1>
+          <h1><Link to={buildLink(this.state, "/")}>City Weather App</Link></h1>
 
 
             <div className="app-header-items">
@@ -160,8 +160,8 @@ class App extends Component {
                 <Link to={buildLink(this.state, "/results/")}>Search Results</Link>
               ) : null }
 
-              <Link to="/search">New Search</Link>
-              <Link to="/about">About</Link>
+              <Link to={buildLink(this.state, "/search/")}>New Search</Link>
+              <Link to={buildLink(this.state, "/about/")}>About</Link>
             </div>
 
           </header>

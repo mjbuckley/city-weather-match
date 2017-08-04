@@ -1,36 +1,27 @@
 TO DO NOW
 
--Get image for front page. Probably just use that image for favicon.
--Front page: I add an arrow with text above it saying start searcing below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
--NAMES: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
--I should probably use buildLink for about and search in my header?
+-Create front page image/favicon.
+-Add link on front prage arrow. I added an arrow with text above it saying start searching below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
+-Decide on name and purchase domain: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
--Check on low DIP screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+-Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 -Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
--Decide what to put on home page.
 -Add section about me (github, React, why made, etc) to about page. Maybe a short intro too?
--Make a favicon.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
--Add to github? (Also, is https possible in github pages?)
--Purchase domain name?
+-Add to github?
+-Decide how to host. Is https possible in github pages? Should/can I convert to standard links and use on AWS?
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
-
-WEATHER.JSON STUFF:
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
-
-GRAPH:
--Figure out how I want to size things/if it should dynamically resize or not (I'm leaning towards no)/if I should change aspect ratio I have/if I can make more space on y axis, etc.
--Other options than jan/feb/etc. for mobile devices?
-
-OTHER:
 -I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
+-Add some sort of hidden section where I put that the site was made by me (in case anyone just copied the whole site).
 -Figure out final size of site (Probably in several webpack bundles).
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Other options than jan/feb/etc. for graph for mobile devices? It's a bit cramped.
 -I have done a good basic styling for all size ranges. Things I could do with more time:
 *Although section margins/padding are mostly good, there are a few spots where they are a touch unequal and this can be cleaned up (usually because there is some combo of header top margin plus padding being added together and I should really just set margin top to 0 and then set my ideal padding).
 *Might consider altering font sizes a bit more for mobile. I've done this in critical areas but I'm sure it could be improved.
@@ -41,16 +32,15 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
 -There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
--I added a link to the home page using <Link to="/">. This works fine, but should I use Navlink or maybe a named home link?
 -Should my weatherOptions const be capitalized? What about all consts?
 -Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 -In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
 -I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
--Convert back to hex from rgba.
+-Use colors consistently: all hex or all rgba.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
--I have a:visited styled the same as a:link. I think that's what I want, but revist this at some point.
+-I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 -Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 
@@ -80,7 +70,7 @@ https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-usin
   });
 -On the search page I used to calculate matches and update state and then use hashHistory push to get to the results page. When watching when things get fired on the results page I saw that state had to be recalculated from the query params. If the state had been updated then the query params should have matched. This suggests that the link to the new page was being processed before state had been updated? I never saw anything visible, but thought it was kind of weird and don't know what might happen on slow machines. My theory is possible because I beleive that setState doesn't always get called immediately. Anyway, an easy fix was to just link to results with the correct query params and let the state get set there. I'm just noting this for future reference.
 -One the search page the slider default values start out as numbers, but as soon as they move they become strings. I could use something like parseInt to keep them as numbers, but this would get called a ton and not sure it's needed. The values just get added to a url, where they are strings anyway. So, I think this is fine as is, but noting in case I run in to issues anywhere.
--Note on why no query params for home/search: I'm not going to add query params to the home/search link. If someone bookmarked the home site it would almost certainly be to remember/share the page in general, not to remember the particular search params on the range sliders at the time. In fact, having the slider be anything but the default would probably be confusing. Plus, if they are navigating to search/home page from elsewhere on the site, their current state will already be reflected in the sliders. MY ONLY QUESTION is if this could have any effect on the ability to navigate backwards (url recreating state seems to help with back navigation). I Think its ok, but watch for this.
+-I decided to add query params to home/about and search pages. Originally I was against this because if most people bookmarked one of these pages it would be to get the page in general, not in any way trying to store the values of their current search. However, the way I have things set up, the search results link is only available when isActive is true (which is how it should be, it would be confusing otherwise). So, if I want search results to be a link that is available on home/about/search, then I need isActive to be able to be true, which means I need to have query params present. No situation is ideal but I think I prefer it this way and that's why it is as it is.
 -I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
 -I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
 -Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
