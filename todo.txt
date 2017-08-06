@@ -1,7 +1,12 @@
 TO DO NOW
 
--Create front page image/favicon.
--Add link on front prage arrow. I added an arrow with text above it saying start searching below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
+-Intro text is basically good, but look at again.
+-Maybe put a bit more info text in search section (and maybe a link to about for more info?).
+-Site meta/titles.
+-Change name everywhere away from city weather app.
+-Figure out how to change name away from react app in tab.
+-Improve on home image (maybe make two images with different weather fused into one image). Also make sure that all images are original.
+-Add link on front page arrow (also maye change text to just "Start Searching". I added an arrow with text above it saying start searching below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
 -Decide on name and purchase domain: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
@@ -16,7 +21,7 @@ TO DO NOW
 -Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Add some sort of hidden section where I put that the site was made by me (in case anyone just copied the whole site).
--Figure out final size of site (Probably in several webpack bundles).
+-Figure out final size of site (Probably in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)

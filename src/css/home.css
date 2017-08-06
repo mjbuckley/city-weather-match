@@ -18,12 +18,11 @@ effect by controlling h2 margins but I think this makes more sense for what I wa
   text-align: center;
 }
 
-.fake-image {
-  width: 200px;
-  height: 150px;
-  background-color: pink;
-  margin: 65px auto -20px auto;
+.home-image {
+  margin-top: 65px;
+  margin-bottom: -20px;
 }
+
 .home h2 {
   margin-top: 65px;
   font-size: 40px;

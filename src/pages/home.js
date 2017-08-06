@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './search';
+import HomeImage from '../components/homeimage.js';
 import '../css/home.css';
 
 function Home(props) {
@@ -8,9 +9,9 @@ function Home(props) {
 
       <div className="home-wrapper">
         <div className="home">
-          <div className="fake-image">Image goes here</div>
+          <HomeImage className="home-image"/>
           <h2>City Weather Match</h2>
-          <p>Enter you're weather preferences and search nearly 4000 locations to find the cities that match the type of weather that you want.</p>
+          <p>Find the cities where the typical weather matches your personal preferences. Just enter your desired weather below to search thousands of locations and find the cities that are a match for you.</p>
           <div className="home-start-box">
             <p className="home-start">Start Searching Below</p>
             <p className="home-arrow">▼</p>
