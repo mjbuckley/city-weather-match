@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hashHistory } from 'react-router'
 import WeatherRangeInput from '../components/weatherrangeinput.js';
 import '../css/search.css';
+import {Helmet} from "react-helmet";
 
 // Min, max, and midway possible values for each weather category.
 const inputMinMax = require('../data/inputminmax.json');
@@ -37,10 +38,21 @@ class Search extends Component {
     });
   };
 
-
+  // Helmet conditionally rendered because Search is sometimes route entry point and sometimes a child
+  // of Home (child's Helmet component overrides parent, which would be wrong in this case).
+  // props.location only exists (true) when Search is the route entry point.
   render() {
     return (
       <div className="search-wrapper">
+
+      {(this.props.location) ? (
+        <Helmet>
+          <title>Find Cities By Weather | City Weather Match | Search Page</title>
+          <meta name="description" content="Enter your weather preferrences into the search form to search through thousands of locations and find the cities that match your weather preferrencs." />
+        </Helmet>
+      ) : null}
+
+
         <div className="search">
           <h2 className="search-heading">Search</h2>
           <p>Chose your desired weather values in the form below and then click search to find the cities that meet your requirements.</p>

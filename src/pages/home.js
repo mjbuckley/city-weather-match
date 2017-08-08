@@ -2,16 +2,22 @@ import React from 'react';
 import Search from './search';
 import HomeImage from '../components/homeimage.js';
 import '../css/home.css';
+import {Helmet} from "react-helmet";
 
 function Home(props) {
   return (
     <div>
 
+        <Helmet>
+          <title>Find Cities By Weather | City Weather Match | Home</title>
+          <meta name="description" content="Search thousands of locations to find the cities that match your weather preferrencs." />
+        </Helmet>
+
       <div className="home-wrapper">
         <div className="home">
           <HomeImage className="home-image"/>
           <h2>City Weather Match</h2>
-          <p>Find the cities where the typical weather matches your personal preferences. Just enter your desired weather below to search thousands of locations and find the cities that are a match for you.</p>
+          <p>Find the cities where the typical weather matches your personal preferrences. Just enter your desired weather below to search thousands of locations and find the cities that are a match for you.</p>
           <div className="home-start-box">
             <p className="home-start">Start Searching Below</p>
             <p className="home-arrow">▼</p>

@@ -4,6 +4,7 @@ import buildLink from '../utils/buildlink.js';
 import SharedAreaList from '../components/sharedarealist.js';
 import Graph from '../components/graph.js';
 import '../css/location.css';
+import {Helmet} from "react-helmet";
 
 const stationsObj = require('../data/weather.json');
 
@@ -17,6 +18,13 @@ function Location(props) {
   if (stationsObj[station] === undefined) {
     return (
       <div className="location error">
+
+      <Helmet>
+        <title>Error | Station Does Not Exist | City Weather Match</title>
+        <meta name="description" content="Error page. Station ID does not exist." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+
         <p>The station ID that you entered in the URL does not exist.</p>
       </div>
     );
@@ -26,6 +34,13 @@ function Location(props) {
   if (city !== stationsObj[station]["city"] || state !== stationsObj[station]["state"]) {
     return (
       <div className="location error">
+
+      <Helmet>
+        <title>Error | Station Does Not Match Location | City Weather Match</title>
+        <meta name="description" content="Error page. Station ID does not match location" />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+
         <p>The city and/or state that you entered in the URL do not match the station ID.</p>
       </div>
     );
@@ -47,11 +62,16 @@ function Location(props) {
   const lowTemp = stationsObj[station]["mTmnAv"].slice(0, 12); // Arr of avg monthly low temp values
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
   const noaaLink = "https://www1.ncdc.noaa.gov/pub/data/normals/1981-2010/products/station/" + station + ".normals.txt";
-
+  const description = "Annual temperature, snowfall, and precipitation averages for " + city + ", " + state + " at NOAA Station " + station;
 
 
   return (
     <div className="location">
+
+    <Helmet>
+      <title>Weather Averages For {city}, {state} | City Weather Match</title>
+      <meta name="description" content={description} />
+    </Helmet>
 
       <div className="location-title-graph">
         <h2 className="city-name">{city}, {state}</h2>

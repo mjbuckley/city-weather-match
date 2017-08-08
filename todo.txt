@@ -1,5 +1,12 @@
 TO DO NOW
 
+-For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. Also, should I add something like this to results?
+-I need to sanitize my inputs from the url (for example on location page). Not sure if I'm doing enough.
+-Look in to react snapshot. In some ways this seems like it makes sense, in others I wonder if I'm missing something.
+-Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read what helmet produces?
+-I have added Helemt components for home/search/about/location but not any others (still need to).
+
+
 -Intro text is basically good, but look at again.
 -Maybe put a bit more info text in search section (and maybe a link to about for more info?).
 -Site meta/titles.
@@ -87,6 +94,7 @@ https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-usin
 iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
 Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
 768-800 seems pretty popular for tablets. Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
+-NOTE on Helmet: Children with a helmet component override parents with a helmet component. Since search is both a stand alone page as well as a child of home, a standard helment component in seach will render in both home and search. So I need to conditionally render its helmet component. However, I can't just check and see if props.location.pathname = search because when it is a child it won't have a location property. Instead I check and see if it has a location property and then render helment component if it does (I'm assuming there can't be a case where it has location prop when it shouldn't be rendered). If I ever stop using react router (or maybe if I use a newer version) then this conditional might need to be changed.
 
 
 
