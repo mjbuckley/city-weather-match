@@ -1,6 +1,7 @@
 import React from 'react';
 import StationLink from '../components/stationlink.js';
 import '../css/citylocation.css';
+import {Helmet} from "react-helmet";
 
 const stationsObj = require('../data/weather.json');
 
@@ -8,6 +9,7 @@ function CityLocations(props) {
 
   const city = decodeURIComponent(props.params.city);
   const state = decodeURIComponent(props.params.state);
+  const description = "A listing of all NOAA weather stations in " + city + ", " + state;
 
   // Find all stations in city. Also works to verify that city/state params are valid because invalid
   // name(s) won't turn up any locations.
@@ -24,13 +26,27 @@ function CityLocations(props) {
   if (locations.length === 0) {
     return (
       <div className="citylocation">
-        <p>Sorry, the name that you entered is not in the database</p>
+
+        <Helmet>
+          <title>Error | No Stations Found | City Weather Match</title>
+          <meta name="description" content="Error page. No NOAA stations are located at this location." />
+          <meta name="robots" content="noindex" />
+        </Helmet>
+
+        <p>Sorry, the name that you entered is not in the data set.</p>
       </div>
     );
   }
 
   return (
     <div className="citylocation">
+
+      <Helmet>
+        <title>{city}, {state} Weather Stations | City Weather Match</title>
+        <meta name="description" content={description} />
+      </Helmet>
+
+
       <h2>{city}, {state}</h2>
 
       {(locations.length > 1) ? (

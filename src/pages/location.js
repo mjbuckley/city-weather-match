@@ -62,14 +62,14 @@ function Location(props) {
   const lowTemp = stationsObj[station]["mTmnAv"].slice(0, 12); // Arr of avg monthly low temp values
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state);
   const noaaLink = "https://www1.ncdc.noaa.gov/pub/data/normals/1981-2010/products/station/" + station + ".normals.txt";
-  const description = "Annual temperature, snowfall, and precipitation averages for " + city + ", " + state + " at NOAA Station " + station;
+  const description = "Annual temperature, snowfall, and precipitation averages for " + city + ", " + state + " at NOAA weather station " + station;
 
 
   return (
     <div className="location">
 
     <Helmet>
-      <title>Weather Averages For {city}, {state} | City Weather Match</title>
+      <title>{city}, {state} Weather Averages | City Weather Match</title>
       <meta name="description" content={description} />
     </Helmet>
 

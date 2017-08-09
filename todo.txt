@@ -1,10 +1,10 @@
 TO DO NOW
 
--For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. Also, should I add something like this to results?
--I need to sanitize my inputs from the url (for example on location page). Not sure if I'm doing enough.
+-Improve the meta for the about page.
+-For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
+-I need to sanitize my inputs from the url (for example on location/citylocation/metroarea pages, maybe param check, maybe others). Not sure if I'm doing enough.
 -Look in to react snapshot. In some ways this seems like it makes sense, in others I wonder if I'm missing something.
--Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read what helmet produces?
--I have added Helemt components for home/search/about/location but not any others (still need to).
+-Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read the js updated dom that helmet produces, or do they stick with the source?
 
 
 -Intro text is basically good, but look at again.
@@ -54,6 +54,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 -Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
+-At various points I use phrases like "All NOAA stations in city x". In many cases this isn't correct, because I am only looking at my subset of NOAA stations with complete information. Reword this.
 
 
 

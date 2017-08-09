@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import buildLink from '../utils/buildlink.js';
 import '../css/results.css';
 import CitiesList from '../components/citieslist.js';
+import {Helmet} from "react-helmet";
 
 function Results(props) {
 
@@ -10,6 +11,13 @@ function Results(props) {
   if (props.isActive === false) {
     return (
       <div className="results">
+
+        <Helmet>
+          <title>Search Results Error | City Weather Match</title>
+          <meta name="description" content="Error page. You must first enter search information to view results." />
+          <meta name="robots" content="noindex" />
+        </Helmet>
+
         <div className="results-intro">
           <h2>Search Results</h2>
           <p>You must first enter search information to see results.  <Link to="/search">Go to the search page now.</Link></p>
@@ -20,6 +28,13 @@ function Results(props) {
 
   return (
     <div className="results">
+
+      <Helmet>
+        <title>Search Results | City Weather Match</title>
+        <meta name="description" content="Search Results. A listing of all cities that match the weather preferrences from the search form." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
+
       <div className="results-intro">
         <h2>Search Results</h2>
 

@@ -5,6 +5,10 @@
   padding-left: 35px;
 }
 
+.notfound p {
+  margin-top: 65px;
+}
+
 @media (max-width: 750px) {
   .notfound {
     padding-left: 30px;
