@@ -1,37 +1,33 @@
 TO DO NOW
 
--Improve the meta for the about page.
--For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
--I need to sanitize my inputs from the url (for example on location/citylocation/metroarea pages, maybe param check, maybe others). Not sure if I'm doing enough.
--Look in to react snapshot. In some ways this seems like it makes sense, in others I wonder if I'm missing something.
--Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read the js updated dom that helmet produces, or do they stick with the source?
-
-
--Intro text is basically good, but look at again.
--Maybe put a bit more info text in search section (and maybe a link to about for more info?).
--Site meta/titles.
--Figure out how to change name away from react app in tab.
--Improve on home image (maybe make two images with different weather fused into one image). Also make sure that all images are original.
+-Improve about page. What I have now is fine, but I should probably add a more general into, something about me, github link (if doing github), mention React, tell why made, etc.
+-Add more links to about page in relevant locations. I think the home/results/location page might have a contextual link to the about page somewhere near data.
+-Decide on browser history. If I do this see if I need to do anything for dev server. Also, this would probably allow me to use #links and also have a real 404 page.
+-Consider React Snapshot or maybe even rolling my own version of it.
+-Spell check/clarity check.
 -Add link on front page arrow (also maye change text to just "Start Searching". I added an arrow with text above it saying start searching below. This feels like it should be a link to the start of search, but because of hash history I can't do it in a normal way. I can probably do something with a js onclick and something like window.sroll() to the location of the search div, but I didn't want to figure out implementing this before I was sure I was going to keep the arrow.
--Decide on name and purchase domain: Preferred Weather, My Preferred Weather, My Weather Match, City Weather Finder, City Weather Match, City Weather Search.
--Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
--Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
--Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
--Add section about me (github, React, why made, etc) to about page. Maybe a short intro too?
+-Add some sort of hidden section where I put that the site was made by me (in case anyone just copied the whole site).
+-I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Add to github?
 -Decide how to host. Is https possible in github pages? Should/can I convert to standard links and use on AWS?
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
--I've tried to use decodeURIComponent() everywhere (even when I shouldn't be needed) but go through and make sure I haven't missed any places.
--Are there any security issue I need to be aware of when grabbing from url params/query params? I'm thinking primarily of sanitization to avoid JS somehow being passed in and executed. Not having a server/db makes me safe, but I guess the concern would be malicious JS put into a link that was then shared. I'd be fine, but not the people who clicked on the link. Look into this.
--I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Add some sort of hidden section where I put that the site was made by me (in case anyone just copied the whole site).
+
+
+TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
+
+-Improve on home image (maybe make two images with different weather fused into one image). Also make sure that all images are original.
+-Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -Figure out final size of site (Probably in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
+-Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
+-Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
+
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read the js updated dom that helmet produces, or do they stick with the source?
 -Other options than jan/feb/etc. for graph for mobile devices? It's a bit cramped.
 -I have done a good basic styling for all size ranges. Things I could do with more time:
 *Although section margins/padding are mostly good, there are a few spots where they are a touch unequal and this can be cleaned up (usually because there is some combo of header top margin plus padding being added together and I should really just set margin top to 0 and then set my ideal padding).
@@ -70,6 +66,7 @@ GENERAL
 
 NOTES
 
+-For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
 -I was having a problem where when clicking the submit button on the search page the results page was loading from the bottom or middle of the page. The solution I found was to add onUpdate={() => window.scrollTo(0, 0)} to the <Router> component. This worked and I haven't run accross any issues yet, but keep this in mind if I do. Solution suggested at:
 https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition and
 https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-using-react-router
@@ -96,6 +93,7 @@ iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
 Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
 768-800 seems pretty popular for tablets. Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
 -NOTE on Helmet: Children with a helmet component override parents with a helmet component. Since search is both a stand alone page as well as a child of home, a standard helment component in seach will render in both home and search. So I need to conditionally render its helmet component. However, I can't just check and see if props.location.pathname = search because when it is a child it won't have a location property. Instead I check and see if it has a location property and then render helment component if it does (I'm assuming there can't be a case where it has location prop when it shouldn't be rendered). If I ever stop using react router (or maybe if I use a newer version) then this conditional might need to be changed.
+-Keep in mind that React sanitizes jsx, but the inputs from user (form, url, etc) are not themseleves sanitized on retrieval. User input will come in as a string, and it's generally hard to do bad stuff with strings, but not impossible (eval, function constructor, etc.). I've double checked how I've used inputs, and everythings good, but always keep this in mind.
 
 
 

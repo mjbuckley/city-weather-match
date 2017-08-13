@@ -55,13 +55,13 @@ class Search extends Component {
 
         <div className="search">
           <h2 className="search-heading">Search</h2>
-          <p>Chose your desired weather values in the form below and then click search to find the cities that meet your requirements.</p>
+          <p>Select your range of acceptable weather values for each question in the form below. Then click the "Find Matches" button to see the cities that match your requirements.</p>
           <form onSubmit={this.fetchData}>
             <section className="search-heat">
               <h3>Heat</h3>
               <fieldset>
                 <legend>
-                  Number of days where the temperature gets to 60 °F or greater is:
+                  Number of days where the temperature gets to 60 °F or above:
                 </legend>
                 <WeatherRangeInput
                   id="andTmxGe60Ge"
@@ -84,7 +84,7 @@ class Search extends Component {
               </fieldset>
               <fieldset>
                 <legend>
-                Number of days where the temperature gets to 80 °F or greater is:
+                Number of days where the temperature gets to 80 °F or above:
                 </legend>
                 <WeatherRangeInput
                   id="andTmxGe80Ge"
@@ -107,7 +107,7 @@ class Search extends Component {
               </fieldset>
               <fieldset>
                 <legend>
-                  The average high temperature durring the hottest month of the year is:
+                  Average high temperature durring the hottest month of the year:
                 </legend>
                 <WeatherRangeInput
                   id="hMTmxAvLe"
@@ -124,7 +124,7 @@ class Search extends Component {
               <h3>Cold</h3>
               <fieldset>
                 <legend>
-                  The average low temperature durring the coldest month of the year is:
+                  Average low temperature durring the coldest month of the year:
                 </legend>
                 <WeatherRangeInput
                   id="lMTmnAvGe"
@@ -164,7 +164,7 @@ class Search extends Component {
               <h3>Precipitation</h3>
               <fieldset>
                 <legend>
-                  Number of days with an inch or more snowfall is:
+                  Number of days with an inch or more snowfall:
                 </legend>
                 <WeatherRangeInput
                   id="andSnGe1Ge"
@@ -187,7 +187,7 @@ class Search extends Component {
               </fieldset>
               <fieldset>
                 <legend>
-                  Number of days with an inch or more snow cover is:
+                  Number of days with an inch or more snow on the ground:
                 </legend>
                 <WeatherRangeInput
                   id="andSnCGe1Ge"
@@ -210,7 +210,7 @@ class Search extends Component {
               </fieldset>
               <fieldset>
                 <legend>
-                  Number of rainy days (at least 1/2 inch precipitation) is:
+                  Number of rainy days (at least 1/2 inch precipitation):
                 </legend>
                 <WeatherRangeInput
                   id="andPrGe5TiGe"
