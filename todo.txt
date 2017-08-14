@@ -1,7 +1,6 @@
 TO DO NOW
 
--Improve about page. What I have now is fine, but I should probably add a more general into, something about me, github link (if doing github), mention React, tell why made, etc.
--Add more links to about page in relevant locations. I think the home/results/location page might have a contextual link to the about page somewhere near data.
+-Improve about page. What I have now is fine, but I should probably add something about me, github link (if doing github), mention React, etc.
 -Decide on browser history. If I do this see if I need to do anything for dev server. Also, this would probably allow me to use #links and also have a real 404 page.
 -Consider React Snapshot or maybe even rolling my own version of it.
 -Spell check/clarity check.
@@ -13,6 +12,7 @@ TO DO NOW
 -Decide how to host. Is https possible in github pages? Should/can I convert to standard links and use on AWS?
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
+-Some of my buildLink paths end with a trailing slash and others don't. Both seem to work ok, but should I prefere one or the other?
 
 
 TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
