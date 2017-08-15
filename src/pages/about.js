@@ -13,7 +13,19 @@ function About() {
 
       <h2>About</h2>
 
-      <p>I have always enjoyed looking the weather statistics of different locations as a way to do a bit of armchair exlporing from my laptop. It is easy to find information online about a city's typical weather conditions, but I have never found a good way to start with a set of typical weather conditions and then find a list of matching locations. Such a tool would be valuable for finding places to live and vaction, and it would be a fun way to explore weather around the country. That's what I've set out to build here with City Weather Match.</p>
+      <p>I have always enjoyed looking at weather statistics because it allows me to do a bit of armchair exploring from my laptop.
+
+      There are plenty of great places online to find out about typical weather conditions if you alread have a location in mind, but I always wanted a tool that would let me start with weather and then find matching locations.
+
+      That's what I've set out to build here with City Weather Match.
+
+      Why work backwards from weather to city?
+
+      One great reason is that you can generate a list of ideal places to live or vacation based weather preferrence.
+
+      It's also just a fun way to explore and get a better sense of country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferrences and curiousities, City Weather Match makes it easy to explore.
+
+      </p>
 
       <h3>About The Data Used On This Site</h3>
 

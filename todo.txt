@@ -1,6 +1,5 @@
 TO DO NOW
 
--Improve about page. What I have now is fine, but I should probably add something about me, github link (if doing github), mention React, etc.
 -Decide on browser history. If I do this see if I need to do anything for dev server. Also, this would probably allow me to use #links and also have a real 404 page.
 -Consider React Snapshot or maybe even rolling my own version of it.
 -Spell check/clarity check.
@@ -8,11 +7,21 @@ TO DO NOW
 -Add some sort of hidden section where I put that the site was made by me (in case anyone just copied the whole site).
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
--Add to github?
+-Decide about adding to github.
+-Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
 -Decide how to host. Is https possible in github pages? Should/can I convert to standard links and use on AWS?
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
--Some of my buildLink paths end with a trailing slash and others don't. Both seem to work ok, but should I prefere one or the other?
+-Some of my buildLink paths end with a trailing slash and others don't. Both seem to work ok, but should I prefer one or the other?
+
+
+IDEAS from Brian:
+-Avg low question is a bit confusing.
+-Have a button to click if you don't care
+-More data section of sup info a bit confusing. Seems like saying more info for data about that location but it is really about data for whole site.
+-Prepopulate the slider with values that return a result.
+-Consider search results listed by state or eliminate by state.
+-Hard to know what values to start with. Maybe be able to get the values of a city you know to overlay the slider.
 
 
 TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
