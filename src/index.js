@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import App from './App';
 import About from './pages/about.js';
 import Home from './pages/home.js';
@@ -13,7 +13,7 @@ import NotFound from './pages/notfound.js';
 import './css/index.css';
 
 ReactDOM.render((
-  <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="/about" component={About}/>
