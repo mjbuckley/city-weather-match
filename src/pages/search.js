@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import WeatherRangeInput from '../components/weatherrangeinput.js';
+import SliderGroup from '../components/slidergroup.js';
 import { Link } from 'react-router'
 import buildLink from '../utils/buildlink.js';
 import '../css/search.css';
@@ -13,11 +14,12 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {...this.props.weatherValues};
-    this.fetchData = this.fetchData.bind(this);
+    this.updateApp = this.updateApp.bind(this);
     this.changeSliderValue = this.changeSliderValue.bind(this);
+    this.updateSliderState = this.updateSliderState.bind(this);
   }
 
-  fetchData(evt) {
+  updateApp(evt) {
     evt.preventDefault();
 
     // Grab weatherValues from state (probably don't need new object, but no real harm in doing this)
@@ -29,7 +31,7 @@ class Search extends Component {
       query: weatherValues
     };
 
-    // Redirect to results page
+    // Redirect to results page. No need to update App here becuase url params will trigger state update.
     browserHistory.push(link);
   }
 
@@ -40,8 +42,16 @@ class Search extends Component {
     });
   };
 
-  // Helmet conditionally rendered because Search is sometimes route entry point and sometimes a child
-  // of Home (child's Helmet component overrides parent, which would be wrong in this case).
+  // Differs from changeSliderValue because it takes an object, which might contain multiple
+  // updates to slider states. Will be used by the "not important" checkbox to set sliders to their
+  // extreme ranges. All other uses should use changeSliderValue.
+  updateSliderState(updateObj) {
+    this.setState(updateObj);
+  }
+
+
+  // Helmet is conditionally rendered below because Search is sometimes route entry point and sometimes
+  // a child of Home (child's Helmet component overrides parent, which would be wrong in this case).
   // props.location only exists (true) when Search is the route entry point.
   render() {
     return (
@@ -54,17 +64,15 @@ class Search extends Component {
         </Helmet>
       ) : null}
 
-
         <div className="search">
           <h2 className="search-heading">Search</h2>
           <p>Select your range of acceptable weather values for each question in the form below. Then click the "Find Matches" button to see the cities that match your requirements. For more information about the data used here, view the <Link to={buildLink(this.props, "/about")}>About</Link> page.</p>
-          <form onSubmit={this.fetchData}>
+          <form onSubmit={this.updateApp}>
             <section className="search-heat">
               <h3>Heat</h3>
-              <fieldset>
-                <legend>
-                  Number of days where the temperature gets to 60 °F or above:
-                </legend>
+
+              <SliderGroup name="andTmxGe60" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of days where the temperature gets to 60 °F or above:">
                 <WeatherRangeInput
                   id="andTmxGe60Ge"
                   label="AT LEAST"
@@ -83,11 +91,10 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
-              <fieldset>
-                <legend>
-                Number of days where the temperature gets to 80 °F or above:
-                </legend>
+              </SliderGroup>
+
+              <SliderGroup name="andTmxGe80" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of days where the temperature gets to 80 °F or above:">
                 <WeatherRangeInput
                   id="andTmxGe80Ge"
                   label="AT LEAST"
@@ -106,11 +113,10 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
-              <fieldset>
-                <legend>
-                  Average high temperature durring the hottest month of the year:
-                </legend>
+              </SliderGroup>
+
+              <SliderGroup name="mTmxAv" unit="°F" updateSliderState={this.updateSliderState}
+              legend="Average high temperature durring the hottest month of the year:">
                 <WeatherRangeInput
                   id="hMTmxAvLe"
                   label="AT MOST"
@@ -120,14 +126,14 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="°F"
                 />
-              </fieldset>
+              </SliderGroup>
             </section>
+
             <section className="search-cold">
               <h3>Cold</h3>
-              <fieldset>
-                <legend>
-                  Average low temperature durring the coldest month of the year:
-                </legend>
+
+              <SliderGroup name="mTmnAv" unit="°F" updateSliderState={this.updateSliderState}
+              legend="Average low temperature durring the coldest month of the year:">
                 <WeatherRangeInput
                   id="lMTmnAvGe"
                   label="AT LEAST"
@@ -137,11 +143,10 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="°F"
                 />
-              </fieldset>
-              <fieldset>
-                <legend>
-                  Number of days where the temperature drops below freezing is:
-                </legend>
+              </SliderGroup>
+
+              <SliderGroup name="andTmnLe32" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of days where the temperature drops below freezing is:">
                 <WeatherRangeInput
                   id="andTmnLe32Ge"
                   label="AT LEAST"
@@ -160,14 +165,14 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
+              </SliderGroup>
             </section>
+
             <section className="search-precip">
               <h3>Precipitation</h3>
-              <fieldset>
-                <legend>
-                  Number of days with an inch or more snowfall:
-                </legend>
+
+              <SliderGroup name="andSnGe1" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of days with an inch or more snowfall:">
                 <WeatherRangeInput
                   id="andSnGe1Ge"
                   label="AT LEAST"
@@ -186,11 +191,10 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
-              <fieldset>
-                <legend>
-                  Number of days with an inch or more snow on the ground:
-                </legend>
+              </SliderGroup>
+
+              <SliderGroup name="andSnCGe1" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of days with an inch or more snow on the ground:">
                 <WeatherRangeInput
                   id="andSnCGe1Ge"
                   label="AT LEAST"
@@ -209,11 +213,10 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
-              <fieldset>
-                <legend>
-                  Number of rainy days (at least 1/2 inch precipitation):
-                </legend>
+              </SliderGroup>
+
+              <SliderGroup name="andPrGe5Ti" unit="days" updateSliderState={this.updateSliderState}
+              legend="Number of rainy days (at least 1/2 inch precipitation):">
                 <WeatherRangeInput
                   id="andPrGe5TiGe"
                   label="AT LEAST"
@@ -232,7 +235,7 @@ class Search extends Component {
                   onChange={this.changeSliderValue}
                   unit="DAYS"
                 />
-              </fieldset>
+              </SliderGroup>
             </section>
             <button className="search-button" type="submit">FIND MATCHES</button>
           </form>

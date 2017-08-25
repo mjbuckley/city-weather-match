@@ -1,5 +1,15 @@
 TO DO NOW
 
+8/24/17: I have the basic new setup with context and not important buttons working. Still to do:
+-Test a bunch and make sure I didn't break anything.
+-I moved several things from search into new components (fieldset, legend, etc.). The css for those things still works, but I'm not sure I can depend on that. Move css to correct locations.
+-Decide on styling for new stuff. Needs work. Lots of possibilities including opacity and +/- icons, etc.
+-Make sure to not somewhere that several things I'm doing with the new changes are basically hacks based on how I have things named. Everything works fine as long as I keep my naming scheme and don't add new names, but it would stop working if I change things. Note this somewhere (probably where I talk about adding in new values).
+-Take a final look at commented out code in slidergroup and remove or save somewhere else.
+
+
+
+-Is there any data I might add to the graph?
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 -Spell check/clarity check.
 -Add link on front page arrow. I think a #link should work now that I'm using browserHistory. If #link doesn't work then do something with a js onclick and something like window.sroll() to the location of the search div.
