@@ -140,7 +140,7 @@ function Location(props) {
 
           <div className="item">
             <h4>More data</h4>
-            <p>For more information about the data used here, see the <Link to={buildLink(props, "/about")}>About</Link> page. To view a text file with all of the raw weather data for this location, <a href={noaaLink}>click here.</a> This link will take you to NOAA's website, and it is best viewed on a larger screen.</p>
+            <p>For more information about where the data used on this site comes from, see the <Link to={buildLink(props, "/about")}>About</Link> page. To view a text file with all of the raw weather data for this location, <a href={noaaLink}>click here.</a> This link will take you to NOAA's website, and it is best viewed on a larger screen.</p>
           </div>
 
         </section>

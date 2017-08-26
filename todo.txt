@@ -8,7 +8,7 @@ TO DO NOW
 -Take a final look at commented out code in slidergroup and remove or save somewhere else.
 
 
-
+-Reconsider where new search/search results should show up. Search results seems a bit out of place on the search page, etc.
 -Is there any data I might add to the graph?
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 -Spell check/clarity check.
@@ -20,12 +20,6 @@ TO DO NOW
 -Decide how to host.
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
--Ideas from Mom and Brian to fix:
-  *Wording for Avg low during coldest month question is a bit confusing.
-  *Have a button on search page to click if you don't care about a section.
-  *More data section of supplemental info section is a bit confusing. It seems like its saying more info for data about that location but it is really about data for whole site.
-  *Prepopulate the slider with values that return a result. Also, have the values be values that are likely to be popular to give a bit of conetext (maybe something like california values).
-  *Have a link for each search category that can be clicked to give the values for a few locations for context (maybe phoenix, minneapolis and ny).
 -The graph on the location page is pretty obvious, but it isn't labeled. Decide if I should label it.
 
 
@@ -42,6 +36,7 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Wording for Avg low during coldest month question is a bit confusing.
 -Consider having an option for search results to be listed by state or eliminate by state.
 -The size of the y axis of the graph is always the same, but the values on it are not. This can lead to lots of locations looking the same even when they really aren't. On the other hand, having the same values for all graphs would lead to the graphs being very compressed. See if there is a good solution.
 -Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read the js updated dom that helmet produces, or do they stick with the source?
