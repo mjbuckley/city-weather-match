@@ -1,5 +1,7 @@
 TO DO NOW
 
+-I added a link on the home page arrow to the start of the search section. I might consider moving the target of the link to something others than the placeholder div (perhaps the arrow itself?). Also, should remove the underline on arrow hover, add some sort of accessability info to link, and make sure my addition of cursor: pointer to a in index.css is the best way to have cursor (if yes, maybe I can get rid of the other places I needed to add the cursor).
+
 8/24/17: I have the basic new setup with context and not important buttons working. Still to do:
 -Test a bunch and make sure I didn't break anything.
 -I moved several things from search into new components (fieldset, legend, etc.). The css for those things still works, but I'm not sure I can depend on that. Move css to correct locations.
@@ -12,7 +14,6 @@ TO DO NOW
 -Is there any data I might add to the graph?
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 -Spell check/clarity check.
--Add link on front page arrow. I think a #link should work now that I'm using browserHistory. If #link doesn't work then do something with a js onclick and something like window.sroll() to the location of the search div.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Decide about adding to github.
