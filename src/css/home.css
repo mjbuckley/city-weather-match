@@ -55,6 +55,10 @@ p.home-arrow {
   margin-bottom: 0px;
 }
 
+.home-arrow a:hover {
+  text-decoration: none;
+}
+
 
 /*Small Screen Styling*/
 
