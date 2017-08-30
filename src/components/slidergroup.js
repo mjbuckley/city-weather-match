@@ -52,31 +52,39 @@ class SliderGroup extends Component {
 
   render() {
     return (
-      <fieldset className="slider-group">
+      <fieldset
+        style={(this.state.isNotImportant) ? {opacity: 0.5} : {opacity: 1}}
+        className="slider-group"
+      >
 
         <legend>{this.props.legend}</legend>
 
         <label className="slider-group-label">
-          Not Important:
           <input
             name={this.props.name}
             type="checkbox"
             checked={this.state.isNotImportant}
             onChange={this.handleIsNotImportant}
            />
+           Not Important
+        </label>
+
+        <label
+          style={(this.state.isNotImportant) ? {display: "none"} : {display: "inline"}}
+          className="slider-group-label"
+        >
+          <input
+            name="showContext"
+            type="checkbox"
+            checked={this.state.showContext}
+            onChange={this.handleShowContext}
+           />
+           Show Context
         </label>
 
         <div style={(this.state.isNotImportant) ? {display: "none"} : {display: "block"}}>
 
-          <label className="slider-group-label">
-            Show Context:
-            <input
-              name="showContext"
-              type="checkbox"
-              checked={this.state.showContext}
-              onChange={this.handleShowContext}
-             />
-          </label>
+
 
           <WeatherContext name={this.props.name} clicked={this.state.showContext} unit={this.props.unit} />
 

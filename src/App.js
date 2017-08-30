@@ -151,9 +151,9 @@ class App extends Component {
       <div className="app">
 
         <div className="app-header-wrapper">
+        
           <header className="app-header">
           <h1><Link to={buildLink(this.state, "/")}>City Weather Match</Link></h1>
-
 
             <div className="app-header-items">
               {(this.state.isActive) ? (

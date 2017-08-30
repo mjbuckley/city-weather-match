@@ -1,9 +1,12 @@
 TO DO NOW
 
--Decide on styling for context and not important buttons. Needs work. Lots of possibilities including opacity and +/- icons, etc.
+-Finish styling on context/not important section.
+-Not important/show context buttons overflow on small screen as do the actual show context box contents (and more generally look at mobile styling for this new stuff.)
+-Stylisticly differentiate city names and weather values in show context box.
+-Improve my description in search section.
+
 -Make sure to note somewhere that several things I'm doing with the not important button are basically hacks based on how I have things named. Everything works fine as long as I keep my naming scheme and don't add new names, but it would stop working if I change things. Note this somewhere (probably where I talk about adding in new values).
 -Consider using some icons to spruce things up.
--Reconsider where new search/search results should show up. Search results seems a bit out of place on the search page, etc.
 -Is there any data I might add to the graph?
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 -Spell check/clarity check.
@@ -30,6 +33,7 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-I decided against contextually removing results and search from app header because there were situations that were more confusing than just keeping them there. Consider if there are other options I hadn't thought of.
 -Add some sort of accessability info to arrow link on home page.
 -I changed <a> in index.css to curesor: pointer. Seems to be working but is it the best way to have cursor (if yes, maybe I can get rid of the other places I needed to add the cursor manually).
 -Wording for Avg low during coldest month question is a bit confusing.

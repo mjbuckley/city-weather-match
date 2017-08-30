@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../css/weathercontext.css';
+import '../css/weathercontext.css';
 
 const stationsObj = require('../data/weather.json');
 
@@ -20,9 +20,7 @@ function WeatherContext(props) {
       <ul>
         {exampleStations.map(station => (
           <li key={station}>
-            {stationsObj[station]["city"]}:
-            {(props.name.charAt(0) === "m") ? stationsObj[station][props.name][12] : stationsObj[station][props.name]}
-            {props.unit}
+            {stationsObj[station]["city"]}, {stationsObj[station]["state"]}: {(props.name.charAt(0) === "m") ? stationsObj[station][props.name][12] : stationsObj[station][props.name]} {props.unit}
           </li>
         ))}
       </ul>

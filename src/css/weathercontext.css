@@ -1,0 +1,20 @@
+.weather-context {
+  background-color: #f8fafb;
+  border: 1px solid #cccccc;
+  box-shadow: 0 1px 2px 0 #cccccc;
+  margin-top: 10px;
+}
+
+.weather-context ul {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.weather-context li {
+  list-style-type: none;
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}

@@ -1,6 +1,12 @@
 .slider-group-label {
   font-size: 17px;
   font-weight: 300;
+  margin-right: 20px;
+}
+
+.slider-group-label input {
+  margin-left: 0px;
+  margin-right: 8px;
 }
 
 fieldset {
