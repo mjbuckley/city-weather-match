@@ -1,24 +1,21 @@
 TO DO NOW
 
--Finish styling on context/not important section.
--Not important/show context buttons overflow on small screen as do the actual show context box contents (and more generally look at mobile styling for this new stuff.)
--Stylisticly differentiate city names and weather values in show context box.
--Improve my description in search section.
-
--Make sure to note somewhere that several things I'm doing with the not important button are basically hacks based on how I have things named. Everything works fine as long as I keep my naming scheme and don't add new names, but it would stop working if I change things. Note this somewhere (probably where I talk about adding in new values).
+-Styling is acceptable, but I still wish things (esp search and location) were better.
+-Some top/bottom margins are too large on mobile (esp search and location).
 -Consider using some icons to spruce things up.
 -Is there any data I might add to the graph?
--Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 -Spell check/clarity check.
+-Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
+-The graph on the location page is pretty obvious, but it isn't labeled. Decide if I should label it.
+
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Decide about adding to github.
--Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
 -Decide how to host.
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
--The graph on the location page is pretty obvious, but it isn't labeled. Decide if I should label it.
-
+-Make sure to note somewhere that several things I'm doing with the not important button are basically hacks based on how I have things named. Everything works fine as long as I keep my naming scheme and don't add new names, but it would stop working if I change things. Note this somewhere (probably where I talk about adding in new values).
+-Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 
 
 TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
@@ -33,6 +30,7 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-In weathercontext.js I call my checkbox "Show Examples" but in code I always refer to it as showContext. Probably not an issue, but maybe harmonize naming.
 -I decided against contextually removing results and search from app header because there were situations that were more confusing than just keeping them there. Consider if there are other options I hadn't thought of.
 -Add some sort of accessability info to arrow link on home page.
 -I changed <a> in index.css to curesor: pointer. Seems to be working but is it the best way to have cursor (if yes, maybe I can get rid of the other places I needed to add the cursor manually).

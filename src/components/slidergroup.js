@@ -79,7 +79,7 @@ class SliderGroup extends Component {
             checked={this.state.showContext}
             onChange={this.handleShowContext}
            />
-           Show Context
+           Show Examples
         </label>
 
         <div style={(this.state.isNotImportant) ? {display: "none"} : {display: "block"}}>

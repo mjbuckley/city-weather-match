@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import WeatherRangeInput from '../components/weatherrangeinput.js';
 import SliderGroup from '../components/slidergroup.js';
-import { Link } from 'react-router'
-import buildLink from '../utils/buildlink.js';
+// import { Link } from 'react-router'
+// import buildLink from '../utils/buildlink.js';
 import '../css/search.css';
 import {Helmet} from "react-helmet";
 
@@ -66,7 +66,7 @@ class Search extends Component {
 
         <div className="search">
           <h2 className="search-heading">Search</h2>
-          <p>Select your range of acceptable weather values for each question in the form below. Then click the "Find Matches" button to see the cities that match your requirements. If a particular question is not important to you, click the "not important" button. If you want help picking values, click on the "show context" button to see the values for several cities with varried weather. For more information about the data used here, view the <Link to={buildLink(this.props, "/about")}>About</Link> page.</p>
+          <p>Select a range of acceptable weather values for each question in the form below. Then click the "Find Matches" button to see the cities that match your requirements. If a particular question is not important to you, then click the "Not Important" button. If you need help picking values, click on the "Show Examples" button.</p>
           <form onSubmit={this.updateApp}>
             <section className="search-heat">
               <h3>Heat</h3>
