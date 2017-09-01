@@ -74,4 +74,16 @@ p.home-arrow {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .home h2 {
+    margin-top: 40px;
+  }
+
+  .home-start-box {
+    margin-bottom: 40px;
+  }
+
+  .home-image {
+    margin-top: 45px;
+  }
 }

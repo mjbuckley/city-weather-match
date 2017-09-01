@@ -40,6 +40,10 @@ fieldset {
 }
 
 @media (max-width: 450px) {
+  fieldset {
+    margin: 35px 0 35px 0;
+  }
+
   .slider-group legend {
     font-size: 16px;
   }

@@ -77,7 +77,9 @@
     margin-right: auto;
   }
 
-  .search-heat { margin-top: 60px;}
+  .search-heat {
+    margin-top: 60px;
+  }
 
   .search h3 {
     font-size: 24px;
@@ -102,6 +104,18 @@
   .search {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .search p {
+    margin-bottom: 40px;
+  }
+
+  .search-heat {
+    margin-top: 45px;
+  }
+
+  .search-heading {
+    margin-top: 40px;
   }
 
   form {

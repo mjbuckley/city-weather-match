@@ -1,7 +1,7 @@
 TO DO NOW
 
+-See if there is a good way that I can make the graph dimensions different on small screens. Something taller would be better.
 -Styling is acceptable, but I still wish things (esp search and location) were better.
--Some top/bottom margins are too large on mobile (esp search and location).
 -Consider using some icons to spruce things up.
 -Is there any data I might add to the graph?
 -Spell check/clarity check.
@@ -30,6 +30,7 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Some of my margins and padding are really wacky, esp on something like location.js on mobile view. It actually works and looks fine, but would be nice to clean up.
 -In weathercontext.js I call my checkbox "Show Examples" but in code I always refer to it as showContext. Probably not an issue, but maybe harmonize naming.
 -I decided against contextually removing results and search from app header because there were situations that were more confusing than just keeping them there. Consider if there are other options I hadn't thought of.
 -Add some sort of accessability info to arrow link on home page.

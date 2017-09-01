@@ -41,4 +41,8 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .citylocation h2 {
+    margin-top: 40px;
+  }
 }

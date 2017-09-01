@@ -192,6 +192,7 @@
     .location-title-graph {
       padding-left: 20px;
       padding-right: 20px;
+      margin-top: 40px;
     }
 
     .location-weather-stats {
@@ -202,5 +203,22 @@
     .location-additional-info {
       padding-left: 20px;
       padding-right: 20px;
+    }
+
+    .location-additional-info-wrapper {
+      padding-top: 25px;
+    }
+
+    .location-weather-stats-info {
+      margin-bottom: 0px;
+    }
+
+    .location-weather-stats-wrapper {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    .location-weather-stats h3 {
+      margin-bottom: 24px;
     }
   }

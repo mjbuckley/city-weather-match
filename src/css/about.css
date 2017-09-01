@@ -46,4 +46,8 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .about h2 {
+    margin-top: 40px;
+  }
 }
