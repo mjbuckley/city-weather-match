@@ -1,12 +1,9 @@
 TO DO NOW
 
--See if there is a good way that I can make the graph dimensions different on small screens. Something taller would be better.
 -Styling is acceptable, but I still wish things (esp search and location) were better.
 -Consider using some icons to spruce things up.
--Is there any data I might add to the graph?
 -Spell check/clarity check.
 -Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
--The graph on the location page is pretty obvious, but it isn't labeled. Decide if I should label it.
 
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
@@ -24,12 +21,13 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 -Figure out final size of site (Probably in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
 -Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
--Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android).
+-Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
 
 
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Is there any data I might add to the graph?
 -Some of my margins and padding are really wacky, esp on something like location.js on mobile view. It actually works and looks fine, but would be nice to clean up.
 -In weathercontext.js I call my checkbox "Show Examples" but in code I always refer to it as showContext. Probably not an issue, but maybe harmonize naming.
 -I decided against contextually removing results and search from app header because there were situations that were more confusing than just keeping them there. Consider if there are other options I hadn't thought of.
@@ -78,6 +76,7 @@ GENERAL
 
 NOTES
 
+-I tried a bunch of ways to make a responsive graph that would have different proportions based on screen width, but everything had problems. I never fully figured out the issue, but I think it has to do with how chartjs adds an iframe to the canvass container that somehow works to handle resize. React/chartjs/the iframe somewhere loose connection with one another with what I was doing. So, I created a contianer component (graphcontainer.js) the renders to totally different graph components based on width (as opposed to just passing values in to the same graph component, which is where the troubles came in). It's not particularly elegant, but it works.
 -I switched to urls without trailing slashes. There's some meaning to this, but these days I think it is mostly a matter of style in most cases. However, it's possible that some hosts have certain preferences, so if I ever run in to an issue take a look at this.
 -For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
 -I was having a problem where when clicking the submit button on the search page the results page was loading from the bottom or middle of the page. The solution I found was to add onUpdate={() => window.scrollTo(0, 0)} to the <Router> component. This worked and I haven't run accross any issues yet, but keep this in mind if I do. Solution suggested at:

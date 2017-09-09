@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import '../css/graph.css';
 
-
-// This is the standard graph component. mobilegraph.js is the same as this but with different
-// graph proportions and shorter month labels.
-class Graph extends Component {
+// This is the same as graph.js but with different graph proportions and a change to shorter
+// month labels.
+class MobileGraph extends Component {
   constructor(props) {
     super(props);
     this.drawGraph = this.drawGraph.bind(this);
@@ -21,8 +20,8 @@ class Graph extends Component {
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
-                    "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: ["J", "F", "M", "A", "M", "J", "J",
+                    "A", "S", "O", "N", "D"],
             datasets: [{
                 label: 'Avg. high temp',
                 data: highTemp,
@@ -58,11 +57,11 @@ class Graph extends Component {
 
   render() {
     return (
-      <div className="chart-container" style={{position: 'relative', maxHeight: '400px', maxWidth: '800px'}}>
-        <canvas id="chart" ref={canvas => this.canvas = canvas} width='800px' height='400px'></canvas>
+      <div className="chart-container" style={{position: 'relative', maxHeight: '600px', maxWidth: '800px'}}>
+        <canvas id="chart" ref={canvas => this.canvas = canvas} width='800px' height='600px'></canvas>
       </div>
     );
   }
 }
 
-export default Graph;
+export default MobileGraph;

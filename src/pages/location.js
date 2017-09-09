@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router'
 import buildLink from '../utils/buildlink.js';
 import SharedAreaList from '../components/sharedarealist.js';
-import Graph from '../components/graph.js';
+import GraphContainer from '../components/graphcontainer.js';
 import '../css/location.css';
 import {Helmet} from "react-helmet";
 
@@ -77,9 +77,8 @@ function Location(props) {
         <h2 className="city-name">{city}, {state}</h2>
         <span className="station-name">NOAA Weather Station {station}</span>
 
-        <Graph highTemp={highTemp} lowTemp={lowTemp} />
+        <GraphContainer highTemp={highTemp} lowTemp={lowTemp} />
       </div>
-
 
 
       <div className="location-weather-stats-wrapper">
