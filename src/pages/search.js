@@ -146,7 +146,7 @@ class Search extends Component {
               </SliderGroup>
 
               <SliderGroup name="andTmnLe32" unit="days" updateSliderState={this.updateSliderState}
-              legend="Number of days where the temperature drops below freezing is:">
+              legend="Number of days where the temperature drops below freezing:">
                 <WeatherRangeInput
                   id="andTmnLe32Ge"
                   label="AT LEAST"

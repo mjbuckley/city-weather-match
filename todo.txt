@@ -1,10 +1,7 @@
 TO DO NOW
 
--Styling is acceptable, but I still wish things (esp search and location) were better.
--Consider using some icons to spruce things up.
 -Spell check/clarity check.
 -Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
-
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Decide about adding to github.
@@ -27,6 +24,8 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Styling is acceptable, but I still wish things (esp search and location) were better.
+-Consider using some icons to spruce things up.
 -Is there any data I might add to the graph?
 -Some of my margins and padding are really wacky, esp on something like location.js on mobile view. It actually works and looks fine, but would be nice to clean up.
 -In weathercontext.js I call my checkbox "Show Examples" but in code I always refer to it as showContext. Probably not an issue, but maybe harmonize naming.
@@ -56,7 +55,7 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -Use colors consistently: all hex or all rgba.
 -Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
--I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point.
+-I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point. In some situations I think it would make things more clear, and in others more confusing.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 -Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 -At various points I use phrases like "All NOAA stations in city x". In many cases this isn't correct, because I am only looking at my subset of NOAA stations with complete information. Reword this.

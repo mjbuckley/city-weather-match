@@ -22,8 +22,9 @@
   font-weight: 300;
 }
 
-.citylocation p {
+.citylocation-intro {
   font-weight: 300;
+  margin-bottom: 30px;
 }
 
 
@@ -44,5 +45,9 @@
 
   .citylocation h2 {
     margin-top: 40px;
+  }
+
+  .citylocation-intro {
+    margin-bottom: 25px;
   }
 }

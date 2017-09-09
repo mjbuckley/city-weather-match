@@ -39,7 +39,7 @@ class Graph extends Component {
           legend: { display: false },
           title: {
             display: true,
-            text: "Average Monthly Hi and Low Temps",
+            text: "Average Monthly Hi and Low Temperatures",
             fontSize: 14,
             fontFamily: "'Helvetica', 'Arial', sans-serif",
             fontStyle: "regular",

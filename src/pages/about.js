@@ -23,7 +23,7 @@ function About() {
 
       One great reason is that you can generate a list of ideal places to live or vacation based weather preferrence.
 
-      It's also just a fun way to explore and get a better sense of country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferrences and curiousities, City Weather Match makes it easy to explore.
+      It's also just a fun way to explore and get a better sense of the country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferrences and curiousities, City Weather Match makes it easy to explore.
 
       </p>
 
@@ -42,7 +42,7 @@ function About() {
       <ol>
         <li><span className="about-list-highlight">Look at other weather stations in the same city:</span> Many cities have more than one NOAA weather station. The search results page links to the first weather station found in a city that meets the search criteria. If there are others, you will find a link to the other weather stations in the "Supplementary Information" section. Often times the stations will have similar weather values, but sometimes they can be quite different.</li>
 
-        <li><span className="about-list-highlight">Look at other weather stations in the same metro area:</span> Many cities are part of a larger metro area. Looking at the weather averages in the other cities in the same metro area is a great way to get a sense of an area's weather. If a city is part of a metro area, you will find a link to other cities in the same metro area in the "Supplementary Information" section. Not all cities belong to a metro area, and occasionally a city will belong to multiple metro areas. Also, while there is an official distinction between <a href="https://en.wikipedia.org/wiki/Metropolitan_statistical_area">Metropolitan</a> and <a href="https://en.wikipedia.org/wiki/Micropolitan_statistical_area">Micropolitan</a> areas, on this site they have been grouped together under the same "metro area" term.</li>
+        <li><span className="about-list-highlight">Look at other weather stations in the same metro area:</span> Many cities are part of a larger metro area. Looking at the weather averages of the other cities in the same metro area is a great way to get a sense of an area's weather. If a city is part of a metro area, you will find a link to other cities in the same metro area in the "Supplementary Information" section. Not all cities belong to a metro area, and occasionally a city will belong to multiple metro areas. Also, while there is an official distinction between <a href="https://en.wikipedia.org/wiki/Metropolitan_statistical_area">Metropolitan</a> and <a href="https://en.wikipedia.org/wiki/Micropolitan_statistical_area">Micropolitan</a> areas, on this site they have been grouped together under the same "metro area" term.</li>
       </ol>
     </div>
   );

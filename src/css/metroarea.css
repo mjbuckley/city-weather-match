@@ -22,8 +22,9 @@
   font-weight: 300;
 }
 
-.metroarea p {
+.metroarea-intro {
   font-weight: 300;
+  margin-bottom: 30px;
 }
 
 
@@ -44,5 +45,9 @@
 
   .metroarea h2 {
     margin-top: 40px;
+  }
+
+  .metroarea-intro {
+    margin-bottom: 25px;
   }
 }

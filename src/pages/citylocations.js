@@ -50,9 +50,9 @@ function CityLocations(props) {
       <h2>{city}, {state}</h2>
 
       {(locations.length > 1) ? (
-        <p>There are {locations.length} NOAA weather stations in {city}. Click on one of the stations listed below to view more detailed weather information for that location.</p>
+        <p className="citylocation-intro">There are {locations.length} NOAA weather stations in {city}. Click on one of the stations listed below to view more detailed weather information for that location.</p>
       ) : (
-        <p>There is one NOAA weather stations in {city}. Click on the station listed below to view more detailed weather information for that location.</p>
+        <p className="citylocation-intro">There is one NOAA weather stations in {city}. Click on the station listed below to view more detailed weather information for that location.</p>
       )}
 
       <ul>
