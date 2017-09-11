@@ -31,7 +31,7 @@ function Results(props) {
 
       <Helmet>
         <title>Search Results | City Weather Match</title>
-        <meta name="description" content="Search Results. A listing of all cities that match the weather preferrences from the search form." />
+        <meta name="description" content="Search Results. A listing of all cities that match the weather preferences from the search form." />
         <meta name="robots" content="noindex" />
       </Helmet>
 

@@ -60,7 +60,7 @@ class Search extends Component {
       {(this.props.location) ? (
         <Helmet>
           <title>Find Cities By Weather | City Weather Match | Search Page</title>
-          <meta name="description" content="Enter your weather preferrences into the search form to search through thousands of locations and find the cities that match your weather preferrencs." />
+          <meta name="description" content="Enter your weather preferences into the search form to search through thousands of locations and find the cities that match your weather preferrencs." />
         </Helmet>
       ) : null}
 

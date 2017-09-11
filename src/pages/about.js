@@ -23,7 +23,7 @@ function About() {
 
       One great reason is that you can generate a list of ideal places to live or vacation based on weather preferrence.
 
-      It's also just a fun way to explore and get a better sense of the country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferrences and curiousities, City Weather Match makes it easy to explore.
+      It's also just a fun way to explore and get a better sense of the country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferences and curiousities, City Weather Match makes it easy to explore.
 
       </p>
 

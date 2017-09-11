@@ -1,12 +1,14 @@
-This file contains info and examples about the data files in the src/data directory.
 
 
--WEATHER.JSON (frequently used as stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
+This file contains explanations and examples about the data files in the src/data directory.
+
+
+-WEATHER.JSON (frequently used as const named stationsObj in the app): weather.json is a file of all stations and their weather data. It takes the form of:
 
 { station1: {info}, station2: {info}, etc. }
 
 
--EXAMPLE STATION IN WEATHER.JSON/STATIONSOBJ:
+-EXAMPLE STATION IN WEATHER.JSON:
 
 "USW00093044":{
   "zip":"87327",
@@ -57,9 +59,8 @@ This file contains info and examples about the data files in the src/data direct
   "andTmxGe80Ge":[0,365,183]
 }
 
--VALUES IN INPUTMINMAX
-Note that Le/Ge (less/greater than or equal) have two meanings here. In the weather context they signify
-number of days where a station's temp/precip is above or below a certain value. However, when used at the end of the abbreviation they refer to the user's desired range. In that context:
+-NAMING IN INPUTMINMAX
+For many weather values I allow users to pick from a range, and so there are often 2 users values for each weather value. The Le/Ge (less/greater than or equal) added to the weather value names signify the two ends of the range that users will choose from. In this context:
 Le = User desires value less than or equal to chosen value (the max allowable)
 Ge = User desires value greater than or equal to chosen value (the min allowable)
 Ex: If "andTmnLe32Le" had a value of 50, this means that the user wants the average number of days where the min temp is less than or equal to 32 degrees to be less than or equal to 50 days (no more than).

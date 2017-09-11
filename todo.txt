@@ -2,23 +2,23 @@ TO DO NOW
 
 -Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
--Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
 -Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Figure out how I want todo/notes/data structure to be organized. Make clearer.
--Make sure the correct stuff is in gitignore (as well as that stuff there really should be there).
 -Consider upgrading React version, others?
+-Finish README. Change link to https if that's how it will be deployed.
 
 -Decide about adding to github (and make sure I have a license added).
 -Decide how to host.
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 
 
+
 TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
--Improve on home image (maybe make two images with different weather fused into one image). Also make sure that all images are original.
+-Improve on home image (maybe make two images with different weather fused into one image).
 -Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
--Figure out final size of site (Probably in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
+-Figure out final size of site (possibly in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
 -Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 -Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
 
@@ -26,24 +26,21 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
--Maybe break up the about page more (2 pages or visually) to have a very basic about and then the more specific details.
--Dad was confused by the links (I think color was part of the issue). Make more clear?
+-Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
+-Visually make links stand out more?
 -Styling is acceptable, but I still wish things (esp search and location) were better.
 -Consider using some icons to spruce things up.
 -Is there any data I might add to the graph?
--Some of my margins and padding are really wacky, esp on something like location.js on mobile view. It actually works and looks fine, but would be nice to clean up.
 -In weathercontext.js I call my checkbox "Show Examples" but in code I always refer to it as showContext. Probably not an issue, but maybe harmonize naming.
 -I decided against contextually removing results and search from app header because there were situations that were more confusing than just keeping them there. Consider if there are other options I hadn't thought of.
--Add some sort of accessability info to arrow link on home page.
--I changed <a> in index.css to curesor: pointer. Seems to be working but is it the best way to have cursor (if yes, maybe I can get rid of the other places I needed to add the cursor manually).
+-Add some sort of accessibility info to arrow link on home page.
+-I changed <a> in index.css to cursor: pointer. Seems to be working but is it the best way to have cursor (if yes, maybe I can get rid of the other places I needed to add the cursor manually).
 -Wording for Avg low during coldest month question is a bit confusing.
--Consider having an option for search results to be listed by state or eliminate by state.
+-Consider having an option for search results to be listed by state or eliminated by state.
 -The size of the y axis of the graph is always the same, but the values on it are not. This can lead to lots of locations looking the same even when they really aren't. On the other hand, having the same values for all graphs would lead to the graphs being very compressed. See if there is a good solution.
 -Does the fact that the initial index.html has a title and description matter. That is, will search engines know to read the js updated dom that helmet produces, or do they stick with the source?
--Other options than jan/feb/etc. for graph for mobile devices? It's a bit cramped.
--I have done a good basic styling for all size ranges. Things I could do with more time:
-*Although section margins/padding are mostly good, there are a few spots where they are a touch unequal and this can be cleaned up (usually because there is some combo of header top margin plus padding being added together and I should really just set margin top to 0 and then set my ideal padding).
-*Might consider altering font sizes a bit more for mobile. I've done this in critical areas but I'm sure it could be improved.
+-Although section margins/padding are mostly good, there are a few spots where they are a touch unequal and this can be cleaned up (usually because there is some combo of header top margin plus padding being added together and I should really just set margin top to 0 and then set my ideal padding).
+-Might consider altering font sizes a bit more for mobile. I've done this in critical areas but I'm sure it could be improved.
 -Right now you can put logically impossible values in to the range slider (ex: at least 10 and at most 1). This doesn't crash anything (just gives no matches), but should I make impossible or warn?
 -I'm tempted to ignore this because I'm unlikely to ever do something this way again, but almost all (but not all) components seem to be rendering twice on load. There isn't any obvious performance issue, I just wish this wasn't happening or at least understood why it is happening. Perhaps related my use of clone element for children of App?
 -Better style some of the error pages. Everything works right now but it is mostly plain unstyled text.
@@ -51,96 +48,15 @@ MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 -componentWillMount and componentWillReceiveProps are exactly the same except for one using this.props and the other nextProps. I'm fine with this for now, but maybe extract into a shared function in the future.
 -In componentWillMount and componentWillReceiveProps I have two functions that take props/nextProps. One takes everything, the other takes .location.query. Both only use .location.query. I'm passing in what the functions expect, and everything works, but should probably just have everything set up to use .location.query because that's what's being used and it's much more clear.
 -There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
--Should my weatherOptions const be capitalized? What about all consts?
--Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with default values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
+-Should I be capitalizing my consts?
+-Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with end range values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
 -Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 -In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
 -I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 -Use colors consistently: all hex or all rgba.
--Right now the width of the div that gets changed could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
+-Right now the width of the div that gets changed in weatherrangeinput.js could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
 -Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
 -I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point. In some situations I think it would make things more clear, and in others more confusing.
 -There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
--Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
--At various points I use phrases like "All NOAA stations in city x". In many cases this isn't correct, because I am only looking at my subset of NOAA stations with complete information. Reword this.
-
-
-
-GENERAL
-
--LOOK INTO SYNTAX HIGHLIGHTING FOR REACT, ESP FOR JSX
--Get at least a basic understanding of some of the things going on under the hood in create-react-app (like webpack).
--I'm ok with css in react for this project, but play around with things like css in js and css modules for the future.
--Is there any practical/performance difference between defining a constant inside vs. outside a function?
--Is normalize.css still a thing? Should I use it? Is it already included somehow? Is there a better alternative or something that can be done using post.css?
--Better understand some of the JS performance tools I can use in chrome/other.
-
-
-
-NOTES
-
--Important note on the "Not Important" button: The not important button works by setting the weather values to their extreme ends of possible values such that no station is excluded (and the slider is then hidden). The way that this is implemented is basically a hack based off of the way that the weather values are named. If it works fine and doing anything more complicated really isn't needed right now. However, if I ever added a new weather values it is important that I name it correctly or else there might be unexpected results (see slidergroup.js to see how it works).
--I tried a bunch of ways to make a responsive graph that would have different proportions based on screen width, but everything had problems. I never fully figured out the issue, but I think it has to do with how chartjs adds an iframe to the canvass container that somehow works to handle resize. React/chartjs/the iframe somewhere loose connection with one another with what I was doing. So, I created a contianer component (graphcontainer.js) the renders to totally different graph components based on width (as opposed to just passing values in to the same graph component, which is where the troubles came in). It's not particularly elegant, but it works.
--I switched to urls without trailing slashes. There's some meaning to this, but these days I think it is mostly a matter of style in most cases. However, it's possible that some hosts have certain preferences, so if I ever run in to an issue take a look at this.
--For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
--I was having a problem where when clicking the submit button on the search page the results page was loading from the bottom or middle of the page. The solution I found was to add onUpdate={() => window.scrollTo(0, 0)} to the <Router> component. This worked and I haven't run accross any issues yet, but keep this in mind if I do. Solution suggested at:
-https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition and
-https://stackoverflow.com/questions/34345722/enforcing-scrolltotop-behavior-using-react-router
--I went to Google's Material Design color picking site and picked a set of colors. I didn't spend too much time on it, but just did something to get me started. That said, it looks decent, and I think the site might be useful in the future. I can get my colors and examples at: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=039BE5&secondary.color=9e9e9e
--I was running in to an odd bug on chrome where some sliders where rendering in a different height than others. I was able to fix this by changing the track height from 2.8 to 3. Maybe the pixels were the problem? Keep in mind if something weird like this happens again.
--Might look in to Lodash function memoization. Lodash looks interesting in general, but the memoization could be a better way to handle the "cacheing" I do with state.
--Not using this, but saving as a reminder. It is a way to find out if query params are the same as the default state values. I thought hard on how to make this, and I'm happy with the result (and could make even more concise w/ann anonymous fat arrow function):
-  Object.keys(weatherOptions).every(function(element) {
-    return nextProps.location.query[element] === weatherConts[element][2];
-  });
--On the search page I used to calculate matches and update state and then use hashHistory push to get to the results page. When watching when things get fired on the results page I saw that state had to be recalculated from the query params. If the state had been updated then the query params should have matched. This suggests that the link to the new page was being processed before state had been updated? I never saw anything visible, but thought it was kind of weird and don't know what might happen on slow machines. My theory is possible because I beleive that setState doesn't always get called immediately. Anyway, an easy fix was to just link to results with the correct query params and let the state get set there. I'm just noting this for future reference.
--One the search page the slider default values start out as numbers, but as soon as they move they become strings. I could use something like parseInt to keep them as numbers, but this would get called a ton and not sure it's needed. The values just get added to a url, where they are strings anyway. So, I think this is fine as is, but noting in case I run in to issues anywhere.
--I decided to add query params to home/about and search pages. Originally I was against this because if most people bookmarked one of these pages it would be to get the page in general, not in any way trying to store the values of their current search. However, the way I have things set up, the search results link is only available when isActive is true (which is how it should be, it would be confusing otherwise). So, if I want search results to be a link that is available on home/about/search, then I need isActive to be able to be true, which means I need to have query params present. No situation is ideal but I think I prefer it this way and that's why it is as it is.
--I have been following this convention: where there are multiple possible stations that match for a city, I will always return the first one in the array that matches. When there are no matches, I will always link to the first in the array. And when there are some that match and some that don't match, I will alway return the first that is a match. This should ensure consistent results when navigating the site (avoids something like linking to one LA station from results page and a different one when you click on LA from the metro areas page).
--I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
--Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6
--I have set all site padding breakpoints. They are:
-*450 and below: 20px;
-*750 and below: 30px;
-*751+: 35px;
-*(NOTE that home is set up a bit weird now because I don't know how it will ultimately be styled. Looks fine now, be recheck once I decide what I want to do).
--Notes on sizes: Regular/mini ipad logical resolution is 768 in portrait mode.
-iphone logical resolution is 414/375/320 for plus/s/se in portrait mode.
-Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell.
-768-800 seems pretty popular for tablets. Look at this page in tablet/smaller size: https://www.nytimes.com/section/politics
--NOTE on Helmet: Children with a helmet component override parents with a helmet component. Since search is both a stand alone page as well as a child of home, a standard helment component in seach will render in both home and search. So I need to conditionally render its helmet component. However, I can't just check and see if props.location.pathname = search because when it is a child it won't have a location property. Instead I check and see if it has a location property and then render helment component if it does (I'm assuming there can't be a case where it has location prop when it shouldn't be rendered). If I ever stop using react router (or maybe if I use a newer version) then this conditional might need to be changed.
--Keep in mind that React sanitizes jsx, but the inputs from user (form, url, etc) are not themseleves sanitized on retrieval. User input will come in as a string, and it's generally hard to do bad stuff with strings, but not impossible (eval, function constructor, etc.). I've double checked how I've used inputs, and everythings good, but always keep this in mind.
-
-
-
-
-ERROR CHECKING NOTES (a bit old, already done, but keeping for reference):
--Three types of issues to check for: 1) invalid city/station/state/metro names, 2) valid names that don't match, and (ex: Los Angeles, Ohio), and 3) invalid query params (ex: days below 32 = kdsjflks). Below are my notes of what I need to check where.
-
-APP:
--Make sure all possible query param possibilities can be handled and state updated as needed. (done).
-
-HOME:
--NO url params to worry about. I'm also not using query params for home, so nothing to check (although it would work fine with query params). The way I have it set up isActive will always be false, although it wouldn't hurt anything if it were true. So, nothing to do.
-
-SEARCH:
--No url params and works regardless of query params, so nothing to do.
-
-RESULTS:
--Need to check the status of isActive. If false, then results make no sense and need to give an error message. Otherwise nothing to do. (done)
-
-METROAREA:
--Verify that metro area url param is valid. (done: see if metro area param is in metroMap. If not, it's invalid. Give error message).
--TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
-
-CITYLOCATIONS:
--Handle invalid city/state url params. (done: checks stationsObj for every station matching both params. Will return an empty array if either are invalid (or if valid but mismatched). So, just check for empty array and give error message).
--TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
-
-LOCATION:
--Make sure station id is valid. (done: check for stationsObj[station] and return error message if not in stationsObj).
--Make sure that city and state params in url match station id. (done: find city and state for stationsObj[station] and see if the match the url city and state params. Return error message if they don't match.)
--TO DO: isActive (currently doesn't do anything different when active/inactive. No errors either way, but should make it responsive to state).
-
-OTHER:
--Make sure that urls not matching one of the routes returns a "404" page. (done: notfound.js).
+-(This probably isn't important because I'm no longer using hash history, but keeping around in case I ever switch back). Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
+-At various points I use phrases like "All NOAA stations in city x". In many cases this isn't correct, because I am only looking at my subset of NOAA stations with complete information. Reword this?
