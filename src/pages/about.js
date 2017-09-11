@@ -15,13 +15,13 @@ function About() {
 
       <p>I have always enjoyed looking at weather statistics because it allows me to do a bit of armchair exploring from my laptop.
 
-      There are plenty of great places online to find out about typical weather conditions if you alread have a location in mind, but I always wanted a tool that would let me start with weather and then find matching locations.
+      There are plenty of great places online to find out about typical weather conditions if you already have a location in mind, but I always wanted a tool that would let me start with weather and then find matching locations.
 
       That's what I've set out to build here with City Weather Match.
 
       Why work backwards from weather to city?
 
-      One great reason is that you can generate a list of ideal places to live or vacation based weather preferrence.
+      One great reason is that you can generate a list of ideal places to live or vacation based on weather preferrence.
 
       It's also just a fun way to explore and get a better sense of the country. Have you you ever wondered where there's snow on the ground at least half of the year, or maybe been curious about all of the places with a Mediterranean climate? Whatever your weather preferrences and curiousities, City Weather Match makes it easy to explore.
 
@@ -37,7 +37,7 @@ function About() {
 
       <h3>How To Understand And Best Use The Search Results</h3>
 
-      <p>While the search results are accurate, they can occasionally be misleading. Consider a large and geographically diverse city like Los Angeles. The temperature there can vary significantly depending on whether you are by the ocean, far inland, or near the mountains. No matter where a particular LA weather station is located, it cannont possibly be fully representative of the entire city. So, to get the best sense of an area's weather, consider these two suggestions:</p>
+      <p>While the search results are accurate, they can occasionally be misleading. Consider a large and geographically diverse city like Los Angeles. The temperature there can vary significantly depending on whether you are by the ocean, far inland, or near the mountains. No matter where a particular LA weather station is located, it cannot possibly be fully representative of the entire city. So, to get the best sense of an area's weather, consider these two suggestions:</p>
 
       <ol>
         <li><span className="about-list-highlight">Look at other weather stations in the same city:</span> Many cities have more than one NOAA weather station. The search results page links to the first weather station found in a city that meets the search criteria. If there are others, you will find a link to the other weather stations in the "Supplementary Information" section. Often times the stations will have similar weather values, but sometimes they can be quite different.</li>

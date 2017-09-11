@@ -1,14 +1,16 @@
 TO DO NOW
 
--Spell check/clarity check.
 -Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
 -I should go through and make sure my comments are still good. I've changed a lot since they were written.
 -Make note about isActive. I'm using it sparsely but make sure I have write up of ways it might be used in the future.
--Decide about adding to github.
--Decide how to host.
--Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 -Update format-noaa-data readme and documentation, but all the other essential stuff is done.
--Make sure to note somewhere that several things I'm doing with the not important button are basically hacks based on how I have things named. Everything works fine as long as I keep my naming scheme and don't add new names, but it would stop working if I change things. Note this somewhere (probably where I talk about adding in new values).
+-Figure out meaning of NOAA station names (ex. USC... vs. USW...).
+-Figure out how I want todo/notes/data structure to be organized. Make clearer.
+-Make sure the correct stuff is in gitignore (as well as that stuff there really should be there).
+-Consider upgrading React version, others?
+
+-Decide about adding to github (and make sure I have a license added).
+-Decide how to host.
 -Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
 
 
@@ -24,6 +26,8 @@ TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
 
 MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+-Maybe break up the about page more (2 pages or visually) to have a very basic about and then the more specific details.
+-Dad was confused by the links (I think color was part of the issue). Make more clear?
 -Styling is acceptable, but I still wish things (esp search and location) were better.
 -Consider using some icons to spruce things up.
 -Is there any data I might add to the graph?
@@ -75,6 +79,7 @@ GENERAL
 
 NOTES
 
+-Important note on the "Not Important" button: The not important button works by setting the weather values to their extreme ends of possible values such that no station is excluded (and the slider is then hidden). The way that this is implemented is basically a hack based off of the way that the weather values are named. If it works fine and doing anything more complicated really isn't needed right now. However, if I ever added a new weather values it is important that I name it correctly or else there might be unexpected results (see slidergroup.js to see how it works).
 -I tried a bunch of ways to make a responsive graph that would have different proportions based on screen width, but everything had problems. I never fully figured out the issue, but I think it has to do with how chartjs adds an iframe to the canvass container that somehow works to handle resize. React/chartjs/the iframe somewhere loose connection with one another with what I was doing. So, I created a contianer component (graphcontainer.js) the renders to totally different graph components based on width (as opposed to just passing values in to the same graph component, which is where the troubles came in). It's not particularly elegant, but it works.
 -I switched to urls without trailing slashes. There's some meaning to this, but these days I think it is mostly a matter of style in most cases. However, it's possible that some hosts have certain preferences, so if I ever run in to an issue take a look at this.
 -For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.

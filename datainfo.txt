@@ -38,7 +38,7 @@ This file contains info and examples about the data files in the src/data direct
 "andTmxGe80"
 
 
--INPUTMINMAX.JSON: Object with properties being the weather range input options and the values being an array of the min, max, and default search values (on fresh load) for each range slider input. Min rounded down, max up. Default value is midpoint if of values for weather values with only one option, and 1/3 and 2/3 values when there are two weather options (at least/less than). Used to set slider range and to validate inputs.
+-INPUTMINMAX.JSON: Object with properties being the weather range input options and the values being an array of the min, max, and default search values (on fresh load) for each range slider input. Min rounded down, max up. Default values are just values I chose that would return a smallish list of cities with comfortable weather in case the user just clicks "find matches" without changing the sliders at all.
 
 {
   "hMTmxAvLe":[46,117,82],
@@ -89,14 +89,14 @@ and breaks each city up into stations. This is helpful for creating metro area l
 -WEATHEROPTIONS.JSON: A list of the weather options that are asked of the user (the same as the keys in inputminmax). In object form: { "weatherOptions: [list of options]"}.
 
 
--DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Based off of the default values in inputminmax. Currently these default values produce no matches, but that could change if I change the default values.
+-DEFAULTMATCHES.JSON: Precomputed list of matches for initial app load. Based off of the default values in inputminmax.
 
 
 -NOTES ON UPDATING THE APP WITH NEW WEATHER INFO
 
 In jsoncreate.js:
 
-1) Add the data to stationsObj
+1) Add the data to stationsObj (SEE below note on naming)
 2) Add the new data name to the section in jsoncreate.js that checks for stations with incomplete information.
 3) Manually alter createminmax.js, createinputminmax.js, and finddefaultmatches.js with new info.
 4) Run jsoncreate.js and copy over the 5 outputted files.
@@ -109,3 +109,5 @@ In the app:
 4) Add slider(s) for new value on search page.
 5) Add to list of weather values on location.js.
 6) Update data examples on this page with new value for future reference.
+
+Note on naming: For the 'Not Important' button in the app I'm using a hack based on weather value name to make that function work. See slidergroup.js to see how that works and pick a name accordingly.
