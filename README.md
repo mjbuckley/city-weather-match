@@ -5,6 +5,6 @@ This Github repository contains the code for the [City Weather App](http://www.c
 
 ## Additional Information
 
-- For documentation about the data files used in the app, see datainfo.txt.
+- For documentation about the data files used in the app, see datainfo.md.
 - In addition to the comments in the code itself, a more generalized set of notes and reminders about the code in the app can be found in notes.md.
-- The todo.txt file is a collection ideas of possible features to add and changes to make in the future.
+- The todo.md file is a collection ideas of possible features to add and changes to make in the future.
