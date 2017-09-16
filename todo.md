@@ -1,19 +1,15 @@
 ## TO DO NOW
 
-- Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact should be there. Add github link if I decide to do github, etc.
+- Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact and github link should be there.
 - I should go through and make sure my comments are still good. I've changed a lot since they were written.
-- Update format-noaa-data readme and documentation, but all the other essential stuff is done.
+- Finish README/todo
+- If I am going to be able to use https for my site, I need to go back to README/notes/datainfo/todo and format-weather-data's readme and change cityweathermatch links from http to https.
 - Figure out meaning of NOAA station names (ex. USC... vs. USW...).
-- Figure out how I want todo/notes/data structure to be organized. Make clearer.
-- Consider upgrading React version, others?
-- Finish README. Change link to https if that's how it will be deployed.
-- Add link to format-weather-data from the datainfo.md and vice versa. Also links from readme to note/datainfo.
+- Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
 - Not sure if I need to change ampersands in markdown to &amp. In general I think yes, but I'm curious about whether this is true for links too. Take a look (I think my issue would be in notes.md).
-
-- Decide about adding to github (and make sure I have a license added).
+- Add to Github
 - Decide how to host.
-- Consider React Snapshot or maybe even rolling my own version of it. Whatever I use I need a method of dealing with browserHistory on a static site. ALSO, I NEED A REAL 404 PAGE because with browserHistory a bad url on initial visit won't be rendered by the app and a real 404 is needed. Also, maybe use something like gulp to build my static site setup?
-
+- Consider React Snapshot or maybe even rolling my own version of it (maybe using something like gulp to build static pages?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404).
 
 
 ## TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
@@ -23,7 +19,6 @@
 - Figure out final size of site (possibly in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
 - Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 - Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
-
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
@@ -52,7 +47,7 @@
 - There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
 - Should I be capitalizing my consts?
 - Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with end range values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
-- Do I need a json loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
+- Do I need a JSON loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 - In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
 - I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 - Use colors consistently: all hex or all rgba.

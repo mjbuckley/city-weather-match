@@ -1,18 +1,18 @@
-## DATA INFO
+## Data Info
 
-This file contains explanations and examples about the data files in the src/data directory.
+This file contains explanations of and examples about the data files in the src/data directory. The files themselves are created in a separate project, [format-weather-data](https://github.com/mjbuckley/format-weather-data). View that project repo for information on how they are created.
 
 
-### WEATHER.JSON
+### weather.json
 
-weather.json is a file of all stations and their weather data. In the app this is used as const named stationsObj.  It takes the form of:
+weather.json is a file of all stations and their weather data. In the app it is used as const named stationsObj.  It takes the form of:
 
 ```
 { station1: {info}, station2: {info}, etc. }
 ```
 
 
-### EXAMPLE STATION IN WEATHER.JSON
+### Example Station in weather.json
 
 ```
 "USW00093044":{
@@ -34,7 +34,7 @@ weather.json is a file of all stations and their weather data. In the app this i
 ```
 
 
-### WEATHER VALUES PRESENT FOR EACH STATION IN WEATHER.JSON
+### Weather Values Available For Each Station
 
 - mTmxAv
 - mTmnAv
@@ -46,31 +46,31 @@ weather.json is a file of all stations and their weather data. In the app this i
 - andTmxGe80
 
 
-### INPUTMINMAX.JSON
+### inputminmax.json
 
 Object with properties being the weather range input options and the values being an array of the min, max, and default search values (on fresh load) for each range slider input. Min rounded down, max up. Default values are just values I chose that would return a smallish list of cities with comfortable weather in case the user just clicks "find matches" without changing the sliders at all.
 
 ```
 {
-  "hMTmxAvLe":[46,117,82],
-  "lMTmnAvGe":[-27,73,23],
-  "andSnGe1Le":[0,93,47],
-  "andSnGe1Ge":[0,93,47],
-  "andSnCGe1Le":[0,247,124],
-  "andSnCGe1Ge":[0,247,124],
-  "andPrGe5TiLe":[0,135,68],
-  "andPrGe5TiGe":[0,135,68],
-  "andTmnLe32Le":[0,308,154],
-  "andTmnLe32Ge":[0,308,154],
-  "andTmxGe60Le":[0,365,183],
-  "andTmxGe60Ge":[0,365,183],
-  "andTmxGe80Le":[0,365,183],
-  "andTmxGe80Ge":[0,365,183]
+  "hMTmxAvLe":[46,117,85],
+  "lMTmnAvGe":[-27,68,32],
+  "andSnGe1Le":[0,93,12],
+  "andSnGe1Ge":[0,93,0],
+  "andSnCGe1Le":[0,247,30],
+  "andSnCGe1Ge":[0,247,0],
+  "andPrGe5TiLe":[0,135,40],
+  "andPrGe5TiGe":[0,135,5],
+  "andTmnLe32Le":[0,308,60],
+  "andTmnLe32Ge":[0,308,0],
+  "andTmxGe60Le":[0,365,365],
+  "andTmxGe60Ge":[0,365,198],
+  "andTmxGe80Le":[0,340,182],
+  "andTmxGe80Ge":[0,340,34]
 }
 ```
 
 
-### NAMING IN INPUTMINMAX
+### Naming in inputminmax.json
 
 For many weather values I allow users to pick from a range, and so there are often 2 users values for each weather value. The Le/Ge (less/greater than or equal) added to the weather value names signify the two ends of the range that users will choose from. In this context:
 Le = User desires value less than or equal to chosen value (the max allowable)
@@ -93,7 +93,7 @@ Ex: If "andTmnLe32Le" had a value of 50, this means that the user wants the aver
 - andTmxGe80Ge
 
 
-### METROMAP.JSON
+### metromap.json
 
 Using metro names as the properties, this breaks each metro area up into cities,
 and breaks each city up into stations. This is helpful for creating metro area links:
@@ -103,7 +103,7 @@ and breaks each city up into stations. This is helpful for creating metro area l
 ```
 
 
-### WEATHEROPTIONS.JSON
+### weatheroptions.json
 
 A list of the weather options that are asked of the user (the same as the keys in inputminmax). In object form:
 
@@ -112,18 +112,18 @@ A list of the weather options that are asked of the user (the same as the keys i
 ```
 
 
-### DEFAULTMATCHES.JSON
+### defaultmatches.json
 
-Precomputed list of matches for initial app load. Based off of the default values in inputminmax. It is an array with the matching station ids inside.
+Precomputed list of matches for initial app load. Based off of the default values in inputminmax. It is an array with the matching station IDs inside.
 
 
-### NOTES ON UPDATING THE APP WITH NEW WEATHER INFO
+### Notes On Updating The App With New Weather Info
 
 There are several important steps that need to be carefully followed if new weather data is to be added.
 
-**In format-weather-data:** The data used for this app is initially created in a separate project called format-weather-data. Within that project, the build process for the data is contained in the file jsoncreate.js.
+**In format-weather-data:** The data used for this app is initially created in a separate project called [format-weather-data](https://github.com/mjbuckley/format-weather-data). Within that project, the build process for the data is contained in the file jsoncreate.js.
 
-1. Create a function to add the new data and add it where appropriate in jsoncreate.js. You will likely also need to add the name if the new data to the section in jsoncreate.js where stationsObj is initially created. Also, naming is IMPORTANT. See below note on naming.
+1. Create a function to add the new data and add it where appropriate in jsoncreate.js. You will likely also need to add the name of the new data to the section in jsoncreate.js where stationsObj is initially created. Also, naming is IMPORTANT. See below note on naming.
 2. Add the new data name to the section in jsoncreate.js that checks for stations with incomplete information.
 3. Manually alter createminmax.js, createinputminmax.js, and finddefaultmatches.js with new info.
 4. Run jsoncreate.js and copy over to the app the 5 outputted files.
@@ -137,4 +137,4 @@ There are several important steps that need to be carefully followed if new weat
 5. Add to list of weather values on location.js.
 6. Update data examples on this page with new value for future reference.
 
-**Note on naming:** For the 'Not Important' button in the app I'm using a hack based on weather value name to make that function work. See slidergroup.js to see how that works and pick a name accordingly.
+**Note on naming:** For the 'Not Important' button in the app I'm using a hack based on the names of the weather values to make that button work. See slidergroup.js to see how that works and pick a name accordingly.

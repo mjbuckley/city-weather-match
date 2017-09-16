@@ -6,7 +6,7 @@ import paramsMatchState from './utils/paramsmatchstate.js';
 import buildLink from './utils/buildlink.js';
 import './css/App.css';
 
-// Min, max, and midway values for each weather input category
+// Min, max, and default values for each weather input category
 const inputMinMax = require('./data/inputminmax.json');
 
 // Precomputed station matches for the default weather values
@@ -15,8 +15,7 @@ const defaultMatches = require('./data/defaultmatches.json');
 class App extends Component {
   constructor() {
     super();
-    // Properties in weatherValues are set to the midway point between min and max possible values
-    // Default matches are precomputed in jsoncreate.js and copied over.
+    // Properties in weatherValues are set to the default values in inputMinMax.
     this.state = {
       weatherValues: {
         hMTmxAvLe: inputMinMax["hMTmxAvLe"][2],
@@ -151,7 +150,7 @@ class App extends Component {
       <div className="app">
 
         <div className="app-header-wrapper">
-        
+
           <header className="app-header">
           <h1><Link to={buildLink(this.state, "/")}>City Weather Match</Link></h1>
 
