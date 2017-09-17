@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding-left: 35px;
   padding-right: 35px;
+  padding-bottom: 65px;
 }
 
 .about h2 {
@@ -21,7 +22,6 @@
 .about ol {
   list-style-position: inside;
   padding-left: 0px;
-  margin-bottom: 65px;
 }
 
 .about li {

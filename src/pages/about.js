@@ -44,6 +44,9 @@ function About() {
 
         <li><span className="about-list-highlight">Look at other weather stations in the same metro area:</span> Many cities are part of a larger metro area. Looking at the weather averages of the other cities in the same metro area is a great way to get a sense of an area's weather. If a city is part of a metro area, you will find a link to other cities in the same metro area in the "Supplementary Information" section. Not all cities belong to a metro area, and occasionally a city will belong to multiple metro areas. Also, while there is an official distinction between <a href="https://en.wikipedia.org/wiki/Metropolitan_statistical_area">Metropolitan</a> and <a href="https://en.wikipedia.org/wiki/Micropolitan_statistical_area">Micropolitan</a> areas, on this site they have been grouped together under the same "metro area" term.</li>
       </ol>
+
+      <h3>About Me</h3>
+      <p>My name is Michael Buckley, and I’m a web developer. I used this site as a place for me try out and experiment with new web development tools and ideas. I created the site as a single page app using React, React Router, and other tools. My code for the site is available on my Github account in the <a href="https://github.com/mjbuckley/city-weather-match">city-weather-match</a> repo. Visit the repo to see how the site was built and to get additional information on the data that was used. If you would like to get in touch with me about this site or about your web development needs, you can find my contact information on <a href="https://github.com/mjbuckley">my Github profile.</a></p>
     </div>
   );
 }

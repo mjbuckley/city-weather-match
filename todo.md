@@ -1,24 +1,22 @@
 ## TO DO NOW
 
-- Finish about page. What I have now is fine, but I should probably add something about me. At the very least there my name and some sort of contact and github link should be there.
+- Why is my contact info not showing on github?
+- Go over new section on About page and also have someone else read. Decide if anything else to do.
 - I should go through and make sure my comments are still good. I've changed a lot since they were written.
-- Finish README/todo
 - If I am going to be able to use https for my site, I need to go back to README/notes/datainfo/todo and format-weather-data's readme and change cityweathermatch links from http to https.
-- Figure out meaning of NOAA station names (ex. USC... vs. USW...).
 - Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
-- Not sure if I need to change ampersands in markdown to &amp. In general I think yes, but I'm curious about whether this is true for links too. Take a look (I think my issue would be in notes.md).
 - Add to Github
 - Decide how to host.
 - Consider React Snapshot or maybe even rolling my own version of it (maybe using something like gulp to build static pages?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404).
 
 
-## TO DO VERY SOON/IMMEDIATELY AFTER DEPLOY
+## TO DO VERY IMMEDIATELY AFTER DEPLOY
 
 - Improve on home image (maybe make two images with different weather fused into one image).
 - Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
 - Figure out final size of site (possibly in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
-- Check on low DPI screens. I think I fixed issue on webkit where thumb protrudes a bit too much up top. However, I'm not sure of cause and it occurred to me that it could be related to the retina screen scaling. In that case, check on a regular screen to make sure it doesn't recur there because the fix might cause problems there.
 - Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
+- Double check on low dpi screens. I've done some quick checks, but be sure things ok.
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
@@ -52,7 +50,7 @@
 - I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 - Use colors consistently: all hex or all rgba.
 - Right now the width of the div that gets changed in weatherrangeinput.js could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
-- Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed).
+- Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed). Perhaps a clue could be in station name (USC, USW, etc.)?
 - I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point. In some situations I think it would make things more clear, and in others more confusing.
 - There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 - (This probably isn't important because I'm no longer using hash history, but keeping around in case I ever switch back). Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
