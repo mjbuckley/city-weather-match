@@ -1,6 +1,6 @@
 # City Weather Match
 
-This Github repository contains the code for the [City Weather Match](http://www.cityweathermatch.com) website. [City Weather Match](http://www.cityweathermatch.com) helps users find the cities that match their personal weather preferences. After entering information about their preferred weather, the site searches data on nearly 4000 NOAA weather stations to find the locations that are a match for them. To find the cities that are a match for you, [visit the site now](http://www.cityweathermatch.com). If you are looking to see how the site works, continue reading below.
+This Github repository contains the code for the [City Weather Match](https://www.cityweathermatch.com) website. [City Weather Match](https://www.cityweathermatch.com) helps users find the cities that match their personal weather preferences. After entering information about their preferred weather, the site searches data on nearly 4000 NOAA weather stations to find the locations that are a match for them. To find the cities that are a match for you, [visit the site now](https://www.cityweathermatch.com). If you are looking to see how the site works, continue reading below.
 
 
 ## Data

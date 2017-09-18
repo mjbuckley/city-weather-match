@@ -1,9 +1,6 @@
 ## TO DO NOW
 
-- Why is my contact info not showing on github?
-- Go over new section on About page and also have someone else read. Decide if anything else to do.
-- I should go through and make sure my comments are still good. I've changed a lot since they were written.
-- If I am going to be able to use https for my site, I need to go back to README/notes/datainfo/todo and format-weather-data's readme and change cityweathermatch links from http to https.
+- Decide about a good contact option and ADD TO ABOUT PAGE (maybe make something general enough it could be used in other places like Central Ohio Trails, etc.).
 - Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
 - Add to Github
 - Decide how to host.
@@ -55,3 +52,4 @@
 - There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 - (This probably isn't important because I'm no longer using hash history, but keeping around in case I ever switch back). Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
 - At various points I use phrases like "All NOAA stations in city x". In many cases this isn't correct, because I am only looking at my subset of NOAA stations with complete information. Reword this?
+- Go back through my comments to make sure everything is still good and nothing needs to be redone.

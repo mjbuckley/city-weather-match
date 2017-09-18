@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router'
 import WeatherRangeInput from '../components/weatherrangeinput.js';
 import SliderGroup from '../components/slidergroup.js';
-// import { Link } from 'react-router'
-// import buildLink from '../utils/buildlink.js';
 import '../css/search.css';
 import {Helmet} from "react-helmet";
 

@@ -44,6 +44,11 @@ This is a collection of general notes about why certain choices were made in the
 - Notes on sizes: Regular/mini ipad logical resolution is 768 in portrait mode. iphone logical resolution is 414/375/320 for plus/s/se in portrait mode. Upper 300 low 400 seems pretty common across all brands (rarely above 480, most below) for cell. 768-800 seems pretty popular for tablets.
 
 
+### CSS
+
+- Although I have a separate css file for each component, this is mostly a stylistic issue, not something like true css modules. That is to say all css eventually gets added to the same global css file without any special namespacing being done to the individual files. So, be sure that css is always properly specific (I'm generally prefixing the component name to styled class names). Also, the order that the css gets combined cannot be depended on, so don't depend on order (order importance within the same file is fine).
+
+
 ### Colors
 
 - I went to Google's Material Design color picking site and picked a set of colors. I don't know if either of these were used exactly, but these are two selections that were a starting point for my color choices: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=039BE5&secondary.color=9e9e9e
