@@ -1,6 +1,5 @@
 ## TO DO NOW
 
-- Decide about a good contact option and ADD TO ABOUT PAGE (maybe make something general enough it could be used in other places like Central Ohio Trails, etc.).
 - Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
 - Add to Github
 - Decide how to host.

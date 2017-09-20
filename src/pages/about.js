@@ -46,7 +46,7 @@ function About() {
       </ol>
 
       <h3>About Me</h3>
-      <p>My name is Michael Buckley, and I’m a web developer. My code for the site, which was built using React, is available to view on my Github account in the <a href="https://github.com/mjbuckley/city-weather-match">city-weather-match</a> repository. Visit the repo to see how the site was built and to get additional information on the data that was used. Take a look at <a href="https://github.com/mjbuckley">my Github profile</a> to see some of the other projects I have built. If you would like to get in touch with me about this site or about your web development needs, you can contact me at email-here.</p>
+      <p>My name is Michael Buckley, and I’m a web developer. My code for this site, which was built using React, is available to view on my Github account in the <a href="https://github.com/mjbuckley/city-weather-match">city-weather-match</a> repository. Visit the repo to see how the site was built and to get additional information on the data that was used. Take a look at <a href="https://github.com/mjbuckley">my Github profile</a> to see some of the other projects I have built. If you would like to get in touch with me about this site or about your web development needs, you can contact me at <a href="mailto:contactmichaelbuckley@gmail.com">contactmichaelbuckley@gmail.com</a>.</p>
     </div>
   );
 }
