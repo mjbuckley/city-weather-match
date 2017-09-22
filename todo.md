@@ -1,5 +1,7 @@
 ## TO DO NOW
 
+- Remove zip from weather.json, figure out how to remove moment (and maybe color library from chartjs).
+
 - Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
 - Add to Github
 - Decide how to host.
