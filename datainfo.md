@@ -16,10 +16,9 @@ weather.json is a file of all stations and their weather data. In the app it is 
 
 ```
 "USW00093044":{
-  "zip":"87327",
   "city":"Zuni",
-  "multiCity":[], // If multiple stations in same city then all stations listed in array
-  "sharedarea":["Gallup, NM"], // Metro/micro areas that station belongs to that also contain at least one other station from another city.
+  "mC":[], // "multi city". If multiple stations in same city then all stations listed in array
+  "sA":["Gallup, NM"], // "shared area". Metro/micro areas that station belongs to that also contain at least one other station from another city.
   "state":"NM",
   "andSnGe1":"4.4", // Average # days snowfall >= 1 inch
   "andSnCGe1":"4.0", // Average # days snow ground cover >= 1 inch

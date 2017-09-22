@@ -48,8 +48,8 @@ function Location(props) {
 
 
   // Keep in mind that the weather values below are values for the station, not search values.
-  const multiCity = stationsObj[station]["multiCity"];
-  const sharedarea = stationsObj[station]["sharedarea"];
+  const multiCity = stationsObj[station]["mC"];
+  const sharedarea = stationsObj[station]["sA"];
   const hmTmxAv = stationsObj[station]["mTmxAv"][12];
   const lmTmnAv = stationsObj[station]["mTmnAv"][12];
   const andSnGe1 = stationsObj[station]["andSnGe1"];
