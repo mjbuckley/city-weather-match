@@ -1,8 +1,9 @@
 ## TO DO NOW
 
-- Remove zip from weather.json, figure out how to remove moment (and maybe color library from chartjs).
+- On make-smaller branch I removed zip and change key names from multiCity->mC and sharedarea->sA. Zip wasn't used in the app at all and mC and sA were only used a tiny bit so they are easy to change here. Consider what more to do. Need to look at the app and see how much trouble it would be to alter other names. Consider things like state->s city->c, but these gains are relatively small so not worth it if it will be a pain to change here. I think my weather values are too ingrained in things to try and change. Whatever I end up with, I need to copy over the new weather.json, update docs there and here, and also make name changes in the app (I haven't changed names like sharedarea yet).
+- I tried to remove moment.js from chart.js but including chart.js not from npm wasn't working. I can keep playing around with this, but not sure if it's worth it right now. Might also consider if I can only require chart.js it on the graph page, which would probably be just as good performance wise.
+- Do I need to do anything to eslint. I was expecting to get some linting errors after upgrade but didn't get any. Double check (also look for JSX highlighting).
 
-- Consider upgrading React version, and maybe others too? If I do this be sure I have a backup first and do it on a separate branch (also not sure about my readme since CRA had a readme of the same names whose name I changed. Will it get overwritten?). Also, should I lock the package.json more than it is in case someone clone the project and tried to build it in github?
 - Add to Github
 - Decide how to host.
 - Consider React Snapshot or maybe even rolling my own version of it (maybe using something like gulp to build static pages?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404).
