@@ -9,8 +9,8 @@ const stationsObj = require('../data/weather.json');
 // if the station is in props.matches or not (and not if !isActive). Similar but not the same as stationlink.js.
 function CityStationLink(props) {
 
-  const city = stationsObj[props.station]["city"];
-  const state = stationsObj[props.station]["state"];
+  const city = stationsObj[props.station]["c"];
+  const state = stationsObj[props.station]["s"];
   const path ="/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state) + "/" + encodeURIComponent(props.station);
   const link = buildLink(props, path);
   const matchClass = props.isActive && props.matches.includes(props.station) ? "match" : "not-match";

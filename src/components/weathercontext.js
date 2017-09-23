@@ -20,7 +20,7 @@ function WeatherContext(props) {
       <ul>
         {exampleStations.map(station => (
           <li key={station}>
-            {stationsObj[station]["city"]}, {stationsObj[station]["state"]}: <span className="weather-context-value">{(props.name.charAt(0) === "m") ? stationsObj[station][props.name][12] : stationsObj[station][props.name]} {props.unit}</span>
+            {stationsObj[station]["c"]}, {stationsObj[station]["s"]}: <span className="weather-context-value">{(props.name.charAt(0) === "m") ? stationsObj[station][props.name][12] : stationsObj[station][props.name]} {props.unit}</span>
           </li>
         ))}
       </ul>

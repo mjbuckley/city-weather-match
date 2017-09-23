@@ -14,12 +14,14 @@ weather.json is a file of all stations and their weather data. In the app it is 
 
 ### Example Station in weather.json
 
+Note that several keys have been shortened in an effort to decrease file size. If file size ever becomes less important, the code that does the shortening is in [jsoncreate.js](https://github.com/mjbuckley/format-weather-data/jsoncreate.js) in the format-weather-data repo, and it can easily be commented out in order to bring back the original full length key names.
+
 ```
 "USW00093044":{
-  "city":"Zuni",
+  "c":"Zuni", // "city"
   "mC":[], // "multi city". If multiple stations in same city then all stations listed in array
   "sA":["Gallup, NM"], // "shared area". Metro/micro areas that station belongs to that also contain at least one other station from another city.
-  "state":"NM",
+  "s":"NM", // "state"
   "andSnGe1":"4.4", // Average # days snowfall >= 1 inch
   "andSnCGe1":"4.0", // Average # days snow ground cover >= 1 inch
   "andPrGe5Ti":"6.2", // Average # days with precipitation >= 1/2 inch (5 tenths of an inch)

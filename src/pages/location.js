@@ -31,7 +31,7 @@ function Location(props) {
   }
 
   // Make sure city and state in url match the station in the url. If not, return error message.
-  if (city !== stationsObj[station]["city"] || state !== stationsObj[station]["state"]) {
+  if (city !== stationsObj[station]["c"] || state !== stationsObj[station]["s"]) {
     return (
       <div className="location error">
 

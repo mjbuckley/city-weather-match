@@ -6,7 +6,7 @@ export default function buildAlphaStationsObj(deDupedMatches) {
   let alphaStationsObj = {};
 
   deDupedMatches.forEach(function(station) {
-    const city = stationsObj[station]["city"];
+    const city = stationsObj[station]["c"];
     const firstLetter = city.charAt(0);
 
     if (alphaStationsObj[firstLetter]) {

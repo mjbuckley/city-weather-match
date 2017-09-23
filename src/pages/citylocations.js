@@ -16,8 +16,8 @@ function CityLocations(props) {
   let locations = [];
 
   Object.keys(stationsObj).forEach(function(station) {
-    if ( (stationsObj[station]["city"] === city) &&
-    (stationsObj[station]["state"] === state) ) {
+    if ( (stationsObj[station]["c"] === city) &&
+    (stationsObj[station]["s"] === state) ) {
       locations.push(station);
     }
   });

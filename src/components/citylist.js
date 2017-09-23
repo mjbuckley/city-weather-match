@@ -7,8 +7,8 @@ const stationsObj = require('../data/weather.json');
 function CityList(props) {
 
   const station = props.station;
-  const city = stationsObj[station]["city"];
-  const state = stationsObj[station]["state"];
+  const city = stationsObj[station]["c"];
+  const state = stationsObj[station]["s"];
 
   const path = "/location/" + encodeURIComponent(city) + "/" + encodeURIComponent(state) + "/" + encodeURIComponent(station);
 

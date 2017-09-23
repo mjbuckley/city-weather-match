@@ -5,8 +5,8 @@ function eliminateCityDupes(matches) {
   let previousValue = "";
 
   return matches.filter(function(station) {
-    const city = stationsObj[station]["city"];
-    const state = stationsObj[station]["state"];
+    const city = stationsObj[station]["c"];
+    const state = stationsObj[station]["s"];
 
     if ((city + state) !== previousValue) {
       previousValue = city + state;
