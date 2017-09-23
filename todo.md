@@ -1,8 +1,10 @@
 ## TO DO NOW
 
-- On make-smaller branch I removed zip and change key names from multiCity->mC and sharedarea->sA. Zip wasn't used in the app at all and mC and sA were only used a tiny bit so they are easy to change here. Consider what more to do. Need to look at the app and see how much trouble it would be to alter other names. Consider things like state->s city->c, but these gains are relatively small so not worth it if it will be a pain to change here. I think my weather values are too ingrained in things to try and change. Whatever I end up with, I need to copy over the new weather.json, update docs there and here, and also make name changes in the app (I haven't changed names like sharedarea yet).
-- I tried to remove moment.js from chart.js but including chart.js not from npm wasn't working. I can keep playing around with this, but not sure if it's worth it right now. Might also consider if I can only require chart.js it on the graph page, which would probably be just as good performance wise.
-- Do I need to do anything to eslint. I was expecting to get some linting errors after upgrade but didn't get any. Double check (also look for JSX highlighting).
+- Find more ways to make smaller/shorten initial load time. Consider:
+  - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
+  - Figure out how to do code splitting and get graphing stuff to only be loaded for that page.
+  - Esp. for home page, can I have some of it before everything is loaded.
+- Go through things on Google performance audit to so what I can easily improve.
 
 - Add to Github
 - Decide how to host.
@@ -49,7 +51,7 @@
 - I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 - Use colors consistently: all hex or all rgba.
 - Right now the width of the div that gets changed in weatherrangeinput.js could be a very long decimal in some cases. Should I truncate or round to a certain decimal place.
-- Weather.json: I don't think I use station zip at all. If load speed is an issue I could remove this from weather.json. Also, there might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed). Perhaps a clue could be in station name (USC, USW, etc.)?
+- Weather.json: There might be some water stations and other weird locations still in there to identify and remove (but non us states/dc already removed). Perhaps a clue could be in station name (USC, USW, etc.)?
 - I have a:visited styled the same as a:link. I think that's what I want, but revisit this at some point. In some situations I think it would make things more clear, and in others more confusing.
 - There are several sections where things like border are set but all values are 0. This was probably just from the slider builder. Can I just change it to none (probably don't want to omit entirely because of default browser styling).
 - (This probably isn't important because I'm no longer using hash history, but keeping around in case I ever switch back). Any url not beginning with home/#/ will be redirected to home. However, the entered url itself doesn't change, it just gets a #/ added to it. For example, entering home/search will bring up home redirect to home and have a url of home/search#/. Then, supposed you enter some values and get redirected to results. This results in home/search#/results. Everything works, but it is obviously confusing to look at. See if there's a way to fix this.
