@@ -2,9 +2,10 @@
 
 - Find more ways to make smaller/shorten initial load time. Consider:
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
-  - Figure out how to do code splitting and get graphing stuff to only be loaded for that page.
-  - Esp. for home page, can I have some of it before everything is loaded.
+  - Esp. for home page, can I have some of it load before everything is loaded. The key problem to figure out is that App requires weather.json for paremeter check so I have to figure out how to load stuff before app itself loads. I can think of ways to do this, but they aren't worth it. See if I can think of anything better. Maybe param check can be separated a step below somehow of a higher ordered component?
 - Go through things on Google performance audit to so what I can easily improve.
+- Spellcheck not working in comments, maybe other places. I feel like it used to but maybe not. Figure out what to change (also, go through to do and mov comments like these that only apply to me and not the project to somewhere else).
+- Comment code coloring is weird on asynccomponent.js. Why?
 
 - Add to Github
 - Decide how to host.

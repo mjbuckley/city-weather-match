@@ -8,9 +8,12 @@ import Search from './pages/search';
 import Results from './pages/results';
 import MetroArea from './pages/metroarea';
 import CityLocations from './pages/citylocations';
-import Location from './pages/location';
 import NotFound from './pages/notfound.js';
 import './css/index.css';
+import asyncComponent from './components/asynccomponent.js';
+
+// This will return the Location component, but it allows Chart.js to be downloaded when needed rather than upfront. See asynccomponent.js for more info. 
+const AsyncLocation = asyncComponent(() => import('./pages/location.js'));
 
 ReactDOM.render((
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
@@ -21,7 +24,7 @@ ReactDOM.render((
       <Route path="/results" component={Results}/>
       <Route path="/metro-areas/:metroarea" component={MetroArea}/>
       <Route path="/location/:city/:state" component={CityLocations}/>
-      <Route path="/location/:city/:state/:station" component={Location}/>
+      <Route path="/location/:city/:state/:station" component={AsyncLocation}/>
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
