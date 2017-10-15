@@ -1,6 +1,7 @@
 ## TO DO NOW
 
 - Find more ways to make smaller/shorten initial load time. Consider:
+  - I can make my home image smaller (right now it is much larger than it needs to be an is sized down).
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
   - Esp. for home page, can I have some of it load before everything is loaded. The key problem to figure out is that App requires weather.json for paremeter check so I have to figure out how to load stuff before app itself loads. I can think of ways to do this, but they aren't worth it. See if I can think of anything better. Maybe param check can be separated a step below somehow of a higher ordered component?
 - Go through things on Google performance audit to so what I can easily improve.
