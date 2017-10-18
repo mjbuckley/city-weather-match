@@ -14,9 +14,103 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>City Weather Match</title>
+    <style type="text/css">
+      * {
+        box-sizing: inherit;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        color: black;
+        line-height: 1.5;
+      }
+      .tmp-header-wrapper {
+        border-bottom: 2px solid #cccccc;
+        background-color: white;
+      }
+      .tmp-header {
+        max-width: 1920px;
+        padding: 10px 35px 10px 35px;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+      }
+      .tmp-header h1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 26px;
+        font-weight: 300;
+      }
+      @media (max-width: 750px) {
+        .tmp-header {
+          padding: 10px 30px 10px 30px;
+        }
+      }
+      @media (max-width: 600px) {
+        .tmp-header {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          padding: 0px;
+        }
+        .tmp-header h1 {
+          padding: 10px 30px 10px 30px;
+        }
+      }
+      @media (max-width: 450px) {
+        .tmp-header h1 {
+          padding: 10px 20px 10px 20px;
+        }
+      }
+      .loading-spinner {
+        border: 14px solid #f8fafb;
+        border-top: 14px solid #039be5;;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: 2s linear infinite spinner;
+        animation: 2s linear infinite spinner;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @-webkit-keyframes spinner {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      @keyframes spinner {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .loading-text {
+        text-align: center;
+        font-weight: 400;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      .spinner-section {
+        position: relative;
+        top: 20vh;
+      }
+      </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="tmp-header-wrapper">
+        <header class="tmp-header">
+          <h1>City Weather Match</h1>
+        </header>
+      </div>
+      <div class="spinner-section">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-text">Loading Weather Data<h2>
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -1,5 +1,9 @@
 ## TO DO NOW
 
+- Finish loader and then also add to asyncComponent.
+- See how much size I can save be making other components async (but at least keep something not async so that helmet gets picked up, probably home because it is what I'm optimising for).
+- I believe I can change my require to import for weather.json (reg import, not dynamic). Do and check.
+
 - Find more ways to make smaller/shorten initial load time. Consider:
   - I can make my home image smaller (right now it is much larger than it needs to be an is sized down).
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.

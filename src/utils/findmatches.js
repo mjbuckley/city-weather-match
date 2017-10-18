@@ -4,10 +4,6 @@
 // The weather info for the NOAA stations.
 const stationsObj = require('../data/weather.json');
 
-// const stationsObj = (async () => {
-//     await import('../data/weather.json');
-// })();
-
 export default function findMatches(info) {
   let stationMatch = [];
   for (let station in stationsObj) {
