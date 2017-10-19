@@ -57,6 +57,7 @@ This is a collection of general notes about why certain choices were made in the
 
 ## Miscellaneous
 
+- I sized the home image (a .svg) to 250px x 167px even though I think it might technically be something like 166.667. I don't think there will be any issues with this, but take a look here if there are ever any issues with the image.
 - Keep in mind that React sanitizes jsx, but the inputs from the user (form, url, etc) are not themselves sanitized on retrieval. User input will come in as a string. It's generally hard to do bad stuff with strings, but not impossible (eval, function constructor, etc.). I've double checked how I've used inputs, and everything is good, but always keep this in mind.
 - I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
 
