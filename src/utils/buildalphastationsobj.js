@@ -1,4 +1,4 @@
-const stationsObj = require('../data/weather.json');
+import stationsObj from '../data/weather.json';
 
 // Create an object that breaks deDupedMatches in alphabetical sections
 // ex: {a: [staion1, staion2], d: [station1], etc.}

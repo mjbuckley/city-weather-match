@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import buildLink from '../utils/buildlink.js';
-
-const stationsObj = require('../data/weather.json');
+import stationsObj from '../data/weather.json';
 
 function CityList(props) {
 

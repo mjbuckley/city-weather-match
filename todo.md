@@ -1,17 +1,12 @@
 ## TO DO NOW
 
-- Finish loader and then also add to asyncComponent.
-- See how much size I can save be making other components async (but at least keep something not async so that helmet gets picked up, probably home because it is what I'm optimising for).
-- I believe I can change my require to import for weather.json (reg import, not dynamic). Do and check.
-
+- Finish loader spinner and then probably also add to asyncComponent.
+- See how much size I can save be making other components async (but at least keep something not async so that helmet gets picked up, probably home/search because that is what I'm optimizing for).
 - Find more ways to make smaller/shorten initial load time. Consider:
-  - I can make my home image smaller (right now it is much larger than it needs to be an is sized down).
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
-  - Esp. for home page, can I have some of it load before everything is loaded. The key problem to figure out is that App requires weather.json for paremeter check so I have to figure out how to load stuff before app itself loads. I can think of ways to do this, but they aren't worth it. See if I can think of anything better. Maybe param check can be separated a step below somehow of a higher ordered component?
 - Go through things on Google performance audit to so what I can easily improve.
 - Spellcheck not working in comments, maybe other places. I feel like it used to but maybe not. Figure out what to change (also, go through to do and mov comments like these that only apply to me and not the project to somewhere else).
 - Comment code coloring is weird on asynccomponent.js. Why?
-
 - Add to Github
 - Decide how to host.
 - Consider React Snapshot or maybe even rolling my own version of it (maybe using something like gulp to build static pages?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404).
@@ -52,7 +47,6 @@
 - There are several places where I do something like passing this.props when really I don't need everything. I do this because it's cleaner/simpler, but I should probably only pass what I need. Also, could the spread operator be used here?
 - Should I be capitalizing my consts?
 - Ideally I should change how I handle partial valid url query params. Right now, I fill in the gaps with end range values and appropriately update state as needed, but I leave the incomplete url unchanged. The problem here is that if React ever needs to run componentWillReceiveProps, then the whole process of needing to fill in the gaps and compare to state will need to happen again. Everything will ultimately still work, but it would be nice if this could be avoided. So, perhaps find a way to alter url when I fill in gaps?
-- Do I need a JSON loader? What I'm doing (require) seems to be working fine, but I've seen references to needing one with webpack (version 1, not version 2, but I think create-react-app uses v.1 right now). Lots of stuff is hidden with create-react-app, so maybe some sort of loader is already included? Also, I've seen suggestions that it's better to load with webpack. Not 100% sure why, but worth looking in to. Keep all this in mind if anything weird starts happening/figure out why webpack might be a better solution.
 - In the app header one of the options is always "New Search". Does it make sense for this to show up on the search page?
 - I don't love any of the focus options for the range slider. Right now I have the thumb get a bit darker when focused. So this is two part. 1) consider better focus ideas, and 2) there is some sort of bug with Safari where the focus doesn't work. I'm fine letting this be for now, but have a look at it again some time.
 - Use colors consistently: all hex or all rgba.

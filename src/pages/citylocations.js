@@ -2,8 +2,7 @@ import React from 'react';
 import StationLink from '../components/stationlink.js';
 import '../css/citylocation.css';
 import {Helmet} from "react-helmet";
-
-const stationsObj = require('../data/weather.json');
+import stationsObj from '../data/weather.json';
 
 function CityLocations(props) {
 

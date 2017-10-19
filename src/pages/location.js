@@ -5,8 +5,7 @@ import SharedAreaList from '../components/sharedarealist.js';
 import GraphContainer from '../components/graphcontainer.js';
 import '../css/location.css';
 import {Helmet} from "react-helmet";
-
-const stationsObj = require('../data/weather.json');
+import stationsObj from '../data/weather.json';
 
 function Location(props) {
 

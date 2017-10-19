@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/weathercontext.css';
-
-const stationsObj = require('../data/weather.json');
+import stationsObj from '../data/weather.json';
 
 // Function returns a div that toggles between being displayed/invisible depending on clicked status
 // of parent component. When visible, it shows the weather averages of a few well known cities. Used
