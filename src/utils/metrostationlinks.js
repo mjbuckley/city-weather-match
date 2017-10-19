@@ -1,5 +1,4 @@
-// Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
-const metroMap = require('../data/metromap.json');
+import metroMap from '../data/metromap.json'; // Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
 
 // The MetroArea page contains a list of cities in the given metro area. Each city name in the list links to a
 // station in that city. This function is used to find the stations that should be linked to. It takes a metro

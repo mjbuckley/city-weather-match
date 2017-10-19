@@ -1,4 +1,4 @@
-const weatherOptions = require('../data/weatheroptions.json');
+import weatherOptions from '../data/weatheroptions.json';
 
 // Check to see if next contains the same weather values as current. Meant to check url query params against state
 // (current) in componentWillMount (in which case next is this.props.location.query), or in componentWillReceiveProps

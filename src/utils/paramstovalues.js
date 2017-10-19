@@ -1,5 +1,5 @@
-const inputMinMax = require('../data/inputminmax.json');
-const weatherOptions = require('../data/weatheroptions.json');
+import inputMinMax from '../data/inputminmax.json';
+import weatherOptions from '../data/weatheroptions.json';
 
 // The value (either max or min possible) for each weather option such no station is excluded by that value.
 // Used to fill in valid but partially empty query params.

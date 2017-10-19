@@ -42,7 +42,7 @@ import About from './pages/about.js';
 import Home from './pages/home.js';
 import Search from './pages/search';
 import Results from './pages/results';
-import MetroArea from './pages/metroarea';
+// import MetroArea from './pages/metroarea';
 import CityLocations from './pages/citylocations';
 import NotFound from './pages/notfound.js';
 
@@ -57,7 +57,7 @@ const AsyncLocation = asyncComponent(() => import('./pages/location.js'));
 // const AsyncAbout = asyncComponent(() => import('./pages/about.js'));
 // const AsyncSearch = asyncComponent(() => import('./pages/search.js'));
 // const AsyncResults = asyncComponent(() => import('./pages/results.js'));
-// const AsyncMetroArea = asyncComponent(() => import('./pages/metroarea.js'));
+const AsyncMetroArea = asyncComponent(() => import('./pages/metroarea.js'));
 // const AsyncCityLocations = asyncComponent(() => import('./pages/citylocations.js'));
 // const AsyncNotFound = asyncComponent(() => import('./pages/notfound.js'));
 
@@ -71,7 +71,7 @@ ReactDOM.render((
       <Route path="/about" component={About}/>
       <Route path="/search" component={Search}/>
       <Route path="/results" component={Results}/>
-      <Route path="/metro-areas/:metroarea" component={MetroArea}/>
+      <Route path="/metro-areas/:metroarea" component={AsyncMetroArea}/>
       <Route path="/location/:city/:state" component={CityLocations}/>
       <Route path="/location/:city/:state/:station" component={AsyncLocation}/>
       <Route path="*" component={NotFound} />

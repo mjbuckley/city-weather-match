@@ -3,10 +3,7 @@ import metroStationLinks from '../utils/metrostationlinks.js';
 import CityStationLink from '../components/citystationlink.js';
 import '../css/metroarea.css';
 import {Helmet} from "react-helmet";
-
-
-// Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
-const metroMap = require('../data/metromap.json');
+import metroMap from '../data/metromap.json'; // Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
 
 function MetroArea(props) {
 

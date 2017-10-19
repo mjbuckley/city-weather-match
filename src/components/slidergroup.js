@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import WeatherContext from './weathercontext.js';
 import '../css/slidergroup.css';
-
-const inputMinMax = require('../data/inputminmax.json');
+import inputMinMax from '../data/inputminmax.json';
 
 
 // Component holds related sliders for each type of weather value. In general, this means the min

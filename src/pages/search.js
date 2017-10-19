@@ -4,9 +4,7 @@ import WeatherRangeInput from '../components/weatherrangeinput.js';
 import SliderGroup from '../components/slidergroup.js';
 import '../css/search.css';
 import {Helmet} from "react-helmet";
-
-// Min, max, and midway possible values for each weather category.
-const inputMinMax = require('../data/inputminmax.json');
+import inputMinMax from'../data/inputminmax.json'; // Min, max, and midway possible values for each weather category.
 
 class Search extends Component {
   constructor(props) {

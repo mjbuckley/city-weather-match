@@ -5,12 +5,9 @@ import findMatches from './utils/findmatches.js';
 import paramsMatchState from './utils/paramsmatchstate.js';
 import buildLink from './utils/buildlink.js';
 import './css/App.css';
+import inputMinMax from'./data/inputminmax.json'; // Min, max, and default values for each weather input category
+import defaultMatches from'./data/defaultmatches.json'; // Precomputed station matches for the default weather values
 
-// Min, max, and default values for each weather input category
-const inputMinMax = require('./data/inputminmax.json');
-
-// Precomputed station matches for the default weather values
-const defaultMatches = require('./data/defaultmatches.json');
 
 class App extends Component {
   constructor() {
