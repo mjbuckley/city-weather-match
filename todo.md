@@ -1,6 +1,5 @@
 ## TO DO NOW
 
-- Spellcheck not working in comments, maybe other places. I feel like it used to but maybe not. Figure out what to change (also, go through to do and move comments like these that only apply to me and not the project to somewhere else).
 - Clean up commented out stuff, make sure comments still good.
 - Go through things on Google performance audit to so what I can easily improve.
 - Figure out what I need to do about PWA stuff.
