@@ -1,15 +1,12 @@
 ## TO DO NOW
 
-- Finish loader spinner and then probably also add to asyncComponent.
-- See how much size I can save be making other components async (but at least keep something not async so that helmet gets picked up, probably home/search because that is what I'm optimizing for).
-- Find more ways to make smaller/shorten initial load time. Consider:
-  - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
+- Spellcheck not working in comments, maybe other places. I feel like it used to but maybe not. Figure out what to change (also, go through to do and move comments like these that only apply to me and not the project to somewhere else).
+- Clean up commented out stuff, make sure comments still good.
 - Go through things on Google performance audit to so what I can easily improve.
-- Spellcheck not working in comments, maybe other places. I feel like it used to but maybe not. Figure out what to change (also, go through to do and mov comments like these that only apply to me and not the project to somewhere else).
-- Comment code coloring is weird on asynccomponent.js. Why?
+- Figure out what I need to do about PWA stuff.
+
 - Add to Github
-- Decide how to host.
-- Consider React Snapshot or maybe even rolling my own version of it (maybe using something like gulp to build static pages?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404).
+- Decide how to host (Netlify?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404). Also, make sure https.
 
 
 ## TO DO VERY IMMEDIATELY AFTER DEPLOY
@@ -23,6 +20,10 @@
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
 
+- Find more ways to make js smaller/shorten initial load time. Consider:
+  - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
+  - I could make more page components async. I decided to limit it to just the graph and metro areas pages because those are the two with significant size, but it's possible doing all pages would be a good idea (but would make initial page transfers slower).
+- I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
 - Visually make links stand out more?
 - Styling is acceptable, but I still wish things (esp search and location) were better.
