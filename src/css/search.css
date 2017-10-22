@@ -1,12 +1,14 @@
-/*General Search Styling*/
+/* General Search Styling */
 
   .search-wrapper {
     background-color: #f8fafb;
   }
 
-  /*Setting overflow to auto makes div expand to contain inner content's margins
-  (otherwise h2's margins overflow and push div down, leaving a gap). Could get same effect
-  by controlling h2 margins but I think this makes more sense for what I want.*/
+  /**
+   * Setting overflow to auto makes div expand to contain inner content's margins (otherwise h2's
+   * margins overflow and push div down, leaving a gap). Could get same effect by controlling h2
+   * margins but I think this makes more sense for what I want.
+   */
   .search {
     max-width: 870px;
     margin: 0 auto;
@@ -27,8 +29,7 @@
   }
 
 
-
-/*Form Styling*/
+/* Form Styling */
 
   form {
     background-color: white;
@@ -86,7 +87,7 @@
   }
 
 
-/*Small Screen Styling*/
+/* Small Screen Styling */
 
 @media (max-width: 750px) {
   .search {

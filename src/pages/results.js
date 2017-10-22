@@ -5,9 +5,13 @@ import '../css/results.css';
 import CitiesList from '../components/citieslist.js';
 import {Helmet} from "react-helmet";
 
+
 function Results(props) {
 
-  // If isActive is false that means there is no active search and a results page makes no sense. Give error message.
+  /**
+   * If isActive is false that means there is no active search and a results page makes no sense.
+   * Give error message.
+   */
   if (props.isActive === false) {
     return (
       <div className="results">

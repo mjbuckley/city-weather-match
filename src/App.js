@@ -5,11 +5,12 @@ import findMatches from './utils/findmatches.js';
 import paramsMatchState from './utils/paramsmatchstate.js';
 import buildLink from './utils/buildlink.js';
 import './css/App.css';
-import inputMinMax from'./data/inputminmax.json'; // Min, max, and default values for each weather input category
-import defaultMatches from'./data/defaultmatches.json'; // Precomputed station matches for the default weather values
+import inputMinMax from'./data/inputminmax.json';
+import defaultMatches from'./data/defaultmatches.json';
 
 
 class App extends Component {
+
   constructor() {
     super();
     // Properties in weatherValues are set to the default values in inputMinMax.
@@ -38,12 +39,17 @@ class App extends Component {
   }
 
 
-  // On App mount this checks query param values against values in state and then updates state if needed.
-  // Note that this code is the same as in componentWillReceiveProps except this.props is used instead of nextProps.
+  /**
+   * On App mount this checks query param values against values in state and then updates state if
+   * needed. Note that this code is the same as in componentWillReceiveProps except this.props is
+   * used instead of nextProps.
+   */
   componentWillMount() {
 
-    // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false. If empty but isActiveis true then set it to false.
+    /**
+     * Empty query params signify that isActive should be false, so do nothing if they are empty and
+     * isActive is set to false. If empty but isActiveis true then set it to false.
+     */
     if (Object.keys(this.props.location.query).length === 0) {
 
       if (this.state.isActive === true) {
@@ -53,7 +59,10 @@ class App extends Component {
       return;
     }
 
-    // If query params match state, no need to change weather values, but change isActive to true if currently false.
+    /**
+     * If query params match state, no need to change weather values, but change isActive to true if
+     * currently false.
+     */
     if (paramsMatchState(this.props.location.query, this.state.weatherValues)) {
 
       if (this.state.isActive === false) {
@@ -63,7 +72,7 @@ class App extends Component {
       return;
     }
 
-    // If we get here, query params are present and don't match state. See if they are valid then handle.
+    // If we are here, query params are present and don't match state. See if they are valid then handle.
     let info = paramsToValues(this.props);
 
     // info["isActive"] is only true if paramsToValues returns a complete/valid set of weather values.
@@ -85,13 +94,17 @@ class App extends Component {
   }
 
 
-  // Watch for query param changes and update state as needed. This is needed because React Router does not treat
-  // a change in query params as a reload of a page, just as the passing in of new props.
-  // Note that this code is the same as in componentWillMount except nextProps is used instead of this.props.
+  /**
+   * Watch for query param changes and update state as needed. This is needed because React Router
+   * does not treat a change in query params as a reload of a page, just as the passing in of new
+   * props. Note that this code is the same as in componentWillMount except nextProps is used
+   * instead of this.props.
+   */
   componentWillReceiveProps(nextProps) {
 
-    // Empty query params signify that isActive should be false, so do nothing if they are empty and isActive is set to
-    // false. If empty but isActiveis true then set it to false.
+    /** Empty query params signify that isActive should be false, so do nothing if they are empty
+    * and isActive is set to false. If empty but isActiveis true then set it to false.
+    */
     if (Object.keys(nextProps.location.query).length === 0) {
 
       if (this.state.isActive === true) {
@@ -102,7 +115,10 @@ class App extends Component {
     }
 
 
-    // If query params match state, no need to change weather values, but change isActive to true if currently false.
+    /**
+     * If query params match state, no need to change weather values, but change isActive to true if
+     * currently false.
+     */
     if (paramsMatchState(nextProps.location.query, this.state.weatherValues)) {
 
       if (this.state.isActive === false) {
@@ -133,10 +149,12 @@ class App extends Component {
     }
   }
 
-
-  // Function expects an info object with any/all of the following: weatherValues, matches, and isActive.
-  // Note that if updating weatherValues is should contain the full object, not just a property in the object
-  // Ex: BAD updateWeatherState({weatherValues.hMTmxAvLe: 100}). DO NOT DO THIS.
+  /**
+   * Function expects an info object with any/all of the following: weatherValues, matches, and
+   * isActive. Note that if updating weatherValues is should contain the full object, not just a
+   * property in the object. Ex: BAD updateWeatherState({weatherValues.hMTmxAvLe: 100}). DO NOT DO
+   * THIS.
+   */
   updateWeatherState(info) {
     this.setState(info);
   };
@@ -163,11 +181,14 @@ class App extends Component {
           </header>
         </div>
 
-        {/* Because children of App are added in index.js by React Router, I cannot find a good way to
-          pass App's state values as props down to its children. This is a workaround that clones children of
-          App and adds needed props here. It would be nice to find a better way to do this, but it works fine.
-          This method passes down some props that some children won't need. There is no problem with this right now
-          but would prefer something that didn't do this. */}
+        {/**
+         * Because children of App are added in index.js by React Router, I cannot find a good way
+         * to pass App's state values as props down to its children. This is a workaround that
+         * clones children of App and adds needed props here. It would be nice to find a better way
+         * to do this, but it works fine. This method passes down some props that some children
+         * won't need. There is no problem with this right now but would prefer something that
+         * didn't do this.
+         */}
 
         {React.Children.map(
           this.props.children,

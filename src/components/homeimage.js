@@ -1,7 +1,9 @@
 import React from 'react';
 import cityImage from '../city-image.svg';
 
+
 function HomeImage(props) {
+
   return (
     <img
       src={cityImage}

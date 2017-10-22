@@ -1,6 +1,9 @@
 ## TO DO NOW
 
-- Clean up commented out stuff, make sure comments still good.
+- Do comments in index.html get removed?
+- Add async note in notes.md.
+- minify css in index.html?
+
 - Go through things on Google performance audit to so what I can easily improve.
 - Figure out what I need to do about PWA stuff.
 

@@ -1,13 +1,12 @@
 .home-wrapper {
-  /*background-color: #c2c2c2;*/
   background-color: white;
   border-bottom: 1px solid #cccccc;
-
 }
 
-/*Setting overflow to auto makes div expand to contain inner content's margins
-(otherwise h2's margins overflow and push div down, leaving a gap). Could get same
-effect by controlling h2 margins but I think this makes more sense for what I want.*/
+/* Setting overflow to auto makes div expand to contain inner content's margins (otherwise h2's
+ * margins overflow and push div down, leaving a gap). Could get same effect by controlling h2
+ * margins but I think this makes more sense for what I want.
+ */
 .home {
   min-height: 300px;
   max-width: 870px;
@@ -60,7 +59,7 @@ p.home-arrow {
 }
 
 
-/*Small Screen Styling*/
+/* Small Screen Styling */
 
 @media (max-width: 750px) {
   .home {

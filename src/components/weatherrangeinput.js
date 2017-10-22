@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/weatherrangeinput.css';
 
+
 // Component for a range input slider inside of a form. Min and max should come from minmax.json
 // function WeatherRangeInput(props) {
 function WeatherRangeInput(props) {
@@ -14,7 +15,6 @@ function WeatherRangeInput(props) {
   // Determine whether to fill from right or left
   const leftColor = (props.label === "AT LEAST") ? "#9e9e9e" : "rgba(207, 207, 207, 1)";
   const rightColor = (props.label === "AT LEAST") ? "rgba(207, 207, 207, 1)" : "#9e9e9e";
-
 
   // Inline styles to be applied
   const leftStyle = { width: fillValue, backgroundColor: leftColor };

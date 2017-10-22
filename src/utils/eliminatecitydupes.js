@@ -1,7 +1,10 @@
 import stationsObj from '../data/weather.json';
 
-// Takes an array of station matches and returns an array with only one station per city.
-// The first station in a city is kept, and all others are discarded.
+
+/**
+ * Takes an array of station matches and returns an array with only one station per city. The first
+ * station in a city is kept, and all others are discarded.
+ */
 function eliminateCityDupes(matches) {
 
   let previousValue = "";

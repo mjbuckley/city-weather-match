@@ -7,6 +7,8 @@ import '../css/location.css';
 import {Helmet} from "react-helmet";
 import stationsObj from '../data/weather.json';
 
+
+// This is the page that displays all of the data for an individual station.
 function Location(props) {
 
   const station = decodeURIComponent(props.params.station);

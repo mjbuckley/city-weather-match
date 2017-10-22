@@ -1,10 +1,18 @@
-import metroMap from '../data/metromap.json'; // Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
+import metroMap from '../data/metromap.json';
+/**
+ * metroMap is a mapping of metro areas to cities to stations:
+ * {metroArea: {city: [station1, station2], city2: [station]}, etc.}
+ */
+ 
 
-// The MetroArea page contains a list of cities in the given metro area. Each city name in the list links to a
-// station in that city. This function is used to find the stations that should be linked to. It takes a metro
-// area name and returns an array of station id(s), with one station for each city in the metro
-// area. If isActive, it returns the first station in each city that is also in matches. If no station is in
-// matches (or if !isActive) then it just returns the first station in each city.
+/**
+* The MetroArea page contains a list of cities in the given metro area. Each city name in the list
+* links to a station in that city. This function is used to find the stations that should be linked
+* to. It takes a metro area name and returns an array of station id(s), with one station for each
+* city in the metro area. If isActive, it returns the first station in each city that is also in
+* matches. If no station is in matches (or if !isActive) then it just returns the first station in
+* each city.
+*/
 function metroStationLinks(metroArea, props) {
 
   // Array of all cities in metroArea

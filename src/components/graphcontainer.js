@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Graph from './graph.js';
 import MobileGraph from './mobilegraph.js';
 
-// Renders correct graph based on window size. See notes for why this is necessary.
+// Renders correct graph based on window size. See notes.md for why this is necessary.
 class GraphContainer extends Component {
+  
   constructor(props) {
     super(props);
     this.state = { width: window.innerWidth };

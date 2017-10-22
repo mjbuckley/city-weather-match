@@ -5,11 +5,13 @@ import '../css/home.css';
 import {Helmet} from "react-helmet";
 
 
-// Home page. Note that empty div is a sort of hack to do a pseudo anchor link. I want the arrow on the
-// home page to be a link to something like cityweathermatch#search. It is possible but unpleasant to
-// implement with React Router, so since I'm only doing this once on the site I like this better. It
-// creates a div with no height and a ref, and then on arrow click I scroll to that empty div nodes
-// location.
+/**
+ * Home page. Note that empty div is a sort of hack to do a pseudo anchor link. I want the arrow on
+ * the home page to be a link to something like cityweathermatch#search. It is possible but
+ * unpleasant to implement with React Router, so since I'm only doing this once on the site I like
+ * this better. It creates a div with no height and a ref, and then on arrow click I scroll to that
+ * empty div nodes location.
+ */
 function Home(props) {
 
   let spotNode = null;

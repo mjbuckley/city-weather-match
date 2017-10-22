@@ -3,8 +3,10 @@ import CityList from './citylist.js';
 import '../css/alphalistsection.css';
 
 
-// Returns a list grouping for one letter. One of these will be created for each letter needed
-// based on search results (no letter section returned if no city with that first letter is in results).
+/**
+ * Takes an array of result cities that start with the same letter and returns them in a formatted
+ * grouping ready for display.
+ */
 function AlphaListSection(props) {
 
   return (

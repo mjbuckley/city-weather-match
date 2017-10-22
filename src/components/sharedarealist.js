@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import buildLink from '../utils/buildlink.js';
 import '../css/sharedarealist.css';
 
+
 // Displays a list of the metro areas that a station is part of.
 function SharedAreaList(props) {
 

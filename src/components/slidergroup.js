@@ -4,13 +4,16 @@ import '../css/slidergroup.css';
 import inputMinMax from '../data/inputminmax.json';
 
 
-// Component holds related sliders for each type of weather value. In general, this means the min
-// and the max sliders, but for those weather values with only a min or max then it will just hold
-// one slider. Takes 4 props: updateSliderState (function defined in Search
-// that updates slider state in Search), name (the generalized name of the weather value the sliders are
-// for. That is the value in weather.json. Ex: 'andTmnLe32' not 'andTmnLe32Ge'), unit (F, days, etc.),
-// and legend (Text to appear describing slider(s)).
+/**
+ * Component holds related sliders for each type of weather value. In general, this means the min
+ * and the max sliders, but for those weather values with only a min or max then it will just hold
+ * one slider. Takes 4 props: updateSliderState (function defined in Search that updates slider
+ * state in Search), name (the generalized name of the weather value the sliders are for. That is
+ * the value in weather.json. Ex: 'andTmnLe32' not 'andTmnLe32Ge'), unit (F, days, etc.), and legend
+ * (Text to appear describing slider(s)).
+ */
 class SliderGroup extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -82,8 +85,6 @@ class SliderGroup extends Component {
         </label>
 
         <div style={(this.state.isNotImportant) ? {display: "none"} : {display: "block"}}>
-
-
 
           <WeatherContext name={this.props.name} clicked={this.state.showContext} unit={this.props.unit} />
 

@@ -1,8 +1,12 @@
 import stationsObj from '../data/weather.json';
 
-// Takes an info object with the selected weather values and returns an array of
-// stations that match the search criteria.
+
+/**
+ * Takes an info object with the selected weather values and returns an array of stations that match
+ * the search criteria.
+ */
 export default function findMatches(info) {
+  
   let stationMatch = [];
   for (let station in stationsObj) {
 

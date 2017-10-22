@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import '../css/graph.css';
 
-// This is the same as graph.js but with different graph proportions and a change to shorter
-// month labels.
+
+/**
+ * This is the same as graph.js but with different graph proportions and a change to shorter month
+ * labels.
+ */
 class MobileGraph extends Component {
+
   constructor(props) {
     super(props);
     this.drawGraph = this.drawGraph.bind(this);

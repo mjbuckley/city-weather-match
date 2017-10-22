@@ -3,7 +3,13 @@ import '../css/notfound.css';
 import {Helmet} from "react-helmet";
 import { Link } from 'react-router';
 
+
+/**
+ * This is a 404-like page. Because React Router is handling url change once the app is loaded, a
+ * true 404 cannot be returned, so this is used instead.
+ */
 function NotFound() {
+
   return (
     <div className="notfound">
 

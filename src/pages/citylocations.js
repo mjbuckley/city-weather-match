@@ -4,14 +4,18 @@ import '../css/citylocation.css';
 import {Helmet} from "react-helmet";
 import stationsObj from '../data/weather.json';
 
+
+// This page lists all weather stations in a given city
 function CityLocations(props) {
 
   const city = decodeURIComponent(props.params.city);
   const state = decodeURIComponent(props.params.state);
   const description = "A listing of all NOAA weather stations in " + city + ", " + state;
 
-  // Find all stations in city. Also works to verify that city/state params are valid because invalid
-  // name(s) won't turn up any locations.
+  /**
+   * Find all stations in city. Also works to verify that city/state params are valid because
+   * invalid name(s) won't turn up any locations.
+   */
   let locations = [];
 
   Object.keys(stationsObj).forEach(function(station) {

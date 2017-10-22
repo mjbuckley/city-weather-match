@@ -1,4 +1,4 @@
-/*Styling for location specific error pages*/
+/* Styling for location specific error pages */
 
   .location.error {
     max-width: 870px;
@@ -8,8 +8,7 @@
   }
 
 
-
-/*Station Name & Graph Section*/
+/* Station Name & Graph Section */
 
   .location-title-graph {
     max-width: 870px;
@@ -29,8 +28,7 @@
   }
 
 
-
-/*Weather stats*/
+/* Weather stats */
 
   .location-weather-stats-wrapper {
     background-color: white;
@@ -99,8 +97,7 @@
   }
 
 
-
-/*Supplementary Info*/
+/* Supplementary Info */
 
   .location-additional-info-wrapper {
     background-color: #f8fafb;
@@ -135,7 +132,7 @@
   }
 
 
-/*Small Screen Styles*/
+/* Small Screen Styles */
 
   @media (max-width: 750px) {
     .location.error {
@@ -175,7 +172,7 @@
       padding-right: 0px;
     }
 
-    /*Outside position and margin needed to keep items over li items aligned with above text.*/
+    /* Outside position and margin needed to keep items over li items aligned with above text. */
     .location-weather-stats-info li {
       list-style: square;
       list-style-position: outside;

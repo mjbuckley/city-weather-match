@@ -4,9 +4,11 @@ import WeatherRangeInput from '../components/weatherrangeinput.js';
 import SliderGroup from '../components/slidergroup.js';
 import '../css/search.css';
 import {Helmet} from "react-helmet";
-import inputMinMax from'../data/inputminmax.json'; // Min, max, and midway possible values for each weather category.
+import inputMinMax from '../data/inputminmax.json';
+
 
 class Search extends Component {
+
   constructor(props) {
     super(props);
     this.state = {...this.props.weatherValues};
@@ -31,24 +33,26 @@ class Search extends Component {
     browserHistory.push(link);
   }
 
-
   changeSliderValue(evt) {
     this.setState({
       [evt.target.id]: evt.target.value
     });
   };
 
-  // Differs from changeSliderValue because it takes an object, which might contain multiple
-  // updates to slider states. Will be used by the "not important" checkbox to set sliders to their
-  // extreme ranges. All other uses should use changeSliderValue.
+  /**
+   * Differs from changeSliderValue because it takes an object, which might contain multiple updates
+   * to slider states. Will be used by the "not important" checkbox to set sliders to their extreme
+   * ranges. All other uses should use changeSliderValue.
+   */
   updateSliderState(updateObj) {
     this.setState(updateObj);
   }
 
-
-  // Helmet is conditionally rendered below because Search is sometimes route entry point and sometimes
-  // a child of Home (child's Helmet component overrides parent, which would be wrong in this case).
-  // props.location only exists (true) when Search is the route entry point.
+  /**
+   * Helmet is conditionally rendered below because Search is sometimes route entry point and
+   * sometimes a child of Home (child's Helmet component overrides parent, which would be wrong in
+   * this case). props.location only exists (true) when Search is the route entry point.
+   */
   render() {
     return (
       <div className="search-wrapper">

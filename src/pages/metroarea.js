@@ -3,7 +3,8 @@ import metroStationLinks from '../utils/metrostationlinks.js';
 import CityStationLink from '../components/citystationlink.js';
 import '../css/metroarea.css';
 import {Helmet} from "react-helmet";
-import metroMap from '../data/metromap.json'; // Mapping of metro areas to cities to stations: {metroArea: {city: [station1, station2], city2: [station]}, etc.}
+import metroMap from '../data/metromap.json';
+
 
 function MetroArea(props) {
 
@@ -11,8 +12,10 @@ function MetroArea(props) {
   const metroArea = decodeURIComponent(props.params.metroarea);
   const description = "View all cities in the " + metroArea + " metro area with a NOAA weather station, with links to weather information for each location.";
 
-  // Verify that metroArea is an actual metro area. If metroMap[metroArea] is undefined, return an
-  // error message.
+  /**
+   * Verify that metroArea is an actual metro area. If metroMap[metroArea] is undefined, return an
+   * error message.
+   */
   if (metroMap[metroArea] === undefined) {
     return (
       <div className="metroarea">

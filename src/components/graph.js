@@ -3,9 +3,12 @@ import Chart from 'chart.js';
 import '../css/graph.css';
 
 
-// This is the standard graph component. mobilegraph.js is the same as this but with different
-// graph proportions and shorter month labels.
+/**
+ * This is the standard graph component. mobilegraph.js is the same as this but with different graph
+ * proportions and shorter month labels.
+ */
 class Graph extends Component {
+  
   constructor(props) {
     super(props);
     this.drawGraph = this.drawGraph.bind(this);

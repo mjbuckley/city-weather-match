@@ -2,7 +2,9 @@ import React from 'react';
 import '../css/about.css';
 import {Helmet} from "react-helmet";
 
+
 function About() {
+  
   return (
     <div className="about">
 
