@@ -1,11 +1,8 @@
 ## TO DO NOW
 
-- Do comments in index.html get removed?
 - Add async note in notes.md.
-- minify css in index.html?
-
+- Decided not to use PWA stuff for now. Right up a brief not on why and how to do it if I decide to in the future.
 - Go through things on Google performance audit to so what I can easily improve.
-- Figure out what I need to do about PWA stuff.
 
 - Add to Github
 - Decide how to host (Netlify?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404). Also, make sure https.
