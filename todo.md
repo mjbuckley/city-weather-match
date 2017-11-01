@@ -1,20 +1,17 @@
 ## TO DO NOW
 
-- Add async note in notes.md.
-- Decided not to use PWA stuff for now. Right up a brief not on why and how to do it if I decide to in the future.
-- Go through things on Google performance audit to so what I can easily improve.
-
+- Remove service-worker.js from build before deploy?
 - Add to Github
 - Decide how to host (Netlify?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404). Also, make sure https.
 
 
-## TO DO VERY IMMEDIATELY AFTER DEPLOY
+## TO DO SOON
 
-- Improve on home image (maybe make two images with different weather fused into one image).
+- Improve home image (maybe make two images with different weather fused into one image).
 - Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
-- Figure out final size of site (possibly in several webpack bundles). Also, how do bundles work when everything is just serving the same index.html? Do bundles only work if there is stuff being done server side or if different pages are being served up at different times?
 - Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
 - Double check on low dpi screens. I've done some quick checks, but be sure things ok.
+- By some standards (including Google's accessibility rating), the fore/background color contrast on my header links and search submit button is not great enough (for the header the issue must be hover/active color, because the regular color is black on white). It sure looks fine to me, but I should probably fix. However, it is a somewhat large undertaking because I use the problematic colors in lots of places throughout the site and in my home image, so I really should change everything. See [this guide](https://dequeuniversity.com/rules/axe/2.2/color-contrast) for help picking acceptable colors.
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
@@ -22,6 +19,7 @@
 - Find more ways to make js smaller/shorten initial load time. Consider:
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
   - I could make more page components async. I decided to limit it to just the graph and metro areas pages because those are the two with significant size, but it's possible doing all pages would be a good idea (but would make initial page transfers slower).
+- Decide if I want to enable Progressive Web App features. See notes.md for info on this.
 - I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
 - Visually make links stand out more?

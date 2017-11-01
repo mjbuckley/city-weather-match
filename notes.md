@@ -23,6 +23,11 @@ This is a collection of general notes about why certain choices were made in the
   5. A valid url that makes no sense given state. Only current example is results page being hit without a search being done and without valid query params to recreate previous state.
 
 
+### Async Components
+
+- Two pages (Location and MetroArea) are loaded as needed and are not included as a part of the app's main JS files. This is done because both contain their own unique and fairly large JS files, and loading them separately speeds up the initial load of the app. This is achieved with the use of the AsyncComponent component. Pages loaded with AsyncComponent trigger Webpack to create separate bundles for each page. See asynccomponent.js for more info on how this works and how to use it.
+
+
 ### Search page/sliders
 
 - **The "Not Important" button:** The not important button works by setting the weather values to their extreme ends of possible values such that no station is excluded (and the slider is then hidden). The way that this is implemented is basically a hack based off of the way that the weather values are named. It works fine and doing anything more complicated really isn't needed right now. However, if I ever added a new weather values it is important that I name it correctly or else there might be unexpected results (see slidergroup.js to see how it works).
@@ -61,6 +66,7 @@ This is a collection of general notes about why certain choices were made in the
 - I sized the home image (a .svg) to 250px x 167px even though I think it might technically be something like 166.667. I don't think there will be any issues with this, but take a look here if there are ever any issues with the image.
 - Keep in mind that React sanitizes jsx, but the inputs from the user (form, url, etc) are not themselves sanitized on retrieval. User input will come in as a string. It's generally hard to do bad stuff with strings, but not impossible (eval, function constructor, etc.). I've double checked how I've used inputs, and everything is good, but always keep this in mind.
 - I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
+- *Progressive Web App:* Create React App currently makes new apps Progressive Web Apps by default. This feature was added after I created my app. It's fairly easy to convert an existing app to a PWA, but I decided agains it for now (not sure how usefully it would really be given the way my site is set up, I'd like to better understand the implementations and pros/cons/etc.). If I want to change to a PWA in the future, see the PWA section in the Create React App v1.0 [release notes](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0). Note that doing this has important implications for how cacheing works and can lead to some confusing results when using the build version locally. Be sure to understand the implications before implementing. Also, note that I believe CRA automatically generates the service-worker.js file in the root of the build directory even if PWA features are not being used. I'll probably remove when deployed, but as there is not manifest.json and the service worker is never actually registered anywhere, I don't think leaving it there would do any harm if I forgot to remove.
 
 
 ### Old Notes (but maybe still useful)
