@@ -1,6 +1,7 @@
 ## TO DO NOW
 
-- Remove service-worker.js from build before deploy?
+- Figure out about the / vs ./ in build script. Fix, rebuild, and check. Also, change my reference to this in build notes to reflect whichever style I go with.
+- Don't know that I really need rmraf. Figure out and update notes if I remove.
 - Add to Github
 - Decide how to host (Netlify?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404). Also, make sure https.
 

@@ -12,6 +12,11 @@ This is a collection of general notes about why certain choices were made in the
 
 ### Routing and URLs
 
+- The site is a single page app with url changes being handled by the pushState history API (through the use of React Router). Although the url changes as the displayed page changes, there is not any actual resource associated with the url, everything (more or less) is contained within the app's js files and the url just reflects the current state. This all works fine as long as the user starts at the homepage navigates from there. However, directly entering url other than the homepage is a problem, because there is no such resource to return. To handle this issue, the server needs to be configured to respond with index.html to all requests (there are actually a few other ways to handle this, but this is what is done here). The exact way to do this will depend on the particular deployment method, but I am using Netlify, and for them it is handled by creating a \_redirects file at the root of the build directory that contains the following:
+```
+/*    /index.html   200
+```
+This will redirect all requests to index.html, which will load the app and appropriately handle the request. I have set this up to be created automatically when running npm run build (see Build Notes below). Be sure to change this if my deploy method ever changes. Also, note that other methods of handling this may result in needed to create an actual 404 page, not just the NotFound component that I currently am using.
 - I switched to urls without trailing slashes. There's some meaning to this, but these days I think it is mostly a matter of style in most cases. However, it's possible that some hosts have certain preferences, so if I ever run in to an issue take a look at this.
 - For my error pages I'm adding a meta robots noindex tag to keep error pages from being indexed. I think this is the correct thing to do, but not positive. I also added this to the results page.
 - I decided to add query params to home/about and search pages. Originally I was against this because if most people bookmarked one of these pages it would be to get the page in general, not in any way trying to store the values of their current search. However, the way I have things set up, the search results link is only available when isActive is true (which is how it should be, it would be confusing otherwise). So, if I want search results to be a link that is available on home/about/search, then I need isActive to be able to be true, which means I need to have query params present. No situation is ideal but I think I prefer it this way and that's why it is as it is.
@@ -60,13 +65,26 @@ This is a collection of general notes about why certain choices were made in the
 -Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6other
 
 
+### Build Notes
+
+I have altered the build scripts section in package.json. Originally it was:
+```
+"build": "react-scripts build,
+```
+And now it is:
+```
+"build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rimraf ./build/service-worker.js",
+```
+The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now. Also, note the rimraf was added as a dev dependency. If I ever decide to keep the service worker file, then I can remove that dependency.
+
+
 ## Miscellaneous
 
 - I have a loading spinner that shows on initial app load. The spinner is hard coded in the root div of index.html, and the css in inlined there as well. Once React and the app load, the spinner goes away because the root div is the place where React renders all content. There are other ways to do this, but I like this approach, esp. because I really only need the spinner once and I don't want to have to wait for react to work. Also, note that also load a sort of fake header along with the spinner. This gets overwritten by React, but it looks the same as the one that replaces it.
 - I sized the home image (a .svg) to 250px x 167px even though I think it might technically be something like 166.667. I don't think there will be any issues with this, but take a look here if there are ever any issues with the image.
 - Keep in mind that React sanitizes jsx, but the inputs from the user (form, url, etc) are not themselves sanitized on retrieval. User input will come in as a string. It's generally hard to do bad stuff with strings, but not impossible (eval, function constructor, etc.). I've double checked how I've used inputs, and everything is good, but always keep this in mind.
 - I removed matches from props passed to CityList because I don't think that they where being used anywhere, but add them back if that causes a problem.
-- *Progressive Web App:* Create React App currently makes new apps Progressive Web Apps by default. This feature was added after I created my app. It's fairly easy to convert an existing app to a PWA, but I decided agains it for now (not sure how usefully it would really be given the way my site is set up, I'd like to better understand the implementations and pros/cons/etc.). If I want to change to a PWA in the future, see the PWA section in the Create React App v1.0 [release notes](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0). Note that doing this has important implications for how cacheing works and can lead to some confusing results when using the build version locally. Be sure to understand the implications before implementing. Also, note that I believe CRA automatically generates the service-worker.js file in the root of the build directory even if PWA features are not being used. I'll probably remove when deployed, but as there is not manifest.json and the service worker is never actually registered anywhere, I don't think leaving it there would do any harm if I forgot to remove.
+- *Progressive Web App:* Create React App currently makes new apps Progressive Web Apps by default. This feature was added after I created my app. It's fairly easy to convert an existing app to a PWA, but I decided against it for now (not sure how usefully it would really be given the way my site is set up, I'd like to better understand the implementations and pros/cons/etc.). If I want to change to a PWA in the future, see the PWA section in the Create React App v1.0 [release notes](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0). Note that doing this has important implications for how cacheing works and can lead to some confusing results when using the build version locally. Be sure to understand the implications before implementing. Also, note that CRA automatically generates a service-worker.js file in the root of the build directory even if PWA features are not being used. It's probably harmless to keep around since there is no manifest.json and the service worker is never actually registered anywhere, but I decided to remove it as part of the npm build script. If I ever decide to make this a PWA then I will need to remove that section from the build section of package.json.
 
 
 ### Old Notes (but maybe still useful)
