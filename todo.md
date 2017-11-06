@@ -13,6 +13,7 @@
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
   - I could make more page components async. I decided to limit it to just the graph and metro areas pages because those are the two with significant size, but it's possible doing all pages would be a good idea (but would make initial page transfers slower).
 - Consider adding a sitemap?
+- Consider prerendering?
 - Decide if I want to enable Progressive Web App features. See notes.md for info on this.
 - I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
