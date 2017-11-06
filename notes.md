@@ -73,9 +73,9 @@ I have altered the build scripts section in package.json. Originally it was:
 ```
 And now it is:
 ```
-"build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rimraf ./build/service-worker.js",
+"build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rm build/service-worker.js",
 ```
-The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now. Also, note the rimraf was added as a dev dependency. If I ever decide to keep the service worker file, then I can remove that dependency.
+The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now.
 
 
 ## Miscellaneous

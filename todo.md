@@ -1,11 +1,3 @@
-## TO DO NOW
-
-- Figure out about the / vs ./ in build script. Fix, rebuild, and check. Also, change my reference to this in build notes to reflect whichever style I go with.
-- Don't know that I really need rmraf. Figure out and update notes if I remove.
-- Add to Github
-- Decide how to host (Netlify?). Whatever I use I need a method of dealing with browserHistory on a static site. Also, depending on the method I choose I might need a real 404 page because some methods won't render App on initial load if the url is bad (so can't reach my fake 404). Also, make sure https.
-
-
 ## TO DO SOON
 
 - Improve home image (maybe make two images with different weather fused into one image).
@@ -20,6 +12,7 @@
 - Find more ways to make js smaller/shorten initial load time. Consider:
   - Shortening more names in weather.json. Maybe and... to a...? Need to see how much trouble this would cause in the app.
   - I could make more page components async. I decided to limit it to just the graph and metro areas pages because those are the two with significant size, but it's possible doing all pages would be a good idea (but would make initial page transfers slower).
+- Consider adding a sitemap?
 - Decide if I want to enable Progressive Web App features. See notes.md for info on this.
 - I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.

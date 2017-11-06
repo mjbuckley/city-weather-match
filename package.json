@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.0.13",
-    "rimraf": "^2.6.2"
+    "react-scripts": "1.0.13"
   },
   "dependencies": {
     "chart.js": "^2.6.0",
@@ -18,7 +17,7 @@
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rimraf ./build/service-worker.js",
+    "build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rm build/service-worker.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
