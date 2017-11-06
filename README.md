@@ -5,7 +5,7 @@ This Github repository contains the code for the [City Weather Match](https://ww
 
 ## Data
 
-The bulk of the data used on the site comes from the National Oceanic and Atmospheric Administration's (NOAA) [1981-2010 Climate Normals](https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data). That information has been refined and restructured into the five JSON files located in the src/data directory. Most of the information is contained in weather.json. The other four files are helper files that contain precomputed values used frequently on the site. A complete description of these files can be found in [datainfo.md](https://github.com/mjbuckley/city-weather-match/datainfo.md). The code that creates these files is located in a separate repo called [format-weather-data](https://github.com/mjbuckley/format-weather-data). Visit that repo to see how the files were created and for additional information about the data sources.
+The bulk of the data used on the site comes from the National Oceanic and Atmospheric Administration's (NOAA) [1981-2010 Climate Normals](https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data). That information has been refined and restructured into the five JSON files located in the src/data directory. Most of the information is contained in weather.json. The other four files are helper files that contain precomputed values used frequently on the site. A complete description of these files can be found in [datainfo.md](./datainfo.md). The code that creates these files is located in a separate repo called [format-weather-data](https://github.com/mjbuckley/format-weather-data). Visit that repo to see how the files were created and for additional information about the data sources.
 
 
 ## Useage
@@ -34,5 +34,5 @@ When isActive is true, query parameters containing the values in weatherValues a
 
 ## Additional Information
 
-- In addition to the comments in the code itself, a more generalized set of notes and reminders about the code in the app can be found in [notes.md](https://github.com/mjbuckley/city-weather-match/notes.md).
-- The [todo.md](https://github.com/mjbuckley/city-weather-match/todo.md) file is a collection ideas of possible features to add and changes to make in the future.
+- In addition to the comments in the code itself, a more generalized set of notes and reminders about the code in the app can be found in [notes.md](./notes.md).
+- The [todo.md](./todo.md) file is a collection ideas of possible features to add and changes to make in the future.

@@ -14,7 +14,7 @@ weather.json is a file of all stations and their weather data. In the app it is 
 
 ### Example Station in weather.json
 
-Note that several keys have been shortened in an effort to decrease file size. If file size ever becomes less important, the code that does the shortening is in [jsoncreate.js](https://github.com/mjbuckley/format-weather-data/jsoncreate.js) in the format-weather-data repo, and it can easily be commented out in order to bring back the original full length key names.
+Note that several keys have been shortened in an effort to decrease file size. If file size ever becomes less important, the code that does the shortening is in [jsoncreate.js](https://github.com/mjbuckley/format-weather-data/blob/master/jsoncreate.js) in the format-weather-data repo, and it can easily be commented out in order to bring back the original full length key names.
 
 ```
 "USW00093044":{
