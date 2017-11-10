@@ -1,9 +1,22 @@
+## IMPORTANT CURRENT ISSUES
+
+- Check the links on my github pages to make sure everything is working properly. Should probably check links on about page too.
+- The loading spinner doesn't seem to work on iOS. I think (double check) that it does load on safair on OSX though.
+- The slider works on iOS, but not very well. The thumb doesn't want to move for some reason.
+- IE/Edge issues:
+  - Slider thumb messed up. On IE it it the same size as the track. On Edge it is a bit smaller. It still works fine, it just looks really odd. I believe I read once that the issues might be around the thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track. Also, I question why the heigh is set twice to the ms thumb and to different heights. Could this be related?
+  - For all but the default slider values, clicking the search button doesn't work. There error I get says: "Script 438: Object doesn't support property or method 'includes'." It sites paramstovalues.js (41, 5) as the source. Message was definitely the same in both, there's a small change the script or line numbers were different, but I don't think so. This error also occurred if I clicked on a metro page link from a location page.
+  - Otherwise things looked ok (and fine on other browsers on Windows 10), but I definitely want to double check once I fix these two things.
+- Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to.
+- Check on Android devices.
+- Double check change from vertical to horizontal on tablet/phone, esp. graph.
+- Look in to lightweight analytics options.
+- Should I force https? "Strict transport security."
+
+
 ## TO DO SOON
 
 - Improve home image (maybe make two images with different weather fused into one image).
-- Be sure to check on IE/Edge. I think there are some quarks there I'll need to deal with (around thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track). Also, I question why the heigh is set twice to the ms thumb and to different heights.
-- Check on an actual tablet/phone to make sure there's nothing I didn't think of (including Android). Also, esp. check that the graph looks correct and handles shift from horizontal to vertical correctly.
-- Double check on low dpi screens. I've done some quick checks, but be sure things ok.
 - By some standards (including Google's accessibility rating), the fore/background color contrast on my header links and search submit button is not great enough (for the header the issue must be hover/active color, because the regular color is black on white). It sure looks fine to me, but I should probably fix. However, it is a somewhat large undertaking because I use the problematic colors in lots of places throughout the site and in my home image, so I really should change everything. See [this guide](https://dequeuniversity.com/rules/axe/2.2/color-contrast) for help picking acceptable colors.
 
 
@@ -17,6 +30,7 @@
 - Decide if I want to enable Progressive Web App features. See notes.md for info on this.
 - I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
+- Fonts look not the best on low dpi screens. It's been a while since I used one regularly, so issue might just be with the screen dpi, but are there any simple adjustments that I can make?
 - Visually make links stand out more?
 - Styling is acceptable, but I still wish things (esp search and location) were better.
 - Consider using some icons to spruce things up.
