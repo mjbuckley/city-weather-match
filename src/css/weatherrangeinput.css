@@ -2,14 +2,13 @@
 
   /**
    * Note position relative needed so z-index will be respected by FF. Track height must be set here
-   * and in moz section for it to work in FF. Margin set to 7 rather than 6 intentionally. See
-   * webkit thumb note.
+   * and in moz section for it to work in FF.
    */
   input[type=range].WeatherRangeInput-input {
     -webkit-appearance: none;
     width: 100%;
-    height: 8px;
-    margin: 7px 0;
+    height: 6px;
+    margin: 11px 0;
     background-color: inherit;
     padding: 0px;
     z-index: 10;
@@ -25,7 +24,7 @@
 
   input[type=range].WeatherRangeInput-input::-webkit-slider-runnable-track {
     width: 100%;
-    height: 8px;
+    height: 6px;
     cursor: pointer;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: rgba(255, 255, 255, 0);
@@ -34,23 +33,17 @@
     z-index: 10;
   }
 
-  /**
-   * Negative top margin needed in webkit or else margin is calculated from thumb top. In webkit
-   * for reasons I don't understand a 20px thumb height isn't really 20px, and it extends slightly
-   * more to the top. In theory a 8px track with 6px top/bottom margins should work for a 20px
-   * thumb, but it doesn't. So setting margins to 7px but only altering thumb top margin by -6
-   * instead of -7 seems to solve the issue.
-   */
+  /* Negative top margin needed in webkit or else margin is calculated from thumb top.*/
   input[type=range].WeatherRangeInput-input::-webkit-slider-thumb {
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
+    border: 3px solid #039be5;
+    height: 28px;
+    width: 28px;
+    border-radius: 50px;
+    background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -6px;
+    margin-top: -11px;
     z-index: 10;
   }
 
@@ -63,7 +56,7 @@
 
   input[type=range].WeatherRangeInput-input::-moz-range-track {
     width: 100%;
-    height: 8px;
+    height: 6px;
     cursor: pointer;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
     background: transparent;
@@ -74,11 +67,11 @@
 
   input[type=range].WeatherRangeInput-input::-moz-range-thumb {
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
+    border: 3px solid #039be5;
+    height: 28px;
+    width: 28px;
+    border-radius: 50px;
+    background: #ffffff;
     cursor: pointer;
     z-index: 10;
   }
@@ -93,11 +86,12 @@
   }
 
 
+
   /* MS Specific Styling */
 
   input[type=range].WeatherRangeInput-input::-ms-track {
     width: 100%;
-    height: 8px;
+    height: 6px;
     cursor: pointer;
     background: transparent;
     border-color: transparent;
@@ -124,13 +118,13 @@
 
   input[type=range].WeatherRangeInput-input::-ms-thumb {
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    border: 0px solid #000000;
-    height: 20px;
-    width: 12px;
-    border-radius: 2px;
-    background: #039be5;
+    border: 3px solid #039be5;
+    height: 28px;
+    width: 28px;
+    border-radius: 50px;
+    background: #ffffff;
     cursor: pointer;
-    height: 8px;
+    /*height: 6px;*/
   }
 
   input[type=range].WeatherRangeInput-input:focus::-ms-thumb {
@@ -146,6 +140,7 @@
   }
 
 
+
 /* Styling for simulated slider fill */
 
   /**
@@ -156,25 +151,25 @@
     position: relative;
     flex: 1;
     line-height: 1;
-    height: 22px;
+    height: 28px;
   }
 
   .left-fill {
-    height: 8px;
+    height: 6px;
     width: 50%;
     background-color: rgba(207, 207, 207, 1);
     position: absolute;
-    top: 7px;
+    top: 11px;
     left: 0;
     z-index: 9;
   }
 
   .right-fill {
-    height: 8px;
+    height: 6px;
     width: 100%;
     background-color: rgba(154, 154, 154, 1);
     position: absolute;
-    top: 7px;
+    top: 11px;
     left: 0;
     z-index: 8;
   }

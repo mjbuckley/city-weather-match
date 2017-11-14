@@ -1,10 +1,13 @@
 ## IMPORTANT CURRENT ISSUES
 
+- I made the thumb bigger and track smaller to help make it easier to grab on mobile. See if this made a difference.
+- I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I have commented out the 2nd height (which looks like an incorrect value). See what this does for ie/edge. I might still not work because I have read there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
+- Slider labels on small screens are a little too close now that I've made the thumb bigger. Give some extra space.
+- A smallish screens (horizontal phone) the slider can be too small. Maybe change the breakpoint here.
 - Check the links on my github pages to make sure everything is working properly. Should probably check links on about page too.
-- The loading spinner doesn't seem to work on iOS. I think (double check) that it does load on safair on OSX though.
-- The slider works on iOS, but not very well. The thumb doesn't want to move for some reason.
+- The loading spinner doesn't seem to work on iOS. I think (double check) that it does load on Safari on OSX though.
 - IE/Edge issues:
-  - Slider thumb messed up. On IE it it the same size as the track. On Edge it is a bit smaller. It still works fine, it just looks really odd. I believe I read once that the issues might be around the thumb needing to be equal or smaller to track, but which I think can be fixed with a transparent border on the track. Also, I question why the heigh is set twice to the ms thumb and to different heights. Could this be related?
+  - Slider thumb issue (see above).
   - For all but the default slider values, clicking the search button doesn't work. There error I get says: "Script 438: Object doesn't support property or method 'includes'." It sites paramstovalues.js (41, 5) as the source. Message was definitely the same in both, there's a small change the script or line numbers were different, but I don't think so. This error also occurred if I clicked on a metro page link from a location page.
   - Otherwise things looked ok (and fine on other browsers on Windows 10), but I definitely want to double check once I fix these two things.
 - Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to.
@@ -12,6 +15,7 @@
 - Double check change from vertical to horizontal on tablet/phone, esp. graph.
 - Look in to lightweight analytics options.
 - Should I force https? "Strict transport security."
+- Consider changing "at least" and "at most" to "min" and "max". I think it might be more clear. HOWEVER, there are other places in the code that make decisions based on the presences of at least/most. This isn't a huge deal to change as well, but need to be sure I don't forget about this.
 
 
 ## TO DO SOON
