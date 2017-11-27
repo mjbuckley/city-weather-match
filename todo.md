@@ -1,27 +1,26 @@
-## IMPORTANT CURRENT ISSUES
+## TO DO NOW
 
-- I made the thumb bigger and track smaller to help make it easier to grab on mobile. See if this made a difference.
-- I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I have commented out the 2nd height (which looks like an incorrect value). See what this does for ie/edge. I might still not work because I have read there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
+- Figure out about adding tags to git/github. Should I being doing releases too? Can I do this retroactively? Also, I bumped version number, but is there a good way to automate the bumping of version number and tagging of new release?
 - Slider labels on small screens are a little too close now that I've made the thumb bigger. Give some extra space.
-- A smallish screens (horizontal phone) the slider can be too small. Maybe change the breakpoint here.
-- Check the links on my github pages to make sure everything is working properly. Should probably check links on about page too.
-- The loading spinner doesn't seem to work on iOS. I think (double check) that it does load on Safari on OSX though.
-- IE/Edge issues:
-  - Slider thumb issue (see above).
-  - For all but the default slider values, clicking the search button doesn't work. There error I get says: "Script 438: Object doesn't support property or method 'includes'." It sites paramstovalues.js (41, 5) as the source. Message was definitely the same in both, there's a small change the script or line numbers were different, but I don't think so. This error also occurred if I clicked on a metro page link from a location page.
-  - Otherwise things looked ok (and fine on other browsers on Windows 10), but I definitely want to double check once I fix these two things.
-- Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to.
-- Check on Android devices.
-- Double check change from vertical to horizontal on tablet/phone, esp. graph.
-- Look in to lightweight analytics options.
-- Should I force https? "Strict transport security."
-- Consider changing "at least" and "at most" to "min" and "max". I think it might be more clear. HOWEVER, there are other places in the code that make decisions based on the presences of at least/most. This isn't a huge deal to change as well, but need to be sure I don't forget about this.
+- On smallish screens (horizontal phone) the slider can be too small. Maybe change the breakpoint here.
+
+- Check if changes to slider improved usability on touch devices.
+- Check if changes to MS thumb height fixed thumb height issues with IE/Edge. If not fixed, here are two possibilities to look into:
+  - I have read that there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
+  - I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I assume this is a mistake, but maybe it is needed for some reason?
+- The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
+- IE/Edge issue: On IE and some (but not all) versions of Edge, clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It sites paramstovalues.js (41, 5) as the source. Figure this out.
+- I have tested a bit on physical Android devices, but check on a few more.
 
 
 ## TO DO SOON
 
 - Improve home image (maybe make two images with different weather fused into one image).
 - By some standards (including Google's accessibility rating), the fore/background color contrast on my header links and search submit button is not great enough (for the header the issue must be hover/active color, because the regular color is black on white). It sure looks fine to me, but I should probably fix. However, it is a somewhat large undertaking because I use the problematic colors in lots of places throughout the site and in my home image, so I really should change everything. See [this guide](https://dequeuniversity.com/rules/axe/2.2/color-contrast) for help picking acceptable colors.
+- Look in to lightweight analytics options.
+- Should I force https? "Strict transport security."
+- Consider changing "at least" and "at most" to "min" and "max". I think it might be more clear. HOWEVER, there are other places in the code that make decisions based on the presences of at least/most. This isn't a huge deal to change as well, but need to be sure I don't forget about this.
+- Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to it.
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
