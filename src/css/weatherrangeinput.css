@@ -238,31 +238,10 @@
 
   @media (max-width: 550px) {
 
-    .WeatherRangeInput label {
-      margin-right: 10px;
-      width: 68px;
-      font-size: 13px;
-    }
-
-    .WeatherRangeInput-unit-value {
-      margin-left: 16px;
-      width: 94px;
-    }
-
-    .WeatherRangeInput-unit-value .value {
-      font-size: 24px;
-    }
-
-    .WeatherRangeInput-unit-value .unit {
-      font-size: 13px;
-    }
-  }
-
-  @media (max-width: 450px) {
-
     .slider-container {
       order: 3;
       flex: 0 0 100%;
+      margin-top: 5px;
     }
 
     .WeatherRangeInput {
@@ -296,3 +275,70 @@
       margin-left: 5px;
     }
   }
+
+  /**
+   * Keeping below css as a reference. I changed breakpoint where slider labels going from the side
+   * to the top. Keeping in case I'm unhappy with changes. Can delete in future once certain.
+   */
+
+  /*@media (max-width: 550px) {
+
+    .WeatherRangeInput label {
+      margin-right: 10px;
+      width: 68px;
+      font-size: 13px;
+    }
+
+    .WeatherRangeInput-unit-value {
+      margin-left: 16px;
+      width: 94px;
+    }
+
+    .WeatherRangeInput-unit-value .value {
+      font-size: 24px;
+    }
+
+    .WeatherRangeInput-unit-value .unit {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 450px) {
+
+    .slider-container {
+      order: 3;
+      flex: 0 0 100%;
+      margin-top: 5px;
+    }
+
+    .WeatherRangeInput {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .WeatherRangeInput label {
+      margin-right: 0px;
+      width: 65px;
+      font-size: 12px;
+      font-weight: 400;
+      order: 1;
+      align-self: flex-end;
+    }
+
+    .WeatherRangeInput-unit-value {
+      margin-left: 0px;
+      width: auto;
+      order: 2;
+      align-self: flex-end;
+    }
+
+    .WeatherRangeInput-unit-value .value {
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .WeatherRangeInput-unit-value .unit {
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  }*/

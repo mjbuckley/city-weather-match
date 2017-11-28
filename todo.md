@@ -1,10 +1,8 @@
 ## TO DO NOW
 
 - Figure out about adding tags to git/github. Should I being doing releases too? Can I do this retroactively? Also, I bumped version number, but is there a good way to automate the bumping of version number and tagging of new release?
-- Slider labels on small screens are a little too close now that I've made the thumb bigger. Give some extra space.
-- On smallish screens (horizontal phone) the slider can be too small. Maybe change the breakpoint here.
 
-- Check if changes to slider improved usability on touch devices.
+- Check if changes to slider (larger thumb, shorter track, breathing room above thumb, wider track on horizontal devices) improved usability on touch devices.
 - Check if changes to MS thumb height fixed thumb height issues with IE/Edge. If not fixed, here are two possibilities to look into:
   - I have read that there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
   - I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I assume this is a mistake, but maybe it is needed for some reason?
@@ -21,6 +19,7 @@
 - Should I force https? "Strict transport security."
 - Consider changing "at least" and "at most" to "min" and "max". I think it might be more clear. HOWEVER, there are other places in the code that make decisions based on the presences of at least/most. This isn't a huge deal to change as well, but need to be sure I don't forget about this.
 - Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to it.
+- Decide if I'm happy with the breakpoint where sliders go from having labels on the side to labels on top. I increased it once and am not sure if I should increase it more. Also, I kept the commented out css for the previous breakpoints. I can remove it once I'm happy with how things are.
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)
