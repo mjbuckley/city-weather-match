@@ -78,6 +78,15 @@ And now it is:
 The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now.
 
 
+### Version Numbers
+
+For any significant changes I am tagging the code with an updated version number. This will make it easier to roll things back if I ever need to. This is the process for tagging:
+- Change version number in package.json
+- Update CHANGELOG.md with changes.
+- Tag in git: git tag -a versionNumber -m "message"
+- Push changes to github. Note that tags are not automatically sent to github with the rest of the code, so you need to use: git push --follow-tag. That will both push the commit and the related tags.
+
+
 ## Miscellaneous
 
 - I have a loading spinner that shows on initial app load. The spinner is hard coded in the root div of index.html, and the css in inlined there as well. Once React and the app load, the spinner goes away because the root div is the place where React renders all content. There are other ways to do this, but I like this approach, esp. because I really only need the spinner once and I don't want to have to wait for react to work. Also, note that also load a sort of fake header along with the spinner. This gets overwritten by React, but it looks the same as the one that replaces it.

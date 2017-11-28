@@ -1,7 +1,5 @@
 ## TO DO NOW
 
-- Figure out about adding tags to git/github. Should I being doing releases too? Can I do this retroactively? Also, I bumped version number, but is there a good way to automate the bumping of version number and tagging of new release?
-
 - Check if changes to slider (larger thumb, shorter track, breathing room above thumb, wider track on horizontal devices) improved usability on touch devices.
 - Check if changes to MS thumb height fixed thumb height issues with IE/Edge. If not fixed, here are two possibilities to look into:
   - I have read that there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
