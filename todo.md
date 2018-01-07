@@ -1,11 +1,10 @@
 ## TO DO NOW
 
-- Check if changes to slider (larger thumb, shorter track, breathing room above thumb, wider track on horizontal devices) improved usability on touch devices.
 - Check if changes to MS thumb height fixed thumb height issues with IE/Edge. If not fixed, here are two possibilities to look into:
   - I have read that there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
   - I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I assume this is a mistake, but maybe it is needed for some reason?
 - The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
-- IE/Edge issue: On IE and some (but not all) versions of Edge, clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It sites paramstovalues.js (41, 5) as the source. Figure this out.
+- IE/Edge issue: On IE and some (but not all) versions of Edge, clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It cites paramstovalues.js (41, 5) as the source. Figure this out.
 - I have tested a bit on physical Android devices, but check on a few more.
 
 
