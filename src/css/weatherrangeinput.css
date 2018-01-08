@@ -97,6 +97,8 @@
     background: transparent;
     border-color: transparent;
     color: transparent;
+    /* just added, might not be needed */
+    z-index: 10;
   }
   /* input[type=range].WeatherRangeInput-input::-ms-track {
     width: 100%;
@@ -139,7 +141,16 @@
     background: #039be5;
     cursor: pointer;
     /*height: 6px;*/
+    /* just added zindex, not sure needed */
+    z-index: 10;
+    /* To override webkit */
+    margin-top: 0;
+    border-radius: 0px;
   }
+
+
+
+
 
   input[type=range].WeatherRangeInput-input:focus::-ms-thumb {
     background: #0274ab;
