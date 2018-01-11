@@ -38,6 +38,7 @@ This will redirect all requests to index.html, which will load the app and appro
 - **The "Not Important" button:** The not important button works by setting the weather values to their extreme ends of possible values such that no station is excluded (and the slider is then hidden). The way that this is implemented is basically a hack based off of the way that the weather values are named. It works fine and doing anything more complicated really isn't needed right now. However, if I ever added a new weather values it is important that I name it correctly or else there might be unexpected results (see slidergroup.js to see how it works).
 - I was running in to an odd bug on chrome where some sliders where rendering in a different height than others. I was able to fix this by changing the track height from 2.8 to 3. Maybe the partial pixels were the problem? Keep in mind if something weird like this happens again.
 - On the search page the slider default values start out as numbers, but as soon as they move they become strings. I could use something like parseInt to keep them as numbers, but this would get called a ton and not sure it's needed. The values just get added to a url, where they are strings anyway. So, I think this is fine as is, but noting in case I run in to issues anywhere.
+- I tried to make the sliders be both pure css/html and also have them be the same across all browsers. This mostly worked, but not completely. There are enough differences between browsers that making things work in one place caused it not to work in another. The result I ended up with is that the sliders look the same in all browsers except IE and Edge. The sliders still work in IE and Edge, they just don't look the same or as good. The core problem (but not only problem) is this: IE/Edge cannot have a thumb that is taller than the track. This can be hacked by giving the track a transparent border. However, on mobile devices I have found that sliders work much better with a large thumb and small (real not appearance) track. I would be fine with sacrificing mobile usability on IE/Edge since they aren't really used much there, but for some reason changing the track height with the -ms-track prefix doesn't work if the height has already been set on the input[type=range] element, and Firefox seems to require it be set there for it to work properly in that browser, and so there is no solution that works everywhere. At some point I might start over from scratch with a new approach, but I think I'm going to just stick with this for now.
 
 
 ### Graph
@@ -65,6 +66,19 @@ This will redirect all requests to index.html, which will load the app and appro
 -Some color scheme stuff came from: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=F5F5F5&secondary.color=29B6F6other
 
 
+### Deploy Process
+
+  1. **Adjust Version Numbers:** For any significant changes I am tagging the code with an updated version number. This will make it easier to roll things back if I ever need to. This is the process for tagging
+    - Change version number in package.json
+    - Update CHANGELOG.md with changes.
+    - Tag in git: git tag -a versionNumber -m "message"
+    - Push changes to github. Note that tags are not automatically sent to github with the rest of the code, so you need to use: git push --follow-tag. That will both push the commit and the related tags.
+
+  2. **Build Production Version:** Run "npm run build". See build notes below for more info.
+
+  3. **Deploy:** I'm currently using Netlify manual deploy. All I need to do is run "netlify deploy" from the root of the project.
+
+
 ### Build Notes
 
 I have altered the build scripts section in package.json. Originally it was:
@@ -76,15 +90,6 @@ And now it is:
 "build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects && rm build/service-worker.js",
 ```
 The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now.
-
-
-### Version Numbers
-
-For any significant changes I am tagging the code with an updated version number. This will make it easier to roll things back if I ever need to. This is the process for tagging:
-- Change version number in package.json
-- Update CHANGELOG.md with changes.
-- Tag in git: git tag -a versionNumber -m "message"
-- Push changes to github. Note that tags are not automatically sent to github with the rest of the code, so you need to use: git push --follow-tag. That will both push the commit and the related tags.
 
 
 ## Miscellaneous

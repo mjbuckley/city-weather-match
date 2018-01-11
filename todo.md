@@ -1,10 +1,16 @@
 ## TO DO NOW
 
-- Check if changes to MS thumb height fixed thumb height issues with IE/Edge. If not fixed, here are two possibilities to look into:
-  - I have read that there is also an ie/edge issue where the thumb cannot be taller than the track. If this is the case, the suggested solution is to make the track have transparent top/bottom borders so that it is the same height as the thumb. If needed, try this. Info on that issue can be found here: http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html
-  - I have been using the tools at [range.css](http://danielstern.ca/range.css/#/) as a starter for styling the range input slider. However, for some reason it includes two different heights when styling -ms-thumb. I don't know why it does this. I assume this is a mistake, but maybe it is needed for some reason?
+- Double check notes md appearance
+- What happens if I remove all -ms prefixes. Does edge display webkit stuff correctly? If that works then perhaps I could do that and just ignore IE? Just be sure to do some sort of browser test and warn IE users. This wouldn't be too bad because then I wouldn't have to fix the IE issue with search not working.
+- Finish cleaning up css and add any comments needed (probably briefly mention slider issues and send to section in notes). Note that there is a lot of old commented out stuff at the end.
+- Could my double height and weird half comment have caused the drop shadow and boarder radius to not work? Consider redeploying to check. Other possibility is to make the thumb red with blackish side boarders.
+- Update notes if I change anything.
+- Deploy and push.
+- backup on usb.
+
+
 - The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
-- IE/Edge issue: On IE and some (but not all) versions of Edge, clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It cites paramstovalues.js (41, 5) as the source. Figure this out.
+- IE/Edge issue: On IE and some (but not all) versions of Edge (15 and 16 seem fine), clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It cites paramstovalues.js (41, 5) as the source. Figure this out.
 - I have tested a bit on physical Android devices, but check on a few more.
 
 
@@ -26,6 +32,7 @@
   - I could make more page components async. I decided to limit it to just the graph and metro areas pages because those are the two with significant size, but it's possible doing all pages would be a good idea (but would make initial page transfers slower).
 - Consider adding a sitemap?
 - Consider prerendering?
+- See if I can take a different approach and get sliders to look the same in Edge as they do on other browsers.
 - Decide if I want to enable Progressive Web App features. See notes.md for info on this.
 - I initial added a loading spinner a the placeholder return value on AsyncComponent instead of null, but the loads times were fast enough that the spinner just flashed for moment before the content loaded, making it more confusing than helpful. Revisit this once deployed to make sure I made the right decision.
 - Maybe break up the about page more (into 2 pages or visually) to have a very basic about and then the more specific details.
