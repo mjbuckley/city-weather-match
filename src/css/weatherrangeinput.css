@@ -1,4 +1,8 @@
-/* Styling for range input slider */
+/**
+ * Styling for range input slider
+ * (note that sliders are weird and have lots of cross browser issues. See slider section in
+ * notes.md for more info.)
+ */
 
   /**
    * Note position relative needed so z-index will be respected by FF. Track height must be set here
@@ -117,10 +121,11 @@
   }
 
   input[type=range].WeatherRangeInput-input::-ms-thumb {
-    box-shadow: 4px 4px 9px #1b1b1b, 0px 0px 4px #282828;
-    border: 1.1px solid #3b3b3b;
+    border-top: 1px solid #3b3b3b;
+    border-right: 6px solid #3b3b3b;
+    border-bottom: 1px solid #3b3b3b;
+    border-left: 1px solid #3b3b3b;
     height: 6px;
-    border: none;
     width: 40px;
     border-radius: 0px;
     background: #f50057;

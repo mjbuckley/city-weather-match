@@ -1,15 +1,7 @@
 ## TO DO NOW
 
-- Double check notes md appearance
-- Test new ms buttons. If drop shadow works then I'm probably ok, if not then consider making R and L borders thicker.
-- Finish cleaning up css and add any comments needed (probably briefly mention slider issues and send to section in notes). Note that there is a lot of old commented out stuff at the end.
-- Update notes if I change anything.
-- Deploy and push.
-- backup on usb.
-
-
-- The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
 - IE/Edge issue: On IE and some (but not all) versions of Edge (15 and 16 seem fine), clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It cites paramstovalues.js (41, 5) as the source. Figure this out.
+- The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
 - I have tested a bit on physical Android devices, but check on a few more.
 
 
