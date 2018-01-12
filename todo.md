@@ -1,9 +1,8 @@
 ## TO DO NOW
 
 - Double check notes md appearance
-- What happens if I remove all -ms prefixes. Does edge display webkit stuff correctly? If that works then perhaps I could do that and just ignore IE? Just be sure to do some sort of browser test and warn IE users. This wouldn't be too bad because then I wouldn't have to fix the IE issue with search not working.
+- Test new ms buttons. If drop shadow works then I'm probably ok, if not then consider making R and L borders thicker.
 - Finish cleaning up css and add any comments needed (probably briefly mention slider issues and send to section in notes). Note that there is a lot of old commented out stuff at the end.
-- Could my double height and weird half comment have caused the drop shadow and boarder radius to not work? Consider redeploying to check. Other possibility is to make the thumb red with blackish side boarders.
 - Update notes if I change anything.
 - Deploy and push.
 - backup on usb.
@@ -22,7 +21,7 @@
 - Should I force https? "Strict transport security."
 - Consider changing "at least" and "at most" to "min" and "max". I think it might be more clear. HOWEVER, there are other places in the code that make decisions based on the presences of at least/most. This isn't a huge deal to change as well, but need to be sure I don't forget about this.
 - Some pages (I think asycn ones) seem to flash quickly on the left side (fraction of a second) and then center themselves. I believe that on subsequent hits everything looks fine. Not horrible, but look in to it.
-- Decide if I'm happy with the breakpoint where sliders go from having labels on the side to labels on top. I increased it once and am not sure if I should increase it more. Also, I kept the commented out css for the previous breakpoints. I can remove it once I'm happy with how things are.
+- Decide if I'm happy with the breakpoint where sliders go from having labels on the side to labels on top. I increased it once and am not sure if I should increase it more.
 
 
 ## MAYBE TO DO IN FUTURE (WOULD BE GOOD BUT NOT CRITICAL)

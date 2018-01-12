@@ -83,7 +83,7 @@
 
   /* Removes FF default focus wring around range input slider when focused */
   input[type=range].WeatherRangeInput-input::-moz-focus-outer {
-  border: 0;
+    border: 0;
   }
 
 
@@ -91,10 +91,10 @@
   /**
    * MS Specific Styling
    * Note that some things may seem to be unnecessarily styled, but it is done because Edge will
-   * sometimes use webkit prefixes if they are present and not overriden by ms prefixes.
+   * sometimes use webkit prefixes if they are not overriden by ms prefixes.
    */
 
-  /* input[type=range].WeatherRangeInput-input::-ms-track {
+  input[type=range].WeatherRangeInput-input::-ms-track {
     width: 100%;
     height: 6px;
     cursor: pointer;
@@ -102,13 +102,13 @@
     border-color: transparent;
     color: transparent;
     z-index: 10;
-  } */
+  }
 
   /**
    * Note that -ms-fill-upper and lower are styled becuase it was suggested in several places that
    * there might be edge issue with leaving them unstyled. Not sure if correct, but no harm.
    */
-  /* input[type=range].WeatherRangeInput-input::-ms-fill-lower {
+  input[type=range].WeatherRangeInput-input::-ms-fill-lower {
     background: transparent;
   }
 
@@ -117,13 +117,13 @@
   }
 
   input[type=range].WeatherRangeInput-input::-ms-thumb {
-    box-shadow: 5px 5px 9px #363437, 0px 0px 5px #434044;
-    border: 0.1px solid #000000;
+    box-shadow: 4px 4px 9px #1b1b1b, 0px 0px 4px #282828;
+    border: 1.1px solid #3b3b3b;
     height: 6px;
     border: none;
     width: 40px;
-    border-radius: 50px;
-    background: #039be5;
+    border-radius: 0px;
+    background: #f50057;
     cursor: pointer;
     z-index: 10;
     margin-top: 0;
@@ -140,8 +140,7 @@
 
   input[type=range].WeatherRangeInput-input:focus::-ms-fill-upper {
     background: transparent;
-  } */
-
+  }
 
 
 
@@ -279,70 +278,3 @@
       margin-left: 5px;
     }
   }
-
-  /**
-   * Keeping below css as a reference. I changed breakpoint where slider labels going from the side
-   * to the top. Keeping in case I'm unhappy with changes. Can delete in future once certain.
-   */
-
-  /*@media (max-width: 550px) {
-
-    .WeatherRangeInput label {
-      margin-right: 10px;
-      width: 68px;
-      font-size: 13px;
-    }
-
-    .WeatherRangeInput-unit-value {
-      margin-left: 16px;
-      width: 94px;
-    }
-
-    .WeatherRangeInput-unit-value .value {
-      font-size: 24px;
-    }
-
-    .WeatherRangeInput-unit-value .unit {
-      font-size: 13px;
-    }
-  }
-
-  @media (max-width: 450px) {
-
-    .slider-container {
-      order: 3;
-      flex: 0 0 100%;
-      margin-top: 5px;
-    }
-
-    .WeatherRangeInput {
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .WeatherRangeInput label {
-      margin-right: 0px;
-      width: 65px;
-      font-size: 12px;
-      font-weight: 400;
-      order: 1;
-      align-self: flex-end;
-    }
-
-    .WeatherRangeInput-unit-value {
-      margin-left: 0px;
-      width: auto;
-      order: 2;
-      align-self: flex-end;
-    }
-
-    .WeatherRangeInput-unit-value .value {
-      font-size: 23px;
-      line-height: 1;
-    }
-
-    .WeatherRangeInput-unit-value .unit {
-      font-size: 12px;
-      margin-left: 5px;
-    }
-  }*/
