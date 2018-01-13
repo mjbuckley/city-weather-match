@@ -3,7 +3,7 @@
 ### 1.0.2
 
 - Adjust styling of sliders so that they are useable on Edge and Internet Explorer. Appearance is still not as good as in other browsers, but it is at least now workable.
-- Add polyfill for array.includes so that site can now work with IE 11.
+- Add polyfills for array.includes, isInteger, and array.find so that site can now work with IE 11.
 
 ### 1.0.1
 

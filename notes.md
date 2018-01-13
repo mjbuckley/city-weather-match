@@ -94,7 +94,7 @@ The first addition is to add the needed redirect rules for Netlify (see url and 
 
 ### Polyfills
 
-I have added a pollyfill for array.includes and isInteger because IE 11 does not have them and the Babel settings do not transpile them. The pollyfills comes from the core-js node package. This whole package is installed, but only the two pollyfills are actually imported (into the index.js file). If I ever need to install more pollyfills it would probably make sense to create a separate pollyfill.js file where they are imported and then import that into index.js, but this is a fine approach for now. Some useful links on this approach:
+I have added pollyfills for array.includes, isInteger, and array.find because IE 11 does not have them and the Babel settings do not transpile them into something IE 11 can use. The pollyfills comes from the core-js node package. This whole package is installed, but only the three pollyfills are actually imported (into the index.js file). If I ever need to install more pollyfills it would probably make sense to create a separate pollyfill.js file where they are imported and then import that into index.js, but this is a fine approach for now. Some useful links on this approach:
 
 - https://stackoverflow.com/questions/43756211/best-way-to-polyfill-es6-features-in-react-app-that-uses-create-react-app
 - https://github.com/zloirock/core-js/issues/211
