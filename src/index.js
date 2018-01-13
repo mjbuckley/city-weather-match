@@ -1,4 +1,5 @@
 import 'core-js/fn/array/includes'; // pollyfill for array.includes
+import 'core-js/fn/number/is-integer'; // pollyfill for isInteger
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
