@@ -1,13 +1,8 @@
-## TO DO NOW
-
-- IE/Edge issue: On IE and some (but not all) versions of Edge (15 and 16 seem fine), clicking the search button doesn't work. Literally nothing happens (unless sliders haven't been changed and original default values are being used, in which case it does work). The error I get says: "Script 438: Object doesn't support property or method 'includes'." It cites paramstovalues.js (41, 5) as the source. Figure this out.
-- The loading spinner doesn't seem to work on all browsers. I'm pretty sure it doesn't work on the iOS version of Safari, on either Chrome or Firefox on Android (forget which), and maybe others. Figure out why.
-- I have tested a bit on physical Android devices, but check on a few more.
-
-
 ## TO DO SOON
 
 - Improve home image (maybe make two images with different weather fused into one image).
+- The loading spinner generally works, but not on Safari (there might also be somewhere on Android that is doesn't work). At first I thought is was related to CSS animations, but now I realize the problem is different, because the temporary header doesn't show up either. It's not a huge deal, but I'd like to figure this out as it's nice to have for initial loads on slow connections.
+- I have tested on several physical Android devices, but I'd like to check on a few more.
 - By some standards (including Google's accessibility rating), the fore/background color contrast on my header links and search submit button is not great enough (for the header the issue must be hover/active color, because the regular color is black on white). It sure looks fine to me, but I should probably fix. However, it is a somewhat large undertaking because I use the problematic colors in lots of places throughout the site and in my home image, so I really should change everything. See [this guide](https://dequeuniversity.com/rules/axe/2.2/color-contrast) for help picking acceptable colors.
 - Look in to lightweight analytics options.
 - Should I force https? "Strict transport security."

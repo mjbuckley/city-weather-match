@@ -92,6 +92,16 @@ And now it is:
 The first addition is to add the needed redirect rules for Netlify (see url and routing section above). The second addition is to remove the unneeded service worker file (see PWA notes). If I ever need to do anything more complex I should probably move things elsewhere, but this works well for now.
 
 
+### Polyfills
+
+I have added a pollyfill for array.includes because IE 11 does not have it and the Babel settings do not transpile it. The pollyfill comes from the core-js node package. This whole package is installed, but only that pollyfill is actually imported (into the index.js file). If I ever need to install more pollyfills it would probably make sense to create a separate pollyfill.js file where they are imported and then import that into index.js, but this is a fine approach for now. Some useful links on this apporach:
+
+- https://stackoverflow.com/questions/43756211/best-way-to-polyfill-es6-features-in-react-app-that-uses-create-react-app
+- https://github.com/zloirock/core-js/issues/211
+- https://github.com/zloirock/core-js#stage-4-proposals
+- https://reactjs.org/docs/javascript-environment-requirements.html
+
+
 ## Miscellaneous
 
 - I have a loading spinner that shows on initial app load. The spinner is hard coded in the root div of index.html, and the css in inlined there as well. Once React and the app load, the spinner goes away because the root div is the place where React renders all content. There are other ways to do this, but I like this approach, esp. because I really only need the spinner once and I don't want to have to wait for react to work. Also, note that also load a sort of fake header along with the spinner. This gets overwritten by React, but it looks the same as the one that replaces it.

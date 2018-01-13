@@ -1,3 +1,4 @@
+import 'core-js/fn/array/includes'; // pollyfill for array.includes
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
